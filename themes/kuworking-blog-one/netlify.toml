@@ -1,0 +1,9 @@
+[build]
+publish = "public/"
+command = "gatsby build"
+
+[[redirects]]
+  from = "https://kuworking.netlify.com/*"
+  to   = "https://www.kuworking.com/:splat"
+  status = 301
+  force = true

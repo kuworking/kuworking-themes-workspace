@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="author" content="kuworking" />
+    <meta name="description" content="Unsplash images on your new tab" />
+    <meta name="keywords" content="chrome,extension,unsplash,new tab" />
+    <meta http-equiv="Cache-control" content="public" />
+    <title>kuworking.com</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css" />
+    <style type="text/css">
+      body {
+        background-image: url('');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        background-attachment: fixed;
+      }
+
+      #panel {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        opacity: 0;
+        transition: opacity 1s;
+      }
+
+      #change_wallpaper {
+        position: absolute;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        border-radius: 2px;
+        background-color: #79a2ff85;
+        transition: background-color 0.1s;
+        z-index: 100;
+      }
+      #change_wallpaper:hover {
+        background-color: #79a2ff;
+      }
+
+      #keywords {
+        position: absolute;
+        top: 40px;
+        width: fit-content;
+        min-width: 150px;
+        height: 20px;
+        border: none;
+        border-radius: 2px;
+        background-color: #ffffff4d;
+        padding: 2px 4px;
+        transition: background-color 0.1s;
+        z-index: 100;
+      }
+      #keywords:hover {
+        background-color: #d8d8d8;
+      }
+    </style>
+    <script src="./kw-unsplash.js"></script>
+  </head>
+  <body>
+    <div id="panel"></div>
+    <div id="change_wallpaper"></div>
+    <input id="keywords" />
+  </body>
+</html>

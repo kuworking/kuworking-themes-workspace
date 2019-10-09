@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "KUW-Chrome-Unsplash",
+  "description": "Unsplash images on your new tab",
+  "version": "1",
+  "author": "KUWorking",
+  "browser_action": {
+    "default_icon": "kuw-chrome-unsplash.png",
+    "default_title": "KUWorking"
+  },
+  "chrome_url_overrides": {
+    "newtab": "kw-unsplash.html"
+  },
+  "permissions": ["activeTab"]
+}
