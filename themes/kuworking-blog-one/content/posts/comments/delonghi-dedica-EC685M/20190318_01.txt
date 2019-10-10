@@ -1,8 +1,0 @@
-<name>
-ejemplo de nombre de usuario
-<message>
-ejemplo de mensaje
-<article>
-delonghi_dedica_EC685M
-<date>
-2019.3.18

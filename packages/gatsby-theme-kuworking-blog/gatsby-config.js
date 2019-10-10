@@ -1,6 +1,7 @@
-//const path = require('path')
+const withDefaults = require(`./utils/default-options`)
 
-module.exports = options => {
+module.exports = themeOptions => {
+  const options = withDefaults(themeOptions)
   return {
     siteMetadata: {
       title: 'KUWorking.com',
@@ -18,58 +19,9 @@ module.exports = options => {
       },
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-robots-txt`,
-      {
+      options.feed && {
         resolve: `gatsby-plugin-feed`,
-        options: {
-          query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-          feeds: [
-            {
-              serialize: ({ query: { site, allMdxBlogPost } }) => {
-                return allMdxBlogPost.edges
-                  .filter(edge => (!/^\/curso-.*\//.test(edge.node.slug) ? true : false))
-                  .map(edge => {
-                    return Object.assign({}, edge.node, {
-                      title: edge.node.title.replace(/#/g, ''),
-                      description: edge.node.snippet,
-                      date: new Date(edge.node.date).toString(),
-                      url: site.siteMetadata.siteUrl + edge.node.slug,
-                      guid: site.siteMetadata.siteUrl + edge.node.slug,
-                      //                  custom_elements: [{ 'content:encoded': edge.node.html }],
-                    })
-                  })
-              },
-              query: `
-              {
-                allMdxBlogPost(
-                  sort: { order: DESC, fields: [date] },
-                ) {
-                  edges {
-                    node {
-                      snippet
-                      date
-                      slug
-                      title
-                    }
-                  }
-                }
-              }
-            `,
-              output: '/rss.xml',
-              title: 'KUWorking RSS Feed',
-            },
-          ],
-        },
+        options: options.feed_options,
       },
       {
         resolve: `gatsby-plugin-sitemap`,

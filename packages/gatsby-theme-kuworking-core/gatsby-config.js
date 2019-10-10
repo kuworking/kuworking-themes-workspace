@@ -2,25 +2,13 @@ const withDefaults = require(`./utils/default-options`)
 
 module.exports = themeOptions => {
   const options = withDefaults(themeOptions)
-  const { mdx } = options
   return {
     plugins: [
-      mdx && {
+      options.mdx && {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
-          gatsbyRemarkPlugins: [
-            //            {
-            //              resolve: `gatsby-remark-images`,
-            //              options: {
-            // should this be configurable by the end-user?
-            //                maxWidth: 1380,
-            //                linkImagesToOriginal: false,
-            //              },
-            //            },
-            { resolve: `gatsby-remark-copy-linked-files` },
-            //            { resolve: `gatsby-remark-smartypants` },
-          ],
+          gatsbyRemarkPlugins: [{ resolve: `gatsby-remark-copy-linked-files` }],
           remarkPlugins: [require(`remark-slug`)],
         },
       },
@@ -35,43 +23,8 @@ module.exports = themeOptions => {
       {
         resolve: `gatsby-source-filesystem`,
         options: {
-          path: options.contentImagesPath || `content/posts/types`,
-          name: options.contentImagesPath || `content/posts/types`,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: options.contentCommentsPath || `content/posts/comments`,
-          name: options.contentCommentsPath || `content/posts/comments`,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
           path: options.contentPath || `content/posts`,
           name: options.contentPath || `content/posts`,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: options.recipesImagesPath || `content/recipes/images`,
-          name: options.recipesImagesPath || `content/recipes/images`,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: options.recipesCommentsPath || `content/recipes/comments`,
-          name: options.recipesCommentsPath || `content/recipes/comments`,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: options.recipesPath || `content/recipes`,
-          name: options.recipesPath || `content/recipes`,
         },
       },
       {
@@ -94,7 +47,7 @@ module.exports = themeOptions => {
           shortname: options.disqusShortname || '',
         },
       },
-
+      `gatsby-plugin-theme-ui`,
       `gatsby-plugin-styled-components`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,

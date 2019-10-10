@@ -1,6 +1,6 @@
 export { GoogleMap } from './src/components/providers/googlemap'
 export { Instagram } from './src/components/providers/instagram'
-export { Pinterest } from './src/components/providers/pinterest'
+export { Pinterest, PinterestScript } from './src/components/providers/pinterest'
 export { Youtube } from './src/components/providers/youtube'
 
 export { Pagination } from './src/components/pagination'
@@ -12,4 +12,4 @@ export { Spinner01 } from './src/components/spinners/spinner01'
 
 export { Disqus } from './src/components/disqus/disqus'
 
-export { shuffle_array } from './src/components/global-methods'
+export { shuffle_array } from './src/components/methods/global-methods'

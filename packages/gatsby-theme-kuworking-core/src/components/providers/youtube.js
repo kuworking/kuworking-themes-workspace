@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Container } from './container'
 
 export const Youtube = ({ src, text }) => (
   <Container>
@@ -7,7 +8,6 @@ export const Youtube = ({ src, text }) => (
     <div>{text}</div>
   </Container>
 )
-const Container = styled(Wrapper)``
 const Frame = styled.iframe`
   width: 100%;
   height: 400px;

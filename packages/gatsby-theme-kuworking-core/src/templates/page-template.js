@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { get_image, get_and_remove_image } from '../components/global-methods'
+import { get_image, get_and_remove_image } from '../components/methods/global-methods'
 import { useQuery } from '../queries/page-query'
 import StructureGlobal from '../components/structure-global'
 

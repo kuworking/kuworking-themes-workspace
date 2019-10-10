@@ -6,12 +6,10 @@ import { SEO, SeoText, shuffle_array } from 'gatsby-theme-kuworking-core'
 
 import './globalcss.css'
 import { Top } from './topbar'
-import { Categories } from './categories'
 import { Cards } from './cards'
 import { Post } from './post'
 import { CtaMain } from './cta/cta-main'
 import { Footer } from './footer'
-import { KWTools } from './tools'
 import { OldBrowser } from './old-browser'
 
 const grid_maxwidth = '1000px'
@@ -231,10 +229,6 @@ export const StructureGlobal = ({
       {type === 'grid' && (
         <ContainerGrid main_maxwidth={main_maxwidth}>
           <CtaMain main_maxwidth={main_maxwidth} />
-
-          {tags_grid || <KWTools main_maxwidth={main_maxwidth} />}
-
-          <Categories main_maxwidth={main_maxwidth} type_images={type_images} tag={tag} />
 
           <Cards
             main_maxwidth={main_maxwidth}
