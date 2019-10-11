@@ -11,6 +11,7 @@ const withDefaults = require(`./utils/default-options`)
 
 // remove the trailing dashes, still, not well resolved, only applies to pages here
 const replacePath = _path => (_path === `/` ? _path : _path.replace(/\/$/, ``))
+
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
