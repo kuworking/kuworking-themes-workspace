@@ -1,44 +1,37 @@
+const manifest = require('../src/utils/manifest')
+const sitemap = require('../src/utils/sitemap')
+const tagmanager = require('../src/utils/tagmanager')
+const feed = require('../src/utils/feed')
+
 module.exports = themeOptions => {
   const basePath = themeOptions.basePath || `/`
 
-  const contentPath = themeOptions.contentPath || `content/posts`
-  const contentImagesPath = themeOptions.contentImagesPath || `content/posts/images`
-  const contentCommentsPath = themeOptions.contentCommentsPath || `content/posts/comments`
-  const contentTypesPath = themeOptions.contentTypesPath || `content/posts/types`
-
-  const recipesPath = themeOptions.recipesPath || `content/recipes`
-  const recipesImagesPath = themeOptions.recipesImagesPath || `content/recipes/images`
-  const recipesCommentsPath = themeOptions.recipesCommentsPath || `content/recipes/comments`
-  const recipesTypesPath = themeOptions.recipesTypesPath || `content/recipes/types`
-
-  const assetPath = themeOptions.assetPath || `content/assets`
-  const wallpaperPath = themeOptions.wallpaperPath || `content/assets/wallpapers`
-
+  const postsPath = themeOptions.postsPath || `content/posts`
+  const postImagesPath = themeOptions.postImagesPath || `content/posts/images`
+  const iconsPath = themeOptions.iconsPath || `content/icons`
+  const wallpapersPath = themeOptions.wallpapersPath || `content/wallpapers`
+  const pagesPath = themeOptions.pagesPath || `content/pages`
   const tagsPath = themeOptions.tagsPath || `tags`
+
   const mdx = themeOptions.mdx || true
   const postsPerPage = themeOptions.postsPerPage || 50
   const disqusShortname = themeOptions.disqusShortname || ''
 
   return {
-    folders_to_check: [
-      contentPath,
-      contentImagesPath,
-      contentCommentsPath,
-      contentTypesPath,
-      recipesPath,
-      recipesImagesPath,
-      recipesCommentsPath,
-      recipesTypesPath,
-      assetPath,
-      wallpaperPath,
-    ],
+    folders_to_check: [postsPath, postImagesPath, iconsPath, wallpapersPath, pagesPath, `content/core`],
     basePath,
-    contentPath,
-    recipesPath,
-    assetPath,
+    postsPath,
+    postImagesPath,
+    iconsPath,
+    wallpapersPath,
+    pagesPath,
     tagsPath,
     mdx,
     postsPerPage,
     disqusShortname,
+    manifest,
+    sitemap,
+    tagmanager,
+    feed,
   }
 }

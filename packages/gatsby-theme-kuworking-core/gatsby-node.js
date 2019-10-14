@@ -40,90 +40,19 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
   })
 }
 
-// resolver for excerpt (not using it) and body
-const mdxResolverPassthrough = fieldName => async (source, args, context, info) => {
-  const type = info.schema.getType(`Mdx`) // to check I guess the the type 'Mdx' is defined (returns 'Mdx')
-  const mdxNode = context.nodeModel.getNodeById({
-    id: source.parent,
-  })
-  const resolver = type.getFields()[fieldName].resolve
-  const result = await resolver(mdxNode, args, context, {
-    fieldName,
-  })
-  // result is all the mdx file splited in html and checked (my guess) that it is ok
-  return result
-}
-
-// To define (with an interface) what can be included in the post files
-// A MdxBlogPost object type is created, with the specific fields (! means it can be zero)
-// And the thing is that to create and ObjectType where we define the fields, we also need to
-//   create an interface with the same fields, the interface is to check we have those fields (or not),
-//   but that we don't have anything else, and the object is to actually create the object
-// So, anything in the interface MUST BE in the objectType, but anything in the objectType
-//   doesn't have to be claimed in the interface
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes } = actions
-  createTypes(`interface BlogPost @nodeInterface {
-      id: ID!
-      title: String!
-      body: String!
-      slug: String!
-      date: Date! @dateformat
-      tags: [String]!
-      type: String!
-      snippet: String!
-      abstract: String!
-      keywords: [String]!
-      excerpt: String!
-  }`)
-
-  createTypes(
-    schema.buildObjectType({
-      name: `MdxBlogPost`,
-      fields: {
-        id: { type: `ID!` },
-        title: { type: `String!` },
-        slug: { type: `String!` },
-        date: { type: `Date!`, extensions: { dateformat: {} } },
-        tags: { type: `[String]!` },
-        type: { type: `String!` },
-        snippet: { type: `String!` },
-        abstract: { type: `String!` },
-        keywords: { type: `[String]!` },
-        excerpt: {
-          type: `String!`,
-          args: {
-            pruneLength: {
-              type: `Int`,
-              defaultValue: 140,
-            },
-          },
-          resolve: mdxResolverPassthrough(`excerpt`),
-        },
-        body: {
-          type: `String!`,
-          resolve: mdxResolverPassthrough(`body`),
-        },
-      },
-      interfaces: [`Node`, `BlogPost`],
-    })
-  )
-}
-
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId }, themeOptions) => {
   const { createNode, createParentChildLink } = actions
-  const { contentPath, recipesPath, basePath } = withDefaults(themeOptions)
+  const { postsPath, basePath } = withDefaults(themeOptions)
 
   // Make sure it's an MDX node
   if (node.internal.type !== `Mdx`) return
 
-  // Create source field (according to contentPath or recipesPath)
   const fileNode = getNode(node.parent)
   const source = fileNode.sourceInstanceName
 
-  if (node.internal.type === `Mdx` && (source === contentPath || source === recipesPath)) {
+  if (node.internal.type === `Mdx` && source === postsPath) {
     let slug
     if (node.frontmatter.slug) {
       // typically I don't add a slug, I infere it here
@@ -201,7 +130,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
   const result = await graphql(`
     {
-      allBlogPost(sort: { fields: [date, title], order: DESC }, limit: 1000) {
+      allMdxBlogPost(sort: { fields: [date, title], order: DESC }, limit: 1000) {
         edges {
           node {
             id
@@ -217,8 +146,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   if (result.errors) reporter.panic(result.errors)
 
   // Create pages.
-  const { allBlogPost, allPages } = result.data
-  const posts = allBlogPost.edges
+  const posts = result.data.allMdxBlogPost.edges
 
   // Create pages for each post
   posts.forEach(({ node: post }, index) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 import CookieConsent from 'react-cookie-consent'
 
 import { Text } from 'gatsby-theme-kuworking-core'

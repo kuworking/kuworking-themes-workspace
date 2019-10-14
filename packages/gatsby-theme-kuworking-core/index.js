@@ -6,10 +6,10 @@ export { Youtube } from './src/components/providers/youtube'
 export { Pagination } from './src/components/pagination'
 export { SEO } from './src/components/seo'
 export { SocialShare } from './src/components/socialshare'
-export { Config, Text, SeoText } from './src/config'
+export { Config, Text, SeoText } from './src/utils/config'
 export { Page } from './src/templates/page-template'
 export { Spinner01 } from './src/components/spinners/spinner01'
 
 export { Disqus } from './src/components/disqus/disqus'
 
-export { shuffle_array } from './src/components/methods/global-methods'
+export { shuffle_array } from './src/components/methods/methods'

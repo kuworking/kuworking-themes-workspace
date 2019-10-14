@@ -1,9 +1,24 @@
 import React from 'react'
 
-export const SeoText = {}
+export const SeoText = {
+  generic_keywords: [],
+  grid: {
+    title: '',
+    description: '',
+  },
+  grid_class: {
+    title: '',
+    description: '',
+  },
+  post: {
+    pre_title: '',
+  },
+}
 
 export const Config = {
   url: 'https://github.com/kuworking/gatsby-theme-kuworking-core',
+  social: [],
+  user: '',
   formcarry: '',
   seo: {
     site_lang: `en`,

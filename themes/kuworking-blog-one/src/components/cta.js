@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 // use span and not h1 to prevent in posts to change styling
 export const CtaMain = ({ main_maxwidth }) => (

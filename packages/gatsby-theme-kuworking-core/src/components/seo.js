@@ -1,16 +1,37 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import { Config } from '../config'
+import { Config, SeoText } from '../utils/config'
 
-export const SEO = ({ robots, canonical, title, description, keywords, type }) => {
-  const canonical_url = canonical ? canonical : Config.url
+export const SEO = ({ type, blogGrid, blogPost, blogPage }) => {
+  const { canonical } = blogGrid || blogPost || blogPage
+  const { page } = blogPage || ''
+  const { tags } = blogGrid || ''
+  const { post } = blogPost || ''
+
+  const title = (
+    (page && page.title) ||
+    (post && SeoText.post.pre_title + post.title) ||
+    (tags && tags.tags_grid && SeoText.grid_class.title + tags.tag) ||
+    SeoText.grid.title
+  ).replace(/#/g, '')
+
+  const description = (
+    (page && page.description) ||
+    (post && post.description) ||
+    (tags && tags.tags_grid && SeoText.grid_class.description + tags.tag) ||
+    SeoText.grid.description
+  ).replace(/#/g, '')
+
+  const keywords = (page && page.keywords) ||
+    (post && [...SeoText.generic_keywords, ...post.tags.map(el => el.replace(/_/g, ' '))]) ||
+    (tags && tags.tags_grid && [...SeoText.generic_keywords, tags.tag]) || [...SeoText.generic_keywords]
+
+  const canonical_url = canonical || Config.url
+  const robots = (page && page.robots) || 'index, follow'
+
   const content_type_og = type === 'mdx' ? 'article' : type === 'page' ? 'website' : 'website'
   const content_type_schema = type === 'mdx' ? 'BlogPosting' : type === 'page' ? 'WebSite' : 'WebSite'
-
-  // to remove # characters used in some blogs to format title
-  title = title.replace(/#/g, '')
-  description = description.replace(/#/g, '')
 
   const schemaOrgJSONLD = [
     {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
-import { Text } from '../config'
-import { ArrowAltCircleLeft } from 'styled-icons/fa-solid/ArrowAltCircleLeft'
-import { ArrowAltCircleRight } from 'styled-icons/fa-solid/ArrowAltCircleRight'
+import { Text } from '../utils/config'
+import { ArrowAltCircleLeft } from 'emotion-icons/fa-solid'
+import { ArrowAltCircleRight } from 'emotion-icons/fa-solid'
 
 export const Pagination = ({ isFirst, isLast, prev_page, next_page, num_of_pages, pre_path }) => (
   <Wrapper>

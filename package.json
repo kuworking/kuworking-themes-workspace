@@ -27,6 +27,7 @@
     "scripts_version": "workspace 0.1.0 kuworking-themes",
     "____________________________": "________________________",
     "blog-one": "yarn workspace kuworking-blog-one develop",
+    "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
     "info_new_workspace_1": "git init",

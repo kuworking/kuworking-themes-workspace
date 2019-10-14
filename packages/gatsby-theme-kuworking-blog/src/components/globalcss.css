@@ -1,0 +1,120 @@
+/* ------------------------------- 
+GLOBAL CSS, not a STYLED COMPONENT TO AVOID Flickering
+------------------------------- */
+
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  /* prettier-ignore */
+  src: 
+       local('Open Sans Regular'), 
+       local('OpenSans-Regular'),
+       url('../fonts/open-sans-v17-latin-regular.woff2') format('woff2'),
+       url('../fonts/open-sans-v17-latin-regular.woff') format('woff'),
+       url('../fonts/open-sans-v17-latin-regular.ttf') format('truetype');
+}
+
+/* source-serif-pro-regular - latin */
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 400;
+  /* prettier-ignore */
+  src: 
+       local('Source Serif Pro'), 
+       local('SourceSerifPro-Regular'),
+       url('../fonts/source-serif-pro-v6-latin-regular.woff2') format('woff2'),
+       url('../fonts/source-serif-pro-v6-latin-regular.woff') format('woff'),
+       url('../fonts/source-serif-pro-v6-latin-regular.ttf') format('truetype');
+}
+/* source-serif-pro-700 - latin */
+@font-face {
+  font-family: 'Source Serif Pro';
+  font-style: normal;
+  font-weight: 700;
+  /* prettier-ignore */
+  src: 
+       local('Source Serif Pro Bold'), 
+       local('SourceSerifPro-Bold'),
+       url('../fonts/source-serif-pro-v6-latin-700.woff2') format('woff2'),
+       url('../fonts/source-serif-pro-v6-latin-700.woff') format('woff'),
+       url('../fonts/source-serif-pro-v6-latin-700.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-display: swap;
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 400;
+  /* prettier-ignore */
+  src: 
+    local('Roboto Condensed'), 
+    local('RobotoCondensed-Regular'),
+    url('../fonts/roboto-condensed-v17-latin-regular.woff2') format('woff2'),
+    url('../fonts/roboto-condensed-v17-latin-regular.woff') format('woff'),
+    url('../fonts/roboto-condensed-v17-latin-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-display: swap;
+  font-display: fallback;
+  font-style: normal;
+  font-weight: 700;
+  /* prettier-ignore */
+  src: 
+    local('Roboto Condensed Bold'), 
+    local('RobotoCondensed-Bold'),
+    url('../fonts/roboto-condensed-v17-latin-700.woff2') format('woff2'),
+    url('../fonts/roboto-condensed-v17-latin-700.woff') format('woff'),
+    url('../fonts/roboto-condensed-v17-latin-700.ttf') format('truetype');
+}
+
+html {
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+html a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  letter-spacing: -1px;
+  margin: 0;
+  text-transform: none;
+  border-style: none;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}

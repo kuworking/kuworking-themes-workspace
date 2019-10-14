@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 import { SEO, SeoText, shuffle_array } from 'gatsby-theme-kuworking-core'
 
@@ -85,7 +85,7 @@ const StickyFoot = styled.div`
   flex: 1;
 `
 
-export const StructureGlobal = ({
+export const Structure = ({
   type,
   wallpapers,
   white_image,

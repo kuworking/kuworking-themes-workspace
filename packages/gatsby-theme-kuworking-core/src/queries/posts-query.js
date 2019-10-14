@@ -3,13 +3,9 @@ import PostsPage from '../templates/posts-template'
 
 export default PostsPage
 
-// here I need to use allMdx if I want to be able to filter by tag,
-// since this info is only available here when the mdx plugin is doing that,
-// the rest of the nodes (allFile, allSitePage) have this info but right here
-// it is not usable (it doesn't exist yet)
 export const query = graphql`
   query PostsQuery($this_is_a_tag_search: Boolean!, $tag: String, $skip: Int!, $limit: Int!) {
-    allTagPosts: allBlogPost(
+    allTagPosts: allMdxBlogPost(
       skip: $skip
       filter: { tags: { in: [$tag] }, type: { ne: "course" } }
       sort: { fields: [date, title], order: DESC }
@@ -18,18 +14,16 @@ export const query = graphql`
       edges {
         node {
           id
-          excerpt
           slug
           title
           date(formatString: "MMMM DD, YYYY")
-          type
           snippet
           abstract
           tags
         }
       }
     }
-    allBlogPost: allBlogPost(
+    allBlogPost: allMdxBlogPost(
       skip: $skip
       sort: { fields: [date, title], order: DESC }
       limit: $limit
@@ -38,18 +32,16 @@ export const query = graphql`
       edges {
         node {
           id
-          excerpt
           slug
           title
           date(formatString: "MMMM DD, YYYY")
-          type
           snippet
           abstract
           tags
         }
       }
     }
-    post_images: allFile(filter: { sourceInstanceName: { regex: "/content/.*/images/" } }) {
+    post_images: allFile(filter: { sourceInstanceName: { eq: "/content/posts/images/" } }) {
       edges {
         node {
           publicURL
@@ -65,7 +57,7 @@ export const query = graphql`
         }
       }
     }
-    wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/assets/wallpapers" } }) {
+    wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/wallpapers" } }) {
       edges {
         node {
           relativeDirectory
@@ -79,11 +71,17 @@ export const query = graphql`
         }
       }
     }
-    post_types: allFile(filter: { sourceInstanceName: { regex: "/content/.*/types/" } }) {
+    core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
       edges {
         node {
-          publicURL
-          name
+          relativeDirectory
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 92) {
+              originalName
+              src
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
         }
       }
     }

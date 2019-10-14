@@ -1,43 +1,32 @@
 import React from 'react'
 
-import { get_image, get_and_remove_image } from '../components/methods/global-methods'
+import { get_image } from './methods-template'
 import { useQuery } from '../queries/page-query'
-import StructureGlobal from '../components/structure-global'
+import { Structure } from '../components/structure'
 
-export const Page = ({
-  location,
-  type,
-  children,
-  title,
-  description,
-  keywords,
-  robots,
-  nowallpaper,
-  need_info,
-  main_maxwidth,
-}) => {
+export const Page = ({ location, type, children, page, main_maxwidth }) => {
   const data = useQuery()
-  const images = data.post_images ? data.post_images.edges : ''
-  const wallpapers_pre = data.wallpapers ? data.wallpapers.edges : ''
-  const none_image = get_image(images, 'none')
-  const [wallpapers, white_image] = get_and_remove_image(wallpapers_pre, 'white')
+  const { core, post_images, wallpapers } = data
+  const images = {
+    none_image: get_image(core.edges, 'none'),
+    white_image: get_image(core.edges, 'white'),
+    images: post_images.edges || '',
+    wallpapers: wallpapers.edges || '',
+  }
 
+  console.log('to check if there are trailing slashes here: ' + window.location.href)
+  console.log(location)
   return (
-    <StructureGlobal
+    <Structure
       type={type ? type : 'page'}
-      canonical={(typeof window !== `undefined`) ? window.location.href : ''}
-      children={children}
-      wallpapers={wallpapers}
-      title={title}
-      description={description}
-      keywords={keywords}
-      robots={robots}
-      image={none_image.node.childImageSharp.fluid}
-      white_image={white_image.node.childImageSharp.fluid}
-      nowallpaper={nowallpaper}
-      need_info={need_info}
-      main_maxwidth={main_maxwidth}
-      location={location}
+      blogPage={{
+        images: images,
+        page: page,
+        children: children,
+        canonical: typeof window !== `undefined` ? window.location.href : '',
+        location: location,
+        main_maxwidth: main_maxwidth,
+      }}
     />
   )
 }

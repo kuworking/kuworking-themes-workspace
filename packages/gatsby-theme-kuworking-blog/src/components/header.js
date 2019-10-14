@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 export const Top = ({ tags_grid, main_maxwidth }) => (
   <Parent main_maxwidth={main_maxwidth}>

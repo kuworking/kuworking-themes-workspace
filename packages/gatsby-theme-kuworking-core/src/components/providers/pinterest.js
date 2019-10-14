@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container } from './container'
 
 export const Pinterest = ({ className, src, text }) => (

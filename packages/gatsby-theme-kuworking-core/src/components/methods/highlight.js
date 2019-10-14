@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-export const apply_highlight = () => document.querySelectorAll('pre code').forEach(block => window.hljs && window.hljs.highlightBlock(block))
+export const apply_highlight = () =>
+  document.querySelectorAll('pre code').forEach(block => window.hljs && window.hljs.highlightBlock(block))
 
 export const Highlight = ({ styling }) => {
   const [state, setState] = useState(0)

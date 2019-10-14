@@ -1,6 +1,6 @@
 // v kw 2019.09.06
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@emotion/styled'
 
 export const Img = ({ data_src, src, title }) => {
   // to prevent error due to window not available during build

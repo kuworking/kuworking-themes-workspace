@@ -5,22 +5,18 @@ export default PostPage
 
 export const query = graphql`
   query PostPageQuery($id: String!, $previousId: String, $nextId: String) {
-    current: blogPost(id: { eq: $id }) {
+    current: mdxBlogPost(id: { eq: $id }) {
       id
-      excerpt
-      body
       slug
       title
-      body
-      keywords
       date(formatString: "MMMM DD, YYYY")
       tags
-      type
       snippet
       abstract
       ... on MdxBlogPost {
         parent {
           ... on Mdx {
+            body
             timeToRead
             wordCount {
               words
@@ -29,38 +25,43 @@ export const query = graphql`
         }
       }
     }
-    previous: blogPost(id: { eq: $previousId }) {
+    previous: mdxBlogPost(id: { eq: $previousId }) {
       id
-      excerpt
       slug
       title
       date(formatString: "MMMM DD, YYYY")
     }
-    next: blogPost(id: { eq: $nextId }) {
+    next: mdxBlogPost(id: { eq: $nextId }) {
       id
-      excerpt
       slug
       title
       date(formatString: "MMMM DD, YYYY")
     }
-    allPosts: allBlogPost {
+    allPosts: allMdxBlogPost {
       edges {
         node {
           id
-          excerpt
-          body
           slug
           title
-          keywords
           date(formatString: "MMMM DD, YYYY")
           tags
-          type
           snippet
           abstract
+          ... on MdxBlogPost {
+            parent {
+              ... on Mdx {
+                body
+                timeToRead
+                wordCount {
+                  words
+                }
+              }
+            }
+          }
         }
       }
     }
-    post_images: allFile(filter: { sourceInstanceName: { regex: "/content/.*/images/" } }) {
+    post_images: allFile(filter: { sourceInstanceName: { eq: "/content/posts/images/" } }) {
       edges {
         node {
           relativeDirectory
@@ -74,15 +75,7 @@ export const query = graphql`
         }
       }
     }
-    post_comments: allFile(filter: { sourceInstanceName: { regex: "/content/.*/comments/" } }) {
-      edges {
-        node {
-          relativeDirectory
-          publicURL
-        }
-      }
-    }
-    wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/assets/wallpapers" } }) {
+    wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/wallpapers" } }) {
       edges {
         node {
           relativeDirectory
@@ -96,11 +89,17 @@ export const query = graphql`
         }
       }
     }
-    post_types: allFile(filter: { sourceInstanceName: { regex: "/content/.*/types/" } }) {
+    core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
       edges {
         node {
-          publicURL
-          name
+          relativeDirectory
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 92) {
+              originalName
+              src
+              ...GatsbyImageSharpFluid_noBase64
+            }
+          }
         }
       }
     }
