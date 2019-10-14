@@ -88,6 +88,7 @@ module.exports = themeOptions => {
         options: options.manifest,
       },
       `gatsby-plugin-offline`,
+      `gatsby-plugin-emotion`,
       `gatsby-plugin-theme-ui`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,

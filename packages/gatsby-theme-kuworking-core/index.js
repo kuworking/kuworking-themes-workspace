@@ -8,7 +8,8 @@ export { SEO } from './src/components/seo'
 export { SocialShare } from './src/components/socialshare'
 export { Config, Text, SeoText } from './src/utils/config'
 export { Page } from './src/templates/page-template'
-export { Spinner01 } from './src/components/spinners/spinner01'
+export { Spinner01 } from './src/components/elements/spinner'
+export { Switch } from './src/components/elements/switch'
 
 export { Disqus } from './src/components/disqus/disqus'
 

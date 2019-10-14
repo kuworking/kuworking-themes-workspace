@@ -4,7 +4,7 @@ import { get_image } from './methods-template'
 import { useQuery } from '../queries/page-query'
 import { Structure } from '../components/structure'
 
-export const Page = ({ location, type, children, page, main_maxwidth }) => {
+export const Page = ({ type = 'page', children, page, main_maxwidth }) => {
   const data = useQuery()
   const { core, post_images, wallpapers } = data
   const images = {
@@ -14,17 +14,14 @@ export const Page = ({ location, type, children, page, main_maxwidth }) => {
     wallpapers: wallpapers.edges || '',
   }
 
-  console.log('to check if there are trailing slashes here: ' + window.location.href)
-  console.log(location)
   return (
     <Structure
-      type={type ? type : 'page'}
+      type={type}
       blogPage={{
         images: images,
         page: page,
         children: children,
-        canonical: typeof window !== `undefined` ? window.location.href : '',
-        location: location,
+        canonical: window.location && window.location.href,
         main_maxwidth: main_maxwidth,
       }}
     />

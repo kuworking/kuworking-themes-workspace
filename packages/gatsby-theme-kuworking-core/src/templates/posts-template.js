@@ -43,7 +43,6 @@ export default ({ location, pageContext, data }) => {
           tag: tag,
           global_tags: global_tags,
         },
-        location: location,
       }}
     />
   )

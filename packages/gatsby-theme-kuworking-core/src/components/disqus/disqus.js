@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { DisqusElements } from './disqus-elements'
 import { Disqus as Form, CommentCount } from 'gatsby-plugin-disqus'
