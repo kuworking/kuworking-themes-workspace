@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css, useColorMode } from 'theme-ui'
+import { modes as colorModes } from '../../gatsby-plugin-theme-ui/colors'
 
 export const Switch = props => {
   const [colorMode, setColorMode] = useColorMode()
-  const colorModes = ['light', 'dark', 'tosh', 'swiss', 'bootstrap']
 
   const toggleColorMode = e => {
     const index = colorModes.indexOf(colorMode)

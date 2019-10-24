@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Monokai",
   "editor.fontFamily": "Consolas, 'Ubuntu Mono', 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.acceptSuggestionOnCommitCharacter": true,
@@ -18,7 +17,7 @@
   },
   "files.exclude": {
     "version_0.0.3kuworking": false,
-    "node_modules/[^gnlk]*": true,
+    "node_modules/[^gnlk]*": false,
 
     "node_modules/g[^a]*": true,
     "node_modules/ga[^t]*": true,

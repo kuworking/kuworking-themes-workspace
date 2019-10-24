@@ -7,7 +7,7 @@ export const query = graphql`
   query PostsQuery($this_is_a_tag_search: Boolean!, $tag: String, $skip: Int!, $limit: Int!) {
     allTagPosts: allMdxBlogPost(
       skip: $skip
-      filter: { tags: { in: [$tag] }, type: { ne: "course" } }
+      filter: { tags: { in: [$tag] } }
       sort: { fields: [date, title], order: DESC }
       limit: $limit
     ) @include(if: $this_is_a_tag_search) {
@@ -23,12 +23,8 @@ export const query = graphql`
         }
       }
     }
-    allBlogPost: allMdxBlogPost(
-      skip: $skip
-      sort: { fields: [date, title], order: DESC }
-      limit: $limit
-      filter: { type: { ne: "course" } }
-    ) @skip(if: $this_is_a_tag_search) {
+    allBlogPost: allMdxBlogPost(skip: $skip, sort: { fields: [date, title], order: DESC }, limit: $limit)
+      @skip(if: $this_is_a_tag_search) {
       edges {
         node {
           id

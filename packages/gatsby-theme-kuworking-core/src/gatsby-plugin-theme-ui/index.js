@@ -4,15 +4,16 @@ import colors from './colors'
 import styles from './styles'
 import { swiss } from '@theme-ui/presets'
 
-export default merge.all([
-  typography,
+const combined = merge.all([
   swiss,
+  typography,
   {
-    initialColorMode: `light`,
+    initialColorMode: `light`, // rename default as light
     colors,
-    sizes: {
-      container: 672,
-    },
     styles,
   },
 ])
+combined.fontSizes = [12, 13, 14, 16, 18, 22, 28, 36, 46]
+combined.lineHeights = typography.lineHeights
+
+export default combined

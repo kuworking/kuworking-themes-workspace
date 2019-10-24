@@ -17,13 +17,13 @@ export default ({ location: { href }, data }) => {
     <Structure
       type="mdx"
       blogPost={{
+        canonical: href,
         images: images,
         post: post_structure(post, images.image),
         structure: {
           post_related_images: get_folder_image(images.images, pageName),
           tags_related_posts: get_posts_with_the_same_tags(post, allPosts, images),
         },
-        canonical: href,
       }}
     />
   )

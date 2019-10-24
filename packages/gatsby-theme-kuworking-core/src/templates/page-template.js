@@ -4,7 +4,7 @@ import { get_image } from './methods-template'
 import { useQuery } from '../queries/page-query'
 import { Structure } from '../components/structure'
 
-export const Page = ({ type = 'page', children, page, main_maxwidth }) => {
+export const Page = ({ type = 'page', ...props }) => {
   const data = useQuery()
   const { core, post_images, wallpapers } = data
   const images = {
@@ -18,11 +18,9 @@ export const Page = ({ type = 'page', children, page, main_maxwidth }) => {
     <Structure
       type={type}
       blogPage={{
-        images: images,
-        page: page,
-        children: children,
         canonical: window.location && window.location.href,
-        main_maxwidth: main_maxwidth,
+        images: images,
+        ...props,
       }}
     />
   )
