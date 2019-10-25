@@ -1,0 +1,27 @@
+{
+  "name": "gatsby-theme-kuworking-blog-test",
+  "version": "0.1.0",
+  "description": "gatsby-theme-kuworking-blog-test",
+  "author": "kuworking.com",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.13.70",
+    "gatsby-theme-kuworking-blog": "*",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "scripts": {
+    "scripts_version": "site 0.0.2",
+    "pull_hard": "git fetch --all && git reset --hard origin/master",
+    "push_netlify": "node push_netlify.js",
+    "netlify": "npm run pull_hard && npm run push_netlify",
+    "info": "gatsby info",
+    "build": "gatsby build && gatsby serve",
+    "buildc": "node build_clean.js && gatsby build && gatsby serve",
+    "buildc_net": "node build_clean.js && gatsby build && gatsby serve -H 192.168.1.119",
+    "develop": "gatsby develop",
+    "developc": "node build_clean.js && gatsby develop",
+    "developc_net": "node build_clean.js && gatsby develop -H 192.168.1.119",
+    "serve": "gatsby serve"
+  }
+}

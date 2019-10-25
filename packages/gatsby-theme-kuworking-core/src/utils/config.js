@@ -27,6 +27,8 @@ export const Config = {
 }
 
 export const Text = {}
+Text.site = 'KUWorking CORE'
+
 Text.login = {}
 Text.login.login = 'Login'
 Text.login.submit = 'Enter'

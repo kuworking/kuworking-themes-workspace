@@ -2,11 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-export const Top = ({ tags_grid, main_maxwidth }) => (
+import { Text, Switch } from 'gatsby-theme-kuworking-core'
+
+export const Header = ({ main_maxwidth }) => (
   <Parent main_maxwidth={main_maxwidth}>
     <header>
       <MenuKW id="init" aria-label="inicio" to="/">
-        <div>kuworking.com</div>
+        <div>{Text.site}</div>
       </MenuKW>
 
       <Space />
@@ -14,6 +16,8 @@ export const Top = ({ tags_grid, main_maxwidth }) => (
       <MenuProfile>
         <Link to="/contactar">Contactar</Link>
       </MenuProfile>
+
+      <Switch aria-label="Toggle color modes" />
     </header>
   </Parent>
 )

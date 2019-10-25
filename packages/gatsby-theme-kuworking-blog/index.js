@@ -1,7 +1,18 @@
-export { Space, ByeDiv, L, Vamos, Smileys, List, Comment, TLDR } from './src/components/post/post-format'
-export { ToC } from './src/components/post/post-toc'
-export { KWConsole } from './src/components/post/post-kwconsole'
-export { CodepenScript, CodePen, CodePenSimple, CodeLink } from './src/components/post/post-codepen'
-export { Img } from './src/components/post/post-lazy-img'
-export { Pinterest } from './src/components/post/post-pinterest'
-export { Highlight } from './src/components/post/post-highlight'
+export {
+  GoogleMap,
+  Instagram,
+  Pinterest,
+  PinterestScript,
+  Youtube,
+  Pagination,
+  SEO,
+  SocialShare,
+  Config,
+  Text,
+  SeoText,
+  Page,
+  Spinner01,
+  Switch,
+  Disqus,
+  shuffle_array,
+} from 'gatsby-theme-kuworking-core'

@@ -1,4 +1,4 @@
 import React from 'react'
-import { Structure } from '../../components/structure'
+import { Structure as Str } from '../../components/structure'
 
-export default props => <Structure {...props} />
+export const Structure = props => <Str {...props} />
