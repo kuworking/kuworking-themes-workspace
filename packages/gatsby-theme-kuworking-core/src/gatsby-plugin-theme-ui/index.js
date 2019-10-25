@@ -16,4 +16,6 @@ const combined = merge.all([
 combined.fontSizes = [12, 13, 14, 16, 18, 22, 28, 36, 46]
 combined.lineHeights = typography.lineHeights
 
+console.log(combined)
+
 export default combined
