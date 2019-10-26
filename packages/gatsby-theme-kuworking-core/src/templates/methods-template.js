@@ -1,6 +1,9 @@
 export const get_image = (images, name) =>
   images.filter(el => el.node.childImageSharp.fluid.originalName.slice(0, -4) === name)[0]
 
+export const get_fixed_image = (images, name) =>
+  images.filter(el => el.node.childImageSharp.fixed.originalName.slice(0, -4) === name)[0]
+
 export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
 
 export const get_data = post => ({
@@ -34,7 +37,7 @@ export const get_posts_with_the_same_tags = (post, allPosts, images) => {
   return posts_with_the_same_tags
 }
 
-export const post_structure = (post, image) => ({
+export const post_structure = (post, image, fixed) => ({
   date: post.date,
   tags: post.tags,
   timeToRead: post.parent ? post.parent.timeToRead : '',
@@ -48,6 +51,6 @@ export const post_structure = (post, image) => ({
   title: post.title,
   description: post.snippet,
   name: post.slug.replace(/\//g, ''), // needed for the 1st slash, the last one is already removed
-  src: image && image.node.childImageSharp.fluid, // image of the post ('none.jpg' if none)
-  publicUrl: image && image.node.childImageSharp.fluid.src, // image of the post ('none.jpg' if none)
+  image: (image && (fixed && image.node.childImageSharp.fixed)) || image.node.childImageSharp.fluid, // image of the post ('none.jpg' if none)
+  full_image: image && image.publicURL, // image of the post ('none.jpg' if none) in its original resolution
 })

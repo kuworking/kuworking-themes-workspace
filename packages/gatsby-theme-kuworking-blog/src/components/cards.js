@@ -5,58 +5,77 @@ import { Styled, useThemeUI } from 'theme-ui'
 
 export const Card = ({ post, i }) => {
   const { theme } = useThemeUI()
-console.log(post)
+
   return (
     <Styled.a
       as={Container}
       aria-label="Post"
       to={'/' + post.name}
-      bs={theme.colors.boxShadow}
-      bsh={theme.colors.boxShadowHover}
+      bgem={theme.colors.bgemphasis}
+      em={theme.colors.emphasis}
+      lh={theme.lineHeights.body}
     >
-      <Image>
-        <img alt={post.name} src={post.post_image} />
-        {/*
-        post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <Styled.mark key={i}>{el}</Styled.mark>))
-        */}
+      <Image src={post.image.src}>
+        <Abstract bg={theme.colors.textBackground} c={theme.colors.textWithBackground}>
+          <div>
+            {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
+          </div>
+        </Abstract>
       </Image>
-      <Styled.h1 i={i}>
-        {post.title
-          .split('#')
-          .map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <Styled.mark key={i}>{el}</Styled.mark>))}
-      </Styled.h1>
+      <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
+        <Title>
+          {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
+        </Title>
+      </Styled.h4>
     </Styled.a>
   )
 }
 
-const device = {
-  laptop: `(max-width: 1100px)`,
-  mobile: `(max-width: 600px)`,
-  mobileS: `(max-width: 400px)`,
-}
-
-const laptop = '@media (min-width: 1100px)'
-const mobile = '@media (min-width: 600px)'
+const Title = styled.div`
+  margin-top: 2px;
+  & > em {
+  }
+`
+const Abstract = styled.div`
+  opacity: 0;
+  transition: opacity 0.3s ease 0s;
+  padding: 2px;
+  & > div {
+    background: ${props => props.bg};
+    color: ${props => props.c};
+    padding: 3px;
+    display: inline;
+    -webkit-box-decoration-break: clone; /* to get the padding */
+    box-decoration-break: clone;
+  }
+`
 
 const Container = styled(Link)`
-  display: grid !important;
+  display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 100px minmax(70px, 1fr);
-  ${mobile} {
-    grid-template-rows: 140px minmax(70px, 1fr);
-  }
-  align-content: flex-start !important;
-
-  transition: max-height 0.2s ease 0s, width 0.2s ease 0s, background-color 0.2s ease 0s, box-shadow 0.6s ease;
-
-  & span {
-    color: inherit;
-  }
-  border-radius: 8px;
-  box-shadow: 2px 2px 0px 4px ${props => props.bs};
+  grid-template-rows: 140px minmax(20px, 1fr);
+  align-content: flex-start;
 
   &:hover {
-    box-shadow: 2px 2px 0px 6px ${props => props.bsh};
+    ${Abstract} {
+      opacity: 0.8;
+    }
+  }
+
+  & ${Abstract} > div > span,
+  & ${Title} > span {
+    padding: 0px 2px;
+  }
+
+  & ${Abstract} > div > em,
+  & ${Title} > em {
+    display: inline-block;
+    background: ${props => props.bgem};
+    color: ${props => props.em};
+    font-style: normal;
+    padding: 0px 2px;
+    font-weight: 700;
+    line-height: ${props => props.lh};
   }
 
   @supports not (display: grid) {
@@ -67,24 +86,9 @@ const Container = styled(Link)`
 `
 
 const Image = styled.div`
-  width: 100%;
-  background-color: #2d2d2d;
-  overflow: hidden;
-  transition: color 0.2s ease 0s;
-
+  background-image: ${props => `url(${props.src})`};
+  background-size: cover;
+  background-position: center;
   display: grid;
-  align-items: center;
-  border-radius: 8px 8px 0px 0px;
-
-  & > img {
-    width: 102% !important; /* to eliminate a border that shouldn't be there */
-    max-width: 500px;
-    overflow: hidden;
-    border: unset !important;
-    padding: unset !important;
-  }
-
-  @supports not (display: grid) {
-    height: 140px;
-  }
+  align-items: end;
 `

@@ -28,13 +28,13 @@ const Container = styled.div`
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-column-gap: 3.6vw;
-  grid-row-gap: 3.6vw;
+  grid-column-gap: 1vw;
+  grid-row-gap: 1vw;
   justify-content: space-between;
 
   ${laptop} {
-    grid-column-gap: 40px;
-    grid-row-gap: 40px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
   }
 
   @supports not (display: grid) {

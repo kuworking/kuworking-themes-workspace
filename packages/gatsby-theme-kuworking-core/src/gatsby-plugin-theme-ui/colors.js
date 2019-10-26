@@ -1,27 +1,39 @@
 // implements color themes to be switched
 
 export default {
-  panelOne: '#cadce6',
-  boxShadow: '#ececec',
-  boxShadowHover: '#666',
+  panelOne: '#ef874a',
+  border: '#ececec',
+  borderHover: '#666',
+  textBackground: '#f55e47',
+  textWithBackground: '#fff',
+  bgemphasis: '#5a4242',
+  emphasis: '#fff',
 
   modes: {
     dark: {
       panelOne: '#b14b4b',
-      boxShadow: '#666',
-      boxShadowHover: '#ececec',
-      text: 'hsl(210, 50%, 96%)',
-      background: 'hsl(230, 25%, 18%)',
-      primary: 'hsl(260, 100%, 80%)',
-      secondary: 'hsl(290, 100%, 80%)',
-      highlight: 'hsl(260, 20%, 40%)',
-      purple: 'hsl(290, 100%, 80%)',
-      muted: 'hsla(230, 20%, 0%, 20%)',
-      gray: 'hsl(210, 50%, 60%)',
+      textBackground: '#7e5786',
+      textWithBackground: '#fff',
+      bgemphasis: '#c969dc',
+      emphasis: '#fff',
+
+      text: '#F0F5FA',
+      background: '#222639',
+      primary: '#BB99FF',
+      secondary: '#EE99FF',
+      highlight: '#5F527A',
+      purple: '#EE99FF',
+      muted: '#00000033',
+      gray: '#6699CC',
       heading: '#ffffff',
     },
     tosh: {
-      panelOne: '#fbd7d7',
+      panelOne: '#e0e0e0',
+      textBackground: '#9f9f9f',
+      textWithBackground: '#fff',
+      bgemphasis: '#c7d0dc',
+      emphasis: '#000',
+
       text: '#000',
       background: '#fff',
       primary: '#000',
@@ -33,6 +45,11 @@ export default {
     },
     roboto: {
       panelOne: '#e6e1e1',
+      textBackground: '#1a73e8',
+      textWithBackground: '#fff',
+      bgemphasis: '#c7d0dc',
+      emphasis: '#000',
+
       text: '#202124',
       background: '#fff',
       primary: '#1a73e8',

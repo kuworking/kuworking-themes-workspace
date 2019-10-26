@@ -37,17 +37,17 @@ export const query = graphql`
         }
       }
     }
-    post_images: allFile(filter: { sourceInstanceName: { eq: "/content/posts/images/" } }) {
+    post_images: allFile(filter: { sourceInstanceName: { eq: "content/posts/images" } }) {
       edges {
         node {
           publicURL
           name
           relativeDirectory
           childImageSharp {
-            fluid(maxWidth: 1000) {
+            fixed(width: 400, quality: 50) {
               originalName
               src
-              ...GatsbyImageSharpFluid_noBase64
+              ...GatsbyImageSharpFixed_noBase64
             }
           }
         }
@@ -56,6 +56,7 @@ export const query = graphql`
     wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/wallpapers" } }) {
       edges {
         node {
+          publicURL
           relativeDirectory
           childImageSharp {
             fluid(maxWidth: 5000) {
@@ -70,6 +71,7 @@ export const query = graphql`
     core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
       edges {
         node {
+          publicURL
           relativeDirectory
           childImageSharp {
             fluid(maxWidth: 1000, quality: 92) {

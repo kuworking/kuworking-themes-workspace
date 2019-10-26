@@ -1,5 +1,5 @@
 import React from 'react'
-import { get_image, post_structure } from './methods-template'
+import { get_image, get_fixed_image, post_structure } from './methods-template'
 import { Structure } from '../components/structure'
 
 export default ({ location, pageContext, data }) => {
@@ -16,7 +16,7 @@ export default ({ location, pageContext, data }) => {
 
   allPosts.forEach(({ node: post }, index) =>
     posts.push({
-      ...post_structure(post, get_image(images.images, post.slug.replace(/\//g, ''))),
+      ...post_structure(post, get_fixed_image(images.images, post.slug.replace(/\//g, '')), true), // true to fetch fixed images and not fluid
       key: 'post_' + index,
     })
   )
