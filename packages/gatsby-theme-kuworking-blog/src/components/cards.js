@@ -53,7 +53,7 @@ const Abstract = styled.div`
 const Container = styled(Link)`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 140px minmax(20px, 1fr);
+  grid-template-rows: 200px minmax(20px, 1fr);
   align-content: flex-start;
 
   &:hover {

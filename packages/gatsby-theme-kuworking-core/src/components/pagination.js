@@ -6,7 +6,7 @@ import { Text } from '../utils/config'
 import { ArrowAltCircleLeft } from 'emotion-icons/fa-solid'
 import { ArrowAltCircleRight } from 'emotion-icons/fa-solid'
 
-export const Pagination = ({ isFirst, isLast, prev_page, next_page, num_of_pages, pre_path }) => (
+export const Pagination = ({ pagination: { isFirst, isLast, prev_page, next_page, num_of_pages, pre_path } }) => (
   <Wrapper>
     {!isFirst && (
       <Link id="pagination-prev" aria-label="Anterior" to={prev_page} rel="prev">

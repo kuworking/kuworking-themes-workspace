@@ -11,7 +11,7 @@ export default {
 
   modes: {
     dark: {
-      panelOne: '#b14b4b',
+      panelOne: '#9569dc',
       textBackground: '#7e5786',
       textWithBackground: '#fff',
       bgemphasis: '#c969dc',
@@ -44,7 +44,7 @@ export default {
       accent: '#3f3f3f',
     },
     roboto: {
-      panelOne: '#e6e1e1',
+      panelOne: '#8fc7e6',
       textBackground: '#1a73e8',
       textWithBackground: '#fff',
       bgemphasis: '#c7d0dc',

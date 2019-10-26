@@ -16,7 +16,7 @@ export default ({ location, pageContext, data }) => {
 
   allPosts.forEach(({ node: post }, index) =>
     posts.push({
-      ...post_structure(post, get_fixed_image(images.images, post.slug.replace(/\//g, '')), true), // true to fetch fixed images and not fluid
+      ...post_structure(post, get_fixed_image(images.images, post.slug.replace(/\//g, '')), true), // true to use fixed and not fluid
       key: 'post_' + index,
     })
   )

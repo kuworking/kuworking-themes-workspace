@@ -14,7 +14,6 @@ export const Grid = ({ blogGrid: { posts, pagination } }) => (
         <Card key={'card_' + i} post={post} i={i} />
       ))}
     </Container>
-
     <Pagination pagination={pagination} />
   </>
 )
@@ -29,12 +28,12 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 1vw;
-  grid-row-gap: 1vw;
+  grid-row-gap: 3vw;
   justify-content: space-between;
 
   ${laptop} {
     grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-row-gap: 30px;
   }
 
   @supports not (display: grid) {

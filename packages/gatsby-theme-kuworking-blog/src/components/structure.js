@@ -60,4 +60,8 @@ const Container = styled.div`
   max-width: ${props => props.maxWidth};
   width: 100%;
   padding: 0px 10px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `

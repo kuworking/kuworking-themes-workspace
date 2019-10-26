@@ -51,6 +51,6 @@ export const post_structure = (post, image, fixed) => ({
   title: post.title,
   description: post.snippet,
   name: post.slug.replace(/\//g, ''), // needed for the 1st slash, the last one is already removed
-  image: (image && (fixed && image.node.childImageSharp.fixed)) || image.node.childImageSharp.fluid, // image of the post ('none.jpg' if none)
+  image: image && ((fixed && image.node.childImageSharp.fixed) || image.node.childImageSharp.fluid), // image of the post ('none.jpg' if none)
   full_image: image && image.publicURL, // image of the post ('none.jpg' if none) in its original resolution
 })
