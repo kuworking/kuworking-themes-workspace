@@ -47,10 +47,10 @@ export const post_structure = (post, image, fixed) => ({
     .replace(/\*(.*?)\*/g, '<i>$1</i>')
     .replace(/__(.*?)__/g, '<b>$1</b>')
     .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'),
-  content: post.body,
+  content: (post.parent && post.parent.body) || '',
   title: post.title,
   description: post.snippet,
   name: post.slug.replace(/\//g, ''), // needed for the 1st slash, the last one is already removed
   image: image && ((fixed && image.node.childImageSharp.fixed) || image.node.childImageSharp.fluid), // image of the post ('none.jpg' if none)
-  full_image: image && image.publicURL, // image of the post ('none.jpg' if none) in its original resolution
+  full_image: image && image.node.publicURL, // image of the post ('none.jpg' if none) in its original resolution
 })

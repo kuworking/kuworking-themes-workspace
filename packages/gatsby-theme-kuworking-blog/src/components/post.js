@@ -2,22 +2,24 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Styled } from 'theme-ui'
+import { Styled, useThemeUI } from 'theme-ui'
 
 import { Disqus, Config, SocialShare, shuffle_array } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
 import { Card } from './cards'
 
 export const Post = ({ blogPost: { images, post, structure: { post_related_images, tags_related_posts } = {} } }) => {
+  const { theme } = useThemeUI()
+
   tags_related_posts = shuffle_array(tags_related_posts)
   if (tags_related_posts.length > 5) tags_related_posts.length = 5
 
   return (
     <>
       <Styled.h1 name="tothetop">
-        {post.title
-          .split('#')
-          .map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <Styled.mark key={i}>{el}</Styled.mark>))}
+        <Title color={theme.colors.title}>
+          {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
+        </Title>
       </Styled.h1>
 
       <Info>
@@ -28,9 +30,9 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
       <Tags>
         {post.tags.map((tag, j) => (
-          <React.fragment key={'link' + j}>
+          <React.Fragment key={'link' + j}>
             <Tag to={'/tags/' + tag}>{tag.replace(/_/g, ' ')}</Tag>
-          </React.fragment>
+          </React.Fragment>
         ))}
       </Tags>
 
@@ -58,6 +60,12 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 }
 
 const laptop = '@media (min-width: 1100px)'
+
+const Title = styled.div`
+  font-size: 1.7em;
+  text-transform: uppercase;
+  color: ${props => props.color};
+`
 
 const Tags = styled.div`
   font-size: 0.9em;

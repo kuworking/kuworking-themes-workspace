@@ -8,6 +8,9 @@ export default {
   textWithBackground: '#fff',
   bgemphasis: '#5a4242',
   emphasis: '#fff',
+  text: '#3d2c29',
+  heading: '#907d79',
+  title: '#ff5c3a',
 
   modes: {
     dark: {
@@ -16,6 +19,8 @@ export default {
       textWithBackground: '#fff',
       bgemphasis: '#c969dc',
       emphasis: '#fff',
+      heading: '#d9d7dc',
+      title: '#c1a2ff',
 
       text: '#F0F5FA',
       background: '#222639',
@@ -25,7 +30,6 @@ export default {
       purple: '#EE99FF',
       muted: '#00000033',
       gray: '#6699CC',
-      heading: '#ffffff',
     },
     tosh: {
       panelOne: '#e0e0e0',
@@ -33,6 +37,8 @@ export default {
       textWithBackground: '#fff',
       bgemphasis: '#c7d0dc',
       emphasis: '#000',
+      heading: '#7b7b7b',
+      title: '#a0a0a0',
 
       text: '#000',
       background: '#fff',
@@ -49,6 +55,8 @@ export default {
       textWithBackground: '#fff',
       bgemphasis: '#c7d0dc',
       emphasis: '#000',
+      heading: '#56616f',
+      title: '#1056b3',
 
       text: '#202124',
       background: '#fff',
