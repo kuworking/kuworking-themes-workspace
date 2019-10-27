@@ -15,10 +15,9 @@ module.exports = themeOptions => {
 
   const mdx = themeOptions.mdx || true
   const postsPerPage = themeOptions.postsPerPage || 50
-  const disqusShortname = themeOptions.disqusShortname || ''
 
   return {
-    folders_to_check: [postsPath, postImagesPath, iconsPath, wallpapersPath, pagesPath, `content/core`],
+    folders_to_check: [postsPath, postImagesPath, iconsPath, wallpapersPath, pagesPath, 'content/core'],
     basePath,
     postsPath,
     postImagesPath,
@@ -28,7 +27,6 @@ module.exports = themeOptions => {
     tagsPath,
     mdx,
     postsPerPage,
-    disqusShortname,
     manifest,
     sitemap,
     tagmanager,

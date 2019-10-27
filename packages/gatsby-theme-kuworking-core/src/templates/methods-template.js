@@ -16,7 +16,8 @@ const fill_related_posts = (posts, post, images) => {
 
   posts.forEach(({ node: this_post }, i) => {
     this_post.name = this_post.slug.replace(/\//g, '')
-    this_post.image = get_image(images.images, this_post.name)
+    const image = get_image(images.images, this_post.name)
+    this_post.image = image && image.node.childImageSharp.fixed
     this_post.description = this_post.snippet
     if (this_post.title === post.title) this_is_the_own_post = i
   })

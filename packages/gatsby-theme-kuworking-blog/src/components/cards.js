@@ -11,12 +11,15 @@ export const Card = ({ post, i }) => {
       as={Container}
       aria-label="Post"
       to={'/' + post.name}
-      bgem={theme.colors.bgemphasis}
-      em={theme.colors.emphasis}
+      bgem={theme.colors.cards__em__background}
+      em={theme.colors.cards__em__color}
       lh={theme.lineHeights.body}
     >
       <Image src={post.image.src}>
-        <Abstract bg={theme.colors.textBackground} c={theme.colors.textWithBackground}>
+        <Abstract
+          bg={theme.colors.global__text_with_background__background}
+          c={theme.colors.global__text_with_background__color}
+        >
           <div>
             {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
           </div>
@@ -33,17 +36,17 @@ export const Card = ({ post, i }) => {
 
 const Title = styled.div`
   margin-top: 2px;
-  & > em {
-  }
+  width: 90%;
 `
 const Abstract = styled.div`
   opacity: 0;
   transition: opacity 0.3s ease 0s;
+  width: 90%;
   padding: 2px;
   & > div {
     background: ${props => props.bg};
     color: ${props => props.c};
-    padding: 3px;
+    padding: 0 3px;
     display: inline;
     -webkit-box-decoration-break: clone; /* to get the padding */
     box-decoration-break: clone;
@@ -69,7 +72,6 @@ const Container = styled(Link)`
 
   & ${Abstract} > div > em,
   & ${Title} > em {
-    display: inline-block;
     background: ${props => props.bgem};
     color: ${props => props.em};
     font-style: normal;
@@ -91,4 +93,5 @@ const Image = styled.div`
   background-position: center;
   display: grid;
   align-items: end;
+  border-radius: 2px;
 `

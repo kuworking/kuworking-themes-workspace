@@ -1,18 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Config } from '../../utils/config'
 
-import { DisqusElements } from './disqus-elements'
-import { Disqus as Form, CommentCount } from 'gatsby-plugin-disqus'
+const LoadScript = ({ disqusShortName, load }) => {
+  useEffect(() => {
+    const inject_disqus = stillMounted => {
+      if (load) {
+        const script = document.createElement('script')
+        script.async = true
+        script.type = 'text/javascript'
+        script.src = `https://${disqusShortName}.disqus.com/embed.js`
+        if (!stillMounted.value) return
+        document.body.appendChild(script)
+      }
+    }
 
-export const Disqus = ({ label, origin }) => {
-  let disqusConfig = {
-    url: window.location.pathname,
-    title: origin,
+    const stillMounted = { value: true }
+    inject_disqus(stillMounted)
+
+    return function cancelFetch() {
+      stillMounted.value = false
+    }
+  }, [load]) // only run once
+
+  return <></>
+}
+
+export const Disqus = ({ load, disqusShortName, label, origin }) => {
+  window.disqus_config = function() {
+    //  window.disqus_config = () => {
+    this.page.identifier = origin
+    this.page.title = origin
+    this.page.url = Config.disqus_url
+    //    this.page.url = window.location.pathname
   }
-  console.log(disqusConfig)
+
   return (
-    <DisqusElements>
-      <CommentCount config={disqusConfig} placeholder={'...'} />
-      <Form config={disqusConfig} />
-    </DisqusElements>
+    <>
+      <LoadScript load={load} disqusShortName={disqusShortName} />
+      <div id="disqus_thread" />
+    </>
   )
 }

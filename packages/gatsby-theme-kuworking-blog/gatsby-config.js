@@ -1,12 +1,15 @@
-module.exports = options => {
+const withDefaults = require(`./src/utils/default-options`)
+
+module.exports = themeOptions => {
+  const options = withDefaults(themeOptions)
+
   return {
     plugins: [
       {
         resolve: `gatsby-theme-kuworking-core`,
         options: {
-          postsPerPage: 50,
+          postsPerPage: options.postsPerPage || 50,
           mdx: true,
-          disqusShortname: '',
 
           basePath: '/',
           postsPath: 'content/posts',

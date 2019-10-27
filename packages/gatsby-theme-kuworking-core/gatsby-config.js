@@ -2,6 +2,7 @@ const withDefaults = require(`./utils/default-options`)
 
 module.exports = themeOptions => {
   const options = withDefaults(themeOptions)
+
   return {
     siteMetadata: {
       title: options.title,
@@ -56,12 +57,6 @@ module.exports = themeOptions => {
         resolve: `gatsby-plugin-page-creator`,
         options: {
           path: options.pagesPath || `content/pages`,
-        },
-      },
-      {
-        resolve: `gatsby-plugin-disqus`,
-        options: {
-          shortname: options.disqusShortname || '',
         },
       },
       `gatsby-plugin-react-helmet`,

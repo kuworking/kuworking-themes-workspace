@@ -19,6 +19,8 @@ export const Config = {
   url: 'https://github.com/kuworking/gatsby-theme-kuworking-core',
   social: [],
   user: '',
+  disqus: 'kuworking',
+  disqus_url: 'https://www.kuworking.com',
   formcarry: '',
   seo: {
     site_lang: `en`,
@@ -26,7 +28,16 @@ export const Config = {
   },
 }
 
-export const Text = {}
+export const Text = {
+  post: {
+    words: 'words',
+    minutes: 'minutes',
+    date_language: 'us',
+    related_posts: 'You might be interested',
+    comments: 'Click and drop a comment',
+  },
+}
+
 Text.site = 'KUWorking BLOG'
 
 Text.login = {}

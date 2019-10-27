@@ -73,6 +73,11 @@ export const query = graphql`
               src
               ...GatsbyImageSharpFluid_noBase64
             }
+            fixed(width: 400, quality: 50) {
+              originalName
+              src
+              ...GatsbyImageSharpFixed_noBase64
+            }
           }
         }
       }

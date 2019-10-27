@@ -1,5 +1,3 @@
-import { Transform } from 'stream'
-
 // stylying of MDX rendered files
 
 export default {
