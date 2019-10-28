@@ -9,19 +9,19 @@ import { ArrowAltCircleRight } from 'emotion-icons/fa-solid'
 export const Pagination = ({ pagination: { isFirst, isLast, prev_page, next_page, num_of_pages, pre_path } }) => (
   <Wrapper>
     {!isFirst && (
-      <Link id="pagination-prev" aria-label="Anterior" to={prev_page} rel="prev">
+      <Link id="pagination-prev" aria-label={Text.pagination.previous} to={prev_page} rel="prev">
         <Button aria-label="Previous">
           <Icon>
             <ArrowAltCircleLeft />
           </Icon>
-          <Text.pagination.previous />
+          {Text.pagination.previous}
         </Button>
       </Link>
     )}
     {!isLast && (
-      <Link id="pagination-next" aria-label="Siguiente" to={next_page} rel="next">
+      <Link id="pagination-next" aria-label={Text.pagination.next} to={next_page} rel="next">
         <Button aria-label="Next">
-          <Text.pagination.next />
+          {Text.pagination.next}
           <Icon>
             <ArrowAltCircleRight />
           </Icon>

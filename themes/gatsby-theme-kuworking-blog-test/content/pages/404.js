@@ -1,44 +1,32 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { Styled } from 'theme-ui'
 
-import { Page } from 'gatsby-theme-kuworking-core'
+import { Page, Text } from 'gatsby-theme-kuworking-core'
 
 const NotFoundPage = () => (
   <Page
     page={{
-      title: notFound.title,
-      description: notFound.description,
-      keywords: notFound.keywords,
+      title: Text.notFound.title,
+      description: Text.notFound.description,
+      keywords: Text.notFound.keywords,
       robots: 'noindex, follow',
+      share: false,
     }}
   >
-    <NotFoundText aria-label="No encontrado" to="/">
-      <h1>{notFound.title}</h1>
-      <p>{notFound.description}</p>
-    </NotFoundText>
+    <Separator />
+    <Styled.h1>{Text.notFound.title}</Styled.h1>
+    <Styled.p>{Text.notFound.description}</Styled.p>
+    <Styled.a as={Link} to="/">
+      {Text.notFound.mainPage}
+    </Styled.a>
+    <Separator />
   </Page>
 )
 
 export default NotFoundPage
 
-const NotFoundText = styled(Link)`
-  color: #7b7b7b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0px;
-  font-size: 1.2em;
-  line-height: 1.3;
-
-  & > h1 {
-    color: #7b7b7b;
-  }
+const Separator = styled.div`
+  margin-bottom: 100px;
 `
-
-const notFound = {
-  title: 'KUWorking.com: Página No Encontrada',
-  description: 'No encuentro la página que buscas, quizá haya cambiado de nombre?',
-  keywords: [`KUWorking.com`],
-}

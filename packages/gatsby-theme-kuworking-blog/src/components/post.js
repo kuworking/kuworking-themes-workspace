@@ -16,8 +16,6 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
   tags_related_posts = shuffle_array(tags_related_posts)
   if (tags_related_posts.length > 5) tags_related_posts.length = 5
 
-  console.log(post)
-
   return (
     <>
       <Title
@@ -55,7 +53,11 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         ))}
       </Tags>
 
-      <SocialShare title={post.title} url={Config.url + post.name} image={Config.url + post.publicUrl} />
+      <SocialShare
+        title={post.title.replace(/#/g, '')}
+        url={Config.url + '/' + post.name}
+        image={Config.url + post.image.src}
+      />
 
       <div css={{ marginBottom: '50px' }} />
       <Img fluid={post.image} alt="post related to image" />

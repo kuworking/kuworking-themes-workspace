@@ -1,61 +1,69 @@
 import React from 'react'
 
 export const SeoText = {
-  generic_keywords: [],
+  generic_keywords: ['kuworking', 'gatsby', 'javascript'],
   grid: {
-    title: '',
-    description: '',
+    title: 'kuworking.com | ',
+    description: 'learn frontend development',
   },
-  grid_class: {
-    title: '',
-    description: '',
+  grid_tags: {
+    title: 'kuworking.com | tag | ',
+    description: 'List of posts with this tag | ',
   },
   post: {
-    pre_title: '',
+    before: '',
+    after: ' | kuworking.com',
   },
 }
 
 export const Config = {
-  url: 'https://github.com/kuworking/gatsby-theme-kuworking-core',
-  social: [],
-  user: '',
-  formcarry: '',
-  seo: {
-    site_lang: `en`,
-    site_author: `KUWorking`,
+  site_lang: `en`,
+  url: 'https://www.kuworking.com',
+  user: 'kuworking',
+  social: {
+    twitter: '@kuworking',
   },
+  disqus: 'kuworking',
+  disqus_url: 'https://www.kuworking.com',
+  mail_chimp_action: 'https://gmail.us20.list-manage.com/subscribe/post?u=7679f6806268867998475ecb8&amp;id=d0543eb54f',
 }
 
-export const Text = {}
-Text.site = 'KUWorking CORE'
-
-Text.login = {}
-Text.login.login = 'Login'
-Text.login.submit = 'Enter'
-Text.login.mail = 'mail@gmail.com'
-Text.login.id = 'id'
-Text.login.password = 'password'
-Text.login.rpassword = 'repeat password'
-Text.login.signup = 'Sign up'
-Text.login.signup_page = '/welcome'
-Text.login.problem1 = 'there is another user with the same mail as username'
-Text.login.problem2 = 'the two passwords are different!'
-Text.login.problem3 = 'This is an error: code '
-Text.login.login_problem = 'Login failed'
-
-Text.contact = {}
-Text.contact.wrong_mail = 'The email is not correct'
-Text.contact.thanks = 'thanks, I have received the message!'
-Text.contact.error = 'The message has not been sent | code: '
-Text.contact.name = 'name'
-Text.contact.mail = 'mail@gmail.com'
-Text.contact.message = 'your message'
-
-Text.footer = {}
-Text.footer.date = () => <>[ 2018 - {new Date().getFullYear()}, by KUWorking ]</>
-Text.footer.cookies = () => <>Notice that we use cookies to improve the usability of this site</>
-Text.footer.cookies_agree = 'Ok'
-
-Text.pagination = {}
-Text.pagination.next = () => 'Next'
-Text.pagination.previous = () => 'Previous'
+export const Text = {
+  post: {
+    words: 'words',
+    minutes: 'minutes',
+    date_language: 'us',
+    related_posts: 'You might be interested',
+    comments: 'Click and drop a comment',
+  },
+  header: {
+    site: 'KUWorking BLOG',
+    logo: 'KW',
+  },
+  cta: {
+    title: 'Call To Action!',
+    // prettier-ignore
+    message: () => <>Drop here your <em>email</em> and I will keep you in the loop 🤠</>,
+    suscribe: 'Join',
+    error: 'mail address is wrong',
+  },
+  footer: {
+    me: 'Who Am I',
+    credits: 'by kuworking.com',
+    credits_url: 'https://www.kuworking.com',
+    // prettier-ignore
+    date: () => <>[ 2018 - {new Date().getFullYear()}, by KUWorking ]</>,
+    cookies: () => <>Notice that we use cookies to improve the usability of this site</>,
+    cookies_agree: 'Ok',
+  },
+  pagination: {
+    next: 'Next',
+    previous: 'Previous',
+  },
+  notFound: {
+    title: 'Page not found',
+    description: 'I cannot find the page you are looking for!',
+    keywords: [`kuworking.com`],
+    mainPage: 'Go to main page',
+  },
+}

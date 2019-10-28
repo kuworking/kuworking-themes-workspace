@@ -4,29 +4,24 @@ import styled from '@emotion/styled'
 
 import { Text, Switch } from 'gatsby-theme-kuworking-core'
 
-export const Header = ({ main_maxwidth }) => (
-  <Parent main_maxwidth={main_maxwidth}>
+export const Header = () => (
+  <Parent>
     <header>
-      <MenuKW id="init" aria-label="inicio" to="/">
-        <div>{Text.site}</div>
-      </MenuKW>
+      <Logo id="init" aria-label="inicio" to="/">
+        <div>{Text.header.logo}</div>
+        <div>{Text.header.site}</div>
+      </Logo>
 
       <Space />
-
-      <MenuProfile>
-        <Link to="/contactar">Contactar</Link>
-      </MenuProfile>
 
       <Switch aria-label="Toggle color modes" />
     </header>
   </Parent>
 )
 
-const device = {
-  laptop: `(max-width: 1100px)`,
-  mobile: `(max-width: 600px)`,
-  mobileS: `(max-width: 400px)`,
-}
+//const laptop = `@media (min-width: 1100px)`
+//const mobile = `@media (min-width: 600px)`
+const mobileS = `@media (min-width: 400px)`
 
 const Parent = styled.div`
   width: 100%;
@@ -38,15 +33,13 @@ const Parent = styled.div`
   font-weight: 700;
   font-size: 1em;
   z-index: 1;
-  @media ${device.mobileS} {
+  ${mobileS} {
     font-size: 0.9em;
   }
 
   & > header {
-    max-width: ${props => props.main_maxwidth};
     width: 100%;
     min-height: 40px;
-    padding: 0px 10px;
 
     display: flex;
     justify-content: flex-start;
@@ -59,38 +52,12 @@ const Space = styled.div`
   flex-grow: 1;
 `
 
-const Menu = styled.div`
+const Logo = styled(Link)`
   cursor: pointer;
-  color: #999;
-  font-family: 'Open Sans';
-  font-weight: 700;
+  color: #c5c5c5;
+  font-weight: 400;
   padding: 10px;
-  @media ${device.mobile} {
-    padding: 0px;
-  }
-
-  & > a {
-    transition: color 0.5s ease-in;
-    text-decoration: none;
-    font-style: normal;
-    color: unset;
-  }
-`
-
-const textShadow = (num, color) => {
-  let shadow = []
-  Array.from(Array(num)).forEach((el, i) => shadow.push(`-${i}px ${i}px ${color}`))
-  return shadow.join(',')
-}
-
-const MenuKW = styled(Link)`
-  cursor: pointer;
-  color: #ff5900;
-  font-family: 'Open Sans';
-  font-weight: 700;
-  padding: 10px;
-
-  padding: 5px;
+  padding-left: 0px;
   border-radius: 2px;
   display: flex;
   align-self: stretch;
@@ -98,49 +65,32 @@ const MenuKW = styled(Link)`
   text-decoration: none;
   font-style: normal;
 
-  transition: background-color 0.5s ease-in, color 0.5s ease-in;
-  &:hover {
-    color: #666;
-    background-color: #ececec;
-  }
-
   & > div {
     display: flex;
-    font-weight: 700;
     align-items: center;
+    height: 20px;
+    padding: 0px 2px;
   }
-`
 
-const MenuProfile = styled(Menu)`
-  & > a {
-    padding: 5px;
-    border-radius: 8px;
-    color: #fff;
-    background-color: #45bcff;
-    transition: background-color 0.5s ease 0s;
+  & > div:first-of-type {
+    margin-right: 5px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    transition: background 0.5s ease-in, color 0.5s ease-in;
+  }
+  & > div:last-of-type {
+    border-radius: 2px;
+    transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
+  }
 
-    &:hover {
-      background-color: #666;
+  &:hover {
+    & > div:first-of-type {
+      color: #dadada;
+      background: #585858;
     }
-  }
-`
-const MenuLogOut = styled(MenuProfile)`
-  & > a {
-    background-color: #ababab;
-  }
-`
-
-const MenuCTA = styled(Menu)`
-  & > a {
-    padding: 5px;
-    background-color: #4ba7de;
-    color: #fff;
-    border-radius: 8px;
-    transition: box-shadow 0.1s ease-in 0s;
-    box-shadow: 0px 4px 0px #000;
-
-    &:hover {
-      box-shadow: 0px 8px 0px #000;
+    & > div:last-of-type {
+      color: #f9f9f9;
+      background: #ff5900;
     }
   }
 `

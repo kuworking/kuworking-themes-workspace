@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { Styled } from 'theme-ui'
 import CookieConsent from 'react-cookie-consent'
-
 import { Text } from 'gatsby-theme-kuworking-core'
 
 export const Footer = ({ main_maxwidth }) => (
@@ -10,18 +10,17 @@ export const Footer = ({ main_maxwidth }) => (
     <Expand />
     <Foot main_maxwidth={main_maxwidth}>
       <Legal>
-        <Elem aria-label="Mi Historia" to="/mi-historia">
-          mi historia
-        </Elem>
-        <Elem aria-label="Contactar" to="/contactar">
-          contactar
-        </Elem>
-        <Elem aria-label="Protección de datos" to="/proteccion_de_datos">
-          protección de datos
-        </Elem>
-        <Elem2>
+        <Styled.a as={Link} aria-label="Mi Historia" to="/me">
+          {Text.footer.me}
+        </Styled.a>
+        <Separator />
+        <Styled.a as="a" aria-label="kuworking" href={Text.footer.credits_url}>
+          {Text.footer.credits}
+        </Styled.a>
+        <Separator />
+        <span>
           <Text.footer.date />
-        </Elem2>
+        </span>
       </Legal>
 
       <CookieConsent
@@ -65,35 +64,29 @@ const Expand = styled.div`
 `
 
 const Foot = styled.footer`
-  max-width: ${props => props.main_maxwidth};
   width: 100%;
   z-index: 1;
-  font-family: 'Open Sans';
-  font-size: 1em;
   padding-top: 20px;
-  margin-top: 50px;
   padding-bottom: 20px;
-  min-height: 80px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
-
   letter-spacing: -0.5px;
 `
 
 const Legal = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `
 
-const Elem = styled(Link)`
-  padding: 0 10px;
-  color: #8f8f8f;
-  &:hover {
-    color: #555;
+const mobile = '@media (min-width: 600px)'
+
+const Separator = styled.div`
+  margin: 0px 20px;
+  border-right: 2px solid #c1c1c1a3;
+  align-self: center;
+  ${mobile} {
+    height: 75%;
   }
-`
-
-const Elem2 = styled.span`
-  padding: 0 10px;
-  color: #b9b9b9;
 `

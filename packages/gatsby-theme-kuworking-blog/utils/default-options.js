@@ -1,3 +1,6 @@
+const buildManifest = require('./manifest')
+const buildFeeds = require('./feeds')
+
 module.exports = themeOptions => {
   return {
     basePath: themeOptions.basePath || `/`,
@@ -18,10 +21,10 @@ module.exports = themeOptions => {
       'content/core',
     ],
 
-    manifest: themeOptions.manifest,
-    sitemap: themeOptions.sitemap,
-    feeds: themeOptions.feeds,
+    manifest: buildManifest(themeOptions.app),
+    feeds: buildFeeds(themeOptions.app),
     app: themeOptions.app,
     tagmanager: themeOptions.tagmanager,
+    sitemap: themeOptions.sitemap,
   }
 }

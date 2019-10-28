@@ -18,9 +18,7 @@ export const Switch = props => {
       css={css({
         bg: `primary`,
       })}
-    >
-      {colorMode}
-    </Square>
+    ></Square>
   )
 }
 
@@ -31,4 +29,10 @@ const Square = styled.div`
   width: 16px;
   height: 16px;
   margin: 4px;
+  border-radius: 2px;
+  transition: border-radius 0.5s ease, background 0.5s ease;
+
+  &:hover {
+    border-radius: 8px;
+  }
 `

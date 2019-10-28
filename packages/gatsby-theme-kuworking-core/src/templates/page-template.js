@@ -18,7 +18,7 @@ export const Page = ({ type = 'page', ...props }) => {
     <Structure
       type={type}
       blogPage={{
-        canonical: window.location && window.location.href,
+        canonical: typeof window !== 'undefined' && window.location.href,
         images: images,
         ...props,
       }}

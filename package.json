@@ -29,6 +29,7 @@
     "blog-one": "yarn workspace kuworking-blog-one develop",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
     "blog": "yarn workspace gatsby-theme-kuworking-blog-test develop",
+    "blog_build": "yarn workspace gatsby-theme-kuworking-blog-test build && yarn workspace gatsby-theme-kuworking-blog-test serve",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
     "info_new_workspace_1": "git init",

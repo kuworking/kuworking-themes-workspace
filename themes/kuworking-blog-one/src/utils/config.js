@@ -17,14 +17,11 @@ export const SeoText = {
 }
 
 export const Config = {
+  site_lang: `en`,
   url: 'https://www.kuworking.com/',
   social: ['https://www.pinterest.es/kuworking/', 'https://twitter.com/kuworking'],
   user: 'KUWorking',
   formcarry: 'https://formcarry.com/s/Vcvn0qpJt_S',
-  seo: {
-    site_lang: `es`,
-    site_author: `KUWorking Group`,
-  },
 }
 
 export const Text = {}

@@ -4,11 +4,6 @@ module.exports = themeOptions => {
   const options = withDefaults(themeOptions)
 
   return {
-    siteMetadata: {
-      title: options.title,
-      description: options.description,
-      siteUrl: options.siteUrl,
-    },
     plugins: [
       options.mdx && {
         resolve: `gatsby-plugin-mdx`,
@@ -61,9 +56,9 @@ module.exports = themeOptions => {
       },
       `gatsby-plugin-react-helmet`,
       `gatsby-plugin-robots-txt`,
-      options.feed && {
+      options.feeds && {
         resolve: `gatsby-plugin-feed`,
-        options: options.feed,
+        options: { feeds: [options.feeds] },
       },
       options.sitemap && {
         resolve: `gatsby-plugin-sitemap`,

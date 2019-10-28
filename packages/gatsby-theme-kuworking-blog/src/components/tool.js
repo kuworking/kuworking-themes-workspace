@@ -4,11 +4,18 @@ import styled from '@emotion/styled'
 import { Config, SocialShare } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
 
-export const Tool = ({ blogPage: { images, page, children } }) => {
+export const Tool = ({
+  blogPage: {
+    canonical,
+    images,
+    page: { title, name, image, share },
+    children,
+  },
+}) => {
   return (
     <Container>
+      {share && <SocialShare title={title} url={Config.url + name} image={image && canonical + image} />}
       {children}
-      <SocialShare title={page.title} url={Config.url + page.name} image={Config.url + page.publicUrl} />
 
       <CtaPosts />
     </Container>

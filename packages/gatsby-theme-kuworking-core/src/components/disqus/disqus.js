@@ -20,19 +20,20 @@ const LoadScript = ({ disqusShortName, load }) => {
     return function cancelFetch() {
       stillMounted.value = false
     }
-  }, [load]) // only run once
+  }, [load, disqusShortName])
 
   return <></>
 }
 
 export const Disqus = ({ load, disqusShortName, label, origin }) => {
-  window.disqus_config = function() {
-    //  window.disqus_config = () => {
-    this.page.identifier = origin
-    this.page.title = origin
-    this.page.url = Config.disqus_url
-    //    this.page.url = window.location.pathname
-  }
+  typeof window !== 'undefined' &&
+    (window.disqus_config = function() {
+      //  window.disqus_config = () => {
+      this.page.identifier = origin
+      this.page.title = origin
+      this.page.url = Config.disqus_url
+      //    this.page.url = window.location.pathname
+    })
 
   return (
     <>
