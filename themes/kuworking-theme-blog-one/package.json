@@ -1,9 +1,13 @@
 {
-  "name": "gatsby-theme-kuworking-blog-test",
+  "name": "kuworking-theme-blog-one",
   "version": "0.1.0",
-  "description": "gatsby-theme-kuworking-blog-test",
+  "description": "kuworking-theme-blog-one",
   "author": "kuworking.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuworking/kuworking-theme-blog-one.git"
+  },
   "dependencies": {
     "gatsby": "^2.13.70",
     "gatsby-theme-kuworking-blog": "*",

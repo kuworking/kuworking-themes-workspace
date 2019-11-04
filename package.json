@@ -23,13 +23,11 @@
     "prettier": "^1.16.4"
   },
   "scripts": {
-    "instructions": "npm run developing    or   npm run update",
-    "scripts_version": "workspace 0.1.0 kuworking-themes",
+    "scripts_version": "workspace 0.2 kuworking-themes",
     "____________________________": "________________________",
-    "blog-one": "yarn workspace kuworking-blog-one develop",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
-    "blog": "yarn workspace gatsby-theme-kuworking-blog-test develop",
-    "blog_build": "yarn workspace gatsby-theme-kuworking-blog-test build && yarn workspace gatsby-theme-kuworking-blog-test serve",
+    "blog-one": "yarn workspace kuworking-theme-blog-one develop",
+    "blog-one-build": "yarn workspace kuworking-theme-blog-one build && yarn workspace kuworking-theme-blog-one serve",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
     "info_new_workspace_1": "git init",
@@ -37,12 +35,7 @@
     "info_new_workspace_3": "git remote add origin https://github.com/user/repo.git",
     "info_new_workspace_4": "lerna bootstrap",
     "_________________________": "________________________",
-    "developing": "node push2.js developing",
-    "update": "node push2.js developing && npm run lerna_publish && node push2.js subtree",
-    "netlify": "node push2.js developing && npm run lerna_publish && node push2.js netlify",
-    "update_no_npm": "node push2.js developing && npm run lerna_version && node push2.js subtree",
-    "lerna_publish": "lerna publish --no-push",
-    "lerna_version": "lerna version --no-push",
+    "lerna_publish": "lerna publish",
     "________________________": "________________________",
     "git_windows1": "git config --global user.email 'kuworking@gmail.com'",
     "git_windows2": "git config --global user.name 'kuworking'",
@@ -55,20 +48,10 @@
     "developc_net": "node build_clean.js && gatsby develop -H 192.168.1.119",
     "serve": "gatsby serve",
     "clean_node_modules": "node clean_node_modules.js",
-    "_______________________": "________________________",
-    "developing_old": "node push.js developing",
-    "update_1_old": "node push.js update_1",
-    "update_2_old": "node push.js update_2",
-    "update_old": "npm run update_1 && npm run lerna_publish && npm run update_2",
-    "update_version_old": "npm run update_1 && npm run lerna_version && npm run update_2"
+    "_______________________": "________________________"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kuworking/kuworking-themes-workspace.git"
-  },
-  "repositories": {
-    "packages/gatsby-theme-kuworking-core": "https://github.com/kuworking/gatsby-theme-kuworking-core.git",
-    "packages/gatsby-theme-kuworking-blog": "https://github.com/kuworking/gatsby-theme-kuworking-blog.git",
-    "themes/blog-one": "https://github.com/kuworking/kuworking-blog-one.git"
   }
 }

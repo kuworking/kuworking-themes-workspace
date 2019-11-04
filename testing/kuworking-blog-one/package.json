@@ -4,10 +4,6 @@
   "description": "Gatsby theme - KUWorking Blog One",
   "author": "kuworking.com",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kuworking/kuworking-blog-one.git"
-  },
   "dependencies": {
     "gatsby": "^2.13.70",
     "gatsby-theme-kuworking-blog": "*",
