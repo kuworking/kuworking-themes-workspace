@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-kuworking-blog",
   "version": "0.1.1",
-  "description": "Gatsby theme - KUWorking Blog ",
+  "description": "gatsby-theme-kuworking-blog",
   "main": "index.js",
   "author": "kuworking.com",
   "license": "MIT",

@@ -1,8 +1,5 @@
 {
-  "packages": [
-    "themes/*",
-    "packages/*"
-  ],
+  "packages": ["packages/*", "themes/*", "starters/*"],
   "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true
