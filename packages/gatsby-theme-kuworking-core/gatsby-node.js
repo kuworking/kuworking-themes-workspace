@@ -12,15 +12,19 @@ const withDefaults = require(`./utils/default-options`)
 // remove the trailing dashes, still, not well resolved, only applies to pages here
 const replacePath = _path => (_path === `/` ? _path : _path.replace(/\/$/, ``))
 
-exports.onCreatePage = ({ page, actions }, themeOptions) => {
+exports.onCreatePage = async ({ page, actions }, themeOptions) => {
   const { basePath } = withDefaults(themeOptions)
   const { createPage, deletePage } = actions
 
   const oldPage = Object.assign({}, page)
-  page.path = urlResolve(replacePath(basePath), replacePath(page.path))
-  page.context = { pre_path: `${basePath}`, toChange: 'true' }
+  const newPage = Object.assign({}, page)
+  newPage.path = urlResolve(replacePath(basePath), replacePath(page.path))
+  newPage.context = { pre_path: `${basePath}` }
+  page.path = replacePath(page.path)
+  page.context = { pre_path: `${basePath}` }
+  deletePage(oldPage)
   createPage(page)
-  //  deletePage(oldPage) // is this a bug? I cannot delete the page
+  createPage(newPage)
 }
 
 // Ensure that content directories exist at site-level
@@ -203,7 +207,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
     Array.from({ length: numPages_perTag }).forEach((_, index) => {
       createPage({
-        path: index === 0 ? `${basePath}/${tagsPath}/${tag}/` : `${basePath}/${tagsPath}/${tag}/${index + 1}`,
+        path: index === 0 ? `${basePath}${tagsPath}/${tag}/` : `${basePath}${tagsPath}/${tag}/${index + 1}`,
         component: PostsTemplate,
         context: {
           pre_path: `${basePath}/${tagsPath}/${tag}`,

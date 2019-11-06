@@ -26,8 +26,7 @@
     "scripts_version": "workspace 0.2 kuworking-themes",
     "____________________________": "________________________",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
-    "blog-one": "yarn workspace kuworking-theme-blog-one develop",
-    "blog-one-prefix": "yarn workspace kuworking-theme-blog-one develop --prefix-paths",
+    "blog-one": "yarn workspace kuworking-theme-blog-one clean && yarn workspace kuworking-theme-blog-one develop",
     "blog-one-build": "yarn workspace kuworking-theme-blog-one build && yarn workspace kuworking-theme-blog-one serve",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
@@ -48,6 +47,7 @@
     "developc": "node build_clean.js && gatsby develop",
     "developc_net": "node build_clean.js && gatsby develop -H 192.168.1.119",
     "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "clean_node_modules": "node clean_node_modules.js",
     "_______________________": "________________________"
   },

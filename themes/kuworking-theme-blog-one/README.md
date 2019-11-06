@@ -27,7 +27,7 @@ More themes on [themes.kuworking.com](https://themes.kuworking.com)
 
 ### Install the starter
 
-- `gatsby new my-website https://github.com/kuworking/kuworking-theme-blog-one`
+- `gatsby new blog-one https://github.com/kuworking/kuworking-theme-blog-one`
 
 ### Start in development mode
 
