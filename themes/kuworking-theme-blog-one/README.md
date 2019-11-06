@@ -33,6 +33,8 @@ And explore your site at `http://localhost:8000`
 
 ## Folders
 
+```
+.
 ├─ content
 |  └── core
 |  |   └── none.jpg // fallback image
@@ -64,5 +66,4 @@ And explore your site at `http://localhost:8000`
 |─ **package.json** // **edit** to change the name of your package, description, repository and if it is public or private
 |─ **README.md** // **edit** this file to change the information
 |─ yarn.lock // not necessary to modify
-
-
+```
