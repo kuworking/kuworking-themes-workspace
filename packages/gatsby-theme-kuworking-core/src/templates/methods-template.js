@@ -1,3 +1,9 @@
+export const get_last_slug = str =>
+  str
+    .replace(/\/.*\//g, '')
+    .replace(/^\//, '')
+    .replace(/\/$/, '')
+
 export const get_image = (images, name) =>
   images.filter(el => el.node.childImageSharp.fluid.originalName.slice(0, -4) === name)[0]
 
@@ -11,7 +17,7 @@ const fill_related_posts = (posts, post, images) => {
 
   posts.forEach(({ node: this_post }, i) => {
     this_post.name = this_post.slug.replace(/^\//, '')
-    const image = get_image(images.images, this_post.slug.replace(/\/$/, '').replace(/\/.*\//g, ''))
+    const image = get_image(images.images, get_last_slug(this_post.slug))
     this_post.image = image && image.node.childImageSharp.fixed
     this_post.description = this_post.snippet
     if (this_post.title === post.title) this_is_the_own_post = i

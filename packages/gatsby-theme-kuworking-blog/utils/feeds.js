@@ -2,6 +2,11 @@ module.exports = site => {
   return {
     serialize: ({ query: { posts, post_images } }) => {
       const get_image = (images, name) => images.filter(el => el.node.name === name)[0]
+      const get_last_slug = str =>
+        str
+          .replace(/\/.*\//g, '')
+          .replace(/^\//, '')
+          .replace(/\/$/, '')
 
       return posts.edges.map(edge =>
         Object.assign({}, edge.node, {
@@ -11,9 +16,7 @@ module.exports = site => {
           url: site.siteUrl + edge.node.slug,
           enclosure: {
             type: 'image/jpeg',
-            url:
-              site.siteUrl +
-              get_image(post_images.edges, edge.node.slug.replace(/\/$/, '').replace(/\/.*\//g, '')).node.publicURL,
+            url: site.siteUrl + get_image(post_images.edges, get_last_slug(edge.node.slug).node.publicURL),
           },
           // custom_elements: [{ 'content:encoded': edge.node.html }],
         })

@@ -1,13 +1,22 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Styled } from 'theme-ui'
 
 import { Pagination } from 'gatsby-theme-kuworking-core'
 import { CtaMain } from './cta'
 import { Card } from './cards'
 
-export const Grid = ({ blogGrid: { posts, pagination } }) => (
+export const Grid = ({
+  blogGrid: {
+    posts,
+    pagination,
+    tags: { tags_grid, tag, global_tags },
+  },
+}) => (
   <>
     <CtaMain />
+
+    {tags_grid && <Tag>{tag}</Tag>}
 
     <Container>
       {posts.map((post, i) => (
@@ -41,3 +50,4 @@ const Container = styled.div`
     flex-wrap: wrap;
   }
 `
+const Tag = styled(Styled.h1)``
