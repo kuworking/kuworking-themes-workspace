@@ -4,10 +4,10 @@ import styled from '@emotion/styled'
 
 import { Text, Switch } from 'gatsby-theme-kuworking-core'
 
-export const Header = () => (
+export const Header = ({ basePath }) => (
   <Parent>
     <header>
-      <Logo id="init" aria-label="inicio" to="/">
+      <Logo id="init" aria-label="inicio" to={basePath}>
         <div>{Text.header.logo}</div>
         <div>{Text.header.site}</div>
       </Logo>

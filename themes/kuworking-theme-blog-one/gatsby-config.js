@@ -22,7 +22,7 @@ module.exports = {
 
         // not really meant to be modified
         mdx: true,
-        basePath: app.basePath || '/',
+        basePath: app.start_url || '/',
         postsPath: app.postsPath || 'content/posts',
         postImagesPath: app.postImagesPath || 'content/posts/images',
         iconsPath: app.iconsPath || 'content/icons',

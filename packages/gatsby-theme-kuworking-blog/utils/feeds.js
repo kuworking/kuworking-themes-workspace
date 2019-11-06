@@ -11,7 +11,9 @@ module.exports = site => {
           url: site.siteUrl + edge.node.slug,
           enclosure: {
             type: 'image/jpeg',
-            url: site.siteUrl + get_image(post_images.edges, edge.node.slug.replace(/\//g, '')).node.publicURL,
+            url:
+              site.siteUrl +
+              get_image(post_images.edges, edge.node.slug.replace(/\/$/, '').replace(/\/.*\//g, '')).node.publicURL,
           },
           // custom_elements: [{ 'content:encoded': edge.node.html }],
         })

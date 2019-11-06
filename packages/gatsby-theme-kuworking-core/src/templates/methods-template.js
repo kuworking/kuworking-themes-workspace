@@ -6,17 +6,12 @@ export const get_fixed_image = (images, name) =>
 
 export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
 
-export const get_data = post => ({
-  pageName: post.slug.replace(/\//g, ''), // needed for the 1st slash, the last one is already removed
-  type: post.type || '',
-})
-
 const fill_related_posts = (posts, post, images) => {
   let this_is_the_own_post
 
   posts.forEach(({ node: this_post }, i) => {
-    this_post.name = this_post.slug.replace(/\//g, '')
-    const image = get_image(images.images, this_post.name)
+    this_post.name = this_post.slug.replace(/^\//, '')
+    const image = get_image(images.images, this_post.slug.replace(/\/$/, '').replace(/\/.*\//g, ''))
     this_post.image = image && image.node.childImageSharp.fixed
     this_post.description = this_post.snippet
     if (this_post.title === post.title) this_is_the_own_post = i
@@ -51,7 +46,7 @@ export const post_structure = (post, image, fixed) => ({
   content: (post.parent && post.parent.body) || '',
   title: post.title,
   description: post.snippet,
-  name: post.slug.replace(/\//g, ''), // needed for the 1st slash, the last one is already removed
+  name: post.slug.replace(/^\//, ''), // needed for the 1st slash, the last one is already removed
   image: image && ((fixed && image.node.childImageSharp.fixed) || image.node.childImageSharp.fluid), // image of the post ('none.jpg' if none)
   full_image: image && image.node.publicURL, // image of the post ('none.jpg' if none) in its original resolution
 })

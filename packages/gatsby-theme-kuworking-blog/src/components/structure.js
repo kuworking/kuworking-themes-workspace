@@ -17,6 +17,10 @@ const post_maxwidth = '600px'
 export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
   const { main_maxwidth, main_background } = blogPage || ''
   const maxWidth = (blogPost && post_maxwidth) || main_maxwidth || grid_maxwidth
+  const basePath =
+    (blogGrid && blogGrid.pagination.pre_path) ||
+    (blogPost && blogPost.pre_path) ||
+    (blogPage && blogPage.page.pre_path)
 
   return (
     <Styled.root>
@@ -24,14 +28,14 @@ export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
         <SEO type={type} blogGrid={blogGrid} blogPost={blogPost} blogPage={blogPage} />
 
         <Container maxWidth={maxWidth}>
-          <Header />
+          <Header basePath={basePath} />
 
           {(type === 'grid' && <Grid blogGrid={blogGrid} />) ||
             (type === 'mdx' && <Post blogPost={blogPost} />) ||
             (type === 'page' && <Page blogPage={blogPage} />) ||
             (type === 'tool' && <Tool blogPage={blogPage} />)}
 
-          <Footer />
+          <Footer basePath={basePath} />
         </Container>
       </Main>
     </Styled.root>

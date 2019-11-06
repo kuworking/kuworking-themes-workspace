@@ -5,12 +5,12 @@ import { Styled } from 'theme-ui'
 import CookieConsent from 'react-cookie-consent'
 import { Text } from 'gatsby-theme-kuworking-core'
 
-export const Footer = ({ main_maxwidth }) => (
+export const Footer = ({ basePath }) => (
   <>
     <Expand />
-    <Foot main_maxwidth={main_maxwidth}>
+    <Foot>
       <Legal>
-        <Styled.a as={Link} aria-label="Mi Historia" to="/me">
+        <Styled.a as={Link} aria-label="Mi Historia" to={`${basePath}me`}>
           {Text.footer.me}
         </Styled.a>
         <Separator />

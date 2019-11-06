@@ -5,9 +5,10 @@ import { Styled } from 'theme-ui'
 
 import { Page, Text } from 'gatsby-theme-kuworking-core'
 
-const NotFoundPage = () => (
+const NotFoundPage = ({ pageContext: { pre_path } }) => (
   <Page
     page={{
+      pre_path: pre_path,
       title: Text.notFound.title,
       description: Text.notFound.description,
       keywords: Text.notFound.keywords,

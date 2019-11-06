@@ -12,18 +12,15 @@ const withDefaults = require(`./utils/default-options`)
 // remove the trailing dashes, still, not well resolved, only applies to pages here
 const replacePath = _path => (_path === `/` ? _path : _path.replace(/\/$/, ``))
 
-exports.onCreatePage = ({ page, actions }) => {
+exports.onCreatePage = ({ page, actions }, themeOptions) => {
+  const { basePath } = withDefaults(themeOptions)
   const { createPage, deletePage } = actions
 
-  return new Promise(resolve => {
-    const oldPage = Object.assign({}, page)
-    page.path = replacePath(page.path)
-    if (page.path !== oldPage.path) {
-      deletePage(oldPage)
-      createPage(page)
-    }
-    resolve()
-  })
+  const oldPage = Object.assign({}, page)
+  page.path = urlResolve(replacePath(basePath), replacePath(page.path))
+  page.context = { pre_path: `${basePath}`, toChange: 'true' }
+  createPage(page)
+  //  deletePage(oldPage) // is this a bug? I cannot delete the page
 }
 
 // Ensure that content directories exist at site-level
@@ -54,6 +51,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId }, themeOpt
 
   if (node.internal.type === `Mdx` && source === postsPath) {
     let slug
+
     if (node.frontmatter.slug) {
       // typically I don't add a slug, I infere it here
       if (path.isAbsolute(node.frontmatter.slug)) {
@@ -157,6 +155,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       path: slug,
       component: PostTemplate,
       context: {
+        pre_path: `${basePath}`,
         id: post.id,
         previousId: previous ? previous.node.id : undefined,
         nextId: next ? next.node.id : undefined,
@@ -167,15 +166,14 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   // Create the Posts (grid) page with pagination
   // But filter out those posts that are courses
   //  const numPages = Math.ceil(posts.length / postsPerPage)
-  const posts_without_courses = posts.filter(({ node }) => !node.type.includes('course'))
-  const numPages = Math.ceil(posts_without_courses.length / postsPerPage)
+  const numPages = Math.ceil(posts.length / postsPerPage)
 
   Array.from({ length: numPages }).forEach((_, index) => {
     createPage({
       path: index === 0 ? basePath : `${basePath}${index + 1}`,
       component: PostsTemplate,
       context: {
-        pre_path: '',
+        pre_path: `${basePath}`,
         limit: postsPerPage,
         skip: index * postsPerPage,
         num_of_pages: numPages,
@@ -189,7 +187,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   // A global array of all employed tags
   let global_tags = []
   let counting_by_tags = {}
-  posts_without_courses.forEach(({ node: post }, index) => {
+  posts.forEach(({ node: post }, index) => {
     const { tags } = post
     global_tags = global_tags.concat(tags)
     tags.map(tag => {
@@ -205,10 +203,10 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
     Array.from({ length: numPages_perTag }).forEach((_, index) => {
       createPage({
-        path: index === 0 ? `/${tagsPath}/${tag}/` : `/${tagsPath}/${tag}/${index + 1}`,
+        path: index === 0 ? `${basePath}/${tagsPath}/${tag}/` : `${basePath}/${tagsPath}/${tag}/${index + 1}`,
         component: PostsTemplate,
         context: {
-          pre_path: `/${tagsPath}/${tag}`,
+          pre_path: `${basePath}/${tagsPath}/${tag}`,
           limit: postsPerPage,
           skip: index * postsPerPage,
           num_of_pages: numPages_perTag,

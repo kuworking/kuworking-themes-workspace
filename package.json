@@ -27,6 +27,7 @@
     "____________________________": "________________________",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
     "blog-one": "yarn workspace kuworking-theme-blog-one develop",
+    "blog-one-prefix": "yarn workspace kuworking-theme-blog-one develop --prefix-paths",
     "blog-one-build": "yarn workspace kuworking-theme-blog-one build && yarn workspace kuworking-theme-blog-one serve",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
