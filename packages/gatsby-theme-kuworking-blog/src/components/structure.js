@@ -23,22 +23,20 @@ export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
     (blogPage && blogPage.page.pre_path)
 
   return (
-    <Styled.root>
-      <Main main_background={main_background}>
-        <SEO type={type} blogGrid={blogGrid} blogPost={blogPost} blogPage={blogPage} />
+    <Main main_background={main_background}>
+      <SEO type={type} blogGrid={blogGrid} blogPost={blogPost} blogPage={blogPage} />
 
-        <Container maxWidth={maxWidth}>
-          <Header basePath={basePath} />
+      <Container maxWidth={maxWidth}>
+        <Header basePath={basePath} />
 
-          {(type === 'grid' && <Grid blogGrid={blogGrid} />) ||
-            (type === 'mdx' && <Post blogPost={blogPost} />) ||
-            (type === 'page' && <Page blogPage={blogPage} />) ||
-            (type === 'tool' && <Tool blogPage={blogPage} />)}
+        {(type === 'grid' && <Grid blogGrid={blogGrid} />) ||
+          (type === 'mdx' && <Post blogPost={blogPost} />) ||
+          (type === 'page' && <Page blogPage={blogPage} />) ||
+          (type === 'tool' && <Tool blogPage={blogPage} />)}
 
-          <Footer basePath={basePath} />
-        </Container>
-      </Main>
-    </Styled.root>
+        <Footer basePath={basePath} />
+      </Container>
+    </Main>
   )
 }
 

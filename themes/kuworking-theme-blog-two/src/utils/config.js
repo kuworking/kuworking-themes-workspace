@@ -37,13 +37,13 @@ export const Text = {
     comments: 'Click and drop a comment',
   },
   header: {
-    site: 'KUWorking BLOG',
+    site: 'kuworking THEME BLOG TWO',
     logo: 'KW',
   },
   cta: {
     title: 'Call To Action!',
     // prettier-ignore
-    message: () => <>Drop here your <em>email</em> and I will keep you in the loop 🤠</>,
+    message: () => <>Suscribe to my mailing list with your <em>email</em></>,
     suscribe: 'Join',
     error: 'mail address is wrong',
   },

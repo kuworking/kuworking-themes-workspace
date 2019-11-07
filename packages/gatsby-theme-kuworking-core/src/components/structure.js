@@ -17,35 +17,33 @@ export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
   const maxWidth = (blogPost && post_maxwidth) || main_maxwidth || grid_maxwidth
 
   return (
-    <Styled.root>
-      <Main main_background={main_background}>
-        <SEO type={type} blogGrid={blogGrid} blogPost={blogPost} blogPage={blogPage} />
+    <Main main_background={main_background}>
+      <SEO type={type} blogGrid={blogGrid} blogPost={blogPost} blogPage={blogPage} />
 
-        <Container maxWidth={maxWidth}>
-          <Switch aria-label="Toggle color modes" />
+      <Container maxWidth={maxWidth}>
+        <Switch aria-label="Toggle color modes" />
 
-          {(type === 'grid' && (
-            <Grid>
-              <Styled.h1>GRID</Styled.h1>
+        {(type === 'grid' && (
+          <Grid>
+            <Styled.h1>GRID</Styled.h1>
+            <Lorem />
+          </Grid>
+        )) ||
+          (type === 'mdx' && (
+            <Post>
+              <Styled.h1>POST</Styled.h1>
               <Lorem />
-            </Grid>
+            </Post>
           )) ||
-            (type === 'mdx' && (
-              <Post>
-                <Styled.h1>POST</Styled.h1>
-                <Lorem />
-              </Post>
-            )) ||
-            ((type === 'page' || type === 'tool') && (
-              <Page>
-                <Styled.h1>PAGE</Styled.h1>
-                {children}
-                <Lorem />
-              </Page>
-            ))}
-        </Container>
-      </Main>
-    </Styled.root>
+          ((type === 'page' || type === 'tool') && (
+            <Page>
+              <Styled.h1>PAGE</Styled.h1>
+              {children}
+              <Lorem />
+            </Page>
+          ))}
+      </Container>
+    </Main>
   )
 }
 

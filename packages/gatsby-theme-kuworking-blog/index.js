@@ -10,9 +10,18 @@ export {
   Config,
   Text,
   SeoText,
-  Page,
   Spinner01,
   Switch,
   Disqus,
   shuffle_array,
 } from 'gatsby-theme-kuworking-core'
+
+export { Card } from './src/components/cards'
+export { CtaMain, CtaPosts } from './src/components/cta'
+export { Footer } from './src/components/footer'
+export { Grid } from './src/components/grid'
+export { Header } from './src/components/header'
+export { Page } from './src/components/page'
+export { Post } from './src/components/post'
+export { Structure } from './src/components/structure'
+export { Tool } from './src/components/tool'
