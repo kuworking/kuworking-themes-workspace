@@ -16,15 +16,17 @@ exports.onCreatePage = async ({ page, actions }, themeOptions) => {
   const { basePath } = withDefaults(themeOptions)
   const { createPage, deletePage } = actions
 
-  const oldPage = Object.assign({}, page)
-  const newPage = Object.assign({}, page)
-  newPage.path = urlResolve(replacePath(basePath), replacePath(page.path))
-  newPage.context = { pre_path: `${basePath}` }
-  page.path = replacePath(page.path)
-  page.context = { pre_path: `${basePath}` }
-  deletePage(oldPage)
-  createPage(page)
-  createPage(newPage)
+  if (page.path.includes('404')) return
+  deletePage(page)
+
+  return createPage({
+    ...page,
+    path: urlResolve(replacePath(basePath), replacePath(page.path)),
+    context: {
+      pre_path: `${basePath}`,
+    },
+  })
+
 }
 
 // Ensure that content directories exist at site-level

@@ -9,39 +9,6 @@ export const CtaMain = () => {
   const form_id = React.createRef()
   const input_id = React.createRef()
 
-  const suscribeToMailChimp = () => {
-    const json = {
-      site: Config.user,
-      mail_adress : input_id.current.value.trim(),
-      _subject : 'new mail address',
-      u: '7679f6806268867998475ecb8',
-     // id: 'd0543eb54f',
-      id: 'mc-embedded-subscribe-form',
-      b_name: '',
-      b_email: '',
-      b_comment: '',
-      MERGE0: 'test@test.com',
-      MERGE1: '',
-      MERGE2: '',
-      MERGE5: {month: ''},
-      MERGE5: {day: ''},
-      submit: 'Subscribe',
-      ht: '6237482d47e469345fbbd609398e5266f4cbbda5:MTU3MzA1MTAxNC4yMDgz',
-      mc_signupsource: 'hosted',
-    }
-
-    const response = await fetch(Config.mail_chimp_action, {
-      crossDomain: true,
-      referrerPolicy: 'origin-when-cross-origin',
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(json),
-    })
-  }
-
   return (
     <Container
       bg={theme.colors.cta__div__background}
@@ -107,9 +74,9 @@ export const CtaMain = () => {
                 e.stopPropagation()
                 const expression = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/
                 const id = input_id.current.value.trim()
-                expression.test(String(id).toLowerCase())
-                  ? form_id.current.submit()
-                  : (input_id.current.value = Text.cta.error)
+                //expression.test(String(id).toLowerCase())
+                // ? form_id.current.submit()
+                // : (input_id.current.value = Text.cta.error)
               }}
             >
               <MailIcon />
