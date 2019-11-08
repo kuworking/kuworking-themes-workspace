@@ -1,16 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Styled } from 'theme-ui'
 
 import { SEO } from 'gatsby-theme-kuworking-core'
-import { Header } from './header'
-import { Footer } from './footer'
-import { Grid } from './grid'
-import { Post } from './post'
-import { Page } from './page'
-import { Tool } from './tool'
+import { Header, Footer, Post, Grid, Page, Tool } from 'gatsby-theme-kuworking-blog'
 import './globalcss.css'
 
-const grid_maxwidth = '800px'
+const grid_maxwidth = '600px'
 const post_maxwidth = '600px'
 
 export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {

@@ -18,12 +18,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
   return (
     <>
-      <Title
-        name="tothetop"
-        color={theme.colors.post__title__color}
-        em={theme.colors.post__title_em__color}
-        bgem={theme.colors.post__title_em__background}
-      >
+      <Title name="tothetop" theme={theme}>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </div>
@@ -60,7 +55,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       />
 
       <div css={{ marginBottom: '50px' }} />
-      <Img fluid={post.image} alt="post related to image" />
+      <Img fluid={post.image} alt="image related to post" />
       <div css={{ marginBottom: '50px' }} />
 
       <MDXRenderer>{post.content}</MDXRenderer>
@@ -71,7 +66,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         <Styled.h1>{Text.post.related_posts}</Styled.h1>
         <Container>
           {tags_related_posts.map((post, i) => (
-            <Card key={'related_card_' + i} post={post.node} i={i} />
+            <Card key={'related_card_' + i} post={post.node} i={i} related />
           ))}
         </Container>
       </RelatedPosts>
@@ -96,15 +91,16 @@ const Title = styled(Styled.h1)`
   & > div {
     font-size: 1.7em;
     text-transform: uppercase;
-    color: ${props => props.color};
+    color: ${props => props.theme.colors.post__title__color};
 
     & > em {
       font-style: normal;
       padding: 0px 6px;
       border-radius: 3px;
       display: inline-block;
-      color: ${props => props.em};
-      background: ${props => props.bgem};
+      color: ${props => props.theme.colors.post__title_em__color};
+      background: ${props => props.theme.colors.post__title_em__background};
+      transition: color 0.5s ease, background 0.5s ease;
     }
   }
 `

@@ -20,14 +20,15 @@ export default ({ location: { href }, pageContext, data }) => {
     wallpapers: wallpapers.edges || '',
   }
 
-  const { pre_path } = pageContext
+  const { pre_path, basePath } = pageContext
 
   return (
     <Structure
       type="mdx"
       blogPost={{
         canonical: href,
-        pre_path: pre_path,
+        basePath,
+        pre_path,
         images: images,
         post: post_structure(post, images.image),
         structure: {

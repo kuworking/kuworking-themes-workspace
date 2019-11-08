@@ -23,7 +23,7 @@ exports.onCreatePage = async ({ page, actions }, themeOptions) => {
     ...page,
     path: urlResolve(replacePath(basePath), replacePath(page.path)),
     context: {
-      pre_path: `${basePath}`,
+      basePath: basePath,
     },
   })
 
@@ -161,7 +161,8 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       path: slug,
       component: PostTemplate,
       context: {
-        pre_path: `${basePath}`,
+        basePath: basePath,
+        pre_path: basePath,
         id: post.id,
         previousId: previous ? previous.node.id : undefined,
         nextId: next ? next.node.id : undefined,
@@ -179,7 +180,8 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       path: index === 0 ? basePath : `${basePath}${index + 1}`,
       component: PostsTemplate,
       context: {
-        pre_path: `${basePath}`,
+        basePath: basePath,
+        pre_path: basePath,
         limit: postsPerPage,
         skip: index * postsPerPage,
         num_of_pages: numPages,
@@ -212,7 +214,8 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         path: index === 0 ? `${basePath}${tagsPath}/${tag}/` : `${basePath}${tagsPath}/${tag}/${index + 1}`,
         component: PostsTemplate,
         context: {
-          pre_path: `${basePath}/${tagsPath}/${tag}`,
+          basePath: basePath,
+          pre_path: `${basePath}${tagsPath}/${tag}`,
           limit: postsPerPage,
           skip: index * postsPerPage,
           num_of_pages: numPages_perTag,

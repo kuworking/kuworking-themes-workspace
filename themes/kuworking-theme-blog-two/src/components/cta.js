@@ -10,16 +10,7 @@ export const CtaMain = () => {
   const input_id = React.createRef()
 
   return (
-    <Container
-      bg={theme.colors.cta__div__background}
-      title={theme.colors.cta__title__color}
-      em={theme.colors.cta__em__background}
-      txtem={theme.colors.cta__em__color}
-      buttonbg={theme.colors.cta__button__background}
-      buttonc={theme.colors.cta__button__color}
-      buttonbgh={theme.colors.cta__button_hover__background}
-      buttonch={theme.colors.cta__button_hover__color}
-    >
+    <Container theme={theme}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>
@@ -99,7 +90,7 @@ const Title = styled(Styled.h1)`
 
   & > div {
     font-size: 1.6em;
-    border-right: 5px solid #ffffffde;
+    border-right: 5px solid #c3c3c3de;
     margin-right: 5px;
     white-space: nowrap;
     overflow: hidden;
@@ -136,6 +127,7 @@ const MailChimp = styled.div`
       height: 100%;
       margin-right: 5px;
       border-radius: 3px;
+      border: 2px solid ${props => props.theme.colors.cta__button__border};
       padding: 5px;
       width: 120px;
       ${mobileS} {
@@ -146,7 +138,7 @@ const MailChimp = styled.div`
 
   & button {
     font-size: 1.4em;
-    border: 2px solid #000;
+    border: 2px solid ${props => props.theme.colors.cta__button__border};
     cursor: pointer;
     font-weight: 700;
     text-decoration: none;
@@ -160,31 +152,32 @@ const MailChimp = styled.div`
 `
 
 const Container = styled.div`
-  background: ${props => props.bg};
-  border-radius: 2px;
+  background: ${props => props.theme.colors.cta__div__background};
+  border-radius: 3px;
   padding: 20px 40px 15px 15px;
+  border: 1px solid ${props => props.theme.colors.cta__div__border};
 
   & em {
     font-style: normal;
     font-weight: 700;
     padding: 1px 5px;
     border-radius: 2px;
-    background: ${props => props.em};
-    color: ${props => props.txtem};
+    background: ${props => props.theme.colors.cta__em__background};
+    color: ${props => props.theme.colors.cta__em__color};
   }
 
   ${Title} {
-    color: ${props => props.title};
+    color: ${props => props.theme.colors.cta__title__color};
     transition: color 0.5s ease;
   }
   ${MailChimp} button {
-    background: ${props => props.buttonbg};
-    color: ${props => props.buttonc};
+    background: ${props => props.theme.colors.cta__button__background};
+    color: ${props => props.theme.colors.cta__button__color};
     transition: color 0.5s ease, background 0.5s ease;
 
     &:hover {
-      background: ${props => props.buttonbgh};
-      color: ${props => props.buttonch};
+      background: ${props => props.theme.colors.cta__button_hover__background};
+      color: ${props => props.theme.colors.cta__button_hover__color};
     }
   }
 `

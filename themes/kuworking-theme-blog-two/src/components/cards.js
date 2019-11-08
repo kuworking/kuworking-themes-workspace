@@ -11,25 +11,20 @@ export const Card = ({ post, i, related }) => {
       as={Container}
       aria-label="Post"
       to={'/' + post.name}
-      bgem={theme.colors.cards__em__background}
-      em={theme.colors.cards__em__color}
-      lh={theme.lineHeights.body}
+      theme={theme}
+      related={related ? 1 : 0} /* to prevent a warning from styled-components */
     >
-      <Image src={related ? post.fixed_image.src : post.image.src}>
-        <Abstract
-          bg={theme.colors.global__text_with_background__background}
-          c={theme.colors.global__text_with_background__color}
-        >
-          <div>
-            {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
-          </div>
-        </Abstract>
-      </Image>
+      <Image src={related ? post.fixed_image.src : post.image.src} />
       <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
         <Title>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </Title>
       </Styled.h4>
+      <Abstract>
+        <div>
+          {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
+        </div>
+      </Abstract>
     </Styled.a>
   )
 }
@@ -39,14 +34,8 @@ const Title = styled.div`
   width: 90%;
 `
 const Abstract = styled.div`
-  opacity: 0;
-  transition: opacity 0.3s ease 0s;
   width: 90%;
-  padding: 2px;
   & > div {
-    background: ${props => props.bg};
-    color: ${props => props.c};
-    padding: 0 3px;
     display: inline;
     -webkit-box-decoration-break: clone; /* to get the padding */
     box-decoration-break: clone;
@@ -56,14 +45,14 @@ const Abstract = styled.div`
 const Container = styled(Link)`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 200px minmax(20px, 1fr);
+  grid-template-rows: ${props => (props.related ? '200px' : '500px')} minmax(20px, 1fr);
   align-content: flex-start;
 
-  &:hover {
-    ${Abstract} {
-      opacity: 0.8;
-    }
-  }
+  border: 1px solid ${props => props.theme.colors.cards__border};
+  padding: 3px 3px 10px 3px;
+  background: ${props => props.theme.colors.cards__background};
+  border-radius: 3px;
+  transition: border 0.5s ease, background 0.5s ease;
 
   & ${Abstract} > div > span,
   & ${Title} > span {
@@ -72,12 +61,12 @@ const Container = styled(Link)`
 
   & ${Abstract} > div > em,
   & ${Title} > em {
-    background: ${props => props.bgem};
-    color: ${props => props.em};
+    background: ${props => props.theme.colors.cards__em__background};
+    color: ${props => props.theme.colors.cards__em__color};
     font-style: normal;
     padding: 0px 2px;
     font-weight: 700;
-    line-height: ${props => props.lh};
+    line-height: ${props => props.theme.lineHeights.body};
   }
 
   @supports not (display: grid) {

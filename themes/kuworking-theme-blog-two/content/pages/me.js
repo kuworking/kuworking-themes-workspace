@@ -4,10 +4,10 @@ import { Styled } from 'theme-ui'
 
 import { Page } from 'gatsby-theme-kuworking-core'
 
-const Me = ({ pageContext: { pre_path } }) => (
+const Me = ({ pageContext: { basePath } }) => (
   <Page
     page={{
-      pre_path: pre_path,
+      basePath: basePath,
       title: 'Me',
       description: 'My Description',
       keywords: ['me', 'my blog'],

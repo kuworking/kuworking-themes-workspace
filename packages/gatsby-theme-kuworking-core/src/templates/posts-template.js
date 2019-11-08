@@ -1,5 +1,5 @@
 import React from 'react'
-import { get_image, get_fixed_image, post_structure, get_last_slug } from './methods-template'
+import { get_image, post_structure, get_last_slug } from './methods-template'
 import { Structure } from '../components/structure'
 
 export default ({ location, pageContext, data }) => {
@@ -14,14 +14,15 @@ export default ({ location, pageContext, data }) => {
   const allPosts = data.allTagPosts ? data.allTagPosts.edges : data.allBlogPost.edges
   const posts = []
 
-  allPosts.forEach(({ node: post }, index) =>
+  allPosts.forEach(({ node: post }, index) => {
+    const image = get_image(images.images, get_last_slug(post.slug))
     posts.push({
-      ...post_structure(post, get_fixed_image(images.images, get_last_slug(post.slug)), true), // true to use fixed and not fluid
+      ...post_structure(post, image),
       key: 'post_' + index,
     })
-  )
+  })
 
-  const { tag, global_tags, pre_path, num_of_pages, current_page } = pageContext
+  const { tag, global_tags, pre_path, basePath, num_of_pages, current_page } = pageContext
 
   return (
     <Structure
@@ -30,6 +31,7 @@ export default ({ location, pageContext, data }) => {
         images: images,
         posts: posts,
         pagination: {
+          basePath,
           pre_path,
           num_of_pages,
           current_page,

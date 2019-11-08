@@ -52,7 +52,7 @@ export const Text = {
     credits: 'by kuworking.com',
     credits_url: 'https://www.kuworking.com',
     // prettier-ignore
-    date: () => <>[ 2018 - {new Date().getFullYear()}, by KUWorking ]</>,
+    date: () => <>[ 2018 - {new Date().getFullYear()} - kuworking ]</>,
     cookies: () => <>Notice that we use cookies to improve the usability of this site</>,
     cookies_agree: 'Ok',
   },
