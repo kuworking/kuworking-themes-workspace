@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 
 import { SEO } from 'gatsby-theme-kuworking-core'
 import { Header, Footer, Post, Grid, Page, Tool } from 'gatsby-theme-kuworking-blog'

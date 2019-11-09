@@ -14,3 +14,5 @@ export { Switch } from './src/components/elements/switch'
 export { Disqus } from './src/components/disqus/disqus'
 
 export { shuffle_array } from './src/components/methods/methods'
+
+export { useScript } from './src/components/hooks/usescript'

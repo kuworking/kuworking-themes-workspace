@@ -19,9 +19,8 @@ export const Header = ({ basePath }) => (
   </Parent>
 )
 
-//const laptop = `@media (min-width: 1100px)`
-//const mobile = `@media (min-width: 600px)`
-const mobileS = `@media (min-width: 400px)`
+const q700 = `@media (min-width: 700px)`
+const q400 = `@media (min-width: 400px)`
 
 const Parent = styled.div`
   width: 100%;
@@ -33,7 +32,7 @@ const Parent = styled.div`
   font-weight: 700;
   font-size: 1em;
   z-index: 1;
-  ${mobileS} {
+  ${q400} {
     font-size: 0.9em;
   }
 
@@ -81,6 +80,10 @@ const Logo = styled(Link)`
   & > div:last-of-type {
     border-radius: 2px;
     transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
+    display: none;
+    ${q700} {
+      display: unset;
+    }
   }
 
   &:hover {

@@ -91,14 +91,18 @@ export const CtaMain = () => {
 
 export const CtaPosts = props => <CtaMain props={props} />
 
-const mobileS = '@media (min-width: 400px)'
+const q700 = '@media (min-width: 700px)'
+const q400 = '@media (min-width: 400px)'
 
 const Title = styled(Styled.h1)`
   text-transform: uppercase;
   display: inline-block;
 
   & > div {
-    font-size: 1.6em;
+    font-size: 1.4em;
+    ${q700} {
+      font-size: 1.6em;
+    }
     border-right: 5px solid #ffffffde;
     margin-right: 5px;
     white-space: nowrap;
@@ -138,7 +142,7 @@ const MailChimp = styled.div`
       border-radius: 3px;
       padding: 5px;
       width: 120px;
-      ${mobileS} {
+      ${q400} {
         width: 200px;
       }
     }
@@ -162,7 +166,13 @@ const MailChimp = styled.div`
 const Container = styled.div`
   background: ${props => props.bg};
   border-radius: 2px;
-  padding: 20px 40px 15px 15px;
+
+  font-size: 0.7em;
+  padding: 10px;
+  ${q700} {
+    font-size: 1em;
+    padding: 20px 40px 15px 15px;
+  }
 
   & em {
     font-style: normal;

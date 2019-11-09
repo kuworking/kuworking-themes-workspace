@@ -1,0 +1,27 @@
+html {
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  transition: background-color 1s ease
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  text-transform: none;
+  border-style: none;
+}
+
+*,
+*:before,
+*:after,
+:after,
+:before {
+  box-sizing: inherit;
+}

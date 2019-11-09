@@ -2,6 +2,7 @@
 
 export default {
   cta__div__background: 'linear-gradient(52deg, #ff5514 80%,#ff7e4d 90%, #ffc521 100%)',
+  cta__div__border: '#dadada',
   cta__title__color: '#fff',
   cta__em__background: '#ffffff',
   cta__em__color: '#ff6a00',
@@ -9,7 +10,10 @@ export default {
   cta__button__color: '#000',
   cta__button_hover__background: '#000000',
   cta__button_hover__color: '#fff',
+  cta__button__border: '#000',
 
+  cards__border: '#e6e6e6;',
+  cards__background: '#fff',
   cards__em__background: '#5a4242',
   cards__em__color: '#fff',
 
@@ -26,16 +30,22 @@ export default {
 
   text: '#3d2c29',
   heading: '#907d79',
+  primary: '#907d79',
 
   modes: {
     dark: {
       cta__div__background: 'linear-gradient(52deg,#9569dc 60%,#6f42b7 80%,#340082 100%)',
+      cta__title__color: '#c969dc',
       cta__em__background: '#ffed70',
       cta__em__color: '#000000',
       cta__button__background: '#ffffff30',
       cta__button__color: '#fff',
       cta__button_hover__background: '#ff9191',
       cta__button_hover__color: '#fff',
+      cta__button__border: '#ffffff30',
+
+      cards__border: '#fff;',
+      cards__background: '#000',
       cards__em__background: '#c969dc',
       cards__em__color: '#fff',
 
@@ -53,7 +63,7 @@ export default {
       text: '#F0F5FA',
       heading: '#d9d7dc',
       background: '#222639',
-      primary: '#BB99FF',
+      primary: '#c1bdca',
       secondary: '#EE99FF',
       muted: '#00000033',
       highlight: '#5F527A',
@@ -62,12 +72,16 @@ export default {
     },
     tosh: {
       cta__div__background: 'linear-gradient(52deg,#e0e0e0 50%,#c7c7c7 80%,#b7b7b7 100%)',
+      cta__title__color: '#737373',
+      cta__em__background: '#c7d0dc',
       cta__em__color: '#000000',
       cta__button__background: '#ffffff30',
       cta__button__color: '#666',
       cta__button_hover__background: '#ffdf00',
       cta__button_hover__color: '#fff',
 
+      cards__border: '#dcdcdc;',
+      cards__background: '#ececec',
       cards__em__background: '#c7d0dc',
       cards__em__color: '#000',
 
@@ -85,7 +99,7 @@ export default {
       text: '#000',
       heading: '#7b7b7b',
       background: '#fff',
-      primary: '#b5b5b5',
+      primary: '#909090',
       secondary: '#3f3f3f',
       muted: '#e0e0e0',
       highlight: '#9f9f9f',
@@ -94,13 +108,17 @@ export default {
     },
     roboto: {
       cta__div__background: 'linear-gradient(52deg,#6ccbff 60%,#affffb 95%,#ffffff 100%)',
+      cta__title__color: '#fff',
       cta__em__background: '#ffed6b',
       cta__em__color: '#000000',
       cta__button__background: '#ffffff30',
       cta__button__color: '#666',
       cta__button_hover__background: '#ffffff78',
       cta__button_hover__color: '#fff',
+      cta__button__border: '#eaeaea',
 
+      cards__border: '#ececec;',
+      cards__background: '#fff',
       cards__em__background: '#6ccbff',
       cards__em__color: '#000',
 
@@ -117,9 +135,9 @@ export default {
 
       text: '#202124',
       heading: '#56616f',
-      background: '#e6e6e6',
-      primary: '#1a73e8',
-      secondary: '#9c27b0',
+      background: '#fff',
+      primary: '#6292bb',
+      secondary: '#547a9a',
       muted: '#f1f3f4',
     },
   },

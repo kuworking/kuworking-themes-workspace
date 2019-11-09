@@ -29,6 +29,8 @@ export const Card = ({ post, i, related }) => {
   )
 }
 
+const q500 = '@media (min-width: 500px)'
+
 const Title = styled.div`
   margin-top: 2px;
   width: 90%;
@@ -45,7 +47,10 @@ const Abstract = styled.div`
 const Container = styled(Link)`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: ${props => (props.related ? '200px' : '500px')} minmax(20px, 1fr);
+  grid-template-rows: ${props => (props.related ? '200px' : '300px')} minmax(20px, 1fr);
+  ${q500} {
+    grid-template-rows: ${props => (props.related ? '200px' : '500px')} minmax(20px, 1fr);
+  }
   align-content: flex-start;
 
   border: 1px solid ${props => props.theme.colors.cards__border};

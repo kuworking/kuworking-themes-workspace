@@ -7,19 +7,9 @@ export const Card = ({ post, i, related }) => {
   const { theme } = useThemeUI()
 
   return (
-    <Styled.a
-      as={Container}
-      aria-label="Post"
-      to={'/' + post.name}
-      bgem={theme.colors.cards__em__background}
-      em={theme.colors.cards__em__color}
-      lh={theme.lineHeights.body}
-    >
+    <Styled.a as={Container} aria-label="Post" to={'/' + post.name} theme={theme}>
       <Image src={related ? post.fixed_image.src : post.image.src}>
-        <Abstract
-          bg={theme.colors.global__text_with_background__background}
-          c={theme.colors.global__text_with_background__color}
-        >
+        <Abstract theme={theme}>
           <div>
             {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
           </div>
@@ -44,8 +34,8 @@ const Abstract = styled.div`
   width: 90%;
   padding: 2px;
   & > div {
-    background: ${props => props.bg};
-    color: ${props => props.c};
+    background: ${props => props.theme.colors.global__text_with_background__background};
+    color: ${props => props.theme.colors.global__text_with_background__color};
     padding: 0 3px;
     display: inline;
     -webkit-box-decoration-break: clone; /* to get the padding */
@@ -58,6 +48,12 @@ const Container = styled(Link)`
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 200px minmax(20px, 1fr);
   align-content: flex-start;
+
+  border: 1px solid ${props => props.theme.colors.cards__border};
+  padding: 3px 3px 10px 3px;
+  background: ${props => props.theme.colors.cards__background};
+  border-radius: 3px;
+  transition: border 0.5s ease, background 0.5s ease;
 
   &:hover {
     ${Abstract} {
@@ -72,12 +68,12 @@ const Container = styled(Link)`
 
   & ${Abstract} > div > em,
   & ${Title} > em {
-    background: ${props => props.bgem};
-    color: ${props => props.em};
+    background: ${props => props.theme.colors.cards__em__background};
+    color: ${props => props.theme.colors.cards__em__color};
     font-style: normal;
     padding: 0px 2px;
     font-weight: 700;
-    line-height: ${props => props.lh};
+    line-height: ${props => props.theme.lineHeights.body};
   }
 
   @supports not (display: grid) {
