@@ -52,7 +52,7 @@ const particles_json = {
 }
 
 const ParticlesScript = () => {
-  const [loaded, error] = useScript('http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js')
+  const [loaded, error] = useScript('https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js')
   return <>{loaded && window.particlesJS && window.particlesJS('particles-js', particles_json)}</>
 }
 
