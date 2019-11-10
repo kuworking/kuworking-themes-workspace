@@ -1,5 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-core-test",
+  "private": true,
   "version": "0.1.4",
   "description": "gatsby-theme-kuworking-core-test",
   "author": "kuworking.com",

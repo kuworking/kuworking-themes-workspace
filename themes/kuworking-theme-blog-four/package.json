@@ -1,6 +1,7 @@
 {
   "name": "kuworking-theme-blog-four",
   "version": "0.1.1",
+  "private": true,
   "description": "kuworking-theme-blog-four",
   "author": "kuworking.com",
   "license": "MIT",
