@@ -1,6 +1,6 @@
 {
   "name": "kuworking-theme-blog-one",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "description": "kuworking-theme-blog-one",
   "author": "kuworking.com",
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "gatsby": "^2.13.70",
-    "gatsby-theme-kuworking-blog": "^0.1.6",
+    "gatsby-theme-kuworking-blog": "^0.1.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
