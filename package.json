@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^3.16.4",
     "babel-eslint": "^10.0",
     "eslint": "^6.2.1",
     "eslint-config-prettier": "^6.1.0",
@@ -18,8 +17,10 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
+    "fs-extra": "^8.1.0",
     "gulp": "^4.0.0",
     "gulp-help": "^1.6.1",
+    "lerna": "^3.16.4",
     "prettier": "^1.16.4"
   },
   "scripts": {
@@ -42,6 +43,7 @@
     "info_new_workspace_4": "lerna bootstrap",
     "_________________________": "________________________",
     "lerna_publish": "lerna publish",
+    "split_monorepo": "node monorepo-to-repos.js",
     "________________________": "________________________",
     "git_windows1": "git config --global user.email 'kuworking@gmail.com'",
     "git_windows2": "git config --global user.name 'kuworking'",
