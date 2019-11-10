@@ -61,11 +61,9 @@ const starting = async () => {
       await createFolder(`${theme}`, remote_json.repository.url)
       await process.chdir(`./${theme}`)
 
-      console.log(`src: ${__dirname}/${dir}/${remote_json.name}`)
-      console.log(`dest: ${__dirname}/${temp_dir}/${remote_json.name}`)
-//      await fs.copy(`${__dirname}/${dir}/${remote_json.name}`, `${__dirname}/${temp_dir}/${remote_json.name}`, err =>
-//        console.log(err ? err : `folder ${dir} updated` + '\n')
-//      )
+      const src = `${__dirname}/${dir}/${remote_json.name}`
+      const dest = `${__dirname}/${temp_dir}/${remote_json.name}`
+      await fs.copy(src, dest, err => console.log(err ? err : `folder ${dir} updated` + '\n'))
 
       console.log('git add and push')
 
