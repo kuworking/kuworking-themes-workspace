@@ -4,7 +4,7 @@
 
 Based on `gatsby-theme-kuworking-blog` -> `gatsby-theme-kuworking-core`
 
-[Demo](kuworking-theme-blog-one)
+[Demo](https://kuworking-theme-blog-one.netlify.com/)
 
 More themes on [themes.kuworking.com](https://themes.kuworking.com)
 
@@ -31,7 +31,17 @@ More themes on [themes.kuworking.com](https://themes.kuworking.com)
 
 And explore your site at `http://localhost:8000`
 
+## Posts and Post images
+
+- Posts are stored in `./content/posts` and have the structure `2019.10.05.my-first-post.mdx`
+- The first _date_ part is necessary and is useful to sort files by date in the file explorer
+
+- Post images are stored in `./content/posts/images` and have the structure `my-first-post.jpg`, this is, the same name than the post except the _date_ part
+
+
 ## Folders
+
+Files that you may want to modify
 
 ```
 .
@@ -39,31 +49,24 @@ And explore your site at `http://localhost:8000`
 |  └── core
 |  |   └── none.jpg // fallback image
 |  └── icons
-|  |   └── **favicon.png** // favicon
+|  |   └── favicon.png // favicon
 |  └── pages
-|  |   └── 404.js // not necessary to modify
-|  |   └── **me.js** // **edit with your text**
+|  |   └── 404.js // not found page
+|  |   └── me.js // bio page
 |  └── posts
-|  |   └── images // post images, must have the same filename as the partner post (minus the date part)
-|  |       └── **my-first-post.jpg** // image example, partner of 2019.10.05.my-first-post.mdx
-|  |       └── ...
-|  |   └── **2019.10.05.my-first-post.mdx** // post example, the first "date" part is necessary but only serves sorting purposes in the file explorer, nothing else
 |  |   └── ...
-|  └── wallpapers // of no use in this theme
+|  |   └── images // post images
+|  |       └── ...
 |
 ├─ src
-|  └── gatsby-theme-kuworking-blog // folder, not necessary to modify
-|  |
 |  └── utils
-|      └── **app.js** // **edit** this file to configure basic data of your site
-|      └── **config.js** // **edit** this file to define all text of your site plus other configuration data
-|      └── **sitemap.js** // define here the routes you do not want to track with your _sitemap_
-|      └── **tagmanager.js** // define here your tagmanager tracking code
+|      └── app.js // edit this file to configure basic data of your site
+|      └── config.js // edit this file to define all text of your site plus other configuration data
+|      └── sitemap.js // define here the routes you do not want to track with your _sitemap_
+|      └── tagmanager.js // define here your tagmanager tracking code
 |
-|─ gatsby-config.js // not necessary to modify
-|─ MIT LICENSE // not necessary to modify
+|─ MIT LICENSE // the license of this theme
 |─ netlify.toml // of use if you will deploy to Netlify
-|─ **package.json** // **edit** to change the name of your package, description, repository and if it is public or private
-|─ **README.md** // **edit** this file to change the information
-|─ yarn.lock // not necessary to modify
+|─ package.json // edit this file to change the name of your package, description, repository and if it is public or private
+|─ README.md // this file you are reading now
 ```
