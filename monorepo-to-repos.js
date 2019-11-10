@@ -21,24 +21,19 @@ const isWin = process.platform === 'win32'
 const dir = './themes'
 const temp_dir = '../kuworking-split-monorepos'
 
-const doit = async command => {
-  console.log(`
-  executing: ${command}`)
+const bash = async command => {
+  console.log(`>>>  executing: ${command}` + '\n')
   const cm = await exec(command)
-  if (cm.stdout)
-    console.log(`
-  ${stdout}`)
+  if (cm.stdout) console.log(`>>>  ${stdout}` + '\n')
 }
 
-const createFolder = dir => {
+const createFolder = async (dir, cloneUrl) => {
   if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir, '0766', err => {
-      if (err) {
-        console.log(err)
-        response.send("ERROR! Can't make the directory! \n")
-        process.exit()
-      } else console.log(`folder ${dir} created`)
-    })
+    fs.mkdirSync(dir, '0766', err => console.log(err ? err : `folder ${dir} created` + '\n') && process.exit())
+    if (cloneUrl) {
+      await bash(`git clone ${cloneUrl}`)
+      console.log(`repo ${cloneUrl} git-cloned` + '\n')
+    }
   }
 }
 
@@ -58,33 +53,21 @@ const starting = async () => {
     // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop
     for (const theme of themes) {
       const remote_json = require(`./${dir}/${theme}/package.json`)
-      console.log(remote_json.name)
+      console.log(`Entering in ${remote_json.name}` + '\n')
       if (remote_json.private) continue
 
       await createFolder(temp_dir)
       await process.chdir(`./${temp_dir}`)
-      await createFolder(`${theme}`)
+      await createFolder(`${theme}`, remote_json.repository.url)
       await process.chdir(`./${theme}`)
-      await bash('git clone remote_json.repository.url', `cloning ${theme}`)
 
-      awair fs.emptyDir('/tmp/some/dir', err => {
-        if (err) return console.error(err)
+      console.log(`src: ${__dirname}/${dir}/${remote_json.name}`)
+      console.log(`dest: ${__dirname}/${temp_dir}/${remote_json.name}`)
+//      await fs.copy(`${__dirname}/${dir}/${remote_json.name}`, `${__dirname}/${temp_dir}/${remote_json.name}`, err =>
+//        console.log(err ? err : `folder ${dir} updated` + '\n')
+//      )
 
-      const files = await fs.readdirSync('./')
-      for (const file of files) {
-        await fs.unlinkSync(file)
-      }
-
-      await fs.copy('/tmp/mydir', '/tmp/mynewdir', function (err) {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log("success!");
-        }
-      }); //copies directory, even if it has subdirectories or files
-
-      console.log(files)
-
+      console.log('git add and push')
 
       await process.chdir(__dirname)
 
