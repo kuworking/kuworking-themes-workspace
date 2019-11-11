@@ -32,7 +32,7 @@ export const Header = ({ basePath, maxWidth, post }) => {
   )
 }
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Graphic = styled.div`
   background: ${props => props.theme.colors.header__div__background};

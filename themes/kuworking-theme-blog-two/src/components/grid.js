@@ -35,7 +35,7 @@ export const Grid = ({
   )
 }
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Container = styled.div`
   margin: 50px 0px;

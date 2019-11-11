@@ -82,7 +82,7 @@ export const CtaMain = () => {
 
 export const CtaPosts = props => <CtaMain props={props} />
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled(Styled.h1)`
   text-transform: uppercase;

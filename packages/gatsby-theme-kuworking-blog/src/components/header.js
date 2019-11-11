@@ -19,7 +19,7 @@ export const Header = ({ basePath }) => (
   </Parent>
 )
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Parent = styled.div`
   width: 100%;

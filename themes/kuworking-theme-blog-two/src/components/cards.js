@@ -29,7 +29,7 @@ export const Card = ({ post, i, related }) => {
   )
 }
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled.div`
   margin-top: 2px;

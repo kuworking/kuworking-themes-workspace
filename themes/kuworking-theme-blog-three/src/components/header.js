@@ -28,7 +28,7 @@ export const Header = ({ basePath, maxWidth }) => (
   </>
 )
 
-const q = px => `@media (min-width: ${px}px) {`
+const q = px => `@media (min-width: ${px}px)`
 
 const Graphic = styled.div`
   background: linear-gradient(to right, #e76b6b, #ff2525);
