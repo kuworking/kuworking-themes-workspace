@@ -19,8 +19,7 @@ export const Header = ({ basePath }) => (
   </Parent>
 )
 
-const q700 = `@media (min-width: 700px)`
-const q400 = `@media (min-width: 400px)`
+const q = px => `@media (min-width: ${px}px) {`
 
 const Parent = styled.div`
   width: 100%;
@@ -32,7 +31,7 @@ const Parent = styled.div`
   font-weight: 700;
   font-size: 1em;
   z-index: 1;
-  ${q400} {
+  ${q(400)} {
     font-size: 0.9em;
   }
 
@@ -81,7 +80,7 @@ const Logo = styled(Link)`
     border-radius: 2px;
     transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
     display: none;
-    ${q700} {
+    ${q(700)} {
       display: unset;
     }
   }

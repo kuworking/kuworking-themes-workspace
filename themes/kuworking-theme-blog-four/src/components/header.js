@@ -32,8 +32,7 @@ export const Header = ({ basePath, maxWidth, post }) => {
   )
 }
 
-const q700 = `@media (min-width: 700px)`
-const q400 = `@media (min-width: 400px)`
+const q = px => `@media (min-width: ${px}px) {`
 
 const Graphic = styled.div`
   background: ${props => props.theme.colors.header__div__background};
@@ -47,15 +46,15 @@ const Graphic = styled.div`
   align-items: center;
 
   height: ${props => (props.post ? '200px' : '200px')};
-  ${q700} {
+  ${q(700)} {
     height: ${props => (props.post ? '200px' : '600px')};
   }
 
   font-size: ${props => (props.post ? '30vw' : '30vw')};
-  ${q400} {
+  ${q(400)} {
     font-size: ${props => (props.post ? '9em' : '30vw')};
   }
-  ${q700} {
+  ${q(700)} {
     font-size: ${props => (props.post ? '9em' : '15em')};
   }
 
@@ -99,7 +98,7 @@ const Logo = styled(Link)`
     border-radius: 2px;
     transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
     display: none;
-    ${q700} {
+    ${q(700)} {
       display: unset;
     }
   }
@@ -127,7 +126,7 @@ const Parent = styled.div`
 
   background: linear-gradient(to right, #e76b6b, #ff2525);
 
-  ${q400} {
+  ${q(400)} {
     font-size: 0.9em;
   }
 

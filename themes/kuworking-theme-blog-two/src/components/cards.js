@@ -29,7 +29,7 @@ export const Card = ({ post, i, related }) => {
   )
 }
 
-const q500 = '@media (min-width: 500px)'
+const q = px => `@media (min-width: ${px}px) {`
 
 const Title = styled.div`
   margin-top: 2px;
@@ -48,7 +48,7 @@ const Container = styled(Link)`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: ${props => (props.related ? '200px' : '300px')} minmax(20px, 1fr);
-  ${q500} {
+  ${q(500)} {
     grid-template-rows: ${props => (props.related ? '200px' : '500px')} minmax(20px, 1fr);
   }
   align-content: flex-start;

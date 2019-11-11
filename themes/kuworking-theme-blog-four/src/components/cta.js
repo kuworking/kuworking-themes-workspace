@@ -82,8 +82,7 @@ export const CtaMain = () => {
 
 export const CtaPosts = props => <CtaMain props={props} />
 
-const q700 = '@media (min-width: 700px)'
-const q400 = '@media (min-width: 400px)'
+const q = px => `@media (min-width: ${px}px) {`
 
 const Title = styled(Styled.h1)`
   text-transform: uppercase;
@@ -91,7 +90,7 @@ const Title = styled(Styled.h1)`
 
   & > div {
     font-size: 1.4em;
-    ${q700} {
+    ${q(700)} {
       font-size: 1.6em;
     }
     border-right: 5px solid #c3c3c3de;
@@ -134,7 +133,7 @@ const MailChimp = styled.div`
       border: 2px solid ${props => props.theme.colors.cta__button__border};
       padding: 5px;
       width: 120px;
-      ${q400} {
+      ${q(400)} {
         width: 200px;
       }
     }
@@ -161,7 +160,7 @@ const Container = styled.div`
 
   font-size: 0.7em;
   padding: 10px;
-  ${q700} {
+  ${q(700)} {
     font-size: 1em;
     padding: 20px 40px 15px 15px;
   }

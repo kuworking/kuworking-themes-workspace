@@ -35,7 +35,7 @@ export const Grid = ({
   )
 }
 
-const q1100 = '@media (min-width: 1100px)'
+const q = px => `@media (min-width: ${px}px) {`
 
 const Container = styled.div`
   margin: 50px 0px;
@@ -48,7 +48,7 @@ const Container = styled.div`
   grid-row-gap: 3vw;
   justify-content: space-between;
 
-  ${q1100} {
+  ${q(1100)} {
     grid-column-gap: 10px;
     grid-row-gap: 30px;
   }

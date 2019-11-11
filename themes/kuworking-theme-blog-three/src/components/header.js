@@ -28,8 +28,7 @@ export const Header = ({ basePath, maxWidth }) => (
   </>
 )
 
-const q500 = `@media (min-width: 700px)`
-const q400 = `@media (min-width: 400px)`
+const q = px => `@media (min-width: ${px}px) {`
 
 const Graphic = styled.div`
   background: linear-gradient(to right, #e76b6b, #ff2525);
@@ -39,7 +38,7 @@ const Graphic = styled.div`
   display: flex;
   color: #fff;
   font-size: 25vw;
-  ${q500} {
+  ${q(500)} {
     font-size: 10em;
   }
 `
@@ -121,7 +120,7 @@ const Logo = styled(Link)`
     border-radius: 2px;
     transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
     display: none;
-    ${q400} {
+    ${q(400)} {
       display: unset;
     }
   }
