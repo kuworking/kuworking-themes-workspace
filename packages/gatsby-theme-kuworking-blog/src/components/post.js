@@ -71,13 +71,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         </Container>
       </RelatedPosts>
 
-      <CommentsWrap
-        onClick={() => setDisqusLoad(1)}
-        c={theme.colors.global__panel__color}
-        bg={theme.colors.global__panel__background}
-        ch={theme.colors.global__panel_hover__color}
-        bgh={theme.colors.global__panel_hover__background}
-      >
+      <CommentsWrap onClick={() => setDisqusLoad(1)} theme={theme}>
         <Styled.h1>{Text.post.comments}</Styled.h1>
         <Disqus load={disqusLoad} disqusShortName={Config.disqus} label="Comment From A Post" origin={post.name} />
       </CommentsWrap>
@@ -154,18 +148,18 @@ const CommentsWrap = styled.div`
   padding: 10px;
   cursor: pointer;
   transition: background 0.5s ease;
-  background: ${props => props.bg};
+  background: ${props => props.theme.colors.global__panel__background};
 
   & > h1 {
     margin-bottom: 0px;
     transition: color 0.5s ease;
-    color: ${props => props.c};
+    color: ${props => props.theme.colors.global__panel__color};
   }
 
   &:hover {
-    background: ${props => props.bgh};
+    background: ${props => props.theme.colors.global__panel_hover__background};
     & > h1 {
-      color: ${props => props.ch};
+      color: ${props => props.chtheme.colors.global__panel_hover__color};
     }
   }
 `

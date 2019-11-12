@@ -10,16 +10,7 @@ export const CtaMain = () => {
   const input_id = React.createRef()
 
   return (
-    <Container
-      bg={theme.colors.cta__div__background}
-      title={theme.colors.cta__title__color}
-      em={theme.colors.cta__em__background}
-      txtem={theme.colors.cta__em__color}
-      buttonbg={theme.colors.cta__button__background}
-      buttonc={theme.colors.cta__button__color}
-      buttonbgh={theme.colors.cta__button_hover__background}
-      buttonch={theme.colors.cta__button_hover__color}
-    >
+    <Container theme={theme}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>
@@ -163,7 +154,7 @@ const MailChimp = styled.div`
 `
 
 const Container = styled.div`
-  background: ${props => props.bg};
+  background: ${props => props.theme.colors.cta__div__background};
   border-radius: 2px;
 
   font-size: 0.7em;
@@ -178,22 +169,22 @@ const Container = styled.div`
     font-weight: 700;
     padding: 1px 5px;
     border-radius: 2px;
-    background: ${props => props.em};
-    color: ${props => props.txtem};
+    background: ${props => props.theme.colors.cta__em__background};
+    color: ${props => props.theme.colors.cta__em__color};
   }
 
   ${Title} {
-    color: ${props => props.title};
+    color: ${props => props.theme.colors.cta__title__color};
     transition: color 0.5s ease;
   }
   ${MailChimp} button {
-    background: ${props => props.buttonbg};
-    color: ${props => props.buttonc};
+    background: ${props => props.theme.colors.cta__button__background};
+    color: ${props => props.theme.colors.cta__button__color};
     transition: color 0.5s ease, background 0.5s ease;
 
     &:hover {
-      background: ${props => props.buttonbgh};
-      color: ${props => props.buttonch};
+      background: ${props => props.theme.colors.cta__button_hover__background};
+      color: ${props => props.theme.colors.cta__button_hover__color};
     }
   }
 `
