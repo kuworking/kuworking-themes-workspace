@@ -11,10 +11,9 @@ export const Container = styled.div`
   margin-bottom: 20px;
   transition: transform 1s ease, border 1s ease;
   width: 70%;
-  min-width: 560px;
+  width: 100%;
   ${q(585)} {
-    width: 100%;
-    min-width: unset;
+    min-width: 560px;
   }
   &:hover {
     transform: translate(1px, -3px);
