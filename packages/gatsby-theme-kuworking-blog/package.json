@@ -23,5 +23,6 @@
     "gatsby": "^2.13.70",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
-  }
+  },
+  "gitHead": "72f47278ca63ee031f5c38dad6c0f4bf5ba4e425"
 }

@@ -20,5 +20,6 @@
     "serve": "gatsby clean && gatsby build && gatsby serve",
     "net": "gatsby develop -H 192.168.1.100",
     "clean": "gatsby clean"
-  }
+  },
+  "gitHead": "72f47278ca63ee031f5c38dad6c0f4bf5ba4e425"
 }
