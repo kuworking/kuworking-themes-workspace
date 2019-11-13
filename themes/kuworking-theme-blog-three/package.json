@@ -21,5 +21,18 @@
     "net": "gatsby develop -H 192.168.1.100",
     "clean": "gatsby clean"
   },
+  "devDependencies": {
+    "babel-eslint": "^10.0",
+    "eslint": "^6.2.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-config-standard": "^14.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.16.4"
+  },
   "gitHead": "72f47278ca63ee031f5c38dad6c0f4bf5ba4e425"
 }
