@@ -12,7 +12,7 @@ export default {
   cta__button_hover__color: '#fff',
   cta__button__border: '#000',
 
-  cards__border: '#e6e6e6;',
+  cards__border: '#e6e6e6',
   cards__background: '#fff',
   cards__em__background: '#5a4242',
   cards__em__color: '#fff',
@@ -44,7 +44,7 @@ export default {
       cta__button_hover__color: '#fff',
       cta__button__border: '#ffffff30',
 
-      cards__border: '#fff;',
+      cards__border: '#fff',
       cards__background: '#000',
       cards__em__background: '#c969dc',
       cards__em__color: '#fff',
@@ -80,7 +80,7 @@ export default {
       cta__button_hover__background: '#ffdf00',
       cta__button_hover__color: '#fff',
 
-      cards__border: '#dcdcdc;',
+      cards__border: '#dcdcdc',
       cards__background: '#ececec',
       cards__em__background: '#c7d0dc',
       cards__em__color: '#000',
@@ -117,7 +117,7 @@ export default {
       cta__button_hover__color: '#fff',
       cta__button__border: '#eaeaea',
 
-      cards__border: '#ececec;',
+      cards__border: '#ececec',
       cards__background: '#fff',
       cards__em__background: '#6ccbff',
       cards__em__color: '#000',

@@ -1,5 +1,5 @@
 /*
- version 2019.11.10
+ version 2019.11.13
 
  clone each theme in this monorepo to a separated repo to push it to GitHub
 
@@ -71,7 +71,7 @@ const starting = async message => {
 
       await bash(`git add *`)
       await bash(`git config core.ignorecase false`)
-      await bash(`git commit -m '${message.trim()}'`)
+      await bash(`git commit --allow-empty -m "${message.trim()}"`)
       if (!isWin) await bash(`git config --global credential.helper 'cache --timeout=3600'`)
       await bash(`git push origin master`)
       await process.chdir(__dirname)
