@@ -159,7 +159,7 @@ const CommentsWrap = styled.div`
   &:hover {
     background: ${props => props.theme.colors.global__panel_hover__background};
     & > h1 {
-      color: ${props => props.chtheme.colors.global__panel_hover__color};
+      color: ${props => props.theme.colors.global__panel_hover__color};
     }
   }
 `
