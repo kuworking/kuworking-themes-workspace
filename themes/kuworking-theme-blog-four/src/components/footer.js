@@ -89,13 +89,13 @@ const Legal = styled.div`
   justify-content: center;
 `
 
-const mobile = '@media (min-width: 600px)'
+const q = px => `@media (min-width: ${px}px)`
 
 const Separator = styled.div`
   margin: 0px 20px;
   border-right: 2px solid #c1c1c1a3;
   align-self: center;
-  ${mobile} {
+  ${q(600)} {
     height: 75%;
   }
 `

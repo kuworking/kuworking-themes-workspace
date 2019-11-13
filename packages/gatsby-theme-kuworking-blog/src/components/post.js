@@ -79,7 +79,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
   )
 }
 
-const laptop = '@media (min-width: 1100px)'
+const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled(Styled.h1)`
   & > div {
@@ -175,7 +175,7 @@ const Container = styled.article`
   grid-row-gap: 1.6vw;
   justify-content: space-between;
 
-  ${laptop} {
+  ${q(1100)} {
     grid-column-gap: 15px;
     grid-row-gap: 15px;
   }

@@ -47,13 +47,6 @@ export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
   )
 }
 
-const mw = [
-  '@media (min-width: 400px)',
-  '@media (min-width: 600px)',
-  '@media (min-width: 800px)',
-  '@media (min-width: 1100px)',
-]
-
 const Main = styled.main`
   background: ${props => props.main_background || 'unset'};
   display: flex;

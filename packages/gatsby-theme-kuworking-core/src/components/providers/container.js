@@ -1,5 +1,7 @@
 import styled from '@emotion/styled'
 
+const q = px => `@media (min-width: ${px}px)`
+
 export const Container = styled.div`
   background-color: #f4f4f4;
   display: inline-block;
@@ -10,7 +12,7 @@ export const Container = styled.div`
   transition: transform 1s ease, border 1s ease;
   width: 70%;
   min-width: 560px;
-  @media (max-width: 585px) {
+  ${q(585)} {
     width: 100%;
     min-width: unset;
   }
