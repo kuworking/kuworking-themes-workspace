@@ -27,7 +27,7 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage }) => {
     (post && [...SeoText.generic_keywords, ...post.tags.map(el => el.replace(/_/g, ' '))]) ||
     (tags && tags.tags_grid && [...SeoText.generic_keywords, tags.tag]) || [...SeoText.generic_keywords]
 
-  const image = (post && (Config.url + post.image.src).replace('//', '/')) || ''
+  const image = (post && (Config.url + post.image.src).replace(/(?<!:)\/\//, '/')) || ''
   const canonical_url = canonical || Config.url
   const robots = (page && page.robots) || 'index, follow'
 
