@@ -27,7 +27,7 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage }) => {
     (post && [...SeoText.generic_keywords, ...post.tags.map(el => el.replace(/_/g, ' '))]) ||
     (tags && tags.tags_grid && [...SeoText.generic_keywords, tags.tag]) || [...SeoText.generic_keywords]
 
-  const image = (post && post.image.src) || ''
+  const image = (post && (Config.url + post.image.src).replace('//', '/')) || ''
   const canonical_url = canonical || Config.url
   const robots = (page && page.robots) || 'index, follow'
 
@@ -83,7 +83,7 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage }) => {
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
       <meta name="og:type" content={content_type_og} />
-      <meta name="og:image" content={Config.url + image} />
+      <meta name="og:image" content={image} />
       <meta name="og:url" content={canonical_url} />
 
       {/* Twitter Card tags */}
@@ -93,7 +93,7 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:domain" content={canonical_url} />
-      <meta name="twitter:image" content={Config.url + image} />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   )
 }
