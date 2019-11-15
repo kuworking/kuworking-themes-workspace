@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Img = ({ data_src, src, title }) => {
+export const LazyImg = ({ data_src, src, title }) => {
   // to prevent error due to window not available during build
   //  if ('IntersectionObserver' in window) {
 
@@ -38,6 +38,15 @@ export const Img = ({ data_src, src, title }) => {
     </DivImg>
   )
 }
+
+export const BackgroundImage = styled.div`
+  background-image: ${props => `url(${props.src})`};
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  align-items: end;
+  border-radius: 2px;
+`
 
 const DivImg = styled.div`
   text-decoration: none;

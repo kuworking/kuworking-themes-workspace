@@ -13,6 +13,7 @@ export {
   Spinner01,
   Switch,
   Disqus,
+  LazyImg,
   shuffle_array,
 } from 'gatsby-theme-kuworking-core'
 

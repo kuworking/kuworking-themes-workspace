@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Styled, useThemeUI } from 'theme-ui'
+import { LazyImg } from 'gatsby-theme-kuworking-blog'
 
 export const Card = ({ post, i, related }) => {
   const { theme } = useThemeUI()
@@ -14,6 +15,7 @@ export const Card = ({ post, i, related }) => {
       theme={theme}
       related={related ? 1 : 0} /* to prevent a warning from styled-components */
     >
+      <LazyImg src={related ? post.fixed_image.src : post.image.src} />
       <Image src={related ? post.fixed_image.src : post.image.src} />
       <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
         <Title>
