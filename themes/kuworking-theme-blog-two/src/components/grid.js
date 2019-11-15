@@ -43,7 +43,7 @@ const Container = styled.div`
   transition: padding 0.5s ease;
 
   display: grid;
-  grid-template-columns: repeat(1fr);
+  grid-template-columns: 1fr;
   grid-column-gap: 1vw;
   grid-row-gap: 3vw;
   justify-content: space-between;
