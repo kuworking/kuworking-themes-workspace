@@ -20,6 +20,7 @@ export const query = graphql`
           snippet
           abstract
           tags
+          type
         }
       }
     }
@@ -34,6 +35,7 @@ export const query = graphql`
           snippet
           abstract
           tags
+          type
         }
       }
     }

@@ -49,6 +49,7 @@ export const post_structure = (post, image) => ({
     .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>'),
   content: (post.parent && post.parent.body) || '',
   title: post.title,
+  type: post.type,
   description: post.snippet,
   name: post.slug.replace(/^\//, ''), // needed for the 1st slash, the last one is already removed
   fixed_image: image && image.node.childImageSharp.fixed,

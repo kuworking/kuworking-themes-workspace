@@ -13,6 +13,7 @@ export const query = graphql`
       tags
       snippet
       abstract
+      type
       ... on MdxBlogPost {
         parent {
           ... on Mdx {
@@ -29,12 +30,14 @@ export const query = graphql`
       id
       slug
       title
+      type
       date(formatString: "MMMM DD, YYYY")
     }
     next: mdxBlogPost(id: { eq: $nextId }) {
       id
       slug
       title
+      type
       date(formatString: "MMMM DD, YYYY")
     }
     allPosts: allMdxBlogPost {
@@ -47,6 +50,7 @@ export const query = graphql`
           tags
           snippet
           abstract
+          type
           ... on MdxBlogPost {
             parent {
               ... on Mdx {

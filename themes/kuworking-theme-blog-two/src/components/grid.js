@@ -26,6 +26,7 @@ export const Grid = ({
       )}
 
       <Container>
+      {console.log(posts)}
         {posts.map((post, i) => (
           <Card key={'card_' + i} post={post} i={i} />
         ))}
