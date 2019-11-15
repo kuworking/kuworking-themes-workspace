@@ -2,10 +2,22 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Styled, useThemeUI } from 'theme-ui'
-import { LazyImg } from 'gatsby-theme-kuworking-blog'
+import { LazyBackgroundImg } from 'gatsby-theme-kuworking-blog'
 
 export const Card = ({ post, i, related }) => {
   const { theme } = useThemeUI()
+
+  const backgroundImage = `
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-items: end;
+    border-radius: 2px;
+    transition: filter 0.3s ease;
+    &:hover {
+      filter: brightness(0.5);
+    }
+  `
 
   return (
     <Styled.a
@@ -15,8 +27,10 @@ export const Card = ({ post, i, related }) => {
       theme={theme}
       related={related ? 1 : 0} /* to prevent a warning from styled-components */
     >
-      <LazyImg src={related ? post.fixed_image.src : post.image.src} />
-      <Image src={related ? post.fixed_image.src : post.image.src} />
+      <LazyBackgroundImg
+        data_image={related ? post.fixed_image && post.fixed_image.src : post.image && post.image.src}
+        component={backgroundImage}
+      />
       <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
         <Title>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
@@ -81,13 +95,4 @@ const Container = styled(Link)`
     width: 100%;
     margin: 5px 2px;
   }
-`
-
-const Image = styled.div`
-  background-image: ${props => `url(${props.src})`};
-  background-size: cover;
-  background-position: center;
-  display: grid;
-  align-items: end;
-  border-radius: 2px;
 `

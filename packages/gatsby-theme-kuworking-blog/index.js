@@ -14,6 +14,7 @@ export {
   Switch,
   Disqus,
   LazyImg,
+  LazyBackgroundImg,
   shuffle_array,
 } from 'gatsby-theme-kuworking-core'
 
