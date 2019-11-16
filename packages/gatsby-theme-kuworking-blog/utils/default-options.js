@@ -22,7 +22,7 @@ module.exports = themeOptions => {
     ],
 
     manifest: buildManifest(themeOptions.app),
-    feeds: buildFeeds(themeOptions.app),
+    feeds: themeOptions.feeds(themeOptions.app) || buildFeeds(themeOptions.app),
     app: themeOptions.app,
     tagmanager: themeOptions.tagmanager,
     sitemap: themeOptions.sitemap,
