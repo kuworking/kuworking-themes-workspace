@@ -1,19 +1,7 @@
 import React, { useEffect } from 'react'
-import { Container } from './container'
 
-export const Pinterest = ({ className, src, text }) => (
-  <Container>
-    <a
-      aria-label="Pinterest"
-      data-pin-do="embedPin"
-      data-pin-width="large"
-      data-pin-build="doBuild"
-      href={src}
-      className={className}
-    >
-      <div>{text}</div>
-    </a>
-  </Container>
+export const Pinterest = ({ src }) => (
+  <a aria-label="Pinterest" data-pin-do="embedPin" data-pin-width="large" data-pin-build="doBuild" href={src}></a>
 )
 
 export const PinterestScript = () => {
