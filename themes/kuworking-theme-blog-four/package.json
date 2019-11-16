@@ -1,6 +1,6 @@
 {
   "name": "kuworking-theme-blog-four",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "kuworking-theme-blog-four",
   "author": "kuworking.com",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gatsby": "^2.13.70",
-    "gatsby-theme-kuworking-blog": "^0.1.17",
+    "gatsby-theme-kuworking-blog": "^0.1.18",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
