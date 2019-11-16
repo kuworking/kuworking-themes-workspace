@@ -2,6 +2,7 @@ export { GoogleMap } from './src/components/providers/googlemap'
 export { Instagram } from './src/components/providers/instagram'
 export { Pinterest, PinterestScript } from './src/components/providers/pinterest'
 export { Youtube } from './src/components/providers/youtube'
+export { Video } from './src/components/providers/video'
 
 export { Pagination } from './src/components/pagination'
 export { SEO } from './src/components/seo'

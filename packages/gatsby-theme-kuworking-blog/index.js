@@ -4,6 +4,7 @@ export {
   Pinterest,
   PinterestScript,
   Youtube,
+  Video,
   Pagination,
   SEO,
   SocialShare,
