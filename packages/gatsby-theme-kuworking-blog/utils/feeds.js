@@ -8,19 +8,21 @@ module.exports = site => {
           .replace(/^\//, '')
           .replace(/\/$/, '')
 
-      return posts.edges.map(edge =>
-        Object.assign({}, edge.node, {
+      return posts.edges.map(edge => {
+        const image = get_image(post_images.edges, get_last_slug(edge.node.slug))
+        const url = image ? image.node.publicURL : ''
+        return Object.assign({}, edge.node, {
           title: edge.node.title.replace(/#/g, ''),
           description: edge.node.snippet,
           date: new Date(edge.node.date).toString(),
           url: site.siteUrl + edge.node.slug,
           enclosure: {
             type: 'image/jpeg',
-            url: site.siteUrl + get_image(post_images.edges, get_last_slug(edge.node.slug)).node.publicURL,
+            url: site.siteUrl + url,
           },
           // custom_elements: [{ 'content:encoded': edge.node.html }],
         })
-      )
+      })
     },
     query: `
       {
