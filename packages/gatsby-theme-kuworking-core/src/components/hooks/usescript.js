@@ -11,7 +11,7 @@ export const useScript = src => {
   })
 
   useEffect(() => {
-    const inject_particles = stillMounted => {
+    const inject_script = stillMounted => {
       if (cachedScripts.includes(src)) {
         setState({
           loaded: true,
@@ -49,7 +49,7 @@ export const useScript = src => {
     }
 
     const stillMounted = { value: true }
-    inject_particles(stillMounted)
+    inject_script(stillMounted)
 
     return () => {
       stillMounted.value = false
