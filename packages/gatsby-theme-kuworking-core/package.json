@@ -10,10 +10,16 @@
     "url": "https://github.com/kuworking/gatsby-theme-kuworking-core.git"
   },
   "peerDependencies": {
-    "@mdx-js/react": "^1.5.1",
-    "gatsby": "^2.13.13",
-    "react": "^16.9",
-    "react-dom": "^16.9"
+    "@mdx-js/react": "1.5.1",
+    "gatsby": "2.15.15",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
+  },
+  "devDependencies": {
+    "@mdx-js/react": "1.5.1",
+    "gatsby": "2.15.15",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.21",
@@ -48,12 +54,6 @@
     "theme-ui": "^0.2.44",
     "typeface-open-sans": "^0.0.75",
     "typography-theme-wordpress-2012": "^0.16.19"
-  },
-  "devDependencies": {
-    "@mdx-js/react": "^1.5.1",
-    "gatsby": "^2.13.70",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
   },
   "scripts": {
     "develop": "gatsby develop",

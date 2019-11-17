@@ -9,10 +9,10 @@
     "url": "https://github.com/kuworking/kuworking-theme-blog-four.git"
   },
   "dependencies": {
-    "gatsby": "^2.13.70",
-    "gatsby-theme-kuworking-blog": "^0.1.25",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "gatsby-theme-kuworking-blog": "0.1.25",
+    "gatsby": "2.15.15",
+    "react": "16.11.0",
+    "react-dom": "16.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0",
