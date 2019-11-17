@@ -20,7 +20,7 @@ export {
 } from 'gatsby-theme-kuworking-core'
 
 export { Card } from './src/components/cards'
-export { CtaMain, CtaPosts } from './src/components/cta'
+export { CtaMain, CtaList, CtaPosts } from './src/components/cta'
 export { Footer } from './src/components/footer'
 export { Grid } from './src/components/grid'
 export { Header } from './src/components/header'

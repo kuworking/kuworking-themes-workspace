@@ -28,7 +28,7 @@
     "____________________________": "________________________",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
     "blog-one": "yarn workspace kuworking-theme-blog-one clean && yarn workspace kuworking-theme-blog-one develop",
-    "blog-one-build": "yarn workspace kuworking-theme-blog-one build && yarn workspace kuworking-theme-blog-one serve",
+    "blog-one-build": "yarn workspace kuworking-theme-blog-one clean && yarn workspace kuworking-theme-blog-one build && yarn workspace kuworking-theme-blog-one serve",
     "blog-two": "yarn workspace kuworking-theme-blog-two clean && yarn workspace kuworking-theme-blog-two develop",
     "blog-two-build": "yarn workspace kuworking-theme-blog-two build && yarn workspace kuworking-theme-blog-two serve",
     "blog-three": "yarn workspace kuworking-theme-blog-three clean && yarn workspace kuworking-theme-blog-three develop",

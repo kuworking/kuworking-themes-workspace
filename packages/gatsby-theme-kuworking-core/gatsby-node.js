@@ -26,7 +26,6 @@ exports.onCreatePage = async ({ page, actions }, themeOptions) => {
       basePath: basePath,
     },
   })
-
 }
 
 // Ensure that content directories exist at site-level
@@ -55,7 +54,7 @@ exports.onCreateNode = async ({ node, actions, getNode, createNodeId }, themeOpt
   const fileNode = getNode(node.parent)
   const source = fileNode.sourceInstanceName
 
-  if (node.internal.type === `Mdx` && source === postsPath) {
+  if (node.internal.type === `Mdx` && (source === postsPath || source === recipesPath)) {
     let slug
 
     if (node.frontmatter.slug) {
@@ -130,7 +129,13 @@ const PostsTemplate = require.resolve(`./src/queries/posts-query`)
 
 exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const { createPage } = actions
-  const { basePath, postsPerPage, tagsPath } = withDefaults(themeOptions)
+  const {
+    basePath,
+    postsPerPage,
+    tagsPath,
+    exclude_type_from_pagination,
+    exclude_tag_from_create_pages,
+  } = withDefaults(themeOptions)
 
   const result = await graphql(`
     {
@@ -171,9 +176,10 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   })
 
   // Create the Posts (grid) page with pagination
-  // But filter out those posts that are courses
-  //  const numPages = Math.ceil(posts.length / postsPerPage)
-  const numPages = Math.ceil(posts.length / postsPerPage)
+  const filtered_posts_by_type = exclude_type_from_pagination
+    ? posts.filter(post => post.type !== exclude_type_from_pagination)
+    : posts
+  const numPages = Math.ceil(filtered_posts_by_type.length / postsPerPage)
 
   Array.from({ length: numPages }).forEach((_, index) => {
     createPage({
@@ -193,12 +199,15 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
   // Create the Tags Posts page with pagination
   // A global array of all employed tags
+  const filtered_posts_by_tag = exclude_tag_from_create_pages
+    ? posts.filter(post => !post.tags.includes(exclude_tag_from_create_pages))
+    : posts
+
   let global_tags = []
   let counting_by_tags = {}
-  posts.forEach(({ node: post }, index) => {
-    const { tags } = post
+  filtered_posts_by_tag.forEach(({ node: { tags } }) => {
     global_tags = global_tags.concat(tags)
-    tags.map(tag => {
+    tags.forEach(tag => {
       if (!counting_by_tags[tag]) counting_by_tags[tag] = 0
       counting_by_tags[tag]++
     })

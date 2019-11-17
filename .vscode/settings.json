@@ -16,43 +16,6 @@
     "strings": true
   },
   "files.exclude": {
-    "version_0.0.3kuworking": false,
-    "node_modules/[^gnlk]*": false,
-
-    "node_modules/g[^a]*": true,
-    "node_modules/ga[^t]*": true,
-    "node_modules/gat[^s]*": true,
-    "node_modules/gats[^b]*": true,
-    "node_modules/gatsb[^y]*": true,
-    "node_modules/gatsby[^-]*": true,
-    "node_modules/gatsby-[^t]*": true,
-    "node_modules/gatsby-t[^h]*": false,
-
-    "node_modules/n[^o]*": true,
-    "node_modules/no[^m]*": true,
-    "node_modules/nom[^a]*": true,
-    "node_modules/noma[^d]*": true,
-    "node_modules/nomad[^l]*": true,
-    "node_modules/nomadl[^a]*": true,
-    "node_modules/nomadla[^p]*": true,
-
-    "node_modules/l[^a]*": true,
-    "node_modules/la[^t]*": true,
-    "node_modules/lat[^t]*": true,
-    "node_modules/latt[^e]*": true,
-    "node_modules/latte[^a]*": true,
-    "node_modules/lattea[^r]*": true,
-    "node_modules/lattear[^t]*": true,
-    "node_modules/latteart[^e]*": true,
-
-    "node_modules/k[^u]*": true,
-    "node_modules/ku[^w]*": true,
-    "node_modules/kuw[^o]*": true,
-    "node_modules/kuwo[^r]*": true,
-    "node_modules/kuwor[^k]*": true,
-    "node_modules/kuwork[^i]*": true,
-    "node_modules/kuworki[^n]*": true,
-
     ".cache": true,
     "public": true
   },

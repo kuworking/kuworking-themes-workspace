@@ -6,6 +6,8 @@ module.exports = themeOptions => {
     basePath: themeOptions.basePath || `/`,
     postsPath: themeOptions.postsPath || `content/posts`,
     postImagesPath: themeOptions.postImagesPath || `content/posts/images`,
+    recipesPath: themeOptions.recipesPath || 'content/recipes',
+    recipesImagesPath: themeOptions.recipesImagesPath || 'content/recipes/images',
     iconsPath: themeOptions.iconsPath || `content/icons`,
     wallpapersPath: themeOptions.wallpapersPath || `content/wallpapers`,
     pagesPath: themeOptions.pagesPath || `content/pages`,
@@ -22,7 +24,7 @@ module.exports = themeOptions => {
     ],
 
     manifest: buildManifest(themeOptions.app),
-    feeds: themeOptions.feeds(themeOptions.app) || buildFeeds(themeOptions.app),
+    feeds: (themeOptions.feeds && themeOptions.feeds(themeOptions.app)) || buildFeeds(themeOptions.app),
     app: themeOptions.app,
     tagmanager: themeOptions.tagmanager,
     sitemap: themeOptions.sitemap,

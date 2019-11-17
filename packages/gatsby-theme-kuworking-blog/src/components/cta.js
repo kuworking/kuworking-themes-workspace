@@ -4,6 +4,8 @@ import { Styled, css, useThemeUI } from 'theme-ui'
 import { Mail as MailIcon } from 'emotion-icons/ion-md'
 import { Config, Text } from 'gatsby-theme-kuworking-core'
 
+export const CtaList = () => {}
+
 export const CtaMain = () => {
   const { theme } = useThemeUI()
   const form_id = React.createRef()
