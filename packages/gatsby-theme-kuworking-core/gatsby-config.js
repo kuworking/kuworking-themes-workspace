@@ -34,6 +34,20 @@ module.exports = themeOptions => {
           name: options.postsPath || `content/posts`,
         },
       },
+      options.recipesImagesPath && {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: options.recipesImagesPath || `content/recipes/images`,
+          name: options.recipesImagesPath || `content/recipes/images`,
+        },
+      },
+      options.recipesPath && {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: options.recipesPath || `content/recipes`,
+          name: options.recipesPath || `content/recipes`,
+        },
+      },
       {
         resolve: `gatsby-source-filesystem`,
         options: {

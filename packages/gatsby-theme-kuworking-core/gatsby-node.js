@@ -46,7 +46,7 @@ exports.onPreBootstrap = ({ store }, themeOptions) => {
 // This will change with schema customization with work
 exports.onCreateNode = async ({ node, actions, getNode, createNodeId }, themeOptions) => {
   const { createNode, createParentChildLink } = actions
-  const { postsPath, basePath } = withDefaults(themeOptions)
+  const { postsPath, recipesPath, basePath } = withDefaults(themeOptions)
 
   // Make sure it's an MDX node
   if (node.internal.type !== `Mdx`) return
@@ -177,7 +177,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
   // Create the Posts (grid) page with pagination
   const filtered_posts_by_type = exclude_type_from_pagination
-    ? posts.filter(post => post.type !== exclude_type_from_pagination)
+    ? posts.filter(({ node: { type } }) => !exclude_type_from_pagination.includes(type))
     : posts
   const numPages = Math.ceil(filtered_posts_by_type.length / postsPerPage)
 
@@ -193,6 +193,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         num_of_pages: numPages,
         current_page: index + 1,
         this_is_a_tag_search: false,
+        excluded_type: exclude_type_from_pagination || [],
       },
     })
   })
@@ -200,7 +201,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   // Create the Tags Posts page with pagination
   // A global array of all employed tags
   const filtered_posts_by_tag = exclude_tag_from_create_pages
-    ? posts.filter(post => !post.tags.includes(exclude_tag_from_create_pages))
+    ? posts.filter(({ node: { tags } }) => !exclude_tag_from_create_pages.some(el => tags.includes(el)))
     : posts
 
   let global_tags = []

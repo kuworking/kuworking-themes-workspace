@@ -4,7 +4,13 @@ import PostsPage from '../templates/posts-template'
 export default PostsPage
 
 export const query = graphql`
-  query PostsQuery($this_is_a_tag_search: Boolean!, $tag: String, $skip: Int!, $limit: Int!) {
+  query PostsQuery(
+    $this_is_a_tag_search: Boolean!
+    $tag: String
+    $skip: Int!
+    $limit: Int!
+    $excluded_type: [String!] = []
+  ) {
     allTagPosts: allMdxBlogPost(
       skip: $skip
       filter: { tags: { in: [$tag] } }
@@ -24,8 +30,12 @@ export const query = graphql`
         }
       }
     }
-    allBlogPost: allMdxBlogPost(skip: $skip, sort: { fields: [date, title], order: DESC }, limit: $limit)
-      @skip(if: $this_is_a_tag_search) {
+    allBlogPost: allMdxBlogPost(
+      skip: $skip
+      sort: { fields: [date, title], order: DESC }
+      limit: $limit
+      filter: { type: { nin: $excluded_type } }
+    ) @skip(if: $this_is_a_tag_search) {
       edges {
         node {
           id
@@ -39,7 +49,7 @@ export const query = graphql`
         }
       }
     }
-    post_images: allFile(filter: { sourceInstanceName: { eq: "content/posts/images" } }) {
+    post_images: allFile(filter: { sourceInstanceName: { regex: "/content/.*/images/" } }) {
       edges {
         node {
           publicURL
