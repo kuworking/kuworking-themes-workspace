@@ -14,7 +14,14 @@ export { Switch } from './src/components/elements/switch'
 
 export { Disqus } from './src/components/disqus/disqus'
 
-export { shuffle_array } from './src/components/methods/methods'
+export {
+  shuffle_array,
+  fixDate,
+  is_this_a_mobile_device,
+  wait,
+  get_response,
+  get_request,
+} from './src/components/methods/methods'
 export { LazyBackgroundImg, LazyImg } from './src/components/methods/lazy-img'
 
 export { useScript } from './src/components/hooks/usescript'
