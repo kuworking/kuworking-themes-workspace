@@ -34,3 +34,55 @@ export const shuffle_array = array => {
 export const is_this_a_mobile_device = () =>
   typeof window !== `undefined` &&
   (typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1)
+
+export const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
+
+export const getRequest = method => ({
+  crossDomain: true,
+  referrerPolicy: 'origin-when-cross-origin',
+  method: method,
+  cache: 'no-cache',
+  mode: 'cors',
+  headers: {
+    //    'Access-Control-Allow-Credentials': true,
+    //    'Access-Control-Allow-Origin': '*',
+    //    'Access-Control-Allow-Methods': 'GET, POST',
+    //    'Access-Control-Allow-Headers': 'application/json',
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+})
+
+export const get_response = async (url, times) => {
+  let response = await Promise.race([fetch(url, { cache: 'no-store' }), wait(2000)])
+  let counter = 0
+
+  for (const _ of [...Array(times)]) {
+    if (counter >= times || response !== 'timed') break
+    response = await Promise.race([fetch(url, { cache: 'no-store' }), wait(2000)])
+    counter++
+  }
+
+  if (response !== 'timed') return response
+  return false
+}
+
+const get_response = async (functions, times) => {
+  let response = 'timed'
+  let counter = 0
+
+  while (response === 'timed') {
+    try {
+      response = await Promise.race(functions)
+    } catch {
+      response = 'timed'
+    }
+    counter++
+    if (counter > times) break
+  }
+  if (response !== 'timed') {
+    let response_json = await response.json()
+    return response_json
+  }
+  return false
+}
