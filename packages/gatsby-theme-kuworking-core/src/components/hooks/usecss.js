@@ -39,7 +39,7 @@ export const useCss = url => {
         css.addEventListener('load', onCssLoad)
         css.addEventListener('error', onCssError)
 
-        document.body.appendChild(css)
+        document.head.appendChild(css)
 
         return () => {
           css.removeEventListener('load', onCssLoad)

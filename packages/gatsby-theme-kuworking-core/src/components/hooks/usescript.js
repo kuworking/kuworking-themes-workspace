@@ -19,8 +19,9 @@ export const useScript = (src, dataset) => {
         })
       } else {
         const script = document.createElement('script')
-        script.src = src
+        script.type = 'text/javascript'
         script.async = true
+        script.src = src
         dataset && Object.entries(dataset).map(([key, value]) => (script.dataset[key] = value))
 
         const onScriptLoad = () => {

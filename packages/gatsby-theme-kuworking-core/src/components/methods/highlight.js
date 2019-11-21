@@ -3,10 +3,8 @@ import { useScript } from '../hooks/usescript'
 import { useCss } from '../hooks/usecss'
 
 export const Highlight = ({ styling }) => {
-  const url = styling ? `/highlight/${styling}.css` : '/highlight/monokai-sublime.css'
+  const [loadedCSS, errorCSS] = useCss(`/highlight/${styling}.css`)
   const [loadedJS, errorJS] = useScript('/highlight/highlight.pack.js')
-  const [loadedCSS, errorCSS] = useCss(url)
-
   return <>{loadedJS && loadedCSS && apply_highlight()}</>
 }
 

@@ -19,7 +19,7 @@ export {
 } from './src/components/methods/methods'
 export { LazyBackgroundImg, LazyImg } from './src/components/methods/lazy-img'
 export { Highlight, apply_highlight } from './src/components/methods/highlight'
-export { Prism, apply_prism } from './src/components/methods/prism'
+export { Prism } from './src/components/methods/prism'
 
 export { useScript } from './src/components/hooks/usescript'
 export { useCss } from './src/components/hooks/usecss'

@@ -3,11 +3,7 @@ import { useScript } from '../hooks/usescript'
 import { useCss } from '../hooks/usecss'
 
 export const Prism = ({ styling }) => {
-  const url = styling ? `/prism/${styling}.css` : '/prism/prism-base2tone-lake-dark.css'
+  const [loadedCSS, errorCSS] = useCss(`/prism/${styling}.css`)
   const [loadedJS, errorJS] = useScript('/prism/prism.js', { manual: true })
-  const [loadedCSS, errorCSS] = useCss(url)
-
-  return <>{loadedJS && loadedCSS && apply_prism()}</>
+  return <>{loadedJS && loadedCSS && window.Prism && window.Prism.highlightAll()}</>
 }
-
-export const apply_prism = () => window.Prism && window.Prism.highlightAll()
