@@ -77,11 +77,6 @@ export const query = graphql`
               src
               ...GatsbyImageSharpFluid_noBase64
             }
-            fixed(width: 400, quality: 50) {
-              originalName
-              src
-              ...GatsbyImageSharpFixed_noBase64
-            }
           }
         }
       }
@@ -92,22 +87,7 @@ export const query = graphql`
           publicURL
           relativeDirectory
           childImageSharp {
-            fluid(maxWidth: 5000) {
-              originalName
-              src
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    }
-    core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
-      edges {
-        node {
-          publicURL
-          relativeDirectory
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 92) {
+            fluid(maxWidth: 2000) {
               originalName
               src
               ...GatsbyImageSharpFluid_noBase64

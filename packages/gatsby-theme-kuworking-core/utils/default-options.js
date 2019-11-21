@@ -19,7 +19,6 @@ module.exports = themeOptions => {
       'content/icons',
       'content/wallpapers',
       'content/pages',
-      'content/core',
     ],
 
     manifest: themeOptions.manifest,

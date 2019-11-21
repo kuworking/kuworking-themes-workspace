@@ -4,11 +4,6 @@ export { Pinterest, PinterestScript } from './src/components/providers/pinterest
 export { Youtube } from './src/components/providers/youtube'
 export { Video } from './src/components/providers/video'
 
-export { Pagination } from './src/components/pagination'
-export { SEO } from './src/components/seo'
-export { SocialShare } from './src/components/socialshare'
-export { Config, Text, SeoText } from './src/utils/config'
-export { Page } from './src/templates/page-template'
 export { Spinner01 } from './src/components/elements/spinner'
 export { Switch } from './src/components/elements/switch'
 
@@ -23,5 +18,14 @@ export {
   get_request,
 } from './src/components/methods/methods'
 export { LazyBackgroundImg, LazyImg } from './src/components/methods/lazy-img'
+export { Highlight, apply_highlight } from './src/components/methods/highlight'
+export { Prism, apply_prism } from './src/components/methods/prism'
 
 export { useScript } from './src/components/hooks/usescript'
+export { useCss } from './src/components/hooks/usecss'
+
+export { Pagination } from './src/components/pagination'
+export { SEO } from './src/components/seo'
+export { SocialShare } from './src/components/socialshare'
+export { Config, Text, SeoText } from './src/utils/config'
+export { Page } from './src/templates/page-template'

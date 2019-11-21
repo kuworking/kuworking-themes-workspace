@@ -9,12 +9,10 @@ import {
 import { Structure } from '../components/structure'
 
 export default ({ location: { href }, pageContext, data }) => {
-  const { allPosts, current: post, core, post_images, wallpapers } = data
+  const { allPosts, current: post, post_images, wallpapers } = data
   const pageName = get_last_slug(post.slug)
 
   const images = {
-    none_image: get_image(core.edges, 'none'),
-    white_image: get_image(core.edges, 'white'),
     image: get_image(post_images.edges, pageName),
     images: post_images.edges || '',
     wallpapers: wallpapers.edges || '',

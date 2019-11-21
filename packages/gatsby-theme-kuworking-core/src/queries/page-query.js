@@ -22,21 +22,7 @@ export const useQuery = () =>
           node {
             relativeDirectory
             childImageSharp {
-              fluid(maxWidth: 5000) {
-                originalName
-                src
-                ...GatsbyImageSharpFluid_noBase64
-              }
-            }
-          }
-        }
-      }
-      core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
-        edges {
-          node {
-            relativeDirectory
-            childImageSharp {
-              fluid(maxWidth: 1000, quality: 92) {
+              fluid(maxWidth: 2000) {
                 originalName
                 src
                 ...GatsbyImageSharpFluid_noBase64

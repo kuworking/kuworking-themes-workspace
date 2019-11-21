@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 // based on https://usehooks.com/useScript/
 
-export const useScript = src => {
+export const useScript = (src, dataset) => {
   const [cachedScripts, setCachedScripts] = useState([])
 
   const [state, setState] = useState({
@@ -18,9 +18,10 @@ export const useScript = src => {
           error: false,
         })
       } else {
-        let script = document.createElement('script')
+        const script = document.createElement('script')
         script.src = src
         script.async = true
+        dataset && Object.entries(dataset).map(([key, value]) => (script.dataset[key] = value))
 
         const onScriptLoad = () => {
           setCachedScripts(src, ...cachedScripts)

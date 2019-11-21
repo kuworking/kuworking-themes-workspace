@@ -70,35 +70,5 @@ export const query = graphql`
         }
       }
     }
-    wallpapers: allFile(filter: { sourceInstanceName: { eq: "content/wallpapers" } }) {
-      edges {
-        node {
-          publicURL
-          relativeDirectory
-          childImageSharp {
-            fluid(maxWidth: 5000) {
-              originalName
-              src
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    }
-    core: allFile(filter: { sourceInstanceName: { eq: "content/core" } }) {
-      edges {
-        node {
-          publicURL
-          relativeDirectory
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 92) {
-              originalName
-              src
-              ...GatsbyImageSharpFluid_noBase64
-            }
-          }
-        }
-      }
-    }
   }
 `

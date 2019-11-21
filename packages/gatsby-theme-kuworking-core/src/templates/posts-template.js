@@ -3,12 +3,9 @@ import { get_image, post_structure, get_last_slug } from './methods-template'
 import { Structure } from '../components/structure'
 
 export default ({ location, pageContext, data }) => {
-  const { core, post_images, wallpapers } = data
+  const { post_images } = data
   const images = {
-    none_image: get_image(core.edges, 'none'),
-    white_image: get_image(core.edges, 'white'),
     images: post_images.edges || '',
-    wallpapers: wallpapers.edges || '',
   }
 
   const allPosts = data.allTagPosts ? data.allTagPosts.edges : data.allBlogPost.edges
