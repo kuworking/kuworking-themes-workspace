@@ -4,8 +4,7 @@ export const get_last_slug = str =>
     .replace(/^\//, '')
     .replace(/\/$/, '')
 
-export const get_image = (images, name) =>
-  images.filter(el => el.node.childImageSharp.fluid.originalName.slice(0, -4) === name)[0]
+export const get_image = (images, name) => images.filter(el => el.node.name === name)[0]
 
 export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
 
@@ -15,8 +14,9 @@ const fill_related_posts = (posts, post, images) => {
   posts.forEach(({ node: this_post }, i) => {
     this_post.name = this_post.slug.replace(/^\//, '')
     const image = get_image(images.images, get_last_slug(this_post.slug))
-    this_post.image = image && image.node.childImageSharp.fluid
-    this_post.fixed_image = image && image.node.childImageSharp.fixed
+    this_post.full_image = image && image.node.publicURL
+    this_post.fluid_image = image && image.node.childImageSharp && image.node.childImageSharp.fluid
+    this_post.fixed_image = image && image.node.childImageSharp && image.node.childImageSharp.fixed
     this_post.description = this_post.snippet
     if (this_post.title === post.title) this_is_the_own_post = i
   })
@@ -52,7 +52,7 @@ export const post_structure = (post, image) => ({
   type: post.type,
   description: post.snippet,
   name: post.slug.replace(/^\//, ''), // needed for the 1st slash, the last one is already removed
-  fixed_image: image && image.node.childImageSharp.fixed,
-  image: image && image.node.childImageSharp.fluid,
   full_image: image && image.node.publicURL,
+  fluid_image: image && image.node.childImageSharp && image.node.childImageSharp.fluid,
+  fixed_image: image && image.node.childImageSharp && image.node.childImageSharp.fixed,
 })

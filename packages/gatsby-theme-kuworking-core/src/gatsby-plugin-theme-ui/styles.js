@@ -1,6 +1,6 @@
 // stylying of MDX rendered files
 
-export default {
+export const styles = {
   root: { fontSize: 2 },
   a: { textDecoration: 'none' },
   h1: { color: 'heading' },

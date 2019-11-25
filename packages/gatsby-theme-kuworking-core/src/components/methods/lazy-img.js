@@ -17,7 +17,7 @@ const Observer = (el, setBackImg) => {
   }
 }
 
-export const LazyBackgroundImg = ({ data_image, component }) => {
+export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
 
@@ -30,6 +30,7 @@ export const LazyBackgroundImg = ({ data_image, component }) => {
         Observer(el, setBackImg)
         return image_ref
       }}
+      alt={title}
     />
   )
 }

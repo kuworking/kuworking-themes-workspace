@@ -40,16 +40,16 @@ const Spinning = styled.div`
     background-color: #ff6c00;
   }
 
-  & div:nth-child(1) {
+  & div:nth-of-type(1) {
     animation-delay: calc(1 * ${delay});
   }
-  & div:nth-child(2) {
+  & div:nth-of-type(2) {
     animation-delay: calc(5 * ${delay});
   }
-  & div:nth-child(3) {
+  & div:nth-of-type(3) {
     animation-delay: calc(10 * ${delay});
   }
-  & div:nth-child(n):after {
+  & div:nth-of-type(n):after {
     top: ${orbit * Math.sin(angle)}px;
     left: ${orbit * Math.cos(angle)}px;
   }

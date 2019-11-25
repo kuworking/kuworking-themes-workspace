@@ -1,6 +1,6 @@
 // implements color themes to be switched
 
-export default {
+export const colors = {
   cta__div__background: 'linear-gradient(52deg, #ff5514 80%,#ff7e4d 90%, #ffc521 100%)',
   cta__title__color: '#fff',
   cta__em__background: '#ffffff',

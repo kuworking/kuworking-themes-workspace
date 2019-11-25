@@ -133,8 +133,9 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     basePath,
     postsPerPage,
     tagsPath,
-    exclude_type_from_pagination,
-    exclude_tag_from_create_pages,
+    do_not_count_type_for_pagination,
+    do_not_include_type_in_lists,
+    do_not_create_tag_page_for,
   } = withDefaults(themeOptions)
 
   const result = await graphql(`
@@ -175,9 +176,9 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     })
   })
 
-  // Create the Posts (grid) page with pagination
-  const filtered_posts_by_type = exclude_type_from_pagination
-    ? posts.filter(({ node: { type } }) => !exclude_type_from_pagination.includes(type))
+  // Create the Posts (grid) main page with pagination
+  const filtered_posts_by_type = do_not_count_type_for_pagination
+    ? posts.filter(({ node: { type } }) => !do_not_count_type_for_pagination.includes(type))
     : posts
   const numPages = Math.ceil(filtered_posts_by_type.length / postsPerPage)
 
@@ -193,15 +194,16 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         num_of_pages: numPages,
         current_page: index + 1,
         this_is_a_tag_search: false,
-        excluded_type: exclude_type_from_pagination || [],
+        excluded_type: do_not_count_type_for_pagination || [],
       },
     })
   })
 
   // Create the Tags Posts page with pagination
   // A global array of all employed tags
-  const filtered_posts_by_tag = exclude_tag_from_create_pages
-    ? posts.filter(({ node: { tags } }) => !exclude_tag_from_create_pages.some(el => tags.includes(el)))
+
+  const filtered_posts_by_tag = do_not_include_type_in_lists
+    ? posts.filter(({ node: { type } }) => !do_not_include_type_in_lists.includes(type))
     : posts
 
   let global_tags = []
@@ -213,6 +215,8 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       counting_by_tags[tag]++
     })
   })
+
+  global_tags.filter(tag => tag !== do_not_create_tag_page_for)
 
   // and the Tags Posts pages
   global_tags = [...new Set(global_tags)] // to eliminate duplicates

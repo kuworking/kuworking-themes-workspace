@@ -65,7 +65,7 @@ export const query = graphql`
         }
       }
     }
-    post_images: allFile(filter: { sourceInstanceName: { eq: "content/posts/images" } }) {
+    post_images: allFile(filter: { sourceInstanceName: { regex: "/content/.*/images/" } }) {
       edges {
         node {
           publicURL

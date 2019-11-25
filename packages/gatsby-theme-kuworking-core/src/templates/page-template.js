@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { get_image } from './methods-template'
 import { useQuery } from '../queries/page-query'
 import { Structure } from '../components/structure'
 
