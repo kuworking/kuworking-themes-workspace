@@ -47,7 +47,6 @@ const Button = styled.button`
   background-color: #ddd;
   outline: 0;
   border: none;
-  font-family: 'Open Sans';
   padding: 0.8em 1.5em 0.8em;
   text-transform: none;
   font-weight: 700;

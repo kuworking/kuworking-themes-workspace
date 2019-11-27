@@ -20,7 +20,7 @@ export {
 export { LazyBackgroundImg, LazyImg } from './src/components/methods/lazy-img'
 export { Highlight, apply_highlight } from './src/components/methods/highlight'
 export { Prism } from './src/components/methods/prism'
-export { CodeLink, CodePen } from './src/components/methods/codepen'
+export { CodeLink, useCodePenScript, CodePen } from './src/components/methods/codepen'
 
 export { useScript } from './src/components/hooks/usescript'
 export { useCss } from './src/components/hooks/usecss'

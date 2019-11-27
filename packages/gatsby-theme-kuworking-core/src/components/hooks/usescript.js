@@ -11,6 +11,7 @@ export const useScript = (src, dataset) => {
   })
 
   useEffect(() => {
+    if (!src) return
     const inject_script = stillMounted => {
       if (cachedScripts.includes(src)) {
         setState({

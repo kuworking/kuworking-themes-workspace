@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { useScript } from '../hooks/usescript'
 
 export const CodeLink = props => <CodePen {...props} playground={false} />
+
+export const useCodePenScript = () => {
+  const [scr, setScr] = useState()
+  useScript(scr)
+  return () => setScr('https://static.codepen.io/assets/embed/ei.js')
+}
 
 export const CodePen = ({
   playground = true,
