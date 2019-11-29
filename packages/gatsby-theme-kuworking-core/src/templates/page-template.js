@@ -2,12 +2,11 @@ import React from 'react'
 
 import { useQuery } from '../queries/page-query'
 import { Structure } from '../components/structure'
+import { get_last_slug } from './methods-template'
 
 export const Page = ({ type = 'page', page, ...props }) => {
-  const data = useQuery()
-  const { post_images, wallpapers } = data
+  const { wallpapers } = useQuery()
   const images = {
-    images: post_images.edges || '',
     wallpapers: wallpapers.edges || '',
   }
 
@@ -15,7 +14,7 @@ export const Page = ({ type = 'page', page, ...props }) => {
     <Structure
       type={type}
       blogPage={{
-        canonical: typeof window !== 'undefined' && window.location.href,
+        canonical: get_last_slug(typeof window !== 'undefined' && window.location.pathname),
         images: images,
         page,
         ...props,

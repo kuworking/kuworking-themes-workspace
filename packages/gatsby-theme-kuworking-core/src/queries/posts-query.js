@@ -55,6 +55,13 @@ export const query = graphql`
           publicURL
           name
           relativeDirectory
+        }
+      }
+    }
+  }
+`
+
+/*
           childImageSharp {
             fluid(maxWidth: 1000, quality: 92) {
               originalName
@@ -67,8 +74,5 @@ export const query = graphql`
               ...GatsbyImageSharpFixed_noBase64
             }
           }
-        }
-      }
-    }
-  }
-`
+
+*/
