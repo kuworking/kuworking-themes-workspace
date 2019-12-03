@@ -8,7 +8,7 @@ export const get_image = (images, name) => images.filter(el => el.node.name === 
 
 export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
 
-const fill_related_posts = (posts, post, images) => {
+export const fill_related_posts = (post, posts, images) => {
   let this_is_the_own_post
 
   posts.forEach(({ node: this_post }, i) => {
@@ -29,7 +29,7 @@ export const get_posts_with_the_same_tags = (post, allPosts, images) => {
 
   post.tags.forEach(tag => {
     const these_posts = [...allPosts.edges.filter(el => el.node.tags.includes(tag))]
-    fill_related_posts(these_posts, post, images)
+    fill_related_posts(post, these_posts, images)
     posts_with_the_same_tags.push(...these_posts)
   })
 

@@ -3,6 +3,7 @@ import {
   get_image,
   get_folder_image,
   get_posts_with_the_same_tags,
+  fill_related_posts,
   post_structure,
   get_last_slug,
 } from './methods-template'
@@ -19,6 +20,8 @@ export default ({ location: { href }, pageContext, data }) => {
   }
 
   const { pre_path, basePath } = pageContext
+  let globalPosts = [...allPosts.edges]
+  fill_related_posts(post, globalPosts, images)
 
   return (
     <Structure
@@ -32,6 +35,7 @@ export default ({ location: { href }, pageContext, data }) => {
         structure: {
           post_related_images: get_folder_image(images.images, pageName),
           tags_related_posts: get_posts_with_the_same_tags(post, allPosts, images),
+          posts: globalPosts,
         },
       }}
     />

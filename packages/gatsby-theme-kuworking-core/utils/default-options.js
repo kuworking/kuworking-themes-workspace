@@ -17,6 +17,8 @@ module.exports = themeOptions => {
     folders_to_check: themeOptions.folders_to_check || [
       'content/posts',
       'content/posts/images',
+      'content/recipes',
+      'content/recipes/images',
       'content/icons',
       'content/wallpapers',
       'content/pages',
