@@ -3,6 +3,7 @@ module.exports = site => {
     serialize: ({ query: { posts, post_images } }) => {
       const get_image = (images, name) => images.filter(el => el.node.name === name)[0]
       const get_last_slug = str =>
+        str &&
         str
           .replace(/\/.*\//g, '')
           .replace(/^\//, '')
@@ -38,7 +39,7 @@ module.exports = site => {
             }
           }
         }
-        post_images: allFile(filter: { sourceInstanceName: { eq: "content/posts/images" } }) {
+        post_images: allFile(filter: { sourceInstanceName: { regex: "/content/.*/images/" } }) {
           edges {
             node {
               publicURL

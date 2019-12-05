@@ -1,4 +1,5 @@
 export const get_last_slug = str =>
+  str &&
   str
     .replace(/\/.*\//g, '')
     .replace(/^\//, '')
