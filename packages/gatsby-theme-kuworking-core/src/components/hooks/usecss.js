@@ -54,7 +54,7 @@ export const useCss = url => {
     return () => {
       stillMounted.value = false
     }
-  }, [url])
+  }, [url, cachedCss])
 
   return [state.loaded, state.error]
 }

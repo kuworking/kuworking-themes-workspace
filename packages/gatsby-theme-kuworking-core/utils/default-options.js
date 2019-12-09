@@ -1,10 +1,14 @@
 module.exports = themeOptions => {
+  const recipesPath = themeOptions.recipesPath || null
+  const recipesImagesPath = themeOptions.recipesImagesPath || null
+  const recipeFolders = (themeOptions.recipesPath && [`content/recipes/images`, `content/recipes`]) || []
+
   return {
     basePath: themeOptions.basePath || `/`,
     postsPath: themeOptions.postsPath || `content/posts`,
     postImagesPath: themeOptions.postImagesPath || `content/posts/images`,
-    recipesPath: themeOptions.recipesPath || `content/recipes`,
-    recipesImagesPath: themeOptions.recipesImagesPath || `content/recipes/images`,
+    recipesPath,
+    recipesImagesPath,
     iconsPath: themeOptions.iconsPath || `content/icons`,
     wallpapersPath: themeOptions.wallpapersPath || `content/wallpapers`,
     pagesPath: themeOptions.pagesPath || `content/pages`,
@@ -17,17 +21,15 @@ module.exports = themeOptions => {
     folders_to_check: themeOptions.folders_to_check || [
       'content/posts',
       'content/posts/images',
-      'content/recipes',
-      'content/recipes/images',
       'content/icons',
       'content/wallpapers',
       'content/pages',
+      ...recipeFolders,
     ],
 
     manifest: themeOptions.manifest,
     sitemap: themeOptions.sitemap,
     feeds: themeOptions.feeds,
-    app: themeOptions.app,
     tagmanager: themeOptions.tagmanager,
   }
 }

@@ -19,7 +19,7 @@ export default ({ location, pageContext, data }) => {
     })
   })
 
-  const { tag, global_tags, pre_path, basePath, num_of_pages, current_page } = pageContext
+  const { tag, global_tags, pre_path, basePath, num_of_pages, current_page, all_posts } = pageContext
 
   return (
     <Structure
@@ -27,6 +27,7 @@ export default ({ location, pageContext, data }) => {
       blogGrid={{
         images: images,
         posts: posts,
+        all_posts: all_posts,
         pagination: {
           basePath,
           pre_path,

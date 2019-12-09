@@ -29,7 +29,7 @@ export const CodePen = ({
     'https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.8.4/umd/react-dom.production.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/styled-components/3.4.10/styled-components.min.js',
   ]
-  const tabs = isThisReact ? tabs.replace(/js/, 'javascript') : tab
+  const tabs = isThisReact ? tab.replace(/js/, 'javascript') : tab
 
   const data = {
     title: 'CodePen',
@@ -92,7 +92,7 @@ export const CodePen = ({
         <input type="hidden" name="data" value={JSON.stringify(data_link)} />
         <input type="submit" value="IR A EDITOR CODEPEN" />
       </CodePenForm>
-      {playground && useScript('https://static.codepen.io/assets/embed/ei.js')}
+      {useScript('https://static.codepen.io/assets/embed/ei.js', { abort: !playground })}
     </>
   )
 }

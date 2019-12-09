@@ -11,7 +11,7 @@ export const useScript = (src, dataset) => {
   })
 
   useEffect(() => {
-    if (!src) return
+    if (!src || dataset.abort) return
     const inject_script = stillMounted => {
       if (cachedScripts.includes(src)) {
         setState({
@@ -57,7 +57,7 @@ export const useScript = (src, dataset) => {
     return () => {
       stillMounted.value = false
     }
-  }, [src])
+  }, [src, cachedScripts])
 
   return [state.loaded, state.error]
 }

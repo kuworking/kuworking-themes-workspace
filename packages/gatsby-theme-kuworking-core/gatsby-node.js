@@ -195,6 +195,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         current_page: index + 1,
         this_is_a_tag_search: false,
         excluded_type: do_not_count_type_for_pagination || [],
+        all_posts: posts,
       },
     })
   })
