@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+/** @jsx jsx */
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Styled, useThemeUI } from 'theme-ui'
+import { Styled, useThemeUI, jsx } from 'theme-ui'
 
 import { Disqus, Config, Text, SocialShare, shuffle_array } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
@@ -16,9 +16,14 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
   tags_related_posts = shuffle_array(tags_related_posts)
   if (tags_related_posts.length > 5) tags_related_posts.length = 5
 
+  const [image, setImage] = useState({ src: '', fake: true })
+  useEffect(() => {
+    setImage({ src: post.full_image })
+  }, [post.full_image])
+
   return (
     <>
-      <Title name="tothetop" theme={theme}>
+      <Title name="tothetop" sx={{ variant: 'post.h1' }} theme={theme}>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </div>
@@ -51,14 +56,23 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       <SocialShare
         title={post.title.replace(/#/g, '')}
         url={Config.url + '/' + post.name}
-        image={Config.url + post.image.src}
+        image={Config.url + image.src}
       />
 
       <div css={{ marginBottom: '50px' }} />
-      <Img fluid={post.image} alt="image related to post" />
-      <div css={{ marginBottom: '50px' }} />
 
-      <MDXRenderer>{post.content}</MDXRenderer>
+      {(image.fake && <FakeImage />) || (
+        <FixImage>
+          <div>
+            <img src={image.src} alt="related to post" />
+          </div>
+        </FixImage>
+      )}
+      <div css={{ marginBottom: '10px' }} />
+
+      <div>
+        <MDXRenderer>{post.content}</MDXRenderer>
+      </div>
 
       <CtaPosts />
 
@@ -83,7 +97,6 @@ const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled(Styled.h1)`
   & > div {
-    font-size: 1.7em;
     text-transform: uppercase;
     color: ${props => props.theme.colors.post__title__color};
 
@@ -183,5 +196,55 @@ const Container = styled.article`
   @supports not (display: grid) {
     display: flex;
     flex-wrap: wrap;
+  }
+`
+
+const image_skeleton = `
+position: unset !important;
+max-height: 200px !important;
+${q(400)} {
+  max-height: 300px !important;
+}
+${q(600)} {
+  max-height: 500px !important;
+  margin: 20px 0px;
+}
+`
+export const Image = styled.img`
+  ${image_skeleton}
+
+  & img {
+    top: 60px !important; /* 60px from header */
+    height: 200px !important;
+    ${q(400)} {
+      height: 300px !important;
+    }
+    ${q(600)} {
+      height: 500px !important;
+      top: 110px !important; /* 60px from header + 50px from margin */
+    }
+  }
+`
+
+export const FakeImage = styled.div`
+  ${image_skeleton}
+`
+
+export const FixImage = styled.div`
+  background-color: #ffffff;
+  display: inline-block;
+  border: 1px solid #d7d7d7;
+  padding: 2px;
+  margin: 10px 0px;
+
+  & > div {
+    ${image_skeleton}
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+
+    & img {
+      width: 100%;
+    }
   }
 `

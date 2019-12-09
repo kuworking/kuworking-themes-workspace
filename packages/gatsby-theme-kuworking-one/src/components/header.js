@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { Sunny as Day } from 'emotion-icons/ion-md'
+import { Moon as Night } from 'emotion-icons/fa-regular'
 
 import { Text, Switch } from 'gatsby-theme-kuworking-core'
 
@@ -14,7 +16,18 @@ export const Header = ({ basePath }) => (
 
       <Space />
 
-      <Switch aria-label="Toggle color modes" />
+      <Switch
+        Day={Day}
+        Night={Night}
+        aria-label="Toggle color modes"
+        styles={{
+          width: '30px',
+          height: '30px',
+          borderRadius: '8px',
+          dayColor: '#fffa6a',
+          nightColor: '#5c40719c',
+        }}
+      />
     </header>
   </Parent>
 )

@@ -23,41 +23,22 @@ export const Card = ({ post, i, related }) => {
   return (
     <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} theme={theme} related={related ? 1 : 0}>
       <LazyBackgroundImg data_image={post.full_image} component={backgroundImage} />
-      <Abstract theme={theme}>
+      <Title>
         <div>
-          {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
-        </div>
-      </Abstract>
-      <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
-        <Title>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
-        </Title>
-      </Styled.h4>
+        </div>
+      </Title>
+      <Abstract>
+        {post.abstract.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
+      </Abstract>
     </ContainerCard>
   )
 }
 
 const q = px => `@media (min-width: ${px}px)`
 
-const Title = styled.div`
-  margin-top: 2px;
-  width: 90%;
-`
-const Abstract = styled.div`
-  opacity: 0;
-  transition: opacity 0.3s ease 0s;
-  width: 90%;
-  padding: 2px;
-  & > div {
-    background: ${props => props.theme.colors.global__text_with_background__background};
-    color: ${props => props.theme.colors.global__text_with_background__color};
-    padding: 0 3px;
-    display: inline;
-    -webkit-box-decoration-break: clone; /* to get the padding */
-    box-decoration-break: clone;
-  }
-`
-
+const Title = styled(Styled.h4)``
+const Abstract = styled(Styled.p)``
 const Container = styled.div`
   transition: all 0.2s ease-in;
 
@@ -94,22 +75,39 @@ const ContainerCard = styled(Container)`
   & > div:nth-of-type(1) {
     grid-row: 1 / span 2;
     grid-column: 1 / 2;
-    z-index: 10;
-    & > svg {
-      width: 50px;
-      height: 50px;
-      padding: 8px;
-      color: #00000054;
-    }
+    z-index: 1;
 
     @supports not (display: grid) {
       position: absolute;
     }
   }
 
-  & > div:nth-of-type(2) {
+  ${Title} {
     grid-row: 1 / span 2;
     grid-column: 1 / 2;
+    z-index: 10;
+
+    width: 90%;
+    padding: 2px;
+    line-height: 1.3;
+
+    & > div {
+      background: ${props => props.theme.colors.global__text_with_background__background};
+      color: ${props => props.theme.colors.global__text_with_background__color};
+      padding: 0 3px;
+      display: inline;
+      box-decoration-break: clone;
+      transition: all 0.5s ease-in;
+    }
+  }
+
+  ${Abstract} {
+    margin-top: 2px;
+    width: 90%;
+
+    & > em {
+      background: ${props => props.theme.colors.cards__em__background};
+    }
   }
 
   &:hover {

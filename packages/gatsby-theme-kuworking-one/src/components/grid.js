@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, useThemeUI } from 'theme-ui'
+import { Styled, useThemeUI, jsx } from 'theme-ui'
 
 import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-one'
 

@@ -40,24 +40,16 @@ const general = {
   input: { fontFamily: 'inherit' },
 }
 
-const cta = {
-  ...general,
-  fontFamily: 'cta',
-  margin: '0',
-}
-
 // root as a way to access afterwards, but has no effect
 const h = prp => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'p', 'root'].reduce((obj, el) => ({ ...obj, [el]: prp }), {})
 
 export const styles = {
   breakpoints: ['400px', '600px'],
-  fontSizes: [12, 14, 15, 17, 20, 24, 32, 48, 64, 72],
+  fontSizes: [12, 14, 15, 17, 20, 24, 32, 40, 48, 64, 72],
   fonts: {
-    title: 'Kulim Park, sans-serif',
-    post: 'Kulim Park, sans-serif',
-    body: 'Kulim Park, sans-serif',
-    cta: 'Kulim Park, sans-serif',
-    headers: 'Kulim Park, sans-serif',
+    title: 'Open Sans, sans-serif',
+    post: 'Open Sans, sans-serif',
+    body: 'Open Sans, sans-serif',
     monospace: 'monospace',
   },
   post: {
@@ -65,40 +57,14 @@ export const styles = {
       ...general,
       fontFamily: 'title',
       lineHeight: '1',
-      margin: '150px 0px 10px 0px',
-      fontSize: [6, 6, 7],
+      margin: '50px 0px 10px 0px',
+      fontSize: [7, 8, 8],
+      transition: 'all 0.5s ease-in',
     },
     p: {
+      fontFamily: 'post',
       fontSize: [2, 3, 4],
-    },
-  },
-  cta: {
-    ...h({
-      ...cta,
-    }),
-    h1: {
-      ...cta,
-      fontSize: [4, 4, 5],
-      margin: 0,
-      fontFamily: 'title',
-    },
-    h2: {
-      ...cta,
-      fontSize: [2, 3, 4],
-      margin: 0,
-    },
-    h3: {
-      ...cta,
-      fontSize: [1, 1, 2],
-      margin: 0,
-    },
-  },
-  main: {
-    h1: {
-      ...general,
-      fontSize: [5, 6, 7],
-      fontFamily: 'title',
-      em: { ...em },
+      transition: 'all 0.5s ease-in',
     },
   },
   styles: {
@@ -113,7 +79,7 @@ export const styles = {
     },
     h1: {
       ...general,
-      fontSize: [4, 5, 6],
+      fontSize: [5, 6, 7],
       em: { ...em },
     },
     h2: {
@@ -126,18 +92,23 @@ export const styles = {
     },
     h4: {
       ...general,
-      fontSize: [1, 2, 3],
+      fontSize: [2, 2, 3],
     },
     em: { ...em },
     code: { ...code },
     a: { ...a },
     p: {
       color: 'text',
-      fontSize: [3, 3, 4],
+      fontSize: [2, 2, 3],
+      em: { ...em },
       code: {
         ...code,
         fontFamily: 'post',
-      }, // inherit doesn't work
+      },
+      div: {
+        em: { ...em },
+      },
+      transition: 'all 0.5s ease-in',
     },
     blockquote: {
       margin: '10px 0px',
