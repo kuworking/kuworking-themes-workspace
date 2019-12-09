@@ -1,12 +1,16 @@
-// stylying of MDX rendered files
-
 export const styles = {
-  root: { fontSize: 2 },
-  a: { textDecoration: 'none' },
-  h1: { color: 'heading' },
-  h2: { color: 'heading' },
-  h3: { color: 'heading' },
-  h4: { color: 'heading' },
-  h5: { color: 'heading' },
-  h6: { color: 'heading' },
+  breakpoints: ['400px', '600px'],
+  fontSizes: [12, 14, 15, 17, 20, 24, 32, 48, 64, 72],
+  fonts: {
+    body: 'sans-serif',
+    monospace: 'monospace',
+  },
+  styles: {
+    root: {
+      fontFamily: 'body',
+      lineHeight: 1.3,
+      fontWeight: '400',
+      fontSize: [1, 2, 3],
+    },
+  },
 }

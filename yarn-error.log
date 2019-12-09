@@ -1,0 +1,96 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js workspace kuworking-theme-one clean
+
+PATH: 
+  C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\Yarn\bin\;C:\Users\gerar\AppData\Local\Microsoft\WindowsApps;C:\Users\gerar\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\gerar\AppData\Roaming\npm;C:\Users\gerar\AppData\Local\Yarn\bin
+
+Yarn version: 
+  1.19.0
+
+Node version: 
+  10.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\CODING\kuworking-themes-workspace\packages\gatsby-theme-kuworking-core\package.json: Unexpected token } in JSON at position 1592
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:304:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "kuworking_themes-workspace",
+    "private": true,
+    "version": "0.0.1",
+    "workspaces": [
+      "themes/*",
+      "packages/*"
+    ],
+    "devDependencies": {
+      "babel-eslint": "^10.0",
+      "eslint": "^6.2.1",
+      "eslint-config-prettier": "^6.1.0",
+      "eslint-config-standard": "^14.0.0",
+      "eslint-plugin-import": "^2.16.0",
+      "eslint-plugin-node": "^9.1.0",
+      "eslint-plugin-prettier": "^3.0.1",
+      "eslint-plugin-promise": "^4.1.1",
+      "eslint-plugin-react": "^7.12.4",
+      "eslint-plugin-standard": "^4.0.0",
+      "fs-extra": "^8.1.0",
+      "gulp": "^4.0.0",
+      "gulp-help": "^1.6.1",
+      "lerna": "^3.16.4",
+      "prettier": "^1.16.4"
+    },
+    "scripts": {
+      "scripts_version": "workspace 0.2 kuworking-themes",
+      "____________________________": "________________________",
+      "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
+      "one": "yarn workspace kuworking-theme-one clean && yarn workspace kuworking-theme-one develop",
+      "one-build": "yarn workspace kuworking-theme-one clean && yarn workspace kuworking-theme-one build && yarn workspace kuworking-theme-one serve",
+      "two": "yarn workspace kuworking-theme-two clean && yarn workspace kuworking-theme-two develop",
+      "two-build": "yarn workspace kuworking-theme-two build && yarn workspace kuworking-theme-two serve",
+      "three": "yarn workspace kuworking-theme-three clean && yarn workspace kuworking-theme-three develop",
+      "three-build": "yarn workspace kuworking-theme-three build && yarn workspace kuworking-theme-three serve",
+      "four": "yarn workspace kuworking-theme-four clean && yarn workspace kuworking-theme-four develop",
+      "four-build": "yarn workspace kuworking-theme-four build && yarn workspace kuworking-theme-four serve",
+      "___________________________": "________________________",
+      "info_new_workspace_0": "yarn cache clean",
+      "info_new_workspace_1": "git init",
+      "info_new_workspace_2": "git remote -v",
+      "info_new_workspace_3": "git remote add origin https://github.com/user/repo.git",
+      "info_new_workspace_4": "lerna bootstrap",
+      "_________________________": "________________________",
+      "lerna_publish": "lerna publish",
+      "split_monorepo": "node monorepo-to-repos.js",
+      "________________________": "________________________",
+      "git_windows1": "git config --global user.email 'kuworking@gmail.com'",
+      "git_windows2": "git config --global user.name 'kuworking'",
+      "info": "gatsby info",
+      "build": "gatsby build && gatsby serve",
+      "buildc": "node build_clean.js && gatsby build && gatsby serve",
+      "buildc_net": "node build_clean.js && gatsby build && gatsby serve -H 192.168.1.119",
+      "develop": "gatsby develop",
+      "developc": "node build_clean.js && gatsby develop",
+      "developc_net": "node build_clean.js && gatsby develop -H 192.168.1.119",
+      "serve": "gatsby serve",
+      "clean": "gatsby clean",
+      "clean_node_modules": "node clean_node_modules.js",
+      "_______________________": "________________________"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/kuworking/kuworking-themes-workspace.git"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
