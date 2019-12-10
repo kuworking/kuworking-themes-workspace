@@ -22,7 +22,7 @@ export const Card = ({ post, related }) => {
 
   return (
     <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} theme={theme} related={related ? 1 : 0}>
-      <LazyBackgroundImg data_image={post.full_image} component={backgroundImage} />
+      <LazyBackgroundImg data_image={post.image_versions} component={backgroundImage} />
       <Title>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}

@@ -8,7 +8,21 @@ const Observer = (el, setBackImg) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           let lazyImage = entry.target
-          setBackImg(lazyImage.dataset.image)
+          setBackImg(
+            entry.target.clientWidth < 400
+              ? lazyImage.dataset['400px'] || lazyImage.dataset.standard
+              : entry.target.clientWidth < 600
+              ? lazyImage.dataset['600px'] || lazyImage.dataset.standard
+              : entry.target.clientWidth < 800
+              ? lazyImage.dataset['800px'] || lazyImage.dataset.standard
+              : entry.target.clientWidth < 1000
+              ? lazyImage.dataset['1000px'] || lazyImage.dataset.standard
+              : entry.target.clientWidth < 1200
+              ? lazyImage.dataset['1200px'] || lazyImage.dataset.standard
+              : entry.target.clientWidth < 1800
+              ? lazyImage.dataset['1800px'] || lazyImage.dataset.standard
+              : lazyImage.dataset.standard
+          )
           observer.unobserve(lazyImage)
         }
       })
@@ -20,11 +34,12 @@ const Observer = (el, setBackImg) => {
 export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
+  const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
 
   return (
     <BackgroundImage
       component={component}
-      data-image={data_image}
+      {...dataset}
       src={backImg}
       ref={el => {
         Observer(el, setBackImg)
@@ -38,11 +53,12 @@ export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) =>
 export const LazyImg = ({ data_image, component, title = 'image' }) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
+  const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
 
   return (
     <Image
       component={component}
-      data-image={data_image}
+      {...dataset}
       src={backImg}
       ref={el => {
         Observer(el, setBackImg)
