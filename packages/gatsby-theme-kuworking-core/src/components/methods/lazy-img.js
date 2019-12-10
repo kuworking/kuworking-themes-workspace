@@ -35,6 +35,17 @@ export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) =>
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
   const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
+  const [resize, setResize] = useState(0)
+
+  const repaint = () => {
+    setResize(resize + 1) // cause a repaint
+  }
+
+  let doit
+  window.addEventListener('resize', () => {
+    clearTimeout(doit)
+    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
+  })
 
   return (
     <BackgroundImage
@@ -54,6 +65,17 @@ export const LazyImg = ({ data_image, component, title = 'image' }) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
   const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
+  const [resize, setResize] = useState(0)
+
+  const repaint = () => {
+    setResize(resize + 1) // cause a repaint
+  }
+
+  let doit
+  window.addEventListener('resize', () => {
+    clearTimeout(doit)
+    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
+  })
 
   return (
     <Image
@@ -73,10 +95,11 @@ export const NonLazyImg = ({ data_image, component, title = 'image' }) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
   const [resize, setResize] = useState(0)
-  let flex_width = 0
+
   const repaint = () => {
-    setResize(resize + 1)
+    setResize(resize + 1) // cause a repaint
   }
+
   let doit
   window.addEventListener('resize', () => {
     clearTimeout(doit)
