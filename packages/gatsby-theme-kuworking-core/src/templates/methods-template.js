@@ -6,6 +6,13 @@ export const get_last_slug = str =>
     .replace(/\/$/, '')
 
 export const get_image = (images, name) => images.filter(el => el.node.name === name)[0]
+export const get_image_versions = (images, name) =>
+  Object.assign(
+    {},
+    ...images
+      .filter(el => el.node.name.split('---')[0] === name)
+      .map(el => ({ [el.node.name.split('---')[1] || 'standard']: el.node.publicURL }))
+  )
 
 export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
 
@@ -14,10 +21,11 @@ export const fill_related_posts = (post, posts, images) => {
 
   posts.forEach(({ node: this_post }, i) => {
     this_post.name = this_post.slug.replace(/^\//, '')
-    const image = get_image(images.images, get_last_slug(this_post.slug))
-    this_post.full_image = image && image.node.publicURL
-    this_post.fluid_image = image && image.node.childImageSharp && image.node.childImageSharp.fluid
-    this_post.fixed_image = image && image.node.childImageSharp && image.node.childImageSharp.fixed
+    const image = get_image_versions(images.images, get_last_slug(this_post.slug))
+    this_post.full_image = image && image.standard
+    this_post.image_versions = image || ''
+    //    this_post.fluid_image = image && image.node.childImageSharp && image.node.childImageSharp.fluid
+    //    this_post.fixed_image = image && image.node.childImageSharp && image.node.childImageSharp.fixed
     this_post.description = this_post.snippet
     if (this_post.title === post.title) this_is_the_own_post = i
   })
@@ -53,7 +61,8 @@ export const post_structure = (post, image) => ({
   type: post.type,
   description: post.snippet,
   name: post.slug.replace(/^\//, ''), // needed for the 1st slash, the last one is already removed
-  full_image: image && image.node.publicURL,
-  fluid_image: image && image.node.childImageSharp && image.node.childImageSharp.fluid,
-  fixed_image: image && image.node.childImageSharp && image.node.childImageSharp.fixed,
+  full_image: image && image.standard,
+  image_versions: image || '',
+  //  fluid_image: image && image.node.childImageSharp && image.node.childImageSharp.fluid,
+  //  fixed_image: image && image.node.childImageSharp && image.node.childImageSharp.fixed,
 })

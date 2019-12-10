@@ -1,5 +1,5 @@
 import React from 'react'
-import { get_image, post_structure, get_last_slug } from './methods-template'
+import { get_image_versions, post_structure, get_last_slug } from './methods-template'
 import { Structure } from '../components/structure'
 
 export default ({ location, pageContext, data }) => {
@@ -12,7 +12,7 @@ export default ({ location, pageContext, data }) => {
   const posts = []
 
   allPosts.forEach(({ node: post }, index) => {
-    const image = get_image(images.images, get_last_slug(post.slug))
+    const image = get_image_versions(images.images, get_last_slug(post.slug))
     posts.push({
       ...post_structure(post, image),
       key: 'post_' + index,
