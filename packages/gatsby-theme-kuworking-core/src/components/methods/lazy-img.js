@@ -1,5 +1,5 @@
 // v kw 2019.09.06
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
 
 const Observer = (el, setBackImg) => {
@@ -67,6 +67,42 @@ export const LazyImg = ({ data_image, component, title = 'image' }) => {
       alt={title}
     />
   )
+}
+
+export const NonLazyImg = ({ data_image, component, title = 'image' }) => {
+  const image_ref = useRef()
+  const [backImg, setBackImg] = useState('')
+  const [resize, setResize] = useState(0)
+  let flex_width = 0
+  const repaint = () => {
+    setResize(resize + 1)
+  }
+  let doit
+  window.addEventListener('resize', () => {
+    clearTimeout(doit)
+    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
+  })
+
+  useEffect(() => {
+    const width = image_ref.current.clientWidth
+    const image =
+      width < 400
+        ? data_image['400px'] || data_image.standard
+        : width < 600
+        ? data_image['600px'] || data_image.standard
+        : width < 800
+        ? data_image['800px'] || data_image.standard
+        : width < 1000
+        ? data_image['1000px'] || data_image.standard
+        : width < 1200
+        ? data_image['1200px'] || data_image.standard
+        : width < 1800
+        ? data_image['1800px'] || data_image.standard
+        : data_image.standard
+    setBackImg(image)
+  }, [resize])
+
+  return <Image component={component} src={backImg} ref={image_ref} alt={title} />
 }
 
 const BackgroundImage = styled.div`
