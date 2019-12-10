@@ -64,7 +64,11 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       {(image.fake && <FakeImage />) || (
         <FixImage>
           <div>
-            <img src={image.src} alt="related to post" />
+            <img
+              src={image.src}
+              srcset={`${image.src800} 800w, ${image.src400} 400w`}
+              sizes="(max-width: 480px) 440px, 800px"
+              alt="related to post" />
           </div>
         </FixImage>
       )}

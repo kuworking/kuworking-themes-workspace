@@ -28,7 +28,7 @@ export const Grid = ({
 
       <Container>
         {posts.map((post, i) => (
-          <Card key={'card_' + i} post={post} i={i} />
+          <Card key={'card_' + i} post={post} />
         ))}
       </Container>
       <Pagination pagination={pagination} />

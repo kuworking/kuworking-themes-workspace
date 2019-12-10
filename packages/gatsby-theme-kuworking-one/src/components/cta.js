@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, css, useThemeUI } from 'theme-ui'
+import { Styled, css, useThemeUI, jsx } from 'theme-ui'
 import { Mail as MailIcon } from 'emotion-icons/ion-md'
 import { Config, Text } from 'gatsby-theme-kuworking-core'
 
@@ -12,7 +13,7 @@ export const CtaMain = () => {
   const input_id = React.createRef()
 
   return (
-    <Container theme={theme}>
+    <Container theme={theme} sx={{ variant: 'cta' }}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>
@@ -91,10 +92,6 @@ const Title = styled(Styled.h1)`
   display: inline-block;
 
   & > div {
-    font-size: 1.4em;
-    ${q(700)} {
-      font-size: 1.6em;
-    }
     border-right: 5px solid #ffffffde;
     margin-right: 5px;
     white-space: nowrap;
@@ -114,11 +111,7 @@ const Title = styled(Styled.h1)`
     }
   }
 `
-const Sentence = styled(Styled.p)`
-  & > object {
-    font-size: 1.6em;
-  }
-`
+const Sentence = styled(Styled.p)``
 const Input = styled.div``
 const MailChimp = styled.div`
   & > form > div:first-of-type {
@@ -128,7 +121,6 @@ const MailChimp = styled.div`
 
   & ${Input} {
     & input {
-      font-size: 1.4em;
       height: 100%;
       margin-right: 5px;
       border-radius: 3px;
@@ -141,7 +133,6 @@ const MailChimp = styled.div`
   }
 
   & button {
-    font-size: 1.4em;
     border: 2px solid #000;
     cursor: pointer;
     font-weight: 700;
@@ -159,10 +150,8 @@ const Container = styled.div`
   background: ${props => props.theme.colors.cta__div__background};
   border-radius: 2px;
 
-  font-size: 0.7em;
   padding: 10px;
   ${q(700)} {
-    font-size: 1em;
     padding: 20px 40px 15px 15px;
   }
 

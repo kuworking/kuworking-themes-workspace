@@ -16,7 +16,7 @@ transition: filter 0.3s ease;
 }
 `
 
-export const Card = ({ post, i, related }) => {
+export const Card = ({ post, related }) => {
   const { theme } = useThemeUI()
   if (!post) return
 

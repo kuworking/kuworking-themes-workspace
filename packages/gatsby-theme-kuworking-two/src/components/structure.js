@@ -10,7 +10,7 @@ import { Page } from './page'
 import { Tool } from './tool'
 import './globalcss.css'
 
-const grid_maxwidth = '800px'
+const grid_maxwidth = '600px'
 const post_maxwidth = '600px'
 
 export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {

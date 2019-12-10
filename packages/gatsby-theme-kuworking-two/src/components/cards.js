@@ -16,7 +16,7 @@ transition: filter 0.3s ease;
 }
 `
 
-export const Card = ({ post, i, related }) => {
+export const Card = ({ post, related }) => {
   const { theme } = useThemeUI()
   if (!post) return
 
@@ -62,14 +62,14 @@ const Container = styled.div`
 const ContainerCard = styled(Container)`
   ${props =>
     props.related
-      ? 'grid-template-rows: 0px 100px minmax(60px, 1fr);'
-      : 'grid-template-rows: 0px 100px minmax(60px, 1fr);'}
+      ? 'grid-template-rows: 0px 200px minmax(50px, 1fr);'
+      : 'grid-template-rows: 0px 300px minmax(50px, 1fr);'}
 
   ${q(600)} {
     ${props =>
       props.related
-        ? 'grid-template-rows: 0px 140px minmax(100px, 1fr);'
-        : 'grid-template-rows: 0px 140px minmax(100px, 1fr);'}
+        ? 'grid-template-rows: 0px 200px minmax(50px, 1fr);'
+        : 'grid-template-rows: 0px 500px minmax(50px, 1fr);'}
   }
 
   & > div:nth-of-type(1) {

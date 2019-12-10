@@ -52,6 +52,27 @@ export const styles = {
     body: 'Open Sans, sans-serif',
     monospace: 'monospace',
   },
+  cta: {
+    h1: {
+      ...general,
+      fontFamily: 'title',
+      lineHeight: '1',
+      margin: '10px 0px 10px 0px',
+      fontSize: [7, 8, 8],
+      transition: 'all 0.5s ease-in',
+    },
+    p: {
+      fontFamily: 'post',
+      fontSize: [2, 3, 4],
+      transition: 'all 0.5s ease-in',
+    },
+    input: {
+      fontSize: [2, 3, 4],
+    },
+    button: {
+      fontSize: [2, 3, 4],
+    },
+  },
   post: {
     h1: {
       ...general,

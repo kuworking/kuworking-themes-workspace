@@ -1,12 +1,14 @@
 // implements color themes to be switched
 
 export const colors = {
-  cta__div__background: 'linear-gradient(52deg, #ff5514 80%,#ff7e4d 90%, #ffc521 100%)',
-  cta__title__color: '#fff',
+  cta__div__background: 'linear-gradient(to left,#ffffff,#fafafa)',
+  cta__div__border: '#e6e6e6',
+  cta__title__color: '#737373',
   cta__em__background: '#ffffff',
   cta__em__color: '#ff6a00',
   cta__button__background: '#ffffff30',
   cta__button__color: '#000',
+  cta__button__border: '#000',
   cta__button_hover__background: '#000000',
   cta__button_hover__color: '#fff',
 
@@ -25,19 +27,34 @@ export const colors = {
   global__panel_hover__background: '#989898',
   global__panel_hover__color: '#fff',
 
+  em_color: '#fff',
+  em_background: '#c7c7c7',
+  code_color: '#3d2c29',
+  code_background: '#f1b0b0',
+  blockquote_background: '#eaeaea',
+
   text: '#3d2c29',
   heading: '#907d79',
-  background: '#f5f5f2',
+  background: '#fafafa',
+  general_background: '#e2e0db',
   primary: '#907d79',
+  secondary: '#30c',
+  accent: '#3d2c29',
+  bg_accent: '#ccc',
+  muted: '#f6f6f6',
+  link: '#ff6a00',
+  linkOver: '#79cdff',
 
   modes: {
     dark: {
-      cta__div__background: 'linear-gradient(52deg,#9569dc 60%,#6f42b7 80%,#340082 100%)',
+      cta__div__background: 'linear-gradient(52deg, rgb(34, 38, 57) 60%, rgb(111, 66, 183) 80%, rgb(52, 0, 130) 100%)',
+      cta__div__border: '#fff',
       cta__title__color: '#c969dc',
       cta__em__background: '#ffed70',
       cta__em__color: '#000000',
       cta__button__background: '#ffffff30',
       cta__button__color: '#fff',
+      cta__button__border: '#fff',
       cta__button_hover__background: '#ff9191',
       cta__button_hover__color: '#fff',
 
@@ -56,15 +73,23 @@ export const colors = {
       global__panel_hover__background: '#616161',
       global__panel_hover__color: '#989898',
 
+      em_color: '#000',
+      em_background: '#c7c7c7',
+      code_color: '#3d2c29',
+      code_background: '#c58f8f',
+      blockquote_background: '#616161',
+
       text: '#F0F5FA',
       heading: '#d9d7dc',
-      background: '#222639',
+      background: '#000000',
+      general_background: '#58554d',
       primary: '#c1bdca',
       secondary: '#EE99FF',
+      accent: '#3d2c29',
+      bg_accent: '#f6f6f6',
       muted: '#00000033',
-      highlight: '#5F527A',
-      gray: '#6699CC',
-      purple: '#EE99FF',
+      link: '#ff6a00',
+      linkOver: '#79cdff',
     },
   },
 }

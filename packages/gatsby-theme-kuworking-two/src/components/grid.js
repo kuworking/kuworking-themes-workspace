@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Styled, useThemeUI, jsx } from 'theme-ui'
 
-import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-one'
+import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-two'
 
 export const Grid = ({
   blogGrid: {
@@ -28,7 +28,7 @@ export const Grid = ({
 
       <Container>
         {posts.map((post, i) => (
-          <Card key={'card_' + i} post={post} i={i} />
+          <Card key={'card_' + i} post={post} />
         ))}
       </Container>
       <Pagination pagination={pagination} />
@@ -44,7 +44,7 @@ const Container = styled.div`
   transition: padding 0.5s ease;
 
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
   grid-column-gap: 1vw;
   grid-row-gap: 3vw;
   justify-content: space-between;
