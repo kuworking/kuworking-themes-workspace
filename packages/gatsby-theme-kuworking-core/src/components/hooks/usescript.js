@@ -11,7 +11,7 @@ export const useScript = (src, dataset) => {
   })
 
   useEffect(() => {
-    if (!src || dataset.abort) return
+    if (!src || (dataset && dataset.abort)) return
     const inject_script = stillMounted => {
       if (!stillMounted.value) return
 
