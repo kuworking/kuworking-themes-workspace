@@ -14,7 +14,16 @@ export const get_image_versions = (images, name) =>
       .map(el => ({ [el.node.name.split('---')[1] || 'standard']: el.node.publicURL }))
   )
 
-export const get_folder_image = (images, name) => images.filter(el => el.node.relativeDirectory === name)
+export const get_folder_image = (images, name) =>
+  images
+    .filter(el => el.node.relativeDirectory === name)
+    .reduce((acc, { node: { name, publicURL } }) => {
+      const [nme, variant] = name.split('---')
+      const number = parseInt(nme) - 1 // to make 0-index
+      if (!acc[number]) acc[number] = {}
+      acc[number][variant || 'standard'] = publicURL
+      return acc
+    }, [])
 
 export const fill_related_posts = (post, posts, images) => {
   let this_is_the_own_post
