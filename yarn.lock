@@ -15552,6 +15552,11 @@ typeface-open-sans@0.0.75:
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
   integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
 
+typeface-squada-one@0.0.72:
+  version "0.0.72"
+  resolved "https://registry.yarnpkg.com/typeface-squada-one/-/typeface-squada-one-0.0.72.tgz#4ca0f0b02c5b93ff78bdfc3dc53b9070e4d04eee"
+  integrity sha512-W9S/Oo7Pf/zYp72H0TF7n1qgy+IHMM68SFpc+gprm1BiV0fvksYOWh/TPguUJH3X/C2T5fED+GJ423EQ5VJvgQ==
+
 ua-parser-js@^0.7.18:
   version "0.7.20"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"

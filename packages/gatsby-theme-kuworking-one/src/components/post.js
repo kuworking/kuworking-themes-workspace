@@ -29,7 +29,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         </div>
       </Title>
 
-      <Info>
+      <Info theme={theme}>
         <div>
           {100 * parseInt(post.words / 100)} {Text.post.words}
         </div>
@@ -45,7 +45,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         </div>
       </Info>
 
-      <Tags>
+      <Tags theme={theme}>
         {post.tags.map((tag, j) => (
           <React.Fragment key={'link' + j}>
             <Tag to={'/tags/' + tag}>{tag.replace(/_/g, ' ')}</Tag>
@@ -80,7 +80,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         <Styled.h1>{Text.post.related_posts}</Styled.h1>
         <Container>
           {tags_related_posts.map((post, i) => (
-            <Card key={'related_card_' + i} post={post.node} i={i} related />
+            <Card key={'related_card_' + i} post={post.node} related />
           ))}
         </Container>
       </RelatedPosts>
@@ -96,6 +96,9 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled(Styled.h1)`
+  ${q(400)} {
+    margin-top: 50px;
+  }
   & > div {
     text-transform: uppercase;
     color: ${props => props.theme.colors.post__title__color};
@@ -112,6 +115,7 @@ const Title = styled(Styled.h1)`
   }
 `
 
+const Tag = styled(Link)``
 const Tags = styled.div`
   font-size: 0.9em;
   letter-spacing: -1px;
@@ -124,30 +128,30 @@ const Tags = styled.div`
   & > div {
     display: inline-block;
     padding-right: 4px;
-    color: #a1a1a1;
+    color: ${props => props.theme.colors.post__tags__info__color};
+  }
+
+  ${Tag} {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    padding: 2px 8px;
+    text-decoration: none;
+
+    color: ${props => props.theme.colors.post__tags__tag__color};
+    background: ${props => props.theme.colors.post__tags__tag__background};
+    border-radius: 3px;
+    transition: background-color 0.5s ease;
+
+    &:hover {
+      color: ${props => props.theme.colors.post__tags__tag_hover__color};
+      background-color: ${props => props.theme.colors.post__tags__tag_hover__background};
+      text-decoration: underline;
+    }
   }
 `
 const Info = styled(Tags)`
   margin-bottom: unset;
-`
-
-const Tag = styled(Link)`
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 3px;
-  padding: 2px 8px;
-  text-decoration: none;
-
-  color: #757575;
-  background: #ccc;
-  border-radius: 3px;
-  transition: background-color 0.5s ease;
-
-  &:hover {
-    color: #ffffff;
-    background-color: #616161;
-    text-decoration: underline;
-  }
 `
 
 const RelatedPosts = styled.div`
@@ -161,18 +165,18 @@ const CommentsWrap = styled.div`
   padding: 10px;
   cursor: pointer;
   transition: background 0.5s ease;
-  background: ${props => props.theme.colors.global__panel__background};
+  background: ${props => props.theme.colors.post__comments__background};
 
   & > h1 {
     margin-bottom: 0px;
     transition: color 0.5s ease;
-    color: ${props => props.theme.colors.global__panel__color};
+    color: ${props => props.theme.colors.post__comments__title__color};
   }
 
   &:hover {
-    background: ${props => props.theme.colors.global__panel_hover__background};
+    background: ${props => props.theme.colors.post__comments_hover__background};
     & > h1 {
-      color: ${props => props.theme.colors.global__panel_hover__color};
+      color: ${props => props.theme.colors.post__comments_hover__title__color};
     }
   }
 `
@@ -201,35 +205,15 @@ const Container = styled.article`
 
 const image_skeleton = `
 position: unset !important;
-max-height: 200px !important;
-${q(400)} {
-  max-height: 300px !important;
-}
+max-height: 300px !important;
 ${q(600)} {
   max-height: 500px !important;
   margin: 20px 0px;
 }
 `
-export const Image = styled.img`
-  ${image_skeleton}
-
-  & img {
-    top: 60px !important; /* 60px from header */
-    height: 200px !important;
-    ${q(400)} {
-      height: 300px !important;
-    }
-    ${q(600)} {
-      height: 500px !important;
-      top: 110px !important; /* 60px from header + 50px from margin */
-    }
-  }
-`
-
 export const FakeImage = styled.div`
   ${image_skeleton}
 `
-
 export const FixImage = styled.div`
   background-color: #ffffff;
   display: inline-block;

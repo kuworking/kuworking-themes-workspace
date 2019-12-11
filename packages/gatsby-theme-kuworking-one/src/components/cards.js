@@ -92,12 +92,18 @@ const ContainerCard = styled(Container)`
     line-height: 1.3;
 
     & > div {
-      background: ${props => props.theme.colors.global__text_with_background__background};
-      color: ${props => props.theme.colors.global__text_with_background__color};
+      background: ${props => props.theme.colors.cards__title__background};
+      color: ${props => props.theme.colors.cards__title__color};
       padding: 0 3px;
       display: inline;
       box-decoration-break: clone;
       transition: all 0.5s ease-in;
+      & > em {
+        background: ${props => props.theme.colors.cards__title_em__background};
+        color: ${props => props.theme.colors.cards__title__color};
+        padding: 0px 4px;
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -106,7 +112,7 @@ const ContainerCard = styled(Container)`
     width: 90%;
 
     & > em {
-      background: ${props => props.theme.colors.cards__em__background};
+      background: ${props => props.theme.colors.cards__abstract_em__background} !important;
     }
   }
 

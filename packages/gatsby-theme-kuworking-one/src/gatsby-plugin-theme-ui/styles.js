@@ -1,7 +1,7 @@
 const em = {
   fontStyle: 'normal',
-  color: 'em_color',
-  backgroundColor: 'em_background',
+  color: 'em__text',
+  backgroundColor: 'em__background',
   padding: '1px 4px',
   borderRadius: '2px',
   transition: 'all 0.5s ease-in',
@@ -11,8 +11,8 @@ const code = {
   fontFamily: 'monospace',
   fontWeight: '700',
   fontSize: 'inherit',
-  color: 'code_color',
-  backgroundColor: 'code_background',
+  color: 'code',
+  backgroundColor: 'code__background',
   borderRadius: '3px',
   display: 'inline-block',
   padding: '2px 5px',
@@ -40,6 +40,11 @@ const general = {
   input: { fontFamily: 'inherit' },
 }
 
+const heading = {
+  ...general,
+  color: 'heading',
+}
+
 // root as a way to access afterwards, but has no effect
 const h = prp => ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'p', 'root'].reduce((obj, el) => ({ ...obj, [el]: prp }), {})
 
@@ -54,10 +59,10 @@ export const styles = {
   },
   cta: {
     h1: {
-      ...general,
+      ...heading,
       fontFamily: 'title',
       lineHeight: '1',
-      margin: '50px 0px 10px 0px',
+      margin: '10px 0px 10px 0px',
       fontSize: [7, 8, 8],
       transition: 'all 0.5s ease-in',
     },
@@ -75,10 +80,10 @@ export const styles = {
   },
   post: {
     h1: {
-      ...general,
+      ...heading,
       fontFamily: 'title',
       lineHeight: '1',
-      margin: '50px 0px 10px 0px',
+      margin: '10px 0px 10px 0px',
       fontSize: [7, 8, 8],
       transition: 'all 0.5s ease-in',
     },
@@ -99,20 +104,20 @@ export const styles = {
       fontSize: [1, 2, 3],
     },
     h1: {
-      ...general,
+      ...heading,
       fontSize: [5, 6, 7],
       em: { ...em },
     },
     h2: {
-      ...general,
+      ...heading,
       fontSize: [2, 4, 5],
     },
     h3: {
-      ...general,
+      ...heading,
       fontSize: [2, 3, 4],
     },
     h4: {
-      ...general,
+      ...heading,
       fontSize: [2, 2, 3],
     },
     em: { ...em },
@@ -133,7 +138,7 @@ export const styles = {
     },
     blockquote: {
       margin: '10px 0px',
-      backgroundColor: 'blockquote_background',
+      backgroundColor: 'blockquote__background',
       fontSize: '1.2em',
       padding: '10px 20px',
       borderRadius: '8px',
