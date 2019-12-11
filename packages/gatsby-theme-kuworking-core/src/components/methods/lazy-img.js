@@ -31,15 +31,22 @@ const Observer = (el, setBackImg) => {
   }
 }
 
-export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) => {
+const useImg = (observer = true) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
-  const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
   const [resize, setResize] = useState(0)
 
+  let stillMounted = { value: false } // in order to prevent the memory leak
+  useEffect(() => {
+    stillMounted.value = true
+    return () => (stillMounted.value = false)
+  }, [])
+
   const repaint = () => {
+    if (!stillMounted.value) return
     setResize(resize + 1) // cause a repaint
   }
+
 
   let doit
   window.addEventListener('resize', () => {
@@ -47,67 +54,34 @@ export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) =>
     doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
   })
 
-  return (
-    <BackgroundImage
-      component={component}
-      {...dataset}
-      src={backImg}
-      ref={el => {
-        Observer(el, setBackImg)
-        return image_ref
-      }}
-      alt={title}
-    />
-  )
+  return observer
+    ? [
+        el => {
+          Observer(el, setBackImg)
+          return image_ref
+        },
+        backImg,
+      ]
+    : [image_ref, backImg, setBackImg, resize]
+}
+
+export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) => {
+  const [ref, src] = useImg()
+  const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
+  return <BackgroundImage component={component} {...dataset} src={src} ref={ref} alt={title} />
 }
 
 export const LazyImg = ({ data_image, component, title = 'image' }) => {
-  const image_ref = useRef()
-  const [backImg, setBackImg] = useState('')
+  const [ref, src] = useImg()
   const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
-  const [resize, setResize] = useState(0)
-
-  const repaint = () => {
-    setResize(resize + 1) // cause a repaint
-  }
-
-  let doit
-  window.addEventListener('resize', () => {
-    clearTimeout(doit)
-    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
-  })
-
-  return (
-    <Image
-      component={component}
-      {...dataset}
-      src={backImg}
-      ref={el => {
-        Observer(el, setBackImg)
-        return image_ref
-      }}
-      alt={title}
-    />
-  )
+  return <Image component={component} {...dataset} src={src} ref={ref} alt={title} />
 }
 
-export const NonLazyImg = ({ data_image, component, title = 'image' }) => {
-  const image_ref = useRef()
-  const [backImg, setBackImg] = useState('')
-  const [resize, setResize] = useState(0)
-
-  const repaint = () => {
-    setResize(resize + 1) // cause a repaint
-  }
-
-  let doit
-  window.addEventListener('resize', () => {
-    clearTimeout(doit)
-    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
-  })
+export const Img = ({ data_image, component, title = 'image' }) => {
+  const [ref, src, setSrc, resize] = useImg(false)
 
   useEffect(() => {
-    const width = image_ref.current.clientWidth
+    const width = ref.current.clientWidth
     const image =
       width < 400
         ? data_image['400px'] || data_image.standard
@@ -122,10 +96,10 @@ export const NonLazyImg = ({ data_image, component, title = 'image' }) => {
         : width < 1800
         ? data_image['1800px'] || data_image.standard
         : data_image.standard
-    setBackImg(image)
+    setSrc(image)
   }, [resize])
 
-  return <Image component={component} src={backImg} ref={image_ref} alt={title} />
+  return <Image component={component} src={src} ref={ref} alt={title} />
 }
 
 const BackgroundImage = styled.div`

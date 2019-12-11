@@ -12,6 +12,8 @@ export const useCss = url => {
 
   useEffect(() => {
     const inject_css = stillMounted => {
+      if (!stillMounted.value) return
+
       if (cachedCss.includes(url)) {
         setState({
           loaded: true,

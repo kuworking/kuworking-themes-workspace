@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Styled, useThemeUI, jsx } from 'theme-ui'
 
-import { Disqus, Config, Text, SocialShare, shuffle_array, NonLazyImg } from 'gatsby-theme-kuworking-core'
+import { Disqus, Config, Text, SocialShare, shuffle_array, Img } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
 import { Card } from './cards'
 
@@ -64,7 +64,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       {(image.fake && <FakeImage />) || (
         <FixImage>
           <div>
-            <NonLazyImg data_image={image.src} title="related to post" />
+            <Img data_image={image.src} title="related to post" />
           </div>
         </FixImage>
       )}

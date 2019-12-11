@@ -17,7 +17,7 @@ export {
   get_response,
   get_request,
 } from './src/components/methods/methods'
-export { LazyBackgroundImg, LazyImg, NonLazyImg } from './src/components/methods/lazy-img'
+export { LazyBackgroundImg, LazyImg, Img } from './src/components/methods/lazy-img'
 export { Highlight, apply_highlight } from './src/components/methods/highlight'
 export { Prism } from './src/components/methods/prism'
 export { CodeLink, useCodePenScript, CodePen } from './src/components/methods/codepen'
