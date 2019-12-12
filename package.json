@@ -21,7 +21,8 @@
     "gulp": "^4.0.0",
     "gulp-help": "^1.6.1",
     "lerna": "^3.16.4",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "prompt": "1.0.0"
   },
   "scripts": {
     "scripts_version": "workspace 0.2 kuworking-themes",

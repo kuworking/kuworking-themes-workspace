@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { useThemeUI } from 'theme-ui'
-import { Youtube } from 'gatsby-theme-kuworking-one'
+import { Youtube } from 'gatsby-theme-kuworking-two'
 
 export const CardYoutube = ({ src, text = '' }) => {
   const { theme } = useThemeUI()
