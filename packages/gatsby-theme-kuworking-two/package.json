@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "@mdx-js/react": "1.5.1",
-    "deepmerge": "4.2.2",
     "gatsby-theme-kuworking-core": "^0.1.31",
     "typeface-squada-one": "0.0.72"
   },
