@@ -70,3 +70,5 @@ Files that you may want to modify
 |─ package.json // edit this file to change the name of your package, description, repository and if it is public or private
 |─ README.md // this file you are reading now
 ```
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/kuworking/kuworking-theme-two)
