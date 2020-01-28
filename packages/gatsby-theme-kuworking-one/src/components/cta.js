@@ -1,19 +1,18 @@
 /** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, css, useThemeUI, jsx } from 'theme-ui'
+import { Styled, css, jsx } from 'theme-ui'
 import { Mail as MailIcon } from 'emotion-icons/ion-md'
 import { Config, Text } from 'gatsby-theme-kuworking-core'
 
 export const CtaList = () => {}
 
 export const CtaMain = () => {
-  const { theme } = useThemeUI()
   const form_id = React.createRef()
   const input_id = React.createRef()
 
   return (
-    <Container theme={theme} sx={{ variant: 'cta' }}>
+    <Container sx={{ variant: 'cta' }}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>

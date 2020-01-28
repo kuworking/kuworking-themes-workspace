@@ -1,17 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled, useThemeUI } from 'theme-ui'
+import { Styled } from 'theme-ui'
 
 export const Card = ({ post, i, related }) => {
-  const { theme } = useThemeUI()
-
   return (
     <Styled.a
       as={Container}
       aria-label="Post"
       to={'/' + post.name}
-      theme={theme}
       related={related ? 1 : 0} /* to prevent a warning from styled-components */
     >
       <Image src={related ? post.fixed_image.src : post.image.src} />

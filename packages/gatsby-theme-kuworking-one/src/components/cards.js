@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled, useThemeUI } from 'theme-ui'
+import { Styled } from 'theme-ui'
 import { LazyBackgroundImg } from 'gatsby-theme-kuworking-core'
 
 const backgroundImage = `
@@ -17,11 +17,10 @@ transition: filter 0.3s ease;
 `
 
 export const Card = ({ post, related }) => {
-  const { theme } = useThemeUI()
   if (!post) return
 
   return (
-    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} theme={theme} related={related ? 1 : 0}>
+    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
       <LazyBackgroundImg data_image={post.image_versions} component={backgroundImage} />
       <Title>
         <div>

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, useThemeUI, jsx } from 'theme-ui'
+import { Styled, jsx } from 'theme-ui'
 
 import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-one'
 
@@ -12,14 +12,12 @@ export const Grid = ({
     tags: { tags_grid, tag, global_tags },
   },
 }) => {
-  const { theme } = useThemeUI()
-
   return (
     <>
       <CtaMain />
 
       {tags_grid && (
-        <Tag theme={theme}>
+        <Tag>
           <span>
             Tag <span>{tag}</span>
           </span>

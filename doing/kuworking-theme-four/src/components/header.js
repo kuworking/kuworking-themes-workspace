@@ -1,16 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { useThemeUI } from 'theme-ui'
 import styled from '@emotion/styled'
 
 import { Text, Switch } from 'gatsby-theme-kuworking-core'
 
 export const Header = ({ basePath, maxWidth, post }) => {
-  const { theme } = useThemeUI()
-
   return (
     <>
-      <Graphic id="particles-js" post={post} theme={theme}>
+      <Graphic id="particles-js" post={post}>
         <div>{Text.header.mainLogo}</div>
       </Graphic>
 

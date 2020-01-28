@@ -20,3 +20,4 @@
     -> post
     -> page
 
+https://github.com/narative/gatsby-theme-novela

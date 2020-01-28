@@ -3,14 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Styled, useThemeUI, jsx } from 'theme-ui'
+import { Styled, jsx } from 'theme-ui'
 
 import { Disqus, Config, Text, SocialShare, shuffle_array, Img } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
 import { Card } from './cards'
 
 export const Post = ({ blogPost: { images, post, structure: { post_related_images, tags_related_posts } = {} } }) => {
-  const { theme } = useThemeUI()
   const [disqusLoad, setDisqusLoad] = useState(0)
 
   tags_related_posts = shuffle_array(tags_related_posts)
@@ -23,13 +22,13 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
   return (
     <>
-      <Title name="tothetop" sx={{ variant: 'post.h1' }} theme={theme}>
+      <Title name="tothetop" sx={{ variant: 'post.h1' }}>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </div>
       </Title>
 
-      <Info theme={theme}>
+      <Info>
         <div>
           {100 * parseInt(post.words / 100)} {Text.post.words}
         </div>
@@ -45,7 +44,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         </div>
       </Info>
 
-      <Tags theme={theme}>
+      <Tags>
         {post.tags.map((tag, j) => (
           <React.Fragment key={'link' + j}>
             <Tag to={'/tags/' + tag}>{tag.replace(/_/g, ' ')}</Tag>
@@ -85,7 +84,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         </Container>
       </RelatedPosts>
 
-      <CommentsWrap onClick={() => setDisqusLoad(1)} theme={theme}>
+      <CommentsWrap onClick={() => setDisqusLoad(1)}>
         <Styled.h1>{Text.post.comments}</Styled.h1>
         <Disqus load={disqusLoad} disqusShortName={Config.disqus} label="Comment From A Post" origin={post.name} />
       </CommentsWrap>

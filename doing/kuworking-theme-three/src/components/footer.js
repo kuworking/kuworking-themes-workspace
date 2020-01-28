@@ -1,17 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled, useThemeUI } from 'theme-ui'
+import { Styled } from 'theme-ui'
 import CookieConsent from 'react-cookie-consent'
 import { Text } from 'gatsby-theme-kuworking-core'
 
 export const Footer = ({ basePath }) => {
-  const { theme } = useThemeUI()
-
   return (
     <>
       <Expand />
-      <Foot theme={theme}>
+      <Foot>
         <Legal>
           <Styled.a as={Link} aria-label="Mi Historia" to={`${basePath}me`}>
             {Text.footer.me}

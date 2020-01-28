@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { useThemeUI } from 'theme-ui'
 import { Youtube } from 'gatsby-theme-kuworking-one'
 
 export const CardYoutube = ({ src, text = '' }) => {
-  const { theme } = useThemeUI()
   const component = `
     width: 100%;
     height: 300px;
@@ -15,7 +13,7 @@ export const CardYoutube = ({ src, text = '' }) => {
   `
 
   return (
-    <Container theme={theme}>
+    <Container>
       <Youtube component={component} src={src} />
     </Container>
   )
