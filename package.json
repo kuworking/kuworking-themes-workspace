@@ -32,6 +32,8 @@
     "one-build": "yarn workspace kuworking-theme-one clean && yarn workspace kuworking-theme-one build && yarn workspace kuworking-theme-one serve",
     "two": "yarn workspace kuworking-theme-two clean && yarn workspace kuworking-theme-two develop",
     "two-build": "yarn workspace kuworking-theme-two build && yarn workspace kuworking-theme-two serve",
+    "affiliate": "yarn workspace kuworking-theme-affiliate clean && yarn workspace kuworking-theme-affiliate develop",
+    "affiliate-build": "yarn workspace kuworking-theme-affiliate build && yarn workspace kuworking-theme-affiliate serve",
     "three": "yarn workspace kuworking-theme-three clean && yarn workspace kuworking-theme-three develop",
     "three-build": "yarn workspace kuworking-theme-three build && yarn workspace kuworking-theme-three serve",
     "four": "yarn workspace kuworking-theme-four clean && yarn workspace kuworking-theme-four develop",

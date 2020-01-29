@@ -1,8 +1,8 @@
-# Gatsby THEME TWO — by kuworking
+# Gatsby THEME AFFILIATE — by kuworking
 
 This is the starter of Gatsby kuworking THEME TWO, which itself uses the kuworking [THEME CORE](https://github.com/kuworking/gatsby-theme-kuworking-core)
 
-You can find the demo of the theme [here](https://www.kuworking.com/themes/two) and other themes by kuworking [here](https://www.kuworking.com/themes)
+You can find the demo of the theme [here](https://www.kuworking.com/themes/affiliate) and other themes by kuworking [here](https://www.kuworking.com/themes)
 
 ## Characteristics
 
@@ -42,8 +42,8 @@ You can find the demo of the theme [here](https://www.kuworking.com/themes/two) 
 
 ## Usage
 
-- `gatsby new two https://github.com/kuworking/kuworking-theme-two`
-- `cd new two`
+- `gatsby new affiliate https://github.com/kuworking/kuworking-theme-affiliate`
+- `cd new affiliate`
 - `gatsby develop`
 
 And explore your site at `http://localhost:8000`
@@ -123,4 +123,4 @@ Files that you may want to modify
 |─ README.md // this file you are reading now
 ```
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/kuworking/kuworking-theme-two)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/kuworking/kuworking-theme-affiliate)

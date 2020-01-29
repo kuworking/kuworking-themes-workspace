@@ -48,6 +48,14 @@ You can find the demo of the theme [here](https://www.kuworking.com/themes/one) 
 
 And explore your site at `http://localhost:8000`
 
+## Relation between the theme and the starter
+
+The theme, which is consumed by the starter, is the responsible of all the logic of the website
+
+The starter stores all the content of the site (pages, posts, images, ...)
+
+And as usual, the starter has the capacity to shadow any file of the theme to modify it at will
+
 ## Posts and Post images
 
 - Posts are stored in `./content/posts` and have the structure `2019.10.05.my-first-post.mdx`

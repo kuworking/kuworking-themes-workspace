@@ -1,0 +1,63 @@
+[
+  { "category": "tech", "description": "tech products" },
+  {
+    "name": "product 1",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 2",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 3",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 4",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 5",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 6",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 7",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 8",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 9",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  },
+  {
+    "name": "product 10",
+    "link": "https://",
+    "image": "/product_image.jpg",
+    "price": ""
+  }
+]
