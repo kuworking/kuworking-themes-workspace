@@ -4,7 +4,7 @@ import Grid from '../templates/template'
 export default Grid
 
 export const query = graphql`
-  query PostsQuery {
+  query JsonQuery {
     core: allJsonContent {
       edges {
         node {

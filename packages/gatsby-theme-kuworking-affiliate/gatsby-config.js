@@ -27,6 +27,8 @@ module.exports = themeOptions => {
       `gatsby-plugin-offline`,
       `gatsby-plugin-emotion`,
       `gatsby-plugin-theme-ui`,
+      `gatsby-transformer-sharp`, // without it, site breaks
+      `gatsby-plugin-sharp`, // without it, site breaks
     ]) ||
     []
 
@@ -38,8 +40,8 @@ module.exports = themeOptions => {
           path: options.jsonPath || `content/json`,
           name: options.jsonPath || `content/json`,
         },
-        ...ifStandAlone,
       },
+      ...ifStandAlone,
     ].filter(Boolean),
   }
 }

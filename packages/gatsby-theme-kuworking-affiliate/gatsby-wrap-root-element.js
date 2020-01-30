@@ -11,7 +11,6 @@ export const wrapRootElement = ({ element }) => <>{element}</>
  wrapPageElement renders every time the page changes making it ideal for complex page transitions...
  ... or for stuff that need the page path, like an internationalization context provider for example
 */
-// Provide styled outside mdx files from theme-ui
 export const wrapPageElement = ({ element }) => <Styled.root>{element}</Styled.root>
 
 export const onRouteUpdate = () => {}
