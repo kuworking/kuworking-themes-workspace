@@ -1,64 +1,52 @@
 [
     { "category": "bags", "description": "bags products" },
     {
-      "name": "product 1",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour UA Patterson",
+      "link": "https://amzn.to/2GwClTE",
+      "image": "/UnderArmourUAPatterson.jpg",
+      "price": "25€"
     },
     {
-      "name": "product 2",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour Hustle",
+      "link": "https://amzn.to/2GG8Zlz",
+      "image": "/UnderArmourHustle.jpg",
+      "price": "35€"
     },
     {
-      "name": "product 3",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour UA Crossbody",
+      "link": "https://amzn.to/2UaDbxk",
+      "image": "/UnderArmourUACrossbody.jpg",
+      "price": "19"
     },
     {
-      "name": "product 4",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour",
+      "link": "https://amzn.to/2S7oFUC",
+      "image": "/UnderArmour.jpg",
+      "price": "15"
     },
     {
-      "name": "product 5",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour UA Patterson",
+      "link": "https://amzn.to/2GwClTE",
+      "image": "/UnderArmourUAPatterson.jpg",
+      "price": "25€"
     },
     {
-      "name": "product 6",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour Hustle",
+      "link": "https://amzn.to/2GG8Zlz",
+      "image": "/UnderArmourHustle.jpg",
+      "price": "35€"
     },
     {
-      "name": "product 7",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour UA Crossbody",
+      "link": "https://amzn.to/2UaDbxk",
+      "image": "/UnderArmourUACrossbody.jpg",
+      "price": "19"
     },
     {
-      "name": "product 8",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
-    },
-    {
-      "name": "product 9",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
-    },
-    {
-      "name": "product 10",
-      "link": "https://",
-      "image": "/product_image.jpg",
-      "price": ""
+      "name": "Under Armour",
+      "link": "https://amzn.to/2S7oFUC",
+      "image": "/UnderArmour.jpg",
+      "price": "15"
     }
   ]
   

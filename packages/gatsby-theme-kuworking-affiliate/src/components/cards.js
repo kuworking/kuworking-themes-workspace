@@ -2,27 +2,13 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Styled } from 'theme-ui'
-import { LazyBackgroundImg } from 'gatsby-theme-kuworking-affiliate'
-
-const backgroundImage = `
-background-size: cover;
-background-position: center;
-display: grid;
-align-items: end;
-border-radius: 2px;
-transition: filter 0.3s ease;
-&:hover {
-  filter: brightness(0.9);
-}
-`
+import { LazyBackgroundImg, LazyImg } from 'gatsby-theme-kuworking-affiliate'
 
 export const Card = ({ item: { name, link, image, price }, category }) => {
   return (
     <ContainerCard as={Link} aria-label="Post" to={link}>
-      <LazyBackgroundImg data_image={{ standard: image }} component={backgroundImage} />
-      <Title>
-        <div>{name}</div>
-      </Title>
+      <LazyImg data_image={{ standard: image }} />
+      <Title>{name}</Title>
       <Abstract>{price}</Abstract>
     </ContainerCard>
   )
@@ -62,12 +48,15 @@ const ContainerCard = styled(Container)`
     ${props =>
       props.related
         ? 'grid-template-rows: 0px 200px minmax(50px, 1fr);'
-        : 'grid-template-rows: 0px 500px minmax(50px, 1fr);'}
+        : 'grid-template-rows: 0px 300px minmax(50px, 1fr);'}
+  }
+
+  & > img {
+    width: 100%;
+    transition: filter 0.3s ease;
   }
 
   & > div:nth-of-type(1) {
-    grid-row: 1 / span 2;
-    grid-column: 1 / 2;
     z-index: 1;
 
     @supports not (display: grid) {
@@ -76,8 +65,6 @@ const ContainerCard = styled(Container)`
   }
 
   ${Title} {
-    grid-row: 1 / span 2;
-    grid-column: 1 / 2;
     z-index: 10;
 
     width: 90%;
@@ -111,9 +98,10 @@ const ContainerCard = styled(Container)`
 
   &:hover {
     box-shadow: 2px 2px 0px #dadada;
-    & > div:nth-of-type(2) {
-      filter: brightness(0.7);
+    & > img {
+      filter: brightness(0.9);
     }
+  }
 
     & > section:nth-of-type(2) > div:first-of-type {
       color: #ffffffe8 !important;

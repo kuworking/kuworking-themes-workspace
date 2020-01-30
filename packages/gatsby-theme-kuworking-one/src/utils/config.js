@@ -37,7 +37,7 @@ export const Text = {
     comments: 'Click and drop a comment',
   },
   header: {
-    site: 'KUWorking BLOG',
+    site: 'KUWorking ONE',
     logo: 'KW',
   },
   cta: {

@@ -22,7 +22,7 @@ export const Config = {
 
 export const Text = {
   header: {
-    site: 'KUWorking BLOG',
+    site: 'KUWorking AFFILIATE',
     logo: 'KW',
   },
   cta: {

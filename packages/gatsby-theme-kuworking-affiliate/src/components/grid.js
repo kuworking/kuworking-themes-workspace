@@ -26,19 +26,21 @@ const Container = styled.div`
   width: 100%;
   transition: padding 0.5s ease;
 
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-column-gap: 1vw;
-  grid-row-gap: 3vw;
-  justify-content: space-between;
-
-  ${q(1100)} {
-    grid-column-gap: 10px;
-    grid-row-gap: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  &::before,
+  &::after {
+    content: '';
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
   }
 
-  @supports not (display: grid) {
-    display: flex;
-    flex-wrap: wrap;
+  ${q(1100)} {
+  }
+
+  & > a {
+    width: 32%;
+    box-sizing: border-box;
   }
 `
