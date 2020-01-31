@@ -4,11 +4,17 @@ import styled from '@emotion/styled'
 import { Styled } from 'theme-ui'
 import { LazyBackgroundImg, LazyImg } from 'gatsby-theme-kuworking-affiliate'
 
-export const Card = forwardRef(({ item: { name, link, image, price }, category, setImageLoaded }, ref) => {
+export const Card = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
   return (
-    <ContainerCard as={Styled.a} aria-label="Post" href={link} ref={ref}>
-      <div data-desc="to calculate the width">
-        <LazyImg data_image={{ standard: image }} setImageLoaded={setImageLoaded} />
+    <ContainerCard
+      as={Styled.a}
+      aria-label="Post"
+      href={link}
+      ref={ref}
+      //shape={shape}
+    >
+      <div data-desc="this div is needed to calculate the width">
+        <LazyImg data_image={{ standard: image }} adjustMasonry={adjustMasonry} />
         <Title>{name}</Title>
         <Abstract>{price}</Abstract>
       </div>
@@ -20,7 +26,7 @@ const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled(Styled.h4)``
 const Abstract = styled(Styled.p)``
-const Container = styled.div`
+const ContainerCard = styled.div`
   & > div {
     transition: all 0.2s ease-in;
 
@@ -39,11 +45,7 @@ const Container = styled.div`
       width: 100%;
       margin: 5px 2px;
     }
-  }
-`
 
-const ContainerCard = styled(Container)`
-  & > div {
     & > img {
       width: 100%;
       transition: filter 0.3s ease;

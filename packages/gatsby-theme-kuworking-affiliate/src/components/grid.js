@@ -1,43 +1,14 @@
 import React, { useRef, useLayoutEffect, useState } from 'react'
 import styled from '@emotion/styled'
+import { Styled } from 'theme-ui'
 
-import { CtaMain, Card } from 'gatsby-theme-kuworking-affiliate'
+import { CtaMain, Card, useMasonry } from 'gatsby-theme-kuworking-affiliate'
 
-const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
-
-const useMasonry = (row_unit, grid_gap) => {
-  const refs = useRef([])
-  const [imageLoaded, setImageLoaded] = useState(1)
-
-  useLayoutEffect(() => {
-    const update_grid = async () => {
-      await wait(500)
-      if (!imageLoaded) return // prevent repetitive events
-
-      refs.current.forEach(el => {
-        el.style.gridRowEnd =
-          'span ' + Math.ceil((el.children[0].getBoundingClientRect().height + grid_gap) / (row_unit + grid_gap))
-      })
-      setImageLoaded(0)
-    }
-    imageLoaded && update_grid()
-    window.addEventListener('resize', update_grid)
-    return () => window.removeEventListener('resize', update_grid)
-  }, [imageLoaded])
-
-  const assignRef = r => {
-    if (!r) return
-    return refs.current.includes(r) || refs.current.push(r)
-  }
-
-  return [refs, assignRef, setImageLoaded]
-}
-
-export const Grid = ({ blogGrid: { core, posts } }) => {
+export const Grid = ({ blogGrid: { core, posts }, shape }) => {
   const row_unit = 20
   const grid_gap = 15
+  const [gridAutoRows, assignRef, adjustMasonry] = useMasonry(row_unit, grid_gap)
 
-  //  let total_items = 0
   const data = {}
   core.forEach(({ node: { content } }) => {
     const ctn = JSON.parse(content)
@@ -45,21 +16,35 @@ export const Grid = ({ blogGrid: { core, posts } }) => {
     data[category] = ctn.splice(1)
   })
 
-  const [refs, assignRef, setImageLoaded] = useMasonry(row_unit, grid_gap)
-
   return (
     <>
       <CtaMain />
 
-      <Container row_unit={row_unit} grid_gap={grid_gap}>
+      <Title>TECH</Title>
+      <Container row_unit={gridAutoRows} grid_gap={grid_gap}>
         {data.tech.map((item, i) => (
-          <Card key={'tech' + i} item={item} category="tech" setImageLoaded={setImageLoaded} ref={assignRef} />
+          <Card
+            key={'tech' + i}
+            item={item}
+            category="tech"
+            adjustMasonry={adjustMasonry}
+            ref={assignRef}
+            //            shape={shape}
+          />
         ))}
       </Container>
-      <div css={{ marginTop: '500px' }}></div>
-      <Container row_unit={row_unit} grid_gap={grid_gap}>
+
+      <Title>BAGS</Title>
+      <Container row_unit={gridAutoRows} grid_gap={grid_gap}>
         {data.bags.map((item, i) => (
-          <Card key={'bags' + i} item={item} category="bags" setImageLoaded={setImageLoaded} ref={assignRef} />
+          <Card
+            key={'bags' + i}
+            item={item}
+            category="bags"
+            adjustMasonry={adjustMasonry}
+            ref={assignRef}
+            //            shape={shape}
+          />
         ))}
       </Container>
     </>
@@ -70,7 +55,7 @@ const q = px => `@media (min-width: ${px}px)`
 
 const Container = styled.div`
   width: 100%;
-  transition: padding 0.5s ease;
+  transition: all 0.5s ease;
 
   display: grid;
   grid-column-gap: 10px;
@@ -81,3 +66,5 @@ const Container = styled.div`
   ${q(1100)} {
   }
 `
+
+const Title = styled(Styled.h1)``

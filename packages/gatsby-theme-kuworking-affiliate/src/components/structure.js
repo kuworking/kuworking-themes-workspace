@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 
 import { SEO, Header, Footer, Grid } from 'gatsby-theme-kuworking-affiliate'
@@ -6,8 +6,28 @@ import './globalcss.css'
 
 const grid_maxwidth = '1200px'
 
+const useShape = () => {
+  const [shape, setShape] = useState()
+  const modes = ['a', 'b']
+
+  const toggleShape = e => {
+    const index = modes.indexOf(shape)
+    const next = modes[(index + 1) % modes.length]
+    setShape(next)
+  }
+
+  return [shape, <ShapeButton onClick={toggleShape}>change</ShapeButton>]
+}
+
+const ShapeButton = styled.div`
+  cursor: pointer;
+`
+
 export const Structure = ({ blogGrid }) => {
   const basePath = blogGrid.basePath
+  //  const [shape, ShapeButton] = useShape()
+  //        <Header basePath={basePath} iconSwitch={ShapeButton} />
+  //<Grid blogGrid={blogGrid} shape={shape} />
 
   return (
     <Main grid_maxwidth={grid_maxwidth}>
