@@ -5,7 +5,7 @@ import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
 import { Text, Switch } from 'gatsby-theme-kuworking-affiliate'
 
-export const Header = ({ basePath, iconSwitch }) => (
+export const Header = ({ basePath, ShapeButton }) => (
   <Parent>
     <header>
       <Logo id="init" aria-label="inicio" to={basePath}>
@@ -15,7 +15,7 @@ export const Header = ({ basePath, iconSwitch }) => (
 
       <Space />
 
-      {iconSwitch}
+      {ShapeButton}
 
       <Switch
         Day={Day}

@@ -61,7 +61,7 @@ export const colors = {
       cta__button_hover__background: '#ff9191',
       cta__button_hover__color: '#fff',
 
-      cards__border: '#fff',
+      cards__border: '#ffffff3b',
       cards__background: '#000',
       cards__title__background: '',
       cards__title__color: '#fff',

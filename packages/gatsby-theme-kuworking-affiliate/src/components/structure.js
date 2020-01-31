@@ -7,8 +7,8 @@ import './globalcss.css'
 const grid_maxwidth = '1200px'
 
 const useShape = () => {
-  const [shape, setShape] = useState()
-  const modes = ['a', 'b']
+  const [shape, setShape] = useState('a')
+  const modes = ['a', 'b', 'c']
 
   const toggleShape = e => {
     const index = modes.indexOf(shape)
@@ -25,18 +25,16 @@ const ShapeButton = styled.div`
 
 export const Structure = ({ blogGrid }) => {
   const basePath = blogGrid.basePath
-  //  const [shape, ShapeButton] = useShape()
-  //        <Header basePath={basePath} iconSwitch={ShapeButton} />
-  //<Grid blogGrid={blogGrid} shape={shape} />
+  const [shape, ShapeButton] = useShape()
 
   return (
     <Main grid_maxwidth={grid_maxwidth}>
       <SEO blogGrid={blogGrid} />
 
       <Container grid_maxwidth={grid_maxwidth}>
-        <Header basePath={basePath} />
+        <Header basePath={basePath} ShapeButton={ShapeButton} />
 
-        <Grid blogGrid={blogGrid} />
+        <Grid blogGrid={blogGrid} shape={shape} />
 
         <Footer basePath={basePath} />
       </Container>

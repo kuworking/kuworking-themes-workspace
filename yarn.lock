@@ -15920,6 +15920,11 @@ typeface-squada-one@0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-squada-one/-/typeface-squada-one-0.0.72.tgz#4ca0f0b02c5b93ff78bdfc3dc53b9070e4d04eee"
   integrity sha512-W9S/Oo7Pf/zYp72H0TF7n1qgy+IHMM68SFpc+gprm1BiV0fvksYOWh/TPguUJH3X/C2T5fED+GJ423EQ5VJvgQ==
 
+typeface-text-me-one@0.0.71:
+  version "0.0.71"
+  resolved "https://registry.yarnpkg.com/typeface-text-me-one/-/typeface-text-me-one-0.0.71.tgz#b1dae5a02018e0860eb86b49c0795e4775e7fd27"
+  integrity sha512-I4uB1F+4+OJzmgqIU9AHi1U/HpzLTnvbU9ilp0gKTAgG/FrryhHx2ZuauQxCPnuleTpU5Tn2wNnxHt+zDlnchg==
+
 ua-parser-js@^0.7.18:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"

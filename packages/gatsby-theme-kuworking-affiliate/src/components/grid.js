@@ -29,7 +29,7 @@ export const Grid = ({ blogGrid: { core, posts }, shape }) => {
             category="tech"
             adjustMasonry={adjustMasonry}
             ref={assignRef}
-            //            shape={shape}
+            shape={shape}
           />
         ))}
       </Container>
@@ -43,7 +43,7 @@ export const Grid = ({ blogGrid: { core, posts }, shape }) => {
             category="bags"
             adjustMasonry={adjustMasonry}
             ref={assignRef}
-            //            shape={shape}
+            shape={shape}
           />
         ))}
       </Container>

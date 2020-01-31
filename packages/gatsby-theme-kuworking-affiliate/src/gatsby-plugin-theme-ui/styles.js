@@ -52,9 +52,9 @@ export const styles = {
   breakpoints: ['400px', '600px'],
   fontSizes: [14, 16, 17, 19, 22, 27, 35, 43, 51, 67, 75],
   fonts: {
-    title: 'Squada One, sans-serif',
-    post: 'Squada One, sans-serif',
-    body: 'Squada One, sans-serif',
+    title: 'Text Me One, sans-serif',
+    post: 'Text Me One, sans-serif',
+    body: 'Text Me One, sans-serif',
     monospace: 'monospace',
   },
   cta: {
