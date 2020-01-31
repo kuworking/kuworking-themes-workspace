@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
 
-const Observer = (el, setBackImg) => {
+const Observer = (el, setBackImg, setImageLoaded) => {
   if ('IntersectionObserver' in window && el) {
     const intersection = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
@@ -23,6 +23,7 @@ const Observer = (el, setBackImg) => {
               ? lazyImage.dataset['1800px'] || lazyImage.dataset.standard
               : lazyImage.dataset.standard
           )
+          setImageLoaded(1)
           observer.unobserve(lazyImage)
         }
       })
@@ -31,7 +32,7 @@ const Observer = (el, setBackImg) => {
   }
 }
 
-const useImg = (observer = true) => {
+const useImg = (observer = true, setImageLoaded) => {
   const image_ref = useRef()
   const [backImg, setBackImg] = useState('')
   const [resize, setResize] = useState(0)
@@ -57,7 +58,7 @@ const useImg = (observer = true) => {
   return observer
     ? [
         el => {
-          Observer(el, setBackImg)
+          Observer(el, setBackImg, setImageLoaded)
           return image_ref
         },
         backImg,
@@ -71,8 +72,8 @@ export const LazyBackgroundImg = ({ data_image, component, title = 'image' }) =>
   return <BackgroundImage component={component} {...dataset} src={src} ref={ref} alt={title} />
 }
 
-export const LazyImg = ({ data_image, component, title = 'image' }) => {
-  const [ref, src] = useImg()
+export const LazyImg = ({ data_image, component, title = 'image', setImageLoaded }) => {
+  const [ref, src] = useImg(true, setImageLoaded)
   const dataset = Object.assign({}, ...Object.entries(data_image).map(([key, val]) => ({ ['data-' + key]: val })))
   return <Image component={component} {...dataset} src={src} ref={ref} alt={title} />
 }
