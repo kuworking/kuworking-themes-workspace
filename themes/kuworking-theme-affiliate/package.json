@@ -1,6 +1,6 @@
 {
   "name": "kuworking-theme-affiliate",
-  "private": true,
+  "private": false,
   "dontPush": true,
   "version": "0.1.1",
   "description": "kuworking-theme-affiliate",
