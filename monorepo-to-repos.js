@@ -1,13 +1,15 @@
 /*
- version 2019.11.13
+ version 2020.02.01
 
  clone each theme in this monorepo to a separated repo to push it to GitHub
 
   ********
-  USE
+  Use before using this script `lerna publish` to update the versions with each change and publish the npm packages
+  THEN, use this script to push each repo of the workspace to the individual repos in github
   ********
 
-  node monorepo-to-repos.js
+  npm run lerna_publish
+  npm run split_monorepo
 
  */
 

@@ -24,5 +24,9 @@
     "gatsby-theme-kuworking-core": "^0.1.33",
     "typeface-open-sans": "0.0.75"
   },
+  "resolutions": {
+    "**/@emotion/core": "10.0.21",
+    "**/@mdx-js/react": "1.5.1"
+  },
   "gitHead": "8a025c30d3d4a89df7532e12622afd7ec1c9710c"
 }
