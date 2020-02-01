@@ -8,6 +8,8 @@
   THEN, use this script to push each repo of the workspace to the individual repos in github
   ********
 
+  I need to login npm before, `npm adduser` with kuworking, password and mail
+
   npm run lerna_publish
   npm run split_monorepo
 
