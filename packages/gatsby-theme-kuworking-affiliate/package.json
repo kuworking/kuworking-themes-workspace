@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-affiliate",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "gatsby-theme-kuworking-affiliate",
   "main": "index.js",
   "author": "kuworking.com",
@@ -22,7 +22,6 @@
     "react-dom": "16.11.0"
   },
   "dependencies": {
-    "typeface-text-me-one": "0.0.71",
     "@emotion/core": "10.0.21",
     "@emotion/styled": "^10.0.17",
     "emotion-icons": "^1.0.0",
@@ -42,7 +41,8 @@
     "gatsby-transformer-sharp": "^2.2.6",
     "react-helmet": "^5.2.1",
     "remark-slug": "^5.1.2",
-    "theme-ui": "^0.3.1"
+    "theme-ui": "^0.3.1",
+    "typeface-text-me-one": "0.0.71"
   },
   "resolutions": {
     "**/@emotion/core": "10.0.21",

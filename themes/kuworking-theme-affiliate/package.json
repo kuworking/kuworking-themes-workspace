@@ -2,13 +2,13 @@
   "name": "kuworking-theme-affiliate",
   "private": true,
   "dontPush": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "kuworking-theme-affiliate",
   "author": "kuworking.com",
   "license": "MIT",
   "dependencies": {
     "gatsby": "2.15.15",
-    "gatsby-theme-kuworking-affiliate": "^0.1.0",
+    "gatsby-theme-kuworking-affiliate": "^0.1.1",
     "react": "16.11.0",
     "react-dom": "16.11.0"
   },
