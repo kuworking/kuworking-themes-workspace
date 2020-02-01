@@ -19,7 +19,8 @@
     "build": "gatsby build",
     "serve": "gatsby clean && gatsby build && gatsby serve",
     "net": "gatsby develop -H 192.168.1.100",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "netlify": "git push https://github.com/kuworking/comidaketo.git master:netlify --force"
   },
   "devDependencies": {
     "babel-eslint": "^10.0",
