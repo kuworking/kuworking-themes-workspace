@@ -1,6 +1,6 @@
 const standalone = true
 const basePath = '/'
-const jsonPath = '/content/json'
+const jsonPath = 'content/json'
 const site = 'kuworking'
 
 module.exports = {

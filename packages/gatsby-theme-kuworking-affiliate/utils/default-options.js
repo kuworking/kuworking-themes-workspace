@@ -1,7 +1,7 @@
 const info = require(`./info`)
 
 module.exports = themeOptions => {
-  const source = themeOptions.info || info
+  const source = themeOptions || info
 
   return {
     standalone: source.standalone || true,
