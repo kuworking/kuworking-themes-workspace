@@ -111,7 +111,7 @@ const ContainerCard = styled(Container)`
     width: 90%;
 
     & > em {
-      background: ${props => props.theme.colors.cards__abstract_em__background} !important;
+      background: ${props => props.theme.colors.cards__abstract_em__background};
     }
   }
 
@@ -119,11 +119,6 @@ const ContainerCard = styled(Container)`
     box-shadow: 2px 2px 0px #dadada;
     & > div:nth-of-type(2) {
       filter: brightness(0.7);
-    }
-
-    & > section:nth-of-type(2) > div:first-of-type {
-      color: #ffffffe8 !important;
-      background-color: #494949 !important;
     }
   }
 `

@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Styled, useColorMode } from 'theme-ui'
-import { LazyBackgroundImg, LazyImg } from 'gatsby-theme-kuworking-affiliate'
+import { LazyImg } from 'gatsby-theme-kuworking-affiliate'
 
 export const Card = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
   const [colorMode, setColorMode] = useColorMode()
@@ -24,6 +23,31 @@ const Title = styled(Styled.h4)``
 const Abstract = styled(Styled.p)``
 const ContainerCard = styled.div`
   & > div {
+    ${Title} {
+      z-index: 10;
+
+      width: 90%;
+      padding: 2px;
+      margin: 0;
+      line-height: 1.3;
+
+      & > div {
+        background: ${props => props.theme.colors.cards__title__background};
+        color: ${props => props.theme.colors.cards__title__color};
+        padding: 0 3px;
+        display: inline;
+        box-decoration-break: clone;
+        transition: all 0.5s ease-in;
+      }
+    }
+
+    ${Abstract} {
+      margin-top: 2px;
+      width: 90%;
+      margin: 0;
+      padding: 0;
+    }
+
     ${props =>
       props.shape === 'a'
         ? `
@@ -47,13 +71,13 @@ const ContainerCard = styled.div`
     ${props.day && `box-shadow: 2px 3px 6px #f3ebeb;`}
 
     ${Title} {
-      margin-top: 5px !important;
+      margin-top: 5px;
     }
     ${Title},
     ${Abstract} {
-      width: 100% !important;
+      width: 100%;
       background: ${props.day ? '#e7e6df' : '#575757'};
-      padding: 0px 15px !important;
+      padding: 0px 15px;
     }
     `
         : ''}
@@ -78,49 +102,9 @@ const ContainerCard = styled.div`
       transition: filter 0.3s ease;
     }
 
-    ${Title} {
-      z-index: 10;
-
-      width: 90%;
-      padding: 2px;
-      margin: 0;
-      line-height: 1.3;
-
-      & > div {
-        background: ${props => props.theme.colors.cards__title__background};
-        color: ${props => props.theme.colors.cards__title__color};
-        padding: 0 3px;
-        display: inline;
-        box-decoration-break: clone;
-        transition: all 0.5s ease-in;
-        & > em {
-          background: ${props => props.theme.colors.cards__title_em__background};
-          color: ${props => props.theme.colors.cards__title__color};
-          padding: 0px 4px;
-          text-transform: uppercase;
-        }
-      }
-    }
-
-    ${Abstract} {
-      margin-top: 2px;
-      width: 90%;
-      margin: 0;
-      padding: 0;
-
-      & > em {
-        background: ${props => props.theme.colors.cards__abstract_em__background} !important;
-      }
-    }
-
     &:hover {
       box-shadow: 2px 2px 0px #dadada;
       filter: brightness(0.9);
-    }
-
-    & > section:nth-of-type(2) > div:first-of-type {
-      color: #ffffffe8 !important;
-      background-color: #494949 !important;
     }
   }
 `

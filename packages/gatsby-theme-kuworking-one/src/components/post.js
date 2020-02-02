@@ -203,10 +203,10 @@ const Container = styled.article`
 `
 
 const image_skeleton = `
-position: unset !important;
-max-height: 300px !important;
+position: unset;
+max-height: 300px;
 ${q(600)} {
-  max-height: 500px !important;
+  max-height: 500px;
   margin: 20px 0px;
 }
 `

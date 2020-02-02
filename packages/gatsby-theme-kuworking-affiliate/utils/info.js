@@ -7,7 +7,6 @@ module.exports = {
   standalone: standalone,
   basePath: basePath,
   jsonPath: jsonPath,
-  folders_to_check: [jsonPath],
   metaData: {
     site: site,
     title: 'Gatsby Theme kuworking affiliate',

@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Styled } from 'theme-ui'
 
@@ -12,6 +12,7 @@ export const Grid = ({ blogGrid: { core, posts }, shape }) => {
   const data = {}
   core.forEach(({ node: { content } }) => {
     const ctn = JSON.parse(content)
+    // eslint-disable-next-line
     const { category, description } = ctn[0]
     data[category] = ctn.splice(1)
   })
