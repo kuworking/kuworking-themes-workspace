@@ -1,7 +1,7 @@
 import React from 'react'
 import { Structure } from '../components/structure'
 
-export default ({ location, pageContext, data }) => {
+export default ({ location, pageContext, data, path }) => {
   const { core } = data
   const { basePath } = pageContext
 
@@ -10,7 +10,7 @@ export default ({ location, pageContext, data }) => {
       type="grid"
       blogGrid={{
         core: core.edges,
-        basePath,
+        basePath: path,
       }}
     />
   )

@@ -46,14 +46,12 @@ exports.onCreateNode = async ({ node, actions, loadNodeContent, createNodeId, cr
 const Template = require.resolve(`./src/queries/query`)
 
 exports.createPages = async ({ actions }, themeOptions) => {
-  const { standalone, basePath } = withDefaults(themeOptions)
-
-  if (!standalone) return
+  const { basePath } = withDefaults(themeOptions)
   const { createPage } = actions
 
   createPage({
     path: basePath || '/',
     component: Template,
-    context: { basePath },
+    context: { basePath }, // context is ignored here, submitted a question in gatsbyjs
   })
 }
