@@ -7,7 +7,8 @@ import { CtaMain, Card, useMasonry } from 'gatsby-theme-kuworking-affiliate'
 export const Grid = ({ blogGrid: { core, posts }, shape }) => {
   const row_unit = 20
   const grid_gap = 15
-  const [gridAutoRows, assignRef, adjustMasonry] = useMasonry(row_unit, grid_gap)
+  const [repaint, setRepaint] = useState(true) // to trigger repaint
+  const [gridAutoRows, assignRef, adjustMasonry] = useMasonry(row_unit, grid_gap, [repaint, setRepaint])
 
   const data = {}
   core.forEach(({ node: { content } }) => {
