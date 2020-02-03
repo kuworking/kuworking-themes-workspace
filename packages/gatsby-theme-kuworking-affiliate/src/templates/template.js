@@ -10,7 +10,7 @@ export default ({ location, pageContext, data, path }) => {
       type="grid"
       blogGrid={{
         core: core.edges,
-        basePath: path,
+        basePath: basePath,
       }}
     />
   )
