@@ -16,7 +16,7 @@ export const useMasonry = (row_unit, grid_gap, [repaint, setRepaint]) => {
     if (signals !== last_signal) return // means another instance has added a signal, so I discard this one
     if (stillMounted && !stillMounted.value) return
 
-    // I change here the row gap since otherwise, with a gap of 20 (or so) and without the images (still loading), 
+    // I change here the row gap since otherwise, with a gap of 20 (or so) and without the images (still loading),
     // ... all images would trigger the intersection and would be loaded
     // But, once changed, it is changed with the same number so it does not repaint
     // so I make sure of the repaint with the setRepaint
@@ -28,13 +28,12 @@ export const useMasonry = (row_unit, grid_gap, [repaint, setRepaint]) => {
       if (span === el.style.gridRowEnd) return
       el.style.gridRowEnd = span
     })
-
-    setRepaint(!repaint)
   }
 
   useEffect(() => {
     const stillMounted = { value: true }
     adjustMasonry(stillMounted)
+    setRepaint(!repaint)
 
     const adjustMasonryEvent = () => adjustMasonry(stillMounted)
     window.addEventListener('resize', adjustMasonryEvent)

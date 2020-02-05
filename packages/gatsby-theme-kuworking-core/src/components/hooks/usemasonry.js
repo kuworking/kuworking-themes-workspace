@@ -28,13 +28,12 @@ export const useMasonry = (row_unit, grid_gap, [repaint, setRepaint]) => {
       if (span === el.style.gridRowEnd) return
       el.style.gridRowEnd = span
     })
-
-    setRepaint(!repaint)
   }
 
   useEffect(() => {
     const stillMounted = { value: true }
     adjustMasonry(stillMounted)
+    setRepaint(!repaint)
 
     const adjustMasonryEvent = () => adjustMasonry(stillMounted)
     window.addEventListener('resize', adjustMasonryEvent)
