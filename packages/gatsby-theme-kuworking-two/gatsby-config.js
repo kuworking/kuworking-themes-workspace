@@ -5,13 +5,11 @@ module.exports = themeOptions => {
   const options = withDefaults(themeOptions)
 
   return {
-    siteMetadata: themeOptions.info ? themeOptions.info.metaData : info.metaData,
+    siteMetadata: themeOptions ? themeOptions.metaData : info.metaData,
     plugins: [
       {
         resolve: `gatsby-theme-kuworking-core`,
-        options: {
-          ...options,
-        },
+        options: options,
       },
     ],
   }

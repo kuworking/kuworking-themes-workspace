@@ -27,6 +27,7 @@ module.exports = themeOptions => {
   ]) || [{ website: { basePath: options.basePath } }]
 
   return {
+    siteMetadata: themeOptions ? themeOptions.metaData : info.metaData,
     plugins: [
       {
         resolve: `gatsby-source-filesystem`,

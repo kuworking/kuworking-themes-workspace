@@ -3,7 +3,7 @@ const buildFeeds = require(`./feeds`)
 const buildManifest = require(`./manifest`)
 
 module.exports = themeOptions => {
-  const source = themeOptions.info ? themeOptions.info : info
+  const source = themeOptions || info
   const recipesPath = source.website.recipesPath || null
   const recipesImagesPath = source.website.recipesImagesPath || null
   const recipeFolders = (source.website.recipesPath && [`content/recipes/images`, `content/recipes`]) || []
@@ -33,7 +33,7 @@ module.exports = themeOptions => {
     ],
     mdx: true,
 
-    manifest: buildManifest(source.metaData),
+    manifest: (source.metaData && buildManifest(source.metaData)) || '',
     feeds: source.feeds ? source.feeds(source.metaData) : buildFeeds(source.metaData),
     tagmanager: source.tagManager || '',
     sitemap: source.siteMapExclude || [],

@@ -1,7 +1,9 @@
+const basePath = '/'
+
 module.exports = {
   website: {
     postsPerPage: 100,
-    basePath: '/',
+    basePath: basePath,
     do_not_count_type_for_pagination: [], // in the main grid I don't show 'blog's nor 'course's
     do_not_include_type_in_lists: [], // In /tags/css I don't want that 'course's appear
     do_not_create_tag_page_for: [], // I don't want the /tags/curso
@@ -11,6 +13,7 @@ module.exports = {
     title: 'Gatsby Theme kuworking One',
     description: 'Gatsby Theme kuworking One',
     siteUrl: 'https://www.kuworking.com',
+    basePath: basePath,
   },
   tagManager: '',
   siteMapExclude: ['/tags/*', '/dummy'],

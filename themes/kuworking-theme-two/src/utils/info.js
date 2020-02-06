@@ -7,6 +7,7 @@ module.exports = {
     title: 'Gatsby Theme kuworking Two',
     description: 'Gatsby Theme kuworking Two',
     siteUrl: 'https://www.kuworking.com',
+    basePath: '/',
   },
   tagManager: '',
   siteMapExclude: ['/tags/*', '/dummy'],
