@@ -98,6 +98,7 @@ const starting = async ({ skip_folders, commit_message }) => {
       await bash(`git add *`)
       await bash(`git config core.ignorecase false`)
       await bash(`git commit --allow-empty -m "${commit_message.trim()}"`)
+      if (!isWin) console.log('this is not Windows, configuring credential.helper')
       if (!isWin) await bash(`git config --global credential.helper 'cache --timeout=3600'`)
       await bash(`git push origin master`)
       await process.chdir(__dirname)
