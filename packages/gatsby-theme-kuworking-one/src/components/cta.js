@@ -38,8 +38,14 @@ export const CtaMain = () => {
         >
           <div id="mc_embed_signup_scroll">
             <Input>
-              <input type="email" name="EMAIL" id="mce-EMAIL" ref={input_id} onClick={e => e.stopPropagation()} />
-              <label for="mce-EMAIL">Signup for the mailing list</label>
+              <input
+                type="email"
+                name="EMAIL"
+                id="mce-EMAIL"
+                ref={input_id}
+                onClick={e => e.stopPropagation()}
+                aria-label="sign-up form for mailing list"
+              />
             </Input>
 
             <div id="mce-responses">
@@ -92,23 +98,8 @@ const Title = styled(Styled.h1)`
   display: inline-block;
 
   & > div {
-    border-right: 5px solid #ffffffde;
-    margin-right: 5px;
-    white-space: nowrap;
+    white-space: unset;
     overflow: hidden;
-    animation: typewriter 1s steps(24) 0.5s 1 normal both, blinkTextCursor 350ms steps(44) 300 forwards;
-
-    // prettier-ignore
-    @keyframes typewriter {
-      0% {width: 0;}
-      99% {width: 100%; white-space: nowrap;}
-      100% {width: 100%; white-space: unset;}
-    }
-    // prettier-ignore
-    @keyframes blinkTextCursor {
-      50% {border-color: transparent;}
-      100% {border: none;}
-    }
   }
 `
 const Sentence = styled(Styled.p)``
@@ -138,6 +129,7 @@ const MailChimp = styled.div`
     font-weight: 700;
     text-decoration: none;
     border-radius: 3px;
+    margin: 0px 10px;
   }
 
   & svg {
