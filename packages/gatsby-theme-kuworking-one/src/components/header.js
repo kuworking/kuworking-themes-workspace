@@ -65,7 +65,7 @@ const Space = styled.div`
 
 const Logo = styled(Link)`
   cursor: pointer;
-  color: #c5c5c5;
+  color: #4b4b4b;
   font-weight: 400;
   padding: 10px;
   padding-left: 0px;
@@ -85,7 +85,10 @@ const Logo = styled(Link)`
 
   & > div:first-of-type {
     margin-right: 5px;
-    background: #e0e0e0;
+    color: #ff8e00;
+    font-weight: 700;
+    font-size: 0.8em;
+    background: #000000;
     border-radius: 2px;
     transition: background 0.5s ease-in, color 0.5s ease-in;
   }

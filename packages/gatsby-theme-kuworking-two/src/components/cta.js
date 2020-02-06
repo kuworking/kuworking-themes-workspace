@@ -39,6 +39,7 @@ export const CtaMain = () => {
           <div id="mc_embed_signup_scroll">
             <Input>
               <input type="email" name="EMAIL" id="mce-EMAIL" ref={input_id} onClick={e => e.stopPropagation()} />
+              <label for="mce-EMAIL">Signup for the mailing list</label>
             </Input>
 
             <div id="mce-responses">
