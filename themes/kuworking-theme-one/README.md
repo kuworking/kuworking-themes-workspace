@@ -1,10 +1,14 @@
 # Gatsby THEME ONE — by kuworking
 
-This is the starter of Gatsby kuworking THEME ONE, which itself uses the kuworking [THEME CORE](https://github.com/kuworking/gatsby-theme-kuworking-core)
+![npm](https://img.shields.io/npm/v/kuworking-theme-one?style=flat-square)
 
-You can find the demo of the theme [here](https://www.kuworking.com/themes/one) and other themes by kuworking [here](https://www.kuworking.com/themes)
+This is the starter of Gatsby kuworking THEME ONE, which itself uses the kuworking theme [CORE](https://github.com/kuworking/gatsby-theme-kuworking-core)
 
-## Characteristics
+You can find the demo of this theme [here](https://www.kuworking.com/themes/one) and other themes by kuworking [here](https://www.kuworking.com/themes)
+
+And my [twitter](https://twitter.com/intent/follow?screen_name=kuworking)
+
+## 🚀 Characteristics
 
 - Posts based on MDX
 - Uses theme-UI
@@ -18,11 +22,11 @@ You can find the demo of the theme [here](https://www.kuworking.com/themes/one) 
 - SEO
 - Cookie consent
 - Providers for google maps, instagram, pinterest, youtube, highlight.js, codepen
-- Components for lazy loading of images (including different versions for desktop and mobile) 
+- Components for lazy loading of images (including different versions for desktop and mobile)
 - Disqus
 - MailChimp
 
-## Relevant Dependencies
+## 🗄️ Relevant Dependencies
 
 - @emotion
 - @mdx-js
@@ -40,7 +44,7 @@ You can find the demo of the theme [here](https://www.kuworking.com/themes/one) 
 - react-share
 - theme-ui
 
-## Usage
+## 🔥 How to Use
 
 - `gatsby new one https://github.com/kuworking/kuworking-theme-one`
 - `cd new one`
@@ -48,23 +52,22 @@ You can find the demo of the theme [here](https://www.kuworking.com/themes/one) 
 
 And explore your site at `http://localhost:8000`
 
-## Relation between the theme and the starter
+## 🤝 Relation between the theme and the starter
 
-The theme, which is consumed by the starter, is the responsible of all the logic of the website
-
-The starter stores all the content of the site (pages, posts, images, ...)
+- The theme, which is consumed by this starter, is the responsible of all the logic of the website
+- This starter stores all the content of the site (pages, posts, images, ...)
 
 And as usual, the starter has the capacity to shadow any file of the theme to modify it at will
 
-## Posts and Post images
+## 🎬 Posts and Post images
 
 - Posts are stored in `./content/posts` and have the structure `2019.10.05.my-first-post.mdx`
-- The first _date_ part is necessary and is useful to sort files by date in the file explorer
+- The first _date_ part is necessary and is useful to sort files by date in a file explorer
 - The post image is stored in `./content/posts/images` and has the structure of `my-first-post.jpg`, this is, the same name than the post except the _date_ part
 
-## How to add a post?
+## 🏗️ How to add a post?
 
-The easiest way is to modify or copy-paste the post example and follow its structure
+The easiest way is to modify or copy-paste any example post present in this starter and follow its structure
 
 The structure is like this
 
@@ -80,16 +83,17 @@ abstract: 'This is my #first# post, and this is an abstract '
 import { Link } from 'gatsby'
 
 # My first post
+
 ```
 
-The first part between `---` is known as the frontmatter and is written in YAML, there you specify the date, title, tags, snippet and abstract
+The first part between `---` is known as the _frontmatter_ and is written in YAML, there you specify the date, title, tags, snippet and abstract
 
 - The date marked there is the one that is translated into the post, this date should match the one in the filename for consistency, but it is not necessary, the date in the filename is only useful for sorting purposes in the explorer
 - In relation to the tags, Gatsby will create a page for each tag present in these post frontmatters (containing the posts that have these tags)
 - The snippet refers to the description that will appear in RSS feeds, schema and meta tag
 - The abstract is the description of the post that may appear in the grid of the website
 
-## Folders
+## 📂 Folder structure
 
 Files that you may want to modify
 
