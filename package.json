@@ -29,8 +29,8 @@
     "prompt": "1.0.0"
   },
   "scripts": {
-    "scripts_version": "workspace 0.2 kuworking-themes",
-    "____________________________": "________________________",
+    "scripts_version": "workspace 0.3 kuworking-themes",
+    "_____________________________": "________________________",
     "core": "yarn workspace gatsby-theme-kuworking-core-test develop",
     "one": "yarn workspace kuworking-theme-one clean && yarn workspace kuworking-theme-one develop",
     "one-build": "yarn workspace kuworking-theme-one clean && yarn workspace kuworking-theme-one build && yarn workspace kuworking-theme-one serve",
@@ -43,6 +43,10 @@
     "four": "yarn workspace kuworking-theme-four clean && yarn workspace kuworking-theme-four develop",
     "four-build": "yarn workspace kuworking-theme-four build && yarn workspace kuworking-theme-four serve",
     "___________________________": "________________________",
+    "netlify-one": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-one.git",
+    "netlify-two": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-two.git",
+    "netlify-affiliate": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-affiliate.git",
+    "____________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
     "info_new_workspace_1": "git init",
     "info_new_workspace_2": "git remote -v",
