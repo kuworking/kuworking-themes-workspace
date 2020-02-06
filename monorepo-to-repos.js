@@ -40,7 +40,9 @@ const msg = `starting...
 const bash = async command => {
   console.log(`>>>  executing: ${command}`)
   const cm = await exec(command)
-  if (cm.stdout) console.log(`>>>  ${stdout}`)
+  if (cm.stdout) {
+    console.log(`>>>  stdout exists, but not printed`)
+  }
 }
 
 const createFolder = async (dir, cloneUrl) => {
@@ -61,6 +63,10 @@ const readdir = util.promisify(fs.readdir)
 const starting = async ({ skip_folders, commit_message }) => {
   const skip = skip_folders === 'yes'
   if (skip) console.log('... skipping repos that have their folder in the split directory ...')
+
+  console.log(
+    'REMEMBER that with any manual change in github the push here will fail, in that case delete the folder from the split directory'
+  )
 
   for (const dir of dirs) {
     console.log('Handling ' + dir)
@@ -98,8 +104,10 @@ const starting = async ({ skip_folders, commit_message }) => {
       await bash(`git add *`)
       await bash(`git config core.ignorecase false`)
       await bash(`git commit --allow-empty -m "${commit_message.trim()}"`)
-      if (!isWin) console.log('this is not Windows, configuring credential.helper')
-      if (!isWin) await bash(`git config --global credential.helper 'cache --timeout=3600'`)
+      if (!isWin) {
+        console.log('this is not Windows, configuring credential.helper')
+        await bash(`git config --global credential.helper 'cache --timeout=3600'`)
+      }
       await bash(`git push origin master`)
       await process.chdir(__dirname)
     }
