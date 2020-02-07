@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 
-import { SEO, Header, Footer, Grid } from 'gatsby-theme-kuworking-affiliate'
+import { SEO, Header, Footer, Grid, Flex } from 'gatsby-theme-kuworking-affiliate'
 import './globalcss.css'
 
 const grid_maxwidth = '1200px'
@@ -21,20 +21,36 @@ const useShape = () => {
 
 const ShapeButton = styled.div`
   cursor: pointer;
+  margin: 0px 5px;
+`
+
+const useTypeOfMasonry = () => {
+  const [typeOfGrid, setTypeOfGrid] = useState('grid')
+  //  const toggleGrid = e => setTypeOfGrid(typeOfGrid === 'grid' ? 'flex' : 'grid')
+  const toggleGrid = e => (typeOfGrid === 'grid' ? setTypeOfGrid('flex') : setTypeOfGrid('grid'))
+
+  return [typeOfGrid, <TypeOfGridButton onClick={toggleGrid}>grid|flex</TypeOfGridButton>]
+}
+
+const TypeOfGridButton = styled.div`
+  cursor: pointer;
+  margin: 0px 5px;
 `
 
 export const Structure = ({ blogGrid }) => {
   const basePath = blogGrid.basePath
   const [shape, ShapeButton] = useShape()
+  const [typeOfGrid, typeOfGridButton] = useTypeOfMasonry()
 
   return (
     <Main grid_maxwidth={grid_maxwidth}>
       <SEO blogGrid={blogGrid} />
 
       <Container grid_maxwidth={grid_maxwidth}>
-        <Header basePath={basePath} ShapeButton={ShapeButton} />
+        <Header basePath={basePath} ShapeButton={ShapeButton} typeOfGridButton={typeOfGridButton} />
 
-        <Grid blogGrid={blogGrid} shape={shape} />
+        {typeOfGrid === 'flex' && <Flex blogGrid={blogGrid} shape={shape} />}
+        {typeOfGrid === 'grid' && <Grid blogGrid={blogGrid} shape={shape} />}
 
         <Footer basePath={basePath} />
       </Container>

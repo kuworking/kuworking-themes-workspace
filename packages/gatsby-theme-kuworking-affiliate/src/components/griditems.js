@@ -2,14 +2,14 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Styled } from 'theme-ui'
 
-import { Card } from 'gatsby-theme-kuworking-affiliate'
+import { GridCard } from 'gatsby-theme-kuworking-affiliate'
 
-export const Items = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, adjustMasonry, shape } }) => (
+export const GridItems = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, adjustMasonry, shape } }) => (
   <>
     <Title>BAGS</Title>
     <Container row_unit={gridAutoRows} grid_gap={grid_gap}>
       {data.bags.map((item, i) => (
-        <Card
+        <GridCard
           key={'bags' + i}
           item={item}
           category="bags"
@@ -23,7 +23,7 @@ export const Items = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, adjus
     <Title>TECH</Title>
     <Container row_unit={gridAutoRows} grid_gap={grid_gap}>
       {data.tech.map((item, i) => (
-        <Card
+        <GridCard
           key={'tech' + i}
           item={item}
           category="tech"

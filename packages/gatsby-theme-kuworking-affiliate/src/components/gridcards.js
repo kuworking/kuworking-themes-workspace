@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { Styled, useColorMode } from 'theme-ui'
 import { LazyImg } from 'gatsby-theme-kuworking-affiliate'
 
-export const Card = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
+export const GridCard = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (

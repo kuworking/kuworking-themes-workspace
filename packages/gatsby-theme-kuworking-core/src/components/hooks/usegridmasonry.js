@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react'
 
 const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
 
-export const useMasonry = (row_unit, grid_gap, [repaint, setRepaint]) => {
+export const useGridMasonry = (row_unit, grid_gap, [repaint, setRepaint]) => {
   const refs = useRef([])
   const [gridAutoRows, setGridAutoRows] = useState(200) // starting grid-auto-rows
 
