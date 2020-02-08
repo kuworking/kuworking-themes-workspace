@@ -23,6 +23,8 @@ const Title = styled(Styled.h4)``
 const Abstract = styled(Styled.p)``
 const ContainerCard = styled.div`
   & > div {
+    width: 287px;
+
     ${Title} {
       z-index: 10;
 
@@ -98,7 +100,7 @@ const ContainerCard = styled.div`
     }
 
     & > img {
-      width: 200px;
+      width: 100%;
       transition: filter 0.3s ease;
     }
 

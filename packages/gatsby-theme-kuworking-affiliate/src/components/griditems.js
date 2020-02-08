@@ -4,7 +4,7 @@ import { Styled } from 'theme-ui'
 
 import { GridCard } from 'gatsby-theme-kuworking-affiliate'
 
-export const GridItems = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, adjustMasonry, shape } }) => (
+export const GridItems = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, updateGrid, shape } }) => (
   <>
     <Title>BAGS</Title>
     <Container row_unit={gridAutoRows} grid_gap={grid_gap}>
@@ -13,7 +13,7 @@ export const GridItems = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, a
           key={'bags' + i}
           item={item}
           category="bags"
-          adjustMasonry={adjustMasonry}
+          adjustMasonry={updateGrid}
           ref={assignRef}
           shape={shape}
         />
@@ -27,7 +27,7 @@ export const GridItems = ({ pieces: { grid_gap, gridAutoRows, data, assignRef, a
           key={'tech' + i}
           item={item}
           category="tech"
-          adjustMasonry={adjustMasonry}
+          adjustMasonry={updateGrid}
           ref={assignRef}
           shape={shape}
         />

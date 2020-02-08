@@ -1,4 +1,4 @@
-// v2020.02.07
+// v2020.02.08
 
 import React, { useRef, useLayoutEffect } from 'react'
 
@@ -9,6 +9,8 @@ export const useFlexMasonry = (column_width, num_items) => {
   const refs = useRef([]) // un array vacio
 
   const createStructure = () => {
+    if (!container_ref.current) return // the component is unmounted
+
     // calculate number of columns
     const columns = Math.ceil(container_ref.current.getBoundingClientRect().width / column_width)
 
@@ -69,11 +71,17 @@ export const useFlexMasonry = (column_width, num_items) => {
   }
 
   useLayoutEffect(() => {
-    refs.current = refs.current.slice(0, num_items)
+    //refs.current = refs.current.slice(0, num_items)
     createStructure()
+
     window.addEventListener('resize', createStructure)
     return () => window.removeEventListener('resize', createStructure)
   }, [])
 
-  return [container_ref, refs, updateGrid]
+  const assignRef = r => {
+    if (!r) return
+    return refs.current.includes(r) || refs.current.push(r)
+  }
+
+  return [container_ref, assignRef, updateGrid]
 }

@@ -14,9 +14,9 @@ export const Flex = ({ blogGrid: { core, posts }, shape }) => {
     data[category] = ctn.splice(1)
   })
 
-  const column_width = 265
-  const [container_ref1, assignRef1, updateGrid1] = useFlexMasonry(column_width, data.bags.length - 1)
-  const [container_ref2, assignRef2, updateGrid2] = useFlexMasonry(column_width, data.tech.length - 1)
+  const column_width = 287
+  const [container_ref1, assignRef1, updateGrid1] = useFlexMasonry(column_width, data.bags.length)
+  const [container_ref2, assignRef2, updateGrid2] = useFlexMasonry(column_width, data.tech.length)
 
   return (
     <>
@@ -51,17 +51,22 @@ export const Flex = ({ blogGrid: { core, posts }, shape }) => {
   )
 }
 
+const q = px => `@media (min-width: ${px}px)`
+
 const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: space-around;
+  ${q(600)} {
+    align-content: space-between;
+  }
 
-  div {
+  & > a {
     flex: 1;
 
-    div {
+    & > div {
       color: #fff;
       font-weight: 700;
       font-size: 32px;
