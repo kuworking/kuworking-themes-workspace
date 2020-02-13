@@ -12,6 +12,11 @@
 
   npm run lerna_publish
   npm run split_monorepo
+  --- if error, delete folders in kuworking-split-monorepos
+
+  npm run netlify-one
+  npm run netlify-two
+  npm run netlify-affiliate
 
  */
 
