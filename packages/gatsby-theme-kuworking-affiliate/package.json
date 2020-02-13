@@ -22,8 +22,8 @@
     "react-dom": "16.11.0"
   },
   "dependencies": {
-    "@emotion/core": "10.0.21",
-    "@emotion/styled": "^10.0.17",
+    "@emotion/core": "10.0.27",
+    "@emotion/styled": "10.0.27",
     "emotion-icons": "^1.0.0",
     "gatsby-image": "^2.2.9",
     "gatsby-plugin-emotion": "^4.1.22",
