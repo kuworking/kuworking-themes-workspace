@@ -17,8 +17,8 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
   const [image, setImage] = useState({ src: '', fake: true })
   useEffect(() => {
-    setImage({ src: post.image_versions })
-  }, [post.image_versions])
+    setImage({ src: post.grid_image_versions })
+  }, [post.grid_image_versions])
 
   return (
     <>
