@@ -2,14 +2,13 @@ import React from 'react'
 import { Structure } from '../components/structure'
 
 export default ({ location, pageContext, data, path }) => {
-  const { core } = data
-  const { basePath } = pageContext
+  const { basePath, jsonentries } = pageContext
 
   return (
     <Structure
       type="grid"
       blogGrid={{
-        core: core.edges,
+        core: jsonentries,
         basePath: basePath,
       }}
     />

@@ -33,7 +33,6 @@ export const Text = {
     error: 'mail address is wrong',
   },
   footer: {
-    me: 'Who Am I',
     credits: 'by kuworking.com',
     credits_url: 'https://www.kuworking.com',
     // prettier-ignore

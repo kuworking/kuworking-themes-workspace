@@ -43,15 +43,31 @@ exports.onCreateNode = async ({ node, actions, loadNodeContent, createNodeId, cr
 // if it is consumed as an add-on, it does not create any page
 
 // These templates are simply data-fetching wrappers that import components (and allow shadowing)
-const Template = require.resolve(`./src/queries/query`)
+const Template = require.resolve(`./src/templates/template`)
 
-exports.createPages = async ({ actions }, themeOptions) => {
+exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const { basePath } = withDefaults(themeOptions)
   const { createPage } = actions
+
+  const result = await graphql(`
+    {
+      core: allJsonContent {
+        edges {
+          node {
+            name
+            content
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) reporter.panic(result.errors)
+  const jsonentries = result.data.core.edges
 
   createPage({
     path: basePath || '/',
     component: Template,
-    context: { basePath }, // context is ignored here, submitted a question in gatsbyjs
+    context: { basePath, jsonentries }, // context is ignored here, submitted a question in gatsbyjs
   })
 }

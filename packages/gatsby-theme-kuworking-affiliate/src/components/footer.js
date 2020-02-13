@@ -10,9 +10,6 @@ export const Footer = ({ basePath }) => (
     <Expand />
     <Foot>
       <Legal>
-        <Styled.a as={Link} aria-label="Mi Historia" to={`${basePath}me`}>
-          {Text.footer.me}
-        </Styled.a>
         <Separator />
         <Styled.a as="a" aria-label="kuworking" href={Text.footer.credits_url}>
           {Text.footer.credits}
