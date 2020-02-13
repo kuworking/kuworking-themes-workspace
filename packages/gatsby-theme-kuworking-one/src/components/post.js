@@ -13,12 +13,13 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
   const [disqusLoad, setDisqusLoad] = useState(0)
 
   tags_related_posts = shuffle_array(tags_related_posts)
+  console.log(tags_related_posts)
   if (tags_related_posts.length > 5) tags_related_posts.length = 5
 
   const [image, setImage] = useState({ src: '', fake: true })
   useEffect(() => {
-    setImage({ src: post.image_versions })
-  }, [post.image_versions])
+    setImage({ src: post.grid_image_versions })
+  }, [post.grid_image_versions])
 
   return (
     <>
