@@ -28,7 +28,10 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage, extra = null }) => {
     (tags && tags.tags_grid && [...SeoText.generic_keywords, tags.tag]) || [...SeoText.generic_keywords]
 
   // const image = (post && (Config.url + post.full_image).replace(/(?<!:)\/\//, '/')) || '' // negative lookbehing is only Chrome-supported as today
-  const image = (post && (Config.url + post.full_image).replace(/\/\//g, '/').replace(/https:\//, 'https://')) || '' // alternative
+  const image =
+    (post && (Config.url + post.full_image).replace(/\/\//g, '/').replace(/https:\//, 'https://')) ||
+    (page && page.image) ||
+    '' // alternative
   const canonical_url = canonical || Config.url
   const robots = (page && page.robots) || 'index, follow'
 
