@@ -3,7 +3,16 @@ import { Helmet } from 'react-helmet'
 
 import { Config, SeoText } from '../utils/config'
 
-export const SEO = ({ type, blogGrid, blogPost, blogPage, extra = null }) => {
+export const SEO = ({
+  type,
+  schemaType = 'WebPage',
+  itemList = [],
+  wholeSchema = null,
+  blogGrid,
+  blogPost,
+  blogPage,
+  extra = null,
+}) => {
   const { canonical } = blogGrid || blogPost || blogPage
   const { page } = blogPage || ''
   const { tags } = blogGrid || ''
@@ -36,31 +45,30 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage, extra = null }) => {
   const robots = (page && page.robots) || 'index, follow'
 
   const content_type_og = type === 'mdx' ? 'article' : type === 'page' ? 'website' : 'website'
-  const content_type_schema = type === 'mdx' ? 'BlogPosting' : type === 'page' ? 'WebSite' : 'WebSite'
 
-  const schemaOrgJSONLD = [
+  const schemaOrgJSONLD = wholeSchema || [
     {
-      '@context': 'http://schema.org',
-      '@type': content_type_schema,
+      '@context': 'https://schema.org',
+      '@type': schemaType,
       url: canonical_url,
       name: title,
       headline: title,
       description: description,
       image: image,
+      sameAs: Object.values(Config.social),
       author: {
         '@type': 'Person',
         name: Config.user,
       },
       publisher: {
         '@type': 'Organization',
-        url: canonical_url,
         name: Config.user,
-        sameAs: Config.social,
       },
       mainEntityOfPage: {
-        '@type': 'WebSite',
+        '@type': schemaType,
         '@id': canonical_url,
       },
+      itemListElement: itemList,
     },
   ]
 
@@ -86,12 +94,12 @@ export const SEO = ({ type, blogGrid, blogPost, blogPage, extra = null }) => {
       <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
 
       {/* OpenGraph tags */}
-      <meta name="og:site_name " content={Config.user} />
-      <meta name="og:title" content={title} />
-      <meta name="og:description" content={description} />
-      <meta name="og:type" content={content_type_og} />
-      <meta name="og:image" content={image} />
-      <meta name="og:url" content={canonical_url} />
+      <meta property="og:site_name " content={Config.user} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={content_type_og} />
+      <meta property="og:image" content={image} />
+      <meta property="og:url" content={canonical_url} />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
