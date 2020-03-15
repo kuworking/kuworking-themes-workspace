@@ -40,7 +40,7 @@ export const SEO = ({
   const image = (page && imagePage) || (post && imagePost) || (imageGrid && imageGrid) || '' // alternative
 
   // canonical is the url as it, unless a specific url is provided (pointing to duplicated content in another site, likely)
-  const canonical_url = canonical || Config.url // only case canonical is not defined is in the grid page
+  const canonical_url = canonical || Config.url // there are no expected cases where there's no canonical prop
 
   const robots = (page && page.robots) || 'index, follow'
 
