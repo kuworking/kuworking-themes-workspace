@@ -8,7 +8,7 @@ export default ({ location: { href }, pageContext, data, path }) => {
     <Structure
       type="grid"
       blogGrid={{
-        canonical: href.split('?')[0], // remove the ?whatever part
+        canonical: href && href.split('?')[0], // remove the `?whatever` part, href not present in build
         core: jsonentries,
         basePath: basePath,
       }}
