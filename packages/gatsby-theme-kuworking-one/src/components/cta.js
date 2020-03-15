@@ -63,6 +63,7 @@ export const CtaMain = () => {
             </div>
 
             <button
+              aria-label="NewsLetter suscription"
               style={{
                 fontFamily: `body`,
               }}
