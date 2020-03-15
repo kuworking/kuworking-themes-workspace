@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 import { LazyBackgroundImg } from 'gatsby-theme-kuworking-core'
 
 const backgroundImage = `
@@ -36,8 +35,8 @@ export const Card = ({ post, related }) => {
 
 const q = px => `@media (min-width: ${px}px)`
 
-const Title = styled(Styled.h4)``
-const Abstract = styled(Styled.p)``
+const Title = styled.h4``
+const Abstract = styled.p``
 const Container = styled.div`
   transition: all 0.2s ease-in;
 

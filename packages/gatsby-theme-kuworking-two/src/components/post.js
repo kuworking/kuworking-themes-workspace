@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Styled, jsx } from 'theme-ui'
+import { jsx } from 'theme-ui'
 
 import { Disqus, Config, Text, SocialShare, shuffle_array, Img } from 'gatsby-theme-kuworking-core'
 import { CtaPosts } from './cta'
@@ -58,7 +58,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
         image={Config.url + image.src}
       />
 
-      <div css={{ marginBottom: '50px' }} />
+      <div style={{ marginBottom: '50px' }} />
 
       {(image.fake && <FakeImage />) || (
         <FixImage>
@@ -67,7 +67,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
           </div>
         </FixImage>
       )}
-      <div css={{ marginBottom: '10px' }} />
+      <div style={{ marginBottom: '10px' }} />
 
       <div>
         <MDXRenderer>{post.content}</MDXRenderer>
@@ -76,7 +76,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       <CtaPosts />
 
       <RelatedPosts>
-        <Styled.h1>{Text.post.related_posts}</Styled.h1>
+        <h1>{Text.post.related_posts}</h1>
         <Container>
           {tags_related_posts.map((post, i) => (
             <Card key={'related_card_' + i} post={post.node} related />
@@ -85,7 +85,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       </RelatedPosts>
 
       <CommentsWrap onClick={() => setDisqusLoad(1)}>
-        <Styled.h1>{Text.post.comments}</Styled.h1>
+        <h1>{Text.post.comments}</h1>
         <Disqus load={disqusLoad} disqusShortName={Config.disqus} label="Comment From A Post" origin={post.name} />
       </CommentsWrap>
     </>
@@ -94,7 +94,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
 const q = px => `@media (min-width: ${px}px)`
 
-const Title = styled(Styled.h1)`
+const Title = styled.h1`
   ${q(400)} {
     margin-top: 50px;
   }

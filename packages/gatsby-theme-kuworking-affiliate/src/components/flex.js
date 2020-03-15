@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 import { CtaMain, useFlexMasonry } from 'gatsby-theme-kuworking-affiliate'
 
 import { FlexCard } from 'gatsby-theme-kuworking-affiliate'
@@ -75,4 +74,4 @@ const Container = styled.div`
   }
 `
 
-const Title = styled(Styled.h1)``
+const Title = styled.h1``

@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react'
 import styled from '@emotion/styled'
-import { Styled, useColorMode } from 'theme-ui'
+import { useColorMode } from 'theme-ui'
 import { LazyImg } from 'gatsby-theme-kuworking-affiliate'
 
 export const GridCard = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
   const [colorMode, setColorMode] = useColorMode()
 
   return (
-    <ContainerCard as={Styled.a} aria-label="Post" href={link} ref={ref} shape={shape} day={colorMode === 'light'}>
+    <ContainerCard aria-label="Post" href={link} ref={ref} shape={shape} day={colorMode === 'light'}>
       <div data-desc="this div is needed to calculate the width">
         <LazyImg data_image={{ standard: image }} adjustMasonry={adjustMasonry} />
         <Title>{name}</Title>
@@ -19,9 +19,9 @@ export const GridCard = forwardRef(({ item: { name, link, image, price }, catego
 
 const q = px => `@media (min-width: ${px}px)`
 
-const Title = styled(Styled.h4)``
-const Abstract = styled(Styled.p)``
-const ContainerCard = styled.div`
+const Title = styled.h4``
+const Abstract = styled.p``
+const ContainerCard = styled.a`
   & > div {
     ${Title} {
       z-index: 10;

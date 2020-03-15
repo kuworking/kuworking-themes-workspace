@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, css, jsx } from 'theme-ui'
+import { jsx } from 'theme-ui'
 import { Mail as MailIcon } from 'emotion-icons/ion-md'
 import { Config, Text } from 'gatsby-theme-kuworking-core'
 
@@ -49,23 +49,23 @@ export const CtaMain = () => {
             </Input>
 
             <div id="mce-responses">
-              <div id="mce-error-response" css={{ display: 'none' }}></div>
-              <div id="mce-success-response" css={{ display: 'none' }}></div>
+              <div id="mce-error-response" style={{ display: 'none' }}></div>
+              <div id="mce-success-response" style={{ display: 'none' }}></div>
             </div>
 
             <div aria-hidden="true">
               <input
                 type="text"
-                css={{ position: 'absolute', left: '-5000px' }}
+                style={{ position: 'absolute', left: '-5000px' }}
                 name="b_7679f6806268867998475ecb8_d0543eb54f"
                 tabIndex="-1"
               />
             </div>
 
             <button
-              css={css({
+              style={{
                 fontFamily: `body`,
-              })}
+              }}
               type="submit"
               value={Text.cta.suscribe}
               name="subscribe"
@@ -93,7 +93,7 @@ export const CtaPosts = props => <CtaMain props={props} />
 
 const q = px => `@media (min-width: ${px}px)`
 
-const Title = styled(Styled.h1)`
+const Title = styled.h1`
   text-transform: uppercase;
   display: inline-block;
 
@@ -102,7 +102,7 @@ const Title = styled(Styled.h1)`
     overflow: hidden;
   }
 `
-const Sentence = styled(Styled.p)``
+const Sentence = styled.p``
 const Input = styled.div``
 const MailChimp = styled.div`
   & > form > div:first-of-type {
