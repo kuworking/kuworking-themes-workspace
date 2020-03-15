@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import { Config, SeoText } from '../../utils/config'
 
-export const SEO = ({ blogGrid, extra = null }) => {
+export const SEO = ({ blogGrid, schemaType = 'WebPage', itemList = [], wholeSchema = null, extra = null }) => {
   const { canonical } = blogGrid
 
   const title = SeoText.grid.title.replace(/#/g, '')
@@ -12,31 +12,30 @@ export const SEO = ({ blogGrid, extra = null }) => {
   const canonical_url = canonical || Config.url
   const robots = 'index, follow'
   const content_type_og = 'website'
-  const content_type_schema = 'WebSite'
 
-  const schemaOrgJSONLD = [
+  const schemaOrgJSONLD = wholeSchema || [
     {
       '@context': 'http://schema.org',
-      '@type': content_type_schema,
+      '@type': schemaType,
       url: canonical_url,
       name: title,
       headline: title,
       description: description,
       //      image: image,
+      sameAs: Object.values(Config.social),
       author: {
         '@type': 'Person',
         name: Config.user,
       },
       publisher: {
         '@type': 'Organization',
-        url: canonical_url,
         name: Config.user,
-        sameAs: Config.social,
       },
       mainEntityOfPage: {
         '@type': 'WebSite',
         '@id': canonical_url,
       },
+      itemListElement: itemList,
     },
   ]
 
