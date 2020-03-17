@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 import { CtaMain, GridCard, useGridMasonry } from 'gatsby-theme-kuworking-affiliate'
 
 export const Grid = ({ blogGrid: { core, posts }, shape }) => {
@@ -61,4 +60,4 @@ const Container = styled.div`
   grid-auto-rows: ${props => props.row_unit}px;
 `
 
-const Title = styled(Styled.h1)``
+const Title = styled.h1``

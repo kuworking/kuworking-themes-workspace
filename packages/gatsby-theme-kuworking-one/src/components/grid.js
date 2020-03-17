@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled, jsx } from 'theme-ui'
+import { jsx } from 'theme-ui'
 
 import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-one'
 
@@ -57,7 +57,7 @@ const Container = styled.div`
     flex-wrap: wrap;
   }
 `
-const Tag = styled(Styled.h1)`
+const Tag = styled.h1`
   margin-top: 20px;
   & > span {
     color: ${props => props.theme.colors.post__title__color};

@@ -1,1 +1,0 @@
-Hi ha canvis que no he publicat, he de veure que els themes funcionen, però KW els té implementats a node_modules

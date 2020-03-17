@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 import CookieConsent from 'react-cookie-consent'
 import { Text } from 'gatsby-theme-kuworking-core'
 
@@ -10,13 +9,13 @@ export const Footer = ({ basePath }) => (
     <Expand />
     <Foot>
       <Legal>
-        <Styled.a as={Link} aria-label="Mi Historia" to={`${basePath}me`}>
+        <Link aria-label="Mi Historia" to={`${basePath}me`}>
           {Text.footer.me}
-        </Styled.a>
+        </Link>
         <Separator />
-        <Styled.a as="a" aria-label="kuworking" href={Text.footer.credits_url}>
+        <a aria-label="kuworking" href={Text.footer.credits_url}>
           {Text.footer.credits}
-        </Styled.a>
+        </a>
         <Separator />
         <span>
           <Text.footer.date />

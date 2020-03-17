@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 
 import { Page } from 'gatsby-theme-kuworking-core'
 
@@ -15,8 +14,8 @@ const Me = ({ pageContext: { basePath } }) => (
     }}
   >
     <Separator />
-    <Styled.h1>Who I Am</Styled.h1>
-    <Styled.p>This is my history ...</Styled.p>
+    <h1>Who I Am</h1>
+    <p>This is my history ...</p>
     <Separator />
   </Page>
 )
