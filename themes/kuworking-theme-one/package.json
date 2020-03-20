@@ -1,6 +1,6 @@
 {
   "name": "kuworking-theme-one",
-  "version": "0.1.71",
+  "version": "0.1.72",
   "description": "kuworking-theme-one",
   "author": "kuworking.com",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gatsby": "2.15.15",
-    "gatsby-theme-kuworking-one": "^0.1.66",
+    "gatsby-theme-kuworking-one": "^0.1.67",
     "react": "16.11.0",
     "react-dom": "16.11.0"
   },
