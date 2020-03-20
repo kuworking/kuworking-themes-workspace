@@ -17,8 +17,7 @@ export const SEO = ({
 }) => {
   const { canonical } = blogGrid || blogPost || blogPage
 
-  if (!canonical) return
-
+  if (!canonical) return <></>
   // there are no expected cases where there's no canonical prop
   // and service worker repeats this schema with a bad canonical, so I abort this here
   // canonical is the url as it, unless a specific url is provided (pointing to duplicated content in another site, likely)
