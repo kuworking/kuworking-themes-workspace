@@ -7,6 +7,8 @@ export const SEO = ({
   type,
   schemaType = 'WebPage',
   itemList = [],
+  mainEntityOfPage,
+  fb_app_id = null,
   wholeSchema = null,
   blogGrid,
   blogPost,
@@ -65,12 +67,14 @@ export const SEO = ({
         name: Config.user,
       },
       mainEntityOfPage: {
-        '@type': schemaType,
+        ...mainEntityOfPage,
         '@id': canonical_url,
       },
       itemListElement: itemList,
     },
   ]
+
+  const fb = fb_app_id ? <meta property="fb:app_id" content={fb_app_id} /> : ''
 
   return (
     <Helmet defer={false}>
@@ -109,6 +113,9 @@ export const SEO = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:domain" content={canonical_url} />
       <meta name="twitter:image" content={image} />
+
+      {/* FB app id */}
+      {fb}
     </Helmet>
   )
 }
