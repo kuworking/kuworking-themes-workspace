@@ -68,6 +68,6 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   createPage({
     path: basePath || '/',
     component: Template,
-    context: { basePath, jsonentries }, // context is ignored here, submitted a question in gatsbyjs
+    context: { basePath, jsonentries, thePath: basePath }, // context is ignored here, submitted a question in gatsbyjs
   })
 }
