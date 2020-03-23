@@ -27,6 +27,7 @@ export { useCss } from './src/components/hooks/usecss'
 export { useGridMasonry } from './src/components/hooks/usegridmasonry'
 export { useFlexMasonry } from './src/components/hooks/useflexmasonry'
 export { progress } from './src/components/hooks/domprogress'
+export { useLocalStorage } from './src/components/hooks/uselocalstorage'
 
 export { Pagination } from './src/components/pagination'
 export { SEO } from './src/components/seo'
