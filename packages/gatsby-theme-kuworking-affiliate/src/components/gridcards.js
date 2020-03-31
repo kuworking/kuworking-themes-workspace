@@ -1,15 +1,15 @@
 import React, { forwardRef } from 'react'
 import styled from '@emotion/styled'
 import { useColorMode } from 'theme-ui'
-import { LazyImg } from 'gatsby-theme-kuworking-affiliate'
+import { Img } from 'gatsby-theme-kuworking-affiliate'
 
-export const GridCard = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry, shape }, ref) => {
-  const [colorMode, setColorMode] = useColorMode()
+export const GridCard = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry }, ref) => {
+  const [colorMode] = useColorMode()
 
   return (
-    <ContainerCard aria-label="Post" href={link} ref={ref} shape={shape} day={colorMode === 'light'}>
+    <ContainerCard aria-label="Post" href={link} ref={ref} day={colorMode === 'light'}>
       <div data-desc="this div is needed to calculate the width">
-        <LazyImg data_image={{ standard: image }} adjustMasonry={adjustMasonry} />
+        <Img image={[image]} adjustMasonry={adjustMasonry} />
         <Title>{name}</Title>
         <Abstract>{price}</Abstract>
       </div>
@@ -17,7 +17,7 @@ export const GridCard = forwardRef(({ item: { name, link, image, price }, catego
   )
 })
 
-const q = px => `@media (min-width: ${px}px)`
+// const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled.h4``
 const Abstract = styled.p``
@@ -48,39 +48,10 @@ const ContainerCard = styled.a`
       padding: 0;
     }
 
-    ${props =>
-      props.shape === 'a'
-        ? `
-    border: 1px solid ${props.theme.colors.cards__border};
-    background: ${props.theme.colors.cards__background};
+    border: 1px solid ${props => props.theme.colors.cards__border};
+    background: ${props => props.theme.colors.cards__background};
     border-radius: 3px;
     padding: 15px;
-    `
-        : props.shape === 'b'
-        ? `
-    background: ${props.theme.colors.cards__background};
-    border-radius: 19px;
-    border: 4px solid ${props.theme.colors.cards__border};
-    padding: 15px;
-    `
-        : props.shape === 'c'
-        ? `
-    background: ${props.theme.colors.cards__background};
-    border-radius: 8px;
-    padding: 0px;
-    ${props.day && `box-shadow: 2px 3px 6px #f3ebeb;`}
-
-    ${Title} {
-      margin-top: 5px;
-    }
-    ${Title},
-    ${Abstract} {
-      width: 100%;
-      background: ${props.day ? '#e7e6df' : '#575757'};
-      padding: 0px 15px;
-    }
-    `
-        : ''}
 
     overflow: hidden;
 

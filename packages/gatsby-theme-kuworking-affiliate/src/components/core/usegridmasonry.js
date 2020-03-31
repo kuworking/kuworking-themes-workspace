@@ -1,6 +1,6 @@
 // v2020.02.09
 
-import React, { useRef, useState, useLayoutEffect } from 'react'
+import { useRef, useState, useLayoutEffect } from 'react'
 
 const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
 
@@ -38,6 +38,7 @@ export const useGridMasonry = (row_unit, grid_gap) => {
     updateGrid()
     window.addEventListener('resize', updateGrid)
     return () => window.removeEventListener('resize', updateGrid)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const assignRef = r => r && (refs.current.includes(r) || refs.current.push(r))

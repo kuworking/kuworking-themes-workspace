@@ -12,7 +12,7 @@ export const CtaMain = () => {
   const input_id = React.createRef()
 
   return (
-    <Container sx={{ variant: 'cta' }}>
+    <Container sx={{ variant: 'copy' }}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>
