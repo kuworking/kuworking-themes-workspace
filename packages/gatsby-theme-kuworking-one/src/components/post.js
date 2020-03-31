@@ -63,7 +63,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       {(image.fake && <FakeImage />) || (
         <FixImage>
           <div>
-            <Img data_image={image.src} title="related to post" />
+            <Img image={[image.src.standard, image.src]} alt="related to post" />
           </div>
         </FixImage>
       )}

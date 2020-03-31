@@ -14,8 +14,8 @@ export {
   Spinner01,
   Switch,
   Disqus,
-  LazyImg,
-  LazyBackgroundImg,
+  Img,
+  BImg,
   shuffle_array,
 } from 'gatsby-theme-kuworking-core'
 

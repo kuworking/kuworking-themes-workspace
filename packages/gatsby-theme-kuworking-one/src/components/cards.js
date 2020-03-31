@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { LazyBackgroundImg } from 'gatsby-theme-kuworking-core'
+import { BImg } from 'gatsby-theme-kuworking-core'
 
 const backgroundImage = `
 background-size: cover;
@@ -20,7 +20,7 @@ export const Card = ({ post, related }) => {
 
   return (
     <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
-      <LazyBackgroundImg data_image={post.image_versions} component={backgroundImage} />
+      <BImg image={[post.image_versions.standard, post.image_versions]} component={backgroundImage} />
       <Title>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
