@@ -11,7 +11,7 @@ module.exports = site => {
 
       return posts.edges.map(edge => {
         const image = get_image(post_images.edges, get_last_slug(edge.node.slug))
-        const url = image ? image.node.publicURL : ''
+        const url = image ? image.node.publicURL : '/global/image.jpg'
         return Object.assign({}, edge.node, {
           title: edge.node.title.replace(/#/g, ''),
           description: edge.node.snippet,
