@@ -45,6 +45,7 @@
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-transformer-sharp": "^2.2.6",
     "react-cookie-consent": "2.5.0",
+    "react-intersection-observer": "8.26.1",
     "react-helmet": "^5.2.1",
     "react-share": "3.0.0",
     "remark-slug": "^5.1.2",
