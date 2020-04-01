@@ -76,29 +76,39 @@ export const Img = ({
     if (!lazy) return // if !lazy we'll never be here
     ;(async () => {
       if (inView) {
-        if (!entry.target.style.opacity) entry.target.style.opacity = 0
         await wait(200)
-        entry.target.style.transition = 'opacity 0.5s ease-in'
-        entry.target.style.opacity = 1
+        entry.target.style.opacity = 1 // in sync with styled below
       }
     })()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView])
 
   return background ? (
-    <BackgroundImage component={component} src={inView || !lazy ? src : null} ref={lazy ? handleRef : null} alt={alt} />
+    <BackgroundImage
+      style={{ opacity: '0' }}
+      component={component}
+      src={inView || !lazy ? src : null}
+      ref={lazy ? handleRef : null}
+      alt={alt}
+    />
   ) : (
-    <Image component={component} src={inView || !lazy ? src : null} ref={lazy ? handleRef : null} alt={alt} />
+    <Image
+      style={{ opacity: '0' }}
+      component={component}
+      src={inView || !lazy ? src : null}
+      ref={lazy ? handleRef : null}
+      alt={alt}
+    />
   )
 }
 
 const Image = styled.img`
   ${props => props.component}
   transition: opacity 0.5s ease-in;
-  opacity: 1;
 `
 
 const BackgroundImage = styled.div`
-  background-image: ${props => `url(${props.src})`};
   ${props => props.component}
+  transition: opacity 0.5s ease-in;
+  background-image: ${props => `url(${props.src})`};
 `
