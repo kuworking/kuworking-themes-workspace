@@ -7,10 +7,10 @@
   "author": "kuworking.com",
   "license": "MIT",
   "dependencies": {
-    "gatsby": "2.15.15",
-    "gatsby-theme-kuworking-core": "^0.1.66",
-    "react": "16.11.0",
-    "react-dom": "16.11.0"
+    "gatsby": "2.20.9",
+    "gatsby-theme-kuworking-core": "0.1.66",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "scripts": {
     "scripts_version": "site 0.0.2",
