@@ -51,6 +51,7 @@
     "_________________________": "________________________",
     "lerna_publish": "lerna publish",
     "split_monorepo": "node monorepo-to-repos.js",
+    "split_netlify": "node monorepo-to-netlify.js",
     "netlify-one": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-one.git",
     "netlify-two": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-two.git",
     "netlify-affiliate": "node monorepo-to-netlify https://github.com/kuworking/kuworking-theme-affiliate.git",

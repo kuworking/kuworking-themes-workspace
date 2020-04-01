@@ -5,13 +5,17 @@
 
   ********
   Use before using this script `lerna publish` to update the versions with each change and publish the npm packages
-  THEN, use this script to push each repo of the workspace to the individual repos in github
+  THEN, use this script 'split_monorepo' to push each repo of the workspace to the individual repos in github
+  THEN use 'split_netlify' to publish each splitted repo into its netlify branch to trigger the builds (each time I'll have to delete the created folder)
   ********
 
   I need to login npm before, `npm adduser` with kuworking, password and mail
 
   npm run lerna_publish
   npm run split_monorepo
+  npm run split_netlify https://github.com/kuworking/kuworking-theme-one
+  npm run split_netlify https://github.com/kuworking/kuworking-theme-two
+  npm run split_netlify https://github.com/kuworking/kuworking-theme-affiliate
   --- if error, delete folders in kuworking-split-monorepos
 
   npm run netlify-one
