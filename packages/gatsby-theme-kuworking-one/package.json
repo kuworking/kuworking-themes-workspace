@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-one",
-  "version": "0.1.74",
+  "version": "0.1.75",
   "description": "gatsby-theme-kuworking-one",
   "main": "index.js",
   "author": "kuworking.com",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "1.5.8",
-    "gatsby-theme-kuworking-core": "^0.1.67",
+    "gatsby-theme-kuworking-core": "^0.1.68",
     "typeface-open-sans": "0.0.75"
   },
   "resolutions": {
