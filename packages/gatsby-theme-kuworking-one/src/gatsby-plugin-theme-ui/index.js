@@ -1,4 +1,5 @@
 import 'typeface-open-sans'
+
 import { colors } from './colors'
 import { styles } from './styles'
 

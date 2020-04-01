@@ -33,8 +33,8 @@ export const colors = {
   post__comments_hover__title__color: '#fff',
 
   text: '#3d2c29',
-  em__text: '#3d2c29',
-  em__background: '#c7c7c7',
+  em_color: '#3d2c29',
+  em_background: '#c7c7c7',
   code: '#3d2c29',
   code__background: '#f1b0b0',
   blockquote__background: '#eaeaea',
@@ -81,8 +81,8 @@ export const colors = {
       post__comments_hover__title__color: '#989898',
 
       text: '#F0F5FA',
-      em__text: '#F0F5FA',
-      em__background: '#c7c7c7',
+      em_color: '#F0F5FA',
+      em_background: '#c7c7c7',
       code: '#3d2c29',
       code__background: '#c58f8f',
       blockquote__background: '#616161',

@@ -22,7 +22,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
   return (
     <>
-      <Title name="tothetop" sx={{ variant: 'post.h1' }}>
+      <Title name="tothetop">
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </div>

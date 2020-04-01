@@ -9,10 +9,6 @@ background-position: center;
 display: grid;
 align-items: end;
 border-radius: 2px;
-transition: filter 0.3s ease;
-&:hover {
-  filter: brightness(0.9);
-}
 `
 
 export const Card = ({ post, related }) => {
@@ -37,7 +33,7 @@ const q = px => `@media (min-width: ${px}px)`
 
 const Title = styled.h4``
 const Abstract = styled.p``
-const Container = styled.div`
+const ContainerCard = styled.div`
   transition: all 0.2s ease-in;
 
   text-decoration: none;
@@ -50,14 +46,20 @@ const Container = styled.div`
   padding: 3px 3px 10px 3px;
   border-radius: 3px;
 
-  @supports not (display: grid) {
-    max-width: 240px;
-    width: 100%;
-    margin: 5px 2px;
+  & > div:nth-of-type(1) {
+    transition: all 0.2s ease-in;
+    grid-row: 1 / span 2;
+    grid-column: 1 / 2;
+    z-index: 1;
   }
-`
 
-const ContainerCard = styled(Container)`
+  &:hover {
+    box-shadow: 2px 2px 0px #dadada;
+    & > div:nth-of-type(1) {
+      filter: brightness(0.7);
+    }
+  }
+
   ${props =>
     props.related
       ? 'grid-template-rows: 0px 100px minmax(60px, 1fr);'
@@ -68,16 +70,6 @@ const ContainerCard = styled(Container)`
       props.related
         ? 'grid-template-rows: 0px 140px minmax(100px, 1fr);'
         : 'grid-template-rows: 0px 140px minmax(100px, 1fr);'}
-  }
-
-  & > div:nth-of-type(1) {
-    grid-row: 1 / span 2;
-    grid-column: 1 / 2;
-    z-index: 1;
-
-    @supports not (display: grid) {
-      position: absolute;
-    }
   }
 
   ${Title} {
@@ -111,13 +103,6 @@ const ContainerCard = styled(Container)`
 
     & > em {
       background: ${props => props.theme.colors.cards__abstract_em__background};
-    }
-  }
-
-  &:hover {
-    box-shadow: 2px 2px 0px #dadada;
-    & > div:nth-of-type(2) {
-      filter: brightness(0.7);
     }
   }
 `

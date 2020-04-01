@@ -12,7 +12,7 @@ export const CtaMain = () => {
   const input_id = React.createRef()
 
   return (
-    <Container sx={{ variant: 'cta' }}>
+    <Container sx={{ variant: 'copy' }}>
       <Title>
         <div>{Text.cta.title}</div>
       </Title>
@@ -113,6 +113,7 @@ const MailChimp = styled.div`
 
   & ${Input} {
     & input {
+      background: ${props => props.theme.colors.cta__input__background};
       height: 100%;
       margin-right: 5px;
       border-radius: 3px;
@@ -141,6 +142,7 @@ const MailChimp = styled.div`
 
 const Container = styled.div`
   background: ${props => props.theme.colors.cta__div__background};
+  border: 1px solid ${props => props.theme.colors.cta__div__border};
   border-radius: 2px;
 
   padding: 10px;
