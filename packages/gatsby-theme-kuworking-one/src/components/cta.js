@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
 import { Mail as MailIcon } from 'emotion-icons/ion-md'
-import { Config, Text } from 'gatsby-theme-kuworking-core'
+import { config, text } from 'gatsby-theme-kuworking-one'
 
 export const CtaList = () => {}
 
@@ -14,17 +14,17 @@ export const CtaMain = () => {
   return (
     <Container sx={{ variant: 'copy' }}>
       <Title>
-        <div>{Text.cta.title}</div>
+        <div>{text.cta.title}</div>
       </Title>
       <Sentence>
         <object>
-          <Text.cta.message />
+          <text.cta.message />
         </object>
       </Sentence>
 
       <MailChimp id="mc_embed_signup">
         <form
-          action={Config.mail_chimp_action}
+          action={config.mail_chimp_action}
           method="post"
           id="mc-embedded-subscribe-form"
           ref={form_id}
@@ -68,7 +68,7 @@ export const CtaMain = () => {
                 fontFamily: `body`,
               }}
               type="submit"
-              value={Text.cta.suscribe}
+              value={text.cta.suscribe}
               name="subscribe"
               id="mc-embedded-subscribe"
               onClick={e => {
@@ -77,11 +77,11 @@ export const CtaMain = () => {
                 //const id = input_id.current.value.trim()
                 //expression.test(String(id).toLowerCase())
                 // ? form_id.current.submit()
-                // : (input_id.current.value = Text.cta.error)
+                // : (input_id.current.value = text.cta.error)
               }}
             >
               <MailIcon />
-              {Text.cta.suscribe}
+              {text.cta.suscribe}
             </button>
           </div>
         </form>

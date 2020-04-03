@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-
-import { SEO, Header, Footer, Grid } from 'gatsby-theme-kuworking-affiliate'
+import { SEO, Header, Footer, Grid, config, seoText } from 'gatsby-theme-kuworking-affiliate'
 import './globalcss.css'
 
 const grid_maxwidth = '1200px'
@@ -11,7 +10,7 @@ export const Structure = ({ blogGrid }) => {
 
   return (
     <Main grid_maxwidth={grid_maxwidth}>
-      <SEO blogGrid={blogGrid} />
+      <SEO blogGrid={blogGrid} config={config} seotext={seoText} />
 
       <Container grid_maxwidth={grid_maxwidth}>
         <Header basePath={basePath} />

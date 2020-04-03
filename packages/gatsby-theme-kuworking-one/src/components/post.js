@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { jsx } from 'theme-ui'
 
-import { Disqus, Config, Text, SocialShare, shuffle_array, Img } from 'gatsby-theme-kuworking-core'
+import { Disqus, config, text, SocialShare, shuffle_array, Img } from 'gatsby-theme-kuworking-one'
 import { CtaPosts } from './cta'
 import { Card } from './cards'
 
@@ -30,13 +30,13 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
       <Info>
         <div>
-          {100 * parseInt(post.words / 100)} {Text.post.words}
+          {100 * parseInt(post.words / 100)} {text.post.words}
         </div>
         <div>
-          {post.timeToRead} {Text.post.minutes}
+          {post.timeToRead} {text.post.minutes}
         </div>
         <div>
-          {new Date(post.date).toLocaleDateString(Text.post.date_language, {
+          {new Date(post.date).toLocaleDateString(text.post.date_language, {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
@@ -54,8 +54,8 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
 
       <SocialShare
         title={post.title.replace(/#/g, '')}
-        url={Config.url + '/' + post.name}
-        image={Config.url + image.src}
+        url={config.url + '/' + post.name}
+        image={config.url + image.src}
       />
 
       <div style={{ marginBottom: '50px' }} />
@@ -76,7 +76,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       <CtaPosts />
 
       <RelatedPosts>
-        <h1>{Text.post.related_posts}</h1>
+        <h1>{text.post.related_posts}</h1>
         <Container>
           {tags_related_posts.map((post, i) => (
             <Card key={'related_card_' + i} post={post.node} related />
@@ -85,8 +85,14 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       </RelatedPosts>
 
       <CommentsWrap onClick={() => setDisqusLoad(1)}>
-        <h1>{Text.post.comments}</h1>
-        <Disqus load={disqusLoad} disqusShortName={Config.disqus} label="Comment From A Post" origin={post.name} />
+        <h1>{text.post.comments}</h1>
+        <Disqus
+          load={disqusLoad}
+          disqusShortName={config.disqus}
+          disqus_url={config.disqus_url}
+          label="Comment From A Post"
+          origin={post.name}
+        />
       </CommentsWrap>
     </>
   )

@@ -1,23 +1,23 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { Config, SocialShare } from 'gatsby-theme-kuworking-core'
+import { config, SocialShare } from 'gatsby-theme-kuworking-one'
 import { CtaPosts } from './cta'
 
 export const Tool = ({
   blogPage: {
-    canonical,
     images,
-    page: { title, name, image, share },
     children,
+    page: { wallpaper: isWallpaper, cta, share, title, image, ctalist_center, marginTop, thePath },
   },
 }) => {
+  const url = config.url + thePath
+
   return (
     <Container>
-      {share && <SocialShare title={title} url={Config.url + name} image={image && canonical + image} />}
+      {share && <SocialShare title={title} url={url} image={image && url + image} />}
       {children}
-
-      <CtaPosts />
+      {cta && <CtaPosts />}
     </Container>
   )
 }

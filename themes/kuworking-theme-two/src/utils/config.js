@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SeoText = {
+export const seoText = {
   generic_keywords: ['kuworking', 'gatsby', 'javascript'],
   grid: {
     title: 'kuworking.com | ',
@@ -16,7 +16,7 @@ export const SeoText = {
   },
 }
 
-export const Config = {
+export const config = {
   site_lang: `en`,
   url: 'https://www.kuworking.com',
   user: 'kuworking',
@@ -28,7 +28,7 @@ export const Config = {
   mail_chimp_action: '',
 }
 
-export const Text = {
+export const text = {
   post: {
     words: 'words',
     minutes: 'minutes',

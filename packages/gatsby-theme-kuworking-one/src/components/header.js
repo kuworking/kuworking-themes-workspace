@@ -3,15 +3,16 @@ import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
-
-import { Text, Switch } from 'gatsby-theme-kuworking-core'
+import { useColorMode } from 'theme-ui'
+import { modes } from '../gatsby-plugin-theme-ui/index'
+import { text, Switch } from 'gatsby-theme-kuworking-one'
 
 export const Header = ({ basePath }) => (
   <Parent>
     <header>
       <Logo id="init" aria-label="inicio" to={basePath}>
-        <div>{Text.header.logo}</div>
-        <div>{Text.header.site}</div>
+        <div>{text.header.logo}</div>
+        <div>{text.header.site}</div>
       </Logo>
 
       <Space />
@@ -19,6 +20,8 @@ export const Header = ({ basePath }) => (
       <Switch
         Day={Day}
         Night={Night}
+        modes={modes}
+        useColorMode={useColorMode}
         aria-label="Toggle color modes"
         styles={{
           width: '30px',

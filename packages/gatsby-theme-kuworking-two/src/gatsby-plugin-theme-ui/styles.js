@@ -16,7 +16,7 @@ export const styles = {
     a: elements.a2,
     em: {
       ...elements.em2,
-      fontWeight: '700',
+      fontWeight: '400',
     },
     h1: {
       ...elements.h1,

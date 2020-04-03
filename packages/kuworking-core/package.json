@@ -1,0 +1,20 @@
+{
+  "name": "kuworking-core",
+  "version": "0.1.0",
+  "description": "kuworking-core",
+  "main": "index.js",
+  "author": "kuworking.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuworking/kuworking-core.git"
+  },
+  "dependencies": {
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
+    "react-spring": "8.0.27",
+    "react-intersection-observer": "8.26.1",
+    "react-share": "4.1.0",
+    "react-helmet": "5.2.1"
+  }
+}

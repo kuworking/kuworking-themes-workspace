@@ -1,23 +1,28 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { Page } from 'gatsby-theme-kuworking-core'
+import { PageTemplate } from 'gatsby-theme-kuworking-one'
 
-const Me = ({ pageContext: { basePath } }) => (
-  <Page
+const Me = ({ pageContext }) => (
+  <PageTemplate
     page={{
-      basePath: basePath,
+      ...pageContext,
       title: 'Me',
       description: 'My Description',
       keywords: ['me', 'my blog'],
       robots: 'index, follow',
+      wallpaper: false,
+      share: true,
+      cta: true,
+      image: '',
+      main_maxwidth: '800px',
     }}
   >
     <Separator />
     <h1>Who I Am</h1>
     <p>This is my history ...</p>
     <Separator />
-  </Page>
+  </PageTemplate>
 )
 
 export default Me

@@ -87,7 +87,7 @@ export const elements = {
   a: {
     cursor: 'pointer',
     color: 'link',
-    fontWeight: '700',
+    fontWeight: '400',
     textDecoration: 'none',
     transition: 'all 0.2s ease',
     '&:hover': {
@@ -98,7 +98,7 @@ export const elements = {
   a2: {
     cursor: 'pointer',
     color: 'link2',
-    fontWeight: '700',
+    fontWeight: '400',
     textDecoration: 'none',
     transition: 'all 0.2s ease',
     '&:hover': {
@@ -133,7 +133,7 @@ export const elements = {
     em: {
       color: '#ff6a00',
       backgroundColor: '#ffffff',
-      fontWeight: '700',
+      fontWeight: '400',
       fontStyle: 'normal',
       padding: '1px 4px',
       borderRadius: '2px',

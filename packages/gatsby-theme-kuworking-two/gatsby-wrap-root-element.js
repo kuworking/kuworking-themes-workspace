@@ -1,5 +1,5 @@
 import React from 'react'
-import { progress } from 'gatsby-theme-kuworking-core'
+import { domprogress } from 'gatsby-theme-kuworking-two'
 
 /*
  Because wrapRootElement doesn’t render when the page changes it’s a good fit for context providers...
@@ -10,7 +10,7 @@ export const wrapRootElement = ({ element }) => {
   return (
     <>
       {element}
-      {progress.element()}
+      {domprogress.element()}
     </>
   )
 }
@@ -22,5 +22,5 @@ export const wrapRootElement = ({ element }) => {
 // Provide styled outside mdx files frmo theme-ui
 export const wrapPageElement = ({ element }) => <>{element}</>
 
-export const onRouteUpdateDelayed = () => progress.start()
-export const onRouteUpdate = () => progress.done()
+export const onRouteUpdateDelayed = () => domprogress.start()
+export const onRouteUpdate = () => domprogress.done()

@@ -36,6 +36,12 @@ module.exports = themeOptions => {
           name: options.jsonPath || `content/json`,
         },
       },
+      {
+        resolve: `gatsby-plugin-page-creator`,
+        options: {
+          path: options.pagesPath || `content/pages`,
+        },
+      },
       `gatsby-plugin-emotion`,
       `gatsby-plugin-theme-ui`,
       `gatsby-transformer-sharp`, // without it, site breaks

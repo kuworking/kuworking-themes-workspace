@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import CookieConsent from 'react-cookie-consent'
-import { Text } from 'gatsby-theme-kuworking-affiliate'
+import { text } from 'gatsby-theme-kuworking-affiliate'
 
 export const Footer = ({ basePath }) => (
   <>
@@ -9,12 +9,12 @@ export const Footer = ({ basePath }) => (
     <Foot>
       <Legal>
         <Separator />
-        <a aria-label="kuworking" href={Text.footer.credits_url}>
-          {Text.footer.credits}
+        <a aria-label="kuworking" href={text.footer.credits_url}>
+          {text.footer.credits}
         </a>
         <Separator />
         <span>
-          <Text.footer.date />
+          <text.footer.date />
         </span>
       </Legal>
 
@@ -25,7 +25,7 @@ export const Footer = ({ basePath }) => (
         hideOnAccept={true}
         acceptOnScroll={true}
         acceptOnScrollPercentage={10}
-        buttonText={Text.footer.cookies_agree}
+        buttonText={text.footer.cookies_agree}
         disableStyles={true}
         style={{
           backgroundColor: '#443f3feb',
@@ -48,7 +48,7 @@ export const Footer = ({ basePath }) => (
         }}
         contentStyle={{}}
       >
-        <Text.footer.cookies />
+        <text.footer.cookies />
       </CookieConsent>
     </Foot>
   </>
