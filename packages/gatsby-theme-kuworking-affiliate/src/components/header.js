@@ -5,8 +5,7 @@ import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
 import { useColorMode } from 'theme-ui'
 import { modes } from '../gatsby-plugin-theme-ui/index'
-import { text } from 'gatsby-theme-kuworking-affiliate'
-import { Switch } from 'kuworking-core'
+import { text, Switch } from 'gatsby-theme-kuworking-affiliate'
 
 export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => (
   <Parent>

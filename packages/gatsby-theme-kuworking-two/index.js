@@ -28,4 +28,4 @@ export {
   BImg,
   shuffle_array,
   domprogress,
-} from 'kuworking-core'
+} from 'gatsby-theme-kuworking-core'

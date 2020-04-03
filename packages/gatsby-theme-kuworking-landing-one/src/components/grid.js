@@ -1,8 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
-import { Box, Fade, Toggle, Move, LetterFade, LetterFade2, Zoom, ZoomPanic, Show, Peek, Shadow } from 'kuworking-core'
-
-import { CtaMain, GridCard } from 'gatsby-theme-kuworking-landing-one'
+import {
+  Box,
+  Fade,
+  Toggle,
+  Move,
+  LetterFade,
+  LetterFade2,
+  Zoom,
+  ZoomPanic,
+  Show,
+  Peek,
+  Shadow,
+  CtaMain,
+  GridCard,
+} from 'gatsby-theme-kuworking-landing-one'
 
 export const Grid = ({ blogGrid: { core, posts } }) => {
   return (

@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { SEO } from 'kuworking-core'
-import { Header, Footer, Grid, config, seoText } from 'gatsby-theme-kuworking-landing-one'
+import { SEO, Header, Footer, Grid, config, seoText } from 'gatsby-theme-kuworking-landing-one'
 import './globalcss.css'
 
 const grid_maxwidth = '100%'
