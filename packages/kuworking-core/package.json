@@ -1,6 +1,6 @@
 {
   "name": "kuworking-core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "kuworking-core",
   "main": "index.js",
   "author": "kuworking.com",
@@ -10,13 +10,13 @@
     "url": "https://github.com/kuworking/kuworking-core.git"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.7",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "react-helmet": "5.2.1",
     "react-intersection-observer": "8.26.1",
     "react-share": "4.1.0",
-    "react-spring": "8.0.27",
-    "@babel/runtime": "^7.8.7"
+    "react-spring": "8.0.27"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
