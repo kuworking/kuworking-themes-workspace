@@ -1,6 +1,6 @@
 {
   "name": "kuworking-core",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "kuworking-core",
   "main": "dist/index.js",
   "author": "kuworking.com",
