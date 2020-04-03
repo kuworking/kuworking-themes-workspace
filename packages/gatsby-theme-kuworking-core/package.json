@@ -64,5 +64,6 @@
     "net": "gatsby develop -H 192.168.1.100",
     "clean": "gatsby clean",
     "bump": "."
-  }
+  },
+  "gitHead": "44e6e960e37ea5732d9e941fee11f45d6127049e"
 }

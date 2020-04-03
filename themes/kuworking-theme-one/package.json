@@ -34,5 +34,5 @@
     "net": "gatsby develop -H 192.168.1.100",
     "clean": "gatsby clean"
   },
-  "gitHead": "8a025c30d3d4a89df7532e12622afd7ec1c9710c"
+  "gitHead": "44e6e960e37ea5732d9e941fee11f45d6127049e"
 }
