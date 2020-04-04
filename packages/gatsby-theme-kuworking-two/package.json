@@ -10,12 +10,12 @@
     "url": "https://github.com/kuworking/gatsby-theme-kuworking-two.git"
   },
   "peerDependencies": {
-    "gatsby": "2.20.9",
+    "gatsby": "2.20.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "gatsby": "2.20.9",
+    "gatsby": "2.20.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -26,6 +26,7 @@
     "typeface-squada-one": "0.0.72"
   },
   "resolutions": {
+    "**/gatsby": "2.20.5",
     "**/@emotion/core": "10.0.28",
     "**/@emotion/styled": "10.0.27",
     "**/@mdx-js/mdx": "1.5.8",
