@@ -2,7 +2,7 @@
   "name": "kuworking-core",
   "version": "0.1.5",
   "description": "kuworking-core",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "author": "kuworking.com",
   "license": "MIT",
   "repository": {
@@ -10,10 +10,11 @@
     "url": "https://github.com/kuworking/kuworking-core.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.8.7",
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "emotion-icons": "1.0.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-intersection-observer": "8.26.1",
     "react-share": "4.1.0",
@@ -22,16 +23,17 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.7",
-    "babel-preset-gatsby-package": "^0.3.1",
-    "cross-env": "^5.2.1"
-  },
-  "peerDependencies": {
-    "gatsby": "^2.0.0"
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-emotion": "^10.0.33",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "build": "babel src --out-dir dist --ignore **/__tests__,**/__mocks__",
-    "prepare": "cross-env NODE_ENV=production yarn build",
-    "watch": "babel -w src --out-dir . --ignore **/__tests__,**/__mocks__"
-  },
-  "gitHead": "44e6e960e37ea5732d9e941fee11f45d6127049e"
+    "build": "webpack --config ./webpack.config.js --mode=production",
+    "start": "webpack --config ./webpack.config.js --mode=development",
+    "prepare": "yarn build"
+  }
 }
