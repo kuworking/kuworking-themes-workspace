@@ -1,3 +1,11 @@
+export { Fade } from './animations/fade'
+
+/*
+export { SEO } from './gatsby/seo'
+export { Switch } from './elements/switch'
+export { Spinner01 } from './elements/spinner'
+export { SocialShare } from './elements/socialshare'
+
 export { Box } from './animations/box'
 export { Fade } from './animations/fade'
 export { Toggle } from './animations/toggle'
@@ -18,10 +26,6 @@ export { useLocalStorage } from './hooks/uselocalstorage'
 export { useScript } from './hooks/usescript'
 export { useWindowResize } from './hooks/usewindowresize'
 
-export { Spinner01 } from './elements/spinner'
-export { Switch } from './elements/switch'
-export { SocialShare } from './elements/socialshare'
-
 export { Disqus } from './disqus/disqus'
 
 export { CodeLink, useCodePenScript, CodePen } from './methods/codepen'
@@ -36,4 +40,5 @@ export { Pinterest, PinterestScript } from './providers/pinterest'
 export { Video } from './providers/video'
 export { Youtube } from './providers/youtube'
 
-export { SEO } from './gatsby/seo'
+
+*/

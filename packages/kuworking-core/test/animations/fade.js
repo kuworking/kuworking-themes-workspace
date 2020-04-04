@@ -4,9 +4,6 @@ import { useInView } from 'react-intersection-observer'
 import { animated, useSpring } from 'react-spring'
 
 export const Fade = ({ children, margin = '-100px', ...rest }) => {
-  const trueRef = useRef()
-
-  /*
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -28,7 +25,4 @@ export const Fade = ({ children, margin = '-100px', ...rest }) => {
       {children}
     </animated.div>
   )
-  */
-
-  return <div>hola</div>
 }

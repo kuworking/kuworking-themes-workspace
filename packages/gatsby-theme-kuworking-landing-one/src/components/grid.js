@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { Fade, CtaMain, GridCard } from 'gatsby-theme-kuworking-landing-one'
+/*
 import {
   Box,
   Fade,
@@ -15,8 +17,28 @@ import {
   CtaMain,
   GridCard,
 } from 'gatsby-theme-kuworking-landing-one'
+*/
 
 export const Grid = ({ blogGrid: { core, posts } }) => {
+  return (
+    <Main>
+      <PanelA>
+        <Claim>Diseño para Landings</Claim>
+        <Fade>
+          <GridCard>
+            Have faith, Brigadier. Have I ever led you astray? Logic, my dear Zoe, merely enables one to be wrong with
+            authority. I don't like it. Oh, my giddy aunt! Renewed? Have I? That's it, I've been renewed. It's part of
+            the TARDIS. Without it I couldn't survive. Do try and keep out of my way in future and in past, there's a
+            good fellow. The time continuum should be big enough for the both of us. People spend all their time making
+            nice things and then other people come along and break them! This stuff, or whoever sent it, is cleverer
+            than we are. Unfortunate, isn't it?
+          </GridCard>
+        </Fade>
+      </PanelA>
+    </Main>
+  )
+  {
+    /*
   return (
     <Main>
       <PanelA>
@@ -109,6 +131,8 @@ export const Grid = ({ blogGrid: { core, posts } }) => {
       </Shadow>
     </Main>
   )
+  */
+  }
 }
 
 const Main = styled.div`
