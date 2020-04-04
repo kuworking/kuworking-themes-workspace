@@ -48,6 +48,7 @@
     "three-build": "yarn workspace kuworking-theme-three build && yarn workspace kuworking-theme-three serve",
     "four": "yarn workspace kuworking-theme-four clean && yarn workspace kuworking-theme-four develop",
     "four-build": "yarn workspace kuworking-theme-four build && yarn workspace kuworking-theme-four serve",
+    "core-build": "yarn workspace kuworking-core build",
     "___________________________": "________________________",
     "info_new_workspace_0": "yarn cache clean",
     "info_new_workspace_1": "git init",
