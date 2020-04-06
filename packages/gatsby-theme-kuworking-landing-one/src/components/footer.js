@@ -1,55 +1,17 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import CookieConsent from 'react-cookie-consent'
-import { text } from 'gatsby-theme-kuworking-landing-one'
 
 export const Footer = ({ basePath }) => (
   <>
     <Expand />
     <Foot>
       <Legal>
-        <Separator />
-        <a aria-label="kuworking" href={text.footer.credits_url}>
-          {text.footer.credits}
+        <a aria-label="kuworking" href="https://www.kuworking.com">
+          by kuworking.com
         </a>
         <Separator />
-        <span>
-          <text.footer.date />
-        </span>
+        <span>[ 2018 - {new Date().getFullYear()} - kuworking ]</span>
       </Legal>
-
-      <CookieConsent
-        onAccept={() => {}}
-        debug={false}
-        cookieName="cookies_user_agrees"
-        hideOnAccept={true}
-        acceptOnScroll={true}
-        acceptOnScrollPercentage={10}
-        buttonText={text.footer.cookies_agree}
-        disableStyles={true}
-        style={{
-          backgroundColor: '#443f3feb',
-          bottom: '0px',
-          position: 'fixed',
-          width: '100%',
-          display: 'flex',
-          padding: '5px',
-          justifyContent: 'space-around',
-          color: '#fff',
-          fontSize: '0.8em',
-        }}
-        buttonStyle={{
-          backgroundColor: '#f7f7f7',
-          padding: '4px',
-          color: '#999',
-          cursor: 'pointer',
-          fontSize: '0.8em',
-          borderRadius: '4px',
-        }}
-        contentStyle={{}}
-      >
-        <text.footer.cookies />
-      </CookieConsent>
     </Foot>
   </>
 )
@@ -61,9 +23,10 @@ const Expand = styled.div`
 const Foot = styled.footer`
   width: 100%;
   z-index: 1;
-  padding-top: 20px;
+  padding-top: 70px;
   padding-bottom: 20px;
-  margin-top: 50px;
+  color: #f6f6f6;
+  background: #3e3e3e;
   display: flex;
   justify-content: center;
   letter-spacing: -0.5px;

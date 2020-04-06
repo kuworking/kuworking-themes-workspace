@@ -1,23 +1,31 @@
-export { GridCard } from './src/components/gridcards'
-export { CtaMain, CtaList, CtaPosts } from './src/components/cta'
-export { Footer } from './src/components/footer'
-export { Grid } from './src/components/grid'
-export { Header } from './src/components/header'
 export { Structure } from './src/components/structure'
-export { config, text, seoText } from './src/utils/config'
+export { Header } from './src/components/header'
+export { BlockA } from './src/components/blocka'
+export { BlockB } from './src/components/blockb'
+export { BlockC } from './src/components/blockc'
+export { Footer } from './src/components/footer'
+export { CtaMain } from './src/components/cta'
+export { config, seoText } from './src/utils/config'
 
 export {
   SEO,
   Switch,
+  Neutral,
   Box,
   Fade,
   Toggle,
   Move,
-  LetterFade,
-  LetterFade2,
-  Zoom,
-  ZoomPanic,
-  Show,
-  Peek,
-  Shadow,
-} from 'kuworking-core'
+  TextLetterFade,
+  TextLetterFade2,
+  TextZoom,
+  TextZoomPanic,
+  TextShow,
+  TextPeek,
+  TextShadow,
+  BImg,
+  useInterval,
+  Margin,
+  q,
+  qq,
+  wait,
+} from 'gatsby-theme-kuworking-methods'

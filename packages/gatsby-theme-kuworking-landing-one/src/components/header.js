@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Sunny as Day } from 'emotion-icons/ion-md'
@@ -7,12 +7,11 @@ import { useColorMode } from 'theme-ui'
 import { modes } from '../gatsby-plugin-theme-ui/index'
 import { text, Switch } from 'gatsby-theme-kuworking-landing-one'
 
-export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => (
-  <Parent>
-    <header>
+export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
+  return (
+    <Div>
       <Logo id="init" aria-label="inicio" to={basePath}>
-        <div>{text.header.logo}</div>
-        <div>{text.header.site}</div>
+        <img src="/icons/code.svg" />
       </Logo>
 
       <Space />
@@ -34,34 +33,25 @@ export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => (
           nightColor: '#5c40719c',
         }}
       />
-    </header>
-  </Parent>
-)
+    </Div>
+  )
+}
 
 const q = px => `@media (min-width: ${px}px)`
+// const qq = px => `@media (max-width: ${px}px)`
 
-const Parent = styled.div`
+const Div = styled.div`
+  max-width: 800px;
   width: 100%;
+  min-height: 40px;
+
   display: flex;
-  justify-content: center;
-  align-items: baseline;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-weight: 700;
-  font-size: 1em;
-  z-index: 1;
-  ${q(400)} {
-    font-size: 0.9em;
-  }
-
-  & > header {
-    width: 100%;
-    min-height: 40px;
-
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 5px 5px 0px 5px;
+  ${q(600)} {
+    padding: 5px 0px 0px 0px;
   }
 `
 
@@ -71,50 +61,18 @@ const Space = styled.div`
 
 const Logo = styled(Link)`
   cursor: pointer;
-  color: #4b4b4b;
-  font-weight: 400;
-  padding: 10px;
-  padding-left: 0px;
-  border-radius: 2px;
   display: flex;
-  align-self: stretch;
+  align-self: center;
 
-  text-decoration: none;
-  font-style: normal;
-
-  & > div {
-    display: flex;
-    align-items: center;
-    height: 20px;
-    padding: 0px 2px;
-  }
-
-  & > div:first-of-type {
-    margin-right: 5px;
-    color: #ff8e00;
-    font-weight: 700;
-    font-size: 0.8em;
-    background: #000000;
-    border-radius: 2px;
-    transition: background 0.5s ease-in, color 0.5s ease-in;
-  }
-  & > div:last-of-type {
-    border-radius: 2px;
-    transition: background 0.5s ease-in 0.1s, color 0.5s ease-in 0.1s;
-    display: none;
-    ${q(700)} {
-      display: unset;
-    }
+  & > img {
+    width: 40px;
+    height: 40px;
+    transition: filter 0.2s ease-in;
   }
 
   &:hover {
-    & > div:first-of-type {
-      color: #dadada;
-      background: #585858;
-    }
-    & > div:last-of-type {
-      color: #f9f9f9;
-      background: #ff5900;
+    & > img {
+      filter: invert(1);
     }
   }
 `

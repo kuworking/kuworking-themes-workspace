@@ -1,27 +1,35 @@
-/** @jsx jsx */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
-import { jsx } from 'theme-ui'
-import { Mail as MailIcon } from 'emotion-icons/ion-md'
-import { config, text } from 'gatsby-theme-kuworking-landing-one'
+import { config } from 'gatsby-theme-kuworking-landing-one'
 
 export const CtaList = () => {}
 
-export const CtaMain = () => {
+export const CtaMain = ({ text }) => {
   const form_id = React.createRef()
   const input_id = React.createRef()
+  let [rColor, setRColor] = useState(['#fff'])
+
+  /*
+  useInterval(() => {
+    setRColor('#' + (((1 << 24) * Math.random()) | 0).toString(16))
+  }, 100)
+*/
+
+  useEffect(() => {
+    const get_random_color = () => {
+      const letters = 'ABCDE'.split('')
+      let color = ''
+      for (var i = 0; i < 3; i++) {
+        color += letters[Math.floor(Math.random() * letters.length)]
+      }
+      return color
+    }
+    setRColor(Array.from({ length: 100 }, () => '#' + get_random_color()))
+    // setRColor(Array.from({ length: 100 }, () => '#' + (((1 << 24) * Math.random()) | 0).toString(16)))
+  }, [])
 
   return (
-    <Container sx={{ variant: 'copy' }}>
-      <Title>
-        <div>{text.cta.title}</div>
-      </Title>
-      <Sentence>
-        <object>
-          <text.cta.message />
-        </object>
-      </Sentence>
-
+    <Container>
       <MailChimp id="mc_embed_signup">
         <form
           action={config.mail_chimp_action}
@@ -37,16 +45,7 @@ export const CtaMain = () => {
           noValidate
         >
           <div id="mc_embed_signup_scroll">
-            <Input>
-              <input
-                type="email"
-                name="EMAIL"
-                id="mce-EMAIL"
-                ref={input_id}
-                onClick={e => e.stopPropagation()}
-                aria-label="sign-up form for mailing list"
-              />
-            </Input>
+            <Input rColor={rColor} input_id={input_id} />
 
             <div id="mce-responses">
               <div id="mce-error-response" style={{ display: 'none' }}></div>
@@ -64,24 +63,19 @@ export const CtaMain = () => {
 
             <button
               aria-label="NewsLetter suscription"
-              style={{
-                fontFamily: `body`,
-              }}
+              style={{}}
               type="submit"
-              value={text.cta.suscribe}
+              value={text}
               name="subscribe"
               id="mc-embedded-subscribe"
               onClick={e => {
                 e.stopPropagation()
-                //const expression = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/
-                //const id = input_id.current.value.trim()
-                //expression.test(String(id).toLowerCase())
-                // ? form_id.current.submit()
-                // : (input_id.current.value = text.cta.error)
               }}
             >
-              <MailIcon />
-              {text.cta.suscribe}
+              <Icon>
+                <img src="/icons/mail.svg" />
+                <div>{text}</div>
+              </Icon>
             </button>
           </div>
         </form>
@@ -90,86 +84,90 @@ export const CtaMain = () => {
   )
 }
 
+// out to prevent rerender and make css transitions work
+const Input = ({ rColor, input_id }) => (
+  <InputWrap rColor={rColor}>
+    <input
+      type="email"
+      name="EMAIL"
+      id="mce-EMAIL"
+      ref={input_id}
+      onClick={e => e.stopPropagation()}
+      aria-label="sign-up form for mailing list"
+    />
+  </InputWrap>
+)
+
 export const CtaPosts = props => <CtaMain props={props} />
 
 const q = px => `@media (min-width: ${px}px)`
+const qq = px => `@media (max-width: ${px}px)`
 
-const Title = styled.h1`
-  text-transform: uppercase;
-  display: inline-block;
+const InputWrap = styled.div`
+  @keyframes colorChange {
+    ${props => props.rColor.map((c, i) => `${i}% {background: ${c}}`)}
+  }
 
-  & > div {
-    white-space: unset;
-    overflow: hidden;
+  & input {
+    animation: colorChange 1000s infinite ease-in;
+
+    height: 100%;
+    margin-right: 5px;
+    border-radius: 6px;
+    transition: background 100s ease-in;
+    font-weight: 700;
+    border: 2px solid #fff;
+
+    padding: 5px;
+    width: 120px;
+    ${q(400)} {
+      width: 200px;
+    }
   }
 `
-const Sentence = styled.p``
-const Input = styled.div``
+const Icon = styled.div``
 const MailChimp = styled.div`
   & > form > div:first-of-type {
     display: flex;
+    justify-content: center;
     height: 40px;
   }
 
-  & ${Input} {
-    & input {
-      height: 100%;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: 2px solid ${props => props.theme.colors.cta__button__border};
-      padding: 5px;
-      width: 120px;
-      ${q(400)} {
-        width: 200px;
-      }
-    }
-  }
-
   & button {
-    border: 2px solid ${props => props.theme.colors.cta__button__border};
     cursor: pointer;
     font-weight: 700;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 6px;
   }
 
-  & svg {
-    margin-right: 5px;
-    height: 15px;
+  ${Icon} {
+    display: flex;
+    align-items: center;
+
+    & img {
+      margin-right: 5px;
+      width: 20px;
+      height: 20px;
+    }
+    & > div {
+    }
   }
 `
 
 const Container = styled.div`
-  background: ${props => props.theme.colors.cta__div__background};
-  border-radius: 2px;
-  border: 1px solid ${props => props.theme.colors.cta__div__border};
+  border-radius: 8px;
 
   padding: 10px;
   ${q(700)} {
-    padding: 20px 40px 15px 15px;
+    padding: 15px;
   }
 
-  & em {
-    font-style: normal;
-    font-weight: 700;
-    padding: 1px 5px;
-    border-radius: 2px;
-    background: ${props => props.theme.colors.cta__em__background};
-    color: ${props => props.theme.colors.cta__em__color};
-  }
-
-  ${Title} {
-    color: ${props => props.theme.colors.cta__title__color};
-    transition: color 0.5s ease;
-  }
   ${MailChimp} button {
-    background: ${props => props.theme.colors.cta__button__background};
-    color: ${props => props.theme.colors.cta__button__color};
-    transition: color 0.5s ease, background 0.5s ease;
+    background: #e8e8e8;
+    transition: background 0.5s ease-in;
 
     &:hover {
-      background: ${props => props.theme.colors.cta__button_hover__background};
-      color: ${props => props.theme.colors.cta__button_hover__color};
+      background: #fc6f58;
     }
   }
 `

@@ -88,11 +88,13 @@ export const elements = {
 
   h1: {
     ...headers,
-    fontSize: [6, 7, 8],
+    fontSize: [4, 5, 6],
+    lineHeight: '1',
   },
   h2: {
     ...headers,
     fontSize: [2, 4, 5],
+    lineHeight: '1.125',
   },
   h3: {
     ...headers,
