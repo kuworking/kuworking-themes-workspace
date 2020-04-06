@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <ellipse cx="255.358" cy="256" rx="255.358" ry="256.642" style="fill:rgb(245,95,88);"/>
+    <g transform="matrix(0.774693,0,0,0.774693,56.5354,44.2349)">
+        <path d="M255.358,512.642L61.23,369.425" style="fill:none;"/>
+    </g>
+    <g transform="matrix(0.643702,0,0,0.643702,90.3685,78.974)">
+        <path d="M469.32,396.8L469.32,102.4C469.32,95.328 463.592,89.6 456.52,89.6L55.536,89.6C48.464,89.6 42.736,95.328 42.736,102.4L42.736,396.8L469.32,396.8Z" style="fill:rgb(229,229,229);fill-rule:nonzero;"/>
+    </g>
+    <g>
+        <g transform="matrix(0.643702,0,0,0.643702,90.3685,78.974)">
+            <rect x="0" y="396.8" width="512" height="8.536" style="fill:rgb(168,168,168);"/>
+        </g>
+        <g transform="matrix(0.643702,0,0,0.694716,90.3685,58.2964)">
+            <path d="M486.4,422.4L25.6,422.4L0,405.328L512,405.328L486.4,422.4Z" style="fill:rgb(168,168,168);fill-rule:nonzero;"/>
+        </g>
+    </g>
+    <g opacity="0.7">
+        <g transform="matrix(0.643702,0,0,0.643702,90.3685,78.974)">
+            <path d="M299.04,396.8L212.96,396.8C213.712,401.664 217.872,405.28 222.792,405.336L289.192,405.336C294.12,405.28 298.288,401.672 299.04,396.8Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+    </g>
+    <g transform="matrix(0.638001,0,0,0.638989,91.4544,80.8442)">
+        <rect x="59.552" y="106.432" width="392.88" height="290.4" style="fill:white;"/>
+    </g>
+    <g opacity="0.15">
+        <g transform="matrix(0.643702,0,0,0.643702,90.3685,78.974)">
+            <path d="M42.736,262.776L42.736,89.6L248.496,89.6L42.736,262.776Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>
