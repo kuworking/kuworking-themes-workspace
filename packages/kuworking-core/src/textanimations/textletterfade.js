@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
-import { animated, useSprings } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
-export const Show = ({ children, margin = '-100px', ...rest }) => {
+export const TextLetterFade = ({ children, margin = '-100px', toDelay = 0, ...rest }) => {
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -18,30 +18,24 @@ export const Show = ({ children, margin = '-100px', ...rest }) => {
     trueRef.current = node
   }
 
-  const text = [...children.props.children.toString()]
-  const from = { transform: 'translate3d(0,0px,0)' }
-  const to = inView ? [{ transform: 'translate3d(0,-40px,0)' }, { transform: 'translate3d(0,0px,0)' }] : from
+  const text = [...(children.props ? children.props.children.toString() : children.toString())]
+  const from = { opacity: 0 }
+  const to = inView ? { opacity: 1 } : from
 
-  const base = {
-    config: { mass: 5, tension: 8000, friction: 200 },
+  const trail = useTrail(text.length, {
+    config: { mass: 5, tension: 2000, friction: 200 },
     from: from,
     to: to,
-  }
-
-  const springs = useSprings(
-    text.length,
-    text.map((t, i) => ({ ...base, delay: 100 * i }))
-  )
+    delay: toDelay,
+  })
 
   return (
     <Div ref={handleRef} {...rest}>
-      {springs.map((s, i) => {
-        return (
-          <animated.span key={`char${i}`} style={s}>
-            {text[i] === ' ' ? <>&nbsp;</> : text[i]}
-          </animated.span>
-        )
-      })}
+      {trail.map((props, i) => (
+        <animated.span key={`char${i}`} style={props}>
+          {text[i] === ' ' ? <>&nbsp;</> : text[i]}
+        </animated.span>
+      ))}
     </Div>
   )
 }
@@ -51,6 +45,5 @@ const Div = styled.div`
   & > span {
     ${props => props.subcomponent}
     display: inline-block;
-    font-size: 40px;
   }
 `

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSpring } from 'react-spring'
 
-export const Toggle = ({ children, margin = '-100px', ...rest }) => {
+export const Toggle = ({ children, margin = '-100px', toDelay = 0, renderProp, ...rest }) => {
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -22,11 +22,12 @@ export const Toggle = ({ children, margin = '-100px', ...rest }) => {
     config: { mass: 5, tension: 200, friction: 80 },
     from: { transform: `rotateX(0deg)` },
     to: { transform: `rotateX(${inView ? 0 : 360}deg)` },
+    delay: toDelay,
   })
 
   return (
     <animated.div ref={handleRef} style={effect} {...rest}>
-      {children}
+      {renderProp ? children(inView) : children}
     </animated.div>
   )
 }

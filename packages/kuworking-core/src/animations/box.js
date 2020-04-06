@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSpring } from 'react-spring'
 
-export const Box = ({ children, margin = '-100px', ...rest }) => {
+export const Box = ({ children, margin = '-100px', toDelay = 0, renderProp, ...rest }) => {
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
     rootMargin: `${margin} 0px`,
@@ -26,10 +26,11 @@ export const Box = ({ children, margin = '-100px', ...rest }) => {
     config: { mass: 5, tension: 200, friction: 200 },
     from: { width: 0 },
     to: { width: inView ? width : 0 },
+    delay: toDelay,
   })
   return (
     <Div ref={handleRef} {...rest}>
-      <animated.div style={effect}>{children}</animated.div>
+      <animated.div style={effect}>{renderProp ? children(inView) : children}</animated.div>
     </Div>
   )
 }

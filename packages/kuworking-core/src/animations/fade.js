@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSpring } from 'react-spring'
 
-export const Fade = ({ children, margin = '-100px', ...rest }) => {
+export const Fade = ({ children, margin = '-100px', toFrom = 0, toDelay = 0, renderProp, ...rest }) => {
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -18,11 +18,19 @@ export const Fade = ({ children, margin = '-100px', ...rest }) => {
     trueRef.current = node
   }
 
-  const effect = useSpring({ opacity: inView ? 1 : 0 })
+  const from = { opacity: Number(toFrom) }
+  const to = inView ? { opacity: 1 } : from
+
+  const effect = useSpring({
+    config: { mass: 5, tension: 800, friction: 200 },
+    from: from,
+    to: to,
+    delay: toDelay,
+  })
 
   return (
     <animated.div ref={handleRef} style={effect} {...rest}>
-      {children}
+      {renderProp ? children(inView) : children}
     </animated.div>
   )
 }

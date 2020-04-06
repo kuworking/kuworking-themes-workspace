@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSprings } from 'react-spring'
 
-export const Peek = ({ children, margin = '-100px', ...rest }) => {
+export const TextPeek = ({ children, margin = '-100px', toDelay = 0, ...rest }) => {
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -18,7 +18,7 @@ export const Peek = ({ children, margin = '-100px', ...rest }) => {
     trueRef.current = node
   }
 
-  const text = [...children.props.children.toString()]
+  const text = [...(children.props ? children.props.children.toString() : children.toString())]
   const from = { transform: 'translateY(0px) rotate(0deg) rotateX(0deg) scale(1)' }
   const to = inView
     ? [
@@ -32,11 +32,12 @@ export const Peek = ({ children, margin = '-100px', ...rest }) => {
     config: { mass: 5, tension: 4000, friction: 200 },
     from: from,
     to: to,
+    delay: toDelay,
   }
 
   const springs = useSprings(
     text.length,
-    text.map((t, i) => ({ ...base, delay: 100 * i }))
+    text.map((t, i) => ({ ...base, delay: toDelay + 100 * i }))
   )
 
   return (
@@ -57,6 +58,5 @@ const Div = styled.div`
   & > span {
     ${props => props.subcomponent}
     display: inline-block;
-    font-size: 40px;
   }
 `

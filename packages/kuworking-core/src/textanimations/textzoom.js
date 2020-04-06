@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
 import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
-import { animated, useSprings } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
-export const ZoomPanic = ({ children, margin = '-100px', ...rest }) => {
+export const TextZoom = ({ children, margin = '-100px', toDelay = 0, ...rest }) => {
   // eslint-disable-next-line no-unused-vars
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
@@ -18,38 +18,30 @@ export const ZoomPanic = ({ children, margin = '-100px', ...rest }) => {
     trueRef.current = node
   }
 
-  const text = [...children.props.children.toString()]
-  const from = { fontSize: '100%' }
-  const to = inView ? [{ fontSize: '140%' }, { fontSize: '60%' }, { fontSize: '160%' }, from] : from
+  const text = [...(children.props ? children.props.children.toString() : children.toString())]
+  const from = { opacity: 0, transform: 'scale(4)' }
+  const to = inView ? { opacity: 1, transform: 'scale(1)' } : from
 
-  const base = {
-    config: { mass: 1, tension: 80000, friction: 200 },
+  const trail = useTrail(text.length, {
+    config: { mass: 1, tension: 3000, friction: 200 },
     from: from,
     to: to,
-  }
-
-  const springs = useSprings(
-    text.length,
-    text.map((t, i) => ({ ...base, delay: 100 * i }))
-  )
+    delay: toDelay,
+  })
 
   return (
     <Div ref={handleRef} {...rest}>
-      {springs.map((s, i) => {
-        return (
-          <animated.span key={`char${i}`} style={s}>
-            {text[i] === ' ' ? <>&nbsp;</> : text[i]}
-          </animated.span>
-        )
-      })}
+      {trail.map((props, i) => (
+        <animated.span key={`char${i}`} style={props}>
+          {text[i] === ' ' ? <>&nbsp;</> : text[i]}
+        </animated.span>
+      ))}
     </Div>
   )
 }
 
 const Div = styled.div`
   ${props => props.component}
-  font-size: 40px;
-
   & > span {
     ${props => props.subcomponent}
     display: inline-block;
