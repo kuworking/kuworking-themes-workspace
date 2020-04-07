@@ -18,25 +18,6 @@ export const styles = {
       fontSize: [7, 7, 8],
     },
   },
-  copy: {
-    a: elements.a2,
-    em: {
-      ...elements.em2,
-      fontWeight: '700',
-    },
-    h1: {
-      ...elements.h1,
-      fontSize: [4, 5, 6],
-    },
-    h2: {
-      ...elements.h2,
-      fontSize: [2, 3, 4],
-    },
-    h3: {
-      ...elements.h3,
-      fontSize: [1, 1, 2],
-    },
-  },
   styles: {
     root: {
       fontFamily: 'standard',
