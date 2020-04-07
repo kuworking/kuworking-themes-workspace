@@ -22,7 +22,6 @@
   "dependencies": {
     "@mdx-js/react": "1.5.8",
     "gatsby-theme-kuworking-core": "^0.1.80",
-    "kuworking-core": "^0.1.11",
     "typeface-squada-one": "0.0.72"
   },
   "resolutions": {
