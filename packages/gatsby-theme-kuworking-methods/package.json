@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-methods",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "gatsby-theme-kuworking-methods",
   "main": "index.js",
   "author": "kuworking.com",
@@ -13,7 +13,6 @@
     "gatsby": "2.20.5",
     "react": "16.13.1",
     "react-dom": "16.13.1"
-
   },
   "devDependencies": {
     "gatsby": "2.20.5",

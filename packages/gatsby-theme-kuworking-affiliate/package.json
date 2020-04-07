@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-affiliate",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "description": "gatsby-theme-kuworking-affiliate",
   "main": "index.js",
   "author": "kuworking.com",
@@ -38,8 +38,8 @@
     "gatsby-plugin-theme-ui": "0.3.0",
     "gatsby-remark-images": "3.2.1",
     "gatsby-source-filesystem": "2.2.2",
+    "gatsby-theme-kuworking-methods": "^0.1.1",
     "gatsby-transformer-sharp": "2.4.3",
-    "gatsby-theme-kuworking-methods": "^0.1.0",
     "react-cookie-consent": "3.0.0",
     "react-intersection-observer": "8.26.1",
     "theme-ui": "0.3.1",
