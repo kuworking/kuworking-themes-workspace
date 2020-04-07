@@ -5,34 +5,38 @@ import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
 import { useColorMode } from 'theme-ui'
 import { modes } from '../gatsby-plugin-theme-ui/index'
-import { text, Switch } from 'gatsby-theme-kuworking-landing-one'
+import { Switch, Fade } from 'gatsby-theme-kuworking-landing-one'
 
 export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
   return (
     <Div>
-      <Logo id="init" aria-label="inicio" to={basePath}>
-        <img src="/icons/code.svg" />
-      </Logo>
+      <Fade margin="none" toFrom="0" toDelay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+        <Logo id="init" aria-label="inicio" to={basePath}>
+          <img src="/icons/code.svg" />
+        </Logo>
+      </Fade>
 
       <Space />
 
       {typeOfGridButton}
       {ShapeButton}
 
-      <Switch
-        Day={Day}
-        Night={Night}
-        modes={modes}
-        useColorMode={useColorMode}
-        aria-label="Toggle color modes"
-        styles={{
-          width: '30px',
-          height: '30px',
-          borderRadius: '8px',
-          dayColor: '#fffa6a',
-          nightColor: '#5c40719c',
-        }}
-      />
+      <Fade margin="none" toFrom="0" toDelay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+        <Switch
+          Day={Day}
+          Night={Night}
+          modes={modes}
+          useColorMode={useColorMode}
+          aria-label="Toggle color modes"
+          styles={{
+            width: '30px',
+            height: '30px',
+            borderRadius: '8px',
+            dayColor: '#fffa6a',
+            nightColor: '#5c40719c',
+          }}
+        />
+      </Fade>
     </Div>
   )
 }

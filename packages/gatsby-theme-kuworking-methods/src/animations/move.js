@@ -19,7 +19,7 @@ export const Move = ({ children, margin = '-100px', toDelay = 0, renderProp, ...
   }
 
   const from = { marginTop: '-50px', opacity: 0 }
-  const to = inView ? { marginTop: '0px', opacity: 1 } : from
+  const to = inView || margin === 'none' ? { marginTop: '0px', opacity: 1 } : from
 
   const effect = useSpring({
     config: { mass: 5, tension: 800, friction: 200 },
@@ -29,7 +29,7 @@ export const Move = ({ children, margin = '-100px', toDelay = 0, renderProp, ...
   })
 
   return (
-    <Div ref={handleRef}>
+    <Div ref={margin === 'none' ? null : handleRef}>
       <animated.div style={effect} {...rest}>
         {renderProp ? children(inView) : children}
       </animated.div>

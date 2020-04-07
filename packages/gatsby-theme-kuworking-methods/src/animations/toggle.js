@@ -21,12 +21,12 @@ export const Toggle = ({ children, margin = '-100px', toDelay = 0, renderProp, .
   const effect = useSpring({
     config: { mass: 5, tension: 200, friction: 80 },
     from: { transform: `rotateX(0deg)` },
-    to: { transform: `rotateX(${inView ? 0 : 360}deg)` },
+    to: { transform: `rotateX(${inView || margin === 'none' ? 0 : 360}deg)` },
     delay: toDelay,
   })
 
   return (
-    <animated.div ref={handleRef} style={effect} {...rest}>
+    <animated.div ref={margin === 'none' ? null : handleRef} style={effect} {...rest}>
       {renderProp ? children(inView) : children}
     </animated.div>
   )

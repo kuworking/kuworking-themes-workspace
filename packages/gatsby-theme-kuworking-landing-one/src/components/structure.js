@@ -78,7 +78,7 @@ const PartHeader = styled.header`
   align-items: baseline;
   font-weight: 700;
   font-size: 1em;
-  z-index: 1;
+  z-index: 100;
   position: fixed;
 `
 

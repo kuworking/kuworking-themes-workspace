@@ -3,6 +3,7 @@
 export const colors = {
   text: '#3d2c29',
   title: '#000000ba',
+  link: '#9fcdff',
   cards__background: '#fff',
   bloc2__background: '#f5f5f5',
   backgroundimg__color: '',
@@ -13,6 +14,7 @@ export const colors = {
     dark: {
       text: '#ffffff',
       title: '#ffffffd6',
+      link: '#9fcdff',
       cards__background: '#3d3c3c',
       bloc2__background: '#8e8a8a',
       backgroundimg__color: '#534e4e',

@@ -25,11 +25,11 @@ export const Box = ({ children, margin = '-100px', toDelay = 0, renderProp, ...r
   const effect = useSpring({
     config: { mass: 5, tension: 200, friction: 200 },
     from: { width: 0 },
-    to: { width: inView ? width : 0 },
+    to: { width: inView || margin === 'none' ? width : 0 },
     delay: toDelay,
   })
   return (
-    <Div ref={handleRef} {...rest}>
+    <Div ref={margin === 'none' ? null : handleRef} {...rest}>
       <animated.div style={effect}>{renderProp ? children(inView) : children}</animated.div>
     </Div>
   )

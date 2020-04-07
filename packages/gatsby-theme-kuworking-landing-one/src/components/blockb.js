@@ -97,8 +97,8 @@ const Card = styled.div`
   padding: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  color: ${props => props.theme.colors.text};
   background: ${props => props.theme.colors.cards__background};
+  color: ${props => props.theme.colors.text}; /* otherwise transitions are very slow due to react-spring */
 
   & img {
     margin-bottom: 10px;
