@@ -46,4 +46,4 @@ export {
   Video,
   Youtube,
   SEO,
-} from 'kuworking-core'
+} from 'gatsby-theme-kuworking-methods'
