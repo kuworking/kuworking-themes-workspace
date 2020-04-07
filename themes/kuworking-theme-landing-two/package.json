@@ -1,6 +1,6 @@
 {
   "name": "kuworking-theme-landing-two",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "kuworking-theme-landing-two",
   "author": "kuworking.com",
   "license": "MIT",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gatsby": "2.20.5",
-    "gatsby-theme-kuworking-landing-two": "^0.1.1",
+    "gatsby-theme-kuworking-landing-two": "^0.1.2",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
