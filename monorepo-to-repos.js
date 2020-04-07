@@ -17,6 +17,7 @@
   npm run split_netlify https://github.com/kuworking/kuworking-theme-two
   npm run split_netlify https://github.com/kuworking/kuworking-theme-affiliate
   npm run split_netlify https://github.com/kuworking/kuworking-theme-landing-one
+  npm run split_netlify https://github.com/kuworking/kuworking-theme-landing-two
   --- if error, delete folders in kuworking-split-monorepos
 
   npm run netlify-one

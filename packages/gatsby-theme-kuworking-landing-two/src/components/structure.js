@@ -17,7 +17,7 @@ import {
 import './globalcss.css'
 
 export const Structure = ({ blogGrid }) => {
-  const { innerHeight: iheight } = window
+  const { innerHeight: iheight } = typeof window !== 'undefined' && window
   const [opacity, setOpacity] = useState('0')
 
   const basePath = blogGrid.basePath

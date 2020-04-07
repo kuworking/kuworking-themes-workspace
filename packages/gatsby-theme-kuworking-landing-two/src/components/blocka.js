@@ -14,7 +14,7 @@ export const BlockA = () => {
   height: 100%;
   width: 100%;
   `
-  const { innerWidth: width } = window
+  const { innerWidth: width } = typeof window !== 'undefined' && window
 
   return (
     <BImg
