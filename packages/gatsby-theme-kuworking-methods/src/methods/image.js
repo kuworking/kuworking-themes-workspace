@@ -114,5 +114,5 @@ const BackgroundImage = styled.div`
   ${props => props.component}
   transition: opacity 0.5s ease-in;
   background-image: ${props => `url(${props.src})`};
-  background-repeat: no-repeat; /* needed for Android Chrome browser !! https://stackoverflow.com/questions/52059783/css-background-image-not-showing-up-in-android-device */
+  background-repeat: no-repeat;
 `
