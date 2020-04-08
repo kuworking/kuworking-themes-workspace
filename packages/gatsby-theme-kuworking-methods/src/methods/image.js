@@ -114,4 +114,5 @@ const BackgroundImage = styled.div`
   ${props => props.component}
   transition: opacity 0.5s ease-in;
   background-image: ${props => `url(${props.src})`};
+  background-repeat: no-repeat;
 `
