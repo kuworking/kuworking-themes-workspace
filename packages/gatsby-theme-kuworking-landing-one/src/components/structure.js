@@ -70,7 +70,7 @@ const Main = styled.main`
 
   & > div,
   & > header {
-    transition: all 5s cubic-bezier(0, 0.96, 0.79, 0.79);
+    transition: all 5s cubic-bezier(0, 1.06, 0.77, 0.99);
   }
 `
 
@@ -102,7 +102,6 @@ const PartA = styled(Part)`
   & > div {
     background-color: ${props => props.theme.colors.backgroundimg__color};
     background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
-    transition: all 0.5s ease;
 
     padding: 0px 0px;
     ${() => qq(600)} {

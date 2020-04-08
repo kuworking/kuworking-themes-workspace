@@ -97,11 +97,11 @@ const Part = styled.div`
 const PartA = styled(Part)`
   opacity: ${props => props.opacity};
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
   & > div {
     background-color: ${props => props.theme.colors.backgroundimg__color};
     background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
-    transition: all 0.5s ease;
 
     padding: 0px 0px;
     ${() => qq(600)} {
