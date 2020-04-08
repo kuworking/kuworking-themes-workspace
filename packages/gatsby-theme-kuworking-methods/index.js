@@ -35,6 +35,7 @@ export { Highlight, apply_highlight } from './src/methods/highlight'
 export { BImg, Img } from './src/methods/image'
 export { fixDate, shuffle_array, is_this_a_mobile_device, wait, get_response, get_request } from './src/methods/methods'
 export { Prism } from './src/methods/prism'
+export { replace100vh } from './src/methods/replace100vh'
 
 export { GoogleMap } from './src/providers/googlemap'
 export { Instagram } from './src/providers/instagram'
