@@ -17,87 +17,76 @@ export const BlockA = () => {
   const { innerWidth: width } = typeof window !== 'undefined' && window
 
   return (
-    <BImg
-      image={[
-        'backgrounds/landing-one.jpg',
-        {
-          '800px': 'backgrounds/landing-one---800px.jpg',
-          '1200px': 'backgrounds/landing-one---1200px.jpg',
-        },
-      ]}
-      component={backgroundImage}
-    >
-      <PanelA1 sx={{ variant: 'title' }}>
-        <Claim>
-          <TextZoom toDelay="500">Kuworking</TextZoom>
-        </Claim>
-        <Margin margin={[0, 0, 50]} />
+    <>
+      <BImg
+        image={[
+          'backgrounds/landing-one.jpg',
+          {
+            '800px': 'backgrounds/landing-one---800px.jpg',
+            '1200px': 'backgrounds/landing-one---1200px.jpg',
+          },
+        ]}
+        component={backgroundImage}
+      >
+        <PanelA1 sx={{ variant: 'title' }}>
+          <Claim>
+            <TextZoom toDelay="500">Kuworking</TextZoom>
+          </Claim>
+          <Margin margin={[0, 0, 50]} />
 
-        <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
-        <Margin margin={[0, 0, 50]} />
-        <div style={{ width: '50px', height: '50px' }}>
-          <BImg
-            image={[
-              'backgrounds/landing-one.jpg',
-              {
-                '800px': 'backgrounds/landing-one---800px.jpg',
-                '1200px': 'backgrounds/landing-one---1200px.jpg',
-              },
-            ]}
-            component={backgroundImage}
-          />
-        </div>
+          <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
+          <Margin margin={[0, 0, 50]} />
 
-        <CtaMain text="Únete" />
-      </PanelA1>
-
-      <PanelA2>
-        <div>
-          <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1000 : 200}>
-            <Card>
-              <div>
-                <img src="/icons/pencil.svg" alt="pencil" />
-              </div>
-              <div>
-                <Title>We need more</Title>
+          <CtaMain text="Únete" />
+        </PanelA1>
+        <PanelA2>
+          <div>
+            <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1000 : 200}>
+              <Card>
                 <div>
-                  We exceed the clients' expectations there are more projects lined up charge extra the next time, nor
-                  we exceed the clients' expectations.
+                  <img src="/icons/pencil.svg" alt="pencil" />
                 </div>
-              </div>
-            </Card>
-          </Fade>
-          <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1300 : 200}>
-            <Card>
-              <div>
-                <img src="/icons/network.svg" alt="pencil" />
-              </div>
-              <div>
-                <Title>Brigadier</Title>
                 <div>
-                  This is our north star design. It's not hard guys run it up the flag pole so pre launch we don't need
-                  to boil the ocean here vertical integration
+                  <Title>We need more</Title>
+                  <div>
+                    We exceed the clients' expectations there are more projects lined up charge extra the next time, nor
+                    we exceed the clients' expectations.
+                  </div>
                 </div>
-              </div>
-            </Card>
-          </Fade>
-          <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1600 : 200}>
-            <Card>
-              <div>
-                <img src="/icons/microphone.svg" alt="pencil" />
-              </div>
-              <div>
-                <Title>Everything bigger</Title>
+              </Card>
+            </Fade>
+            <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1300 : 200}>
+              <Card>
                 <div>
-                  Change the color theme of the website. Can my website be in english? we try your eye, but can you
-                  change everything?
+                  <img src="/icons/network.svg" alt="pencil" />
                 </div>
-              </div>
-            </Card>
-          </Fade>
-        </div>
-      </PanelA2>
-    </BImg>
+                <div>
+                  <Title>Brigadier</Title>
+                  <div>
+                    This is our north star design. It's not hard guys run it up the flag pole so pre launch we don't
+                    need to boil the ocean here vertical integration
+                  </div>
+                </div>
+              </Card>
+            </Fade>
+            <Fade margin="-100px" toFrom="0" toDelay={width > 600 ? 1600 : 200}>
+              <Card>
+                <div>
+                  <img src="/icons/microphone.svg" alt="pencil" />
+                </div>
+                <div>
+                  <Title>Everything bigger</Title>
+                  <div>
+                    Change the color theme of the website. Can my website be in english? we try your eye, but can you
+                    change everything?
+                  </div>
+                </div>
+              </Card>
+            </Fade>
+          </div>
+        </PanelA2>
+      </BImg>
+    </>
   )
 }
 

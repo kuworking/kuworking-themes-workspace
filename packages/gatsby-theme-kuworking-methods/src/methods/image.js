@@ -1,4 +1,4 @@
-// v2020.03.31
+// v2020.04.08
 
 import React, { useState, useRef, useEffect } from 'react'
 import styled from '@emotion/styled'
@@ -113,6 +113,6 @@ const Image = styled.img`
 const BackgroundImage = styled.div`
   ${props => props.component}
   transition: opacity 0.5s ease-in;
-  background-image: ${props => `url(${props.src})`};
+  background-image: ${props => `url("${props.src}")`};
   background-repeat: no-repeat;
 `
