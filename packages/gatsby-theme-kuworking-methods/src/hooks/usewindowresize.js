@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 
-export const useWindowResize = () => {
+export const useWindowResize = (method, debounce = 2000) => {
   let stillMounted = { value: false } // in order to prevent the memory leak
   useEffect(() => {
     stillMounted.value = true
@@ -11,12 +11,16 @@ export const useWindowResize = () => {
   }, [])
 
   const [resized, rerender] = useState()
-  const repaint = () => stillMounted.value && rerender({})
+  const repaint = () => {
+    if (!stillMounted.value) return
+    if (method) method()
+    else rerender({})
+  }
 
   let doit
   const resize = () => {
-    clearTimeout(doit) // eliminate previous timeouts, as a buffer
-    doit = setTimeout(repaint, 2000) // if it is not resizing for 2s, timeout won't be cleared
+    clearTimeout(doit) // eliminate previous timeouts, as a debounce
+    doit = setTimeout(repaint, debounce) // if it is not resizing for 2s, timeout won't be cleared
   }
 
   typeof window !== 'undefined' && window.addEventListener('resize', resize)
