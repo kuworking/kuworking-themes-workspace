@@ -27,6 +27,7 @@ export { useLocalStorage } from './src/hooks/uselocalstorage'
 export { useScript } from './src/hooks/usescript'
 export { useWindowResize } from './src/hooks/usewindowresize'
 export { useInterval } from './src/hooks/useinterval'
+export { useReplace100vh } from './src/methods/usereplace100vh'
 
 export { Disqus } from './src/disqus/disqus'
 
@@ -35,7 +36,6 @@ export { Highlight, apply_highlight } from './src/methods/highlight'
 export { BImg, Img } from './src/methods/image'
 export { fixDate, shuffle_array, is_this_a_mobile_device, wait, get_response, get_request } from './src/methods/methods'
 export { Prism } from './src/methods/prism'
-export { replace100vh } from './src/methods/replace100vh'
 
 export { GoogleMap } from './src/providers/googlemap'
 export { Instagram } from './src/providers/instagram'

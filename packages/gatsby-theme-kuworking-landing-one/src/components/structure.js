@@ -12,6 +12,7 @@ import {
   wait,
   q,
   qq,
+  useReplace100vh,
 } from 'gatsby-theme-kuworking-landing-one'
 
 import './globalcss.css'
@@ -19,13 +20,14 @@ import './globalcss.css'
 export const Structure = ({ blogGrid }) => {
   const { innerHeight: iheight } = typeof window !== 'undefined' && window
   const [height, setHeight] = useState('0px')
+  useReplace100vh()
 
   const basePath = blogGrid.basePath
 
   useEffect(() => {
     ;(async () => {
       setHeight(iheight + 30 + 'px')
-      await wait(2000)
+      await wait(6000)
       setHeight('') // to undefine it
     })()
   }, [])
@@ -60,6 +62,7 @@ const Main = styled.main`
   max-width: 100%;
   width: 100%;
   min-height: 100vh; /* needed for the sticky footer */
+  min-height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
@@ -67,7 +70,7 @@ const Main = styled.main`
 
   & > div,
   & > header {
-    transition: all 5s cubic-bezier(0.09, 1.01, 0.12, 1);
+    transition: all 5s cubic-bezier(0, 0.96, 0.79, 0.79);
   }
 `
 

@@ -28,4 +28,5 @@ export {
   q,
   qq,
   wait,
+  useReplace100vh,
 } from 'gatsby-theme-kuworking-methods'

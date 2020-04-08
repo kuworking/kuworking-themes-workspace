@@ -35,6 +35,18 @@ export const BlockA = () => {
 
         <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
         <Margin margin={[0, 0, 50]} />
+        <div style={{ width: '50px', height: '50px' }}>
+          <BImg
+            image={[
+              'backgrounds/landing-one.jpg',
+              {
+                '800px': 'backgrounds/landing-one---800px.jpg',
+                '1200px': 'backgrounds/landing-one---1200px.jpg',
+              },
+            ]}
+            component={backgroundImage}
+          />
+        </div>
 
         <CtaMain text="Únete" />
       </PanelA1>
