@@ -27,7 +27,7 @@ export const Structure = ({ blogGrid }) => {
   useEffect(() => {
     ;(async () => {
       setHeight(iheight + 30 + 'px')
-      await wait(6000)
+      await wait(2000)
       setHeight('') // to undefine it
     })()
   }, [])
