@@ -1,11 +1,96 @@
 // v2020.04.08
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { useWindowResize } from '../hooks/usewindowresize'
 import { useInView } from 'react-intersection-observer'
 
 const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
+
+const Observer = (el, setBackImg, bestImage, adjustMasonry = null) => {
+  if ('IntersectionObserver' in window && el) {
+    const intersection = new IntersectionObserver((entries, observer) => {
+      entries.forEach(async entry => {
+        if (entry.isIntersecting) {
+          let lazyImage = entry.target
+          setBackImg(bestImage())
+          if (adjustMasonry) {
+            setTimeout(adjustMasonry, 100)
+            // just in case, sometimes (cannot reproduce!) the function seems not to be executed
+            setTimeout(adjustMasonry, 2000)
+          }
+          observer.unobserve(lazyImage)
+        }
+      })
+    })
+    intersection.observe(el)
+  }
+}
+
+const useImg = (bestImage, adjustMasonry = null) => {
+  const image_ref = useRef()
+  const [src, setSrc] = useState('')
+  const [, rerender] = useState()
+  let stillMounted = { value: false } // in order to prevent the memory leak
+  useEffect(() => {
+    stillMounted.value = true
+    return () => (stillMounted.value = false)
+  }, [])
+
+  let doit
+  typeof window !== 'undefined' &&
+    window.addEventListener('resize', () => {
+      clearTimeout(doit)
+      doit = setTimeout(() => stillMounted.value && rerender({}), 2000) // if it is not resizing for 2s, timeout won't be cleared (debounce)
+    })
+
+  // a useRef callback
+  return [
+    el => {
+      Observer(el, setSrc, bestImage, adjustMasonry)
+      return image_ref
+    },
+    src,
+  ]
+}
+
+export const KwImg = ({
+  image: [standard, set],
+  component,
+  alt = 'image',
+  background = false,
+  adjustMasonry = null,
+  children,
+}) => {
+  const [ref, src] = useImg(bestImage, adjustMasonry)
+
+  const bestImage = () => {
+    const clientWidth = trueRef.current.clientWidth
+    return set
+      ? clientWidth < 400
+        ? set['400px'] || standard
+        : clientWidth < 600
+        ? set['600px'] || standard
+        : clientWidth < 800
+        ? set['800px'] || standard
+        : clientWidth < 1000
+        ? set['1000px'] || standard
+        : clientWidth < 1200
+        ? set['1200px'] || standard
+        : clientWidth < 1800
+        ? set['1800px'] || standard
+        : standard
+      : standard
+  }
+
+  return background ? (
+    <BackgroundImage style={{ opacity: '0' }} component={component} alt={alt} src={src} ref={ref}>
+      {children}
+    </BackgroundImage>
+  ) : (
+    <Image style={{ opacity: '0' }} component={component} alt={alt} src={src} ref={handleRef} />
+  )
+}
 
 export const BImg = props => <Img {...props} background={true} />
 
@@ -40,12 +125,18 @@ export const Img = ({
     rootMargin: '200px 0px',
     threshold: 0,
   })
-  const handleRef = node => {
-    // in order to have a real reference since the ref from useInView doesn't have a current value
-    // https://github.com/thebuilder/react-intersection-observer/issues/186
-    ref(node)
-    trueRef.current = node
-  }
+  useCallback
+  const handleRef = useCallback(
+    node => {
+      // in order to have a real reference since the ref from useInView doesn't have a current value
+      // https://github.com/thebuilder/react-intersection-observer/issues/186
+      // https://github.com/thebuilder/react-intersection-observer/pull/256
+      ref(node)
+      trueRef.current = node
+    },
+    [ref]
+  )
+
   const [src, setSrc] = useState('')
   const resize = useWindowResize()
 

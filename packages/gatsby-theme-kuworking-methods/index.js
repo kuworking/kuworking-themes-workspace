@@ -33,7 +33,7 @@ export { Disqus } from './src/disqus/disqus'
 
 export { CodeLink, useCodePenScript, CodePen } from './src/methods/codepen'
 export { Highlight, apply_highlight } from './src/methods/highlight'
-export { BImg, Img } from './src/methods/image'
+export { BImg, Img, KwImg } from './src/methods/image'
 export { fixDate, shuffle_array, is_this_a_mobile_device, wait, get_response, get_request } from './src/methods/methods'
 export { Prism } from './src/methods/prism'
 
