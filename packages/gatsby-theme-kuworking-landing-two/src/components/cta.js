@@ -73,7 +73,7 @@ export const CtaMain = ({ text }) => {
               }}
             >
               <Icon>
-                <img src="/icons/mail.svg" />
+                <img src="/icons/mail.svg" alt="mail" />
                 <div>{text}</div>
               </Icon>
             </button>

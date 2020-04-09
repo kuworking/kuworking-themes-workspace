@@ -12,7 +12,7 @@ export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
     <Div>
       <Fade margin="none" toFrom="0" toDelay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
         <Logo id="init" aria-label="inicio" to={basePath}>
-          <img src="/icons/code.svg" />
+          <img src="/icons/code.svg" alt="main" />
         </Logo>
       </Fade>
 
