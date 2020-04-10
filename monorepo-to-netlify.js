@@ -11,14 +11,16 @@ const fs = require('fs-extra'),
   util = require('util'),
   prompt = require('prompt'),
   exec = util.promisify(require('child_process').exec),
+  execSync = require('child_process').execSync,
   temp_dir = '../kuworking-TEMP-NETLIFY-DEPLOYMENT'
 
 const bash = async command => {
   console.log(`>>>  executing: ${command}`)
-  const cm = await exec(command)
-  if (cm.stdout) {
-    console.log(`>>>  stdout exists, but not printed`)
-  }
+  execSync(command, { stdio: 'inherit' })
+  //  const cm = await exec(command)
+  //  if (cm.stdout) {
+  //    console.log(`>>>  stdout exists, but not printed`)
+  //  }
 }
 
 const createFolder = async dir => {
