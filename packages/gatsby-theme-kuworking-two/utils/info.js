@@ -10,8 +10,8 @@ module.exports = {
   },
   metaData: {
     site: 'kuworking',
-    title: 'Gatsby Theme kuworking One',
-    description: 'Gatsby Theme kuworking One',
+    title: 'Gatsby Theme kuworking Two',
+    description: 'Gatsby Theme kuworking Two',
     siteUrl: 'https://www.kuworking.com',
     basePath: basePath,
   },
