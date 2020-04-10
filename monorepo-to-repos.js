@@ -32,6 +32,7 @@ const fs = require('fs-extra'),
   util = require('util'),
   prompt = require('prompt'),
   exec = util.promisify(require('child_process').exec),
+  execSync = require('child_process').execSync,
   spawn = util.promisify(require('child_process').spawn),
   stdin = process.stdin,
   stdout = process.stdout,
@@ -51,10 +52,11 @@ const msg = `starting...
 
 const bash = async command => {
   console.log(`>>>  executing: ${command}`)
-  const cm = await exec(command)
-  if (cm.stdout) {
-    console.log(`>>>  stdout exists, but not printed`)
-  }
+  execSync(command, { stdio: 'inherit' })
+  //  const cm = await exec(command)
+  //  if (cm.stdout) {
+  //    console.log(`>>>  stdout exists, but not printed`)
+  //  }
 }
 
 const createFolder = async (dir, cloneUrl) => {
