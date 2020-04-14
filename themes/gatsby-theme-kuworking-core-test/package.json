@@ -2,13 +2,13 @@
   "name": "gatsby-theme-kuworking-core-test",
   "private": true,
   "dontPush": true,
-  "version": "0.1.90",
+  "version": "0.1.91",
   "description": "gatsby-theme-kuworking-core-test",
   "author": "kuworking.com",
   "license": "MIT",
   "dependencies": {
     "gatsby": "2.20.5",
-    "gatsby-theme-kuworking-core": "^0.1.89",
+    "gatsby-theme-kuworking-core": "^0.1.90",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
