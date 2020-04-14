@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Sunny as DaySafe } from 'emotion-icons/ion-md'
-import { Moon as NightSafe } from 'emotion-icons/fa-regular'
 
 export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) => {
   const [colorMode, setColorMode] = useColorMode()
@@ -12,18 +10,12 @@ export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) 
     setColorMode(next)
   }
 
-  const Icons = () =>
-    Day ? (
-      <>
-        <Night />
-        <Day />
-      </>
-    ) : (
-      <>
-        <NightSafe />
-        <DaySafe />
-      </>
-    )
+  const Icons = () => (
+    <>
+      <Night />
+      <Day />
+    </>
+  )
 
   return (
     <Square day={colorMode === 'light'} onClick={toggleColorMode} {...styles} id="switch_DayNight_1">
