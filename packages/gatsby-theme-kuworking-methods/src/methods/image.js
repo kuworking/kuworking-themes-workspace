@@ -95,6 +95,7 @@ export const KwImg = ({
 export const BImg = props => <Img {...props} background={true} />
 
 export const Img = ({
+  blank = '/blank.gif',
   image: [standard, set],
   component,
   alt = 'image',
@@ -125,7 +126,7 @@ export const Img = ({
     rootMargin: '200px 0px',
     threshold: 0,
   })
-  useCallback
+
   const handleRef = useCallback(
     node => {
       // in order to have a real reference since the ref from useInView doesn't have a current value
@@ -179,7 +180,7 @@ export const Img = ({
     <BackgroundImage
       style={{ opacity: '0' }}
       component={component}
-      src={inView || !lazy ? src : null}
+      src={inView || !lazy ? src : blank}
       ref={lazy ? handleRef : null}
       alt={alt}
     >
@@ -189,7 +190,7 @@ export const Img = ({
     <Image
       style={{ opacity: '0' }}
       component={component}
-      src={inView || !lazy ? src : null}
+      src={inView || !lazy ? src : blank}
       ref={lazy ? handleRef : null}
       alt={alt}
     />
