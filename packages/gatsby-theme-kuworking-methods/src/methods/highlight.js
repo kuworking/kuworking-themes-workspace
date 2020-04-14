@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useScript } from '../hooks/usescript'
 import { useCss } from '../hooks/usecss'
 
-export const Highlight = ({ styling }) => {
+export const Highlight = ({ styling, delay = 2000 }) => {
+  const [script, setScript] = useState('')
+  setTimeout(() => setScript('/highlight/highlight.pack.js'), delay)
+
   const [loadedCSS, errorCSS] = useCss(`/highlight/${styling}.css`) // eslint-disable-line no-unused-vars
-  const [loadedJS, errorJS] = useScript('/highlight/highlight.pack.js') // eslint-disable-line no-unused-vars
+  const [loadedJS, errorJS] = useScript(script) // eslint-disable-line no-unused-vars
   return <>{loadedJS && loadedCSS && apply_highlight()}</>
 }
 

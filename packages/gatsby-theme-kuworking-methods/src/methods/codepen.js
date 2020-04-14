@@ -18,7 +18,11 @@ export const CodePen = ({
   _css, // css likely is a protected word
   js,
   scripts = '',
+  delay = 2000,
 }) => {
+  const [script, setScript] = useState('')
+  setTimeout(() => setScript('https://static.codepen.io/assets/embed/ei.js'), delay)
+
   const html_complete = html ? html : ''
   const js_complete = js ? js : ''
   const css_complete = _css ? _css : ''
@@ -92,7 +96,7 @@ export const CodePen = ({
         <input type="hidden" name="data" value={JSON.stringify(data_link)} />
         <input type="submit" value="IR A EDITOR CODEPEN" />
       </CodePenForm>
-      {useScript('https://static.codepen.io/assets/embed/ei.js', { abort: !playground })}
+      {useScript(script, { abort: !playground })}
     </>
   )
 }
