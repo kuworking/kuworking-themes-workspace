@@ -28,7 +28,6 @@ module.exports.data = `{
             ... on MdxBlogPost {
               parent {
                 ... on Mdx {
-                  body
                   timeToRead
                   wordCount {
                     words
