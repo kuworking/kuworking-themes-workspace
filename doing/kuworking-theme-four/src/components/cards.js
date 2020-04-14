@@ -1,23 +1,20 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { Styled } from 'theme-ui'
 
 export const Card = ({ post, i, related }) => {
   return (
-    <Styled.a
-      as={Container}
+    <Container
       aria-label="Post"
-      to={'/' + post.name}
+      href={'/' + post.name}
       related={related ? 1 : 0} /* to prevent a warning from styled-components */
     >
       <Image src={related ? post.fixed_image.src : post.image.src} />
-      <Styled.h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
+      <h4 as="h1" i={i} css={{ marginBottom: 'unset' }}>
         <Title>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </Title>
-      </Styled.h4>
-    </Styled.a>
+      </h4>
+    </Container>
   )
 }
 
@@ -32,7 +29,7 @@ const Title = styled.div`
   padding: 0px 4px;
 `
 
-const Container = styled(Link)`
+const Container = styled.a`
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 200px minmax(20px, 1fr);

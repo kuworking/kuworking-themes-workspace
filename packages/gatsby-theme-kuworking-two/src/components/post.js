@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import React, { useEffect, useState } from 'react'
-import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { jsx } from 'theme-ui'
@@ -47,7 +46,7 @@ export const Post = ({ blogPost: { images, post, structure: { post_related_image
       <Tags>
         {post.tags.map((tag, j) => (
           <React.Fragment key={'link' + j}>
-            <Tag to={'/tags/' + tag}>{tag.replace(/_/g, ' ')}</Tag>
+            <Tag href={'/tags/' + tag} arial-label="entradas">{tag.replace(/_/g, ' ')}</Tag>
           </React.Fragment>
         ))}
       </Tags>
@@ -120,7 +119,7 @@ const Title = styled.h1`
   }
 `
 
-const Tag = styled(Link)``
+const Tag = styled.a``
 const Tags = styled.div`
   font-size: 0.9em;
   letter-spacing: -1px;

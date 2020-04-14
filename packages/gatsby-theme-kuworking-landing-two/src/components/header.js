@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
@@ -11,7 +10,7 @@ export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
   return (
     <Div>
       <Fade margin="none" toFrom="0" toDelay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
-        <Logo id="init" aria-label="inicio" to={basePath}>
+        <Logo id="init" aria-label="inicio" href={basePath}>
           <img src="/icons/code.svg" alt="main" />
         </Logo>
       </Fade>
@@ -63,7 +62,7 @@ const Space = styled.div`
   flex-grow: 1;
 `
 
-const Logo = styled(Link)`
+const Logo = styled.a`
   cursor: pointer;
   display: flex;
   align-self: center;
