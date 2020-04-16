@@ -1,6 +1,7 @@
 export { Pagination } from './src/components/pagination'
 export { config, text, seoText } from './src/utils/config'
 export { Page } from './src/templates/page-template'
+export { build_post_structure } from './src/gatsby-node/methodses6'
 
 export {
   SEO,
