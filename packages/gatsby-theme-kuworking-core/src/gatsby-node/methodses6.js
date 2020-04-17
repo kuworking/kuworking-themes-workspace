@@ -26,6 +26,18 @@ export const get_image_versions = (images, name) =>
       .map(el => ({ [el.node.name.split('---')[1] || 'standard']: el.node.publicURL }))
   )
 
+export const structure_image_versions = images => {
+  const groups = {}
+  images.forEach(el => {
+    const [key, value] = el.node.name.split('---')
+    if (!groups[key]) groups[key] = {}
+    groups[key][value || 'standard'] = el.node.publicURL
+  })
+  return Object.keys(groups)
+    .sort((a, b) => a - b)
+    .map(el => groups[el])
+}
+
 export const get_last_slug = str =>
   str &&
   str
@@ -61,7 +73,6 @@ export const build_post_structure = (raw_posts, grid_images) => {
   const posts = []
   raw_posts.forEach(({ node: post }, index) => {
     const image = get_image_versions(grid_images, get_last_slug(post.slug))
-    types.add(post.type)
     posts.push({
       ...post_structure(post, image),
       key: 'post_' + index,

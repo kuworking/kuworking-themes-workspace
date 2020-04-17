@@ -7,7 +7,7 @@ import { SEO, Switch } from 'gatsby-theme-kuworking-core'
 const grid_maxwidth = '1000px'
 const post_maxwidth = '800px'
 
-export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
+export const StructurePost = ({ type, blogGrid, blogPost, blogPage }) => {
   const { images, canonical } = blogGrid || blogPost || blogPage
   const { page, children, main_maxwidth, main_background } = blogPage || ''
   const { posts, pagination, tags } = blogGrid || ''
@@ -31,25 +31,10 @@ export const Structure = ({ type, blogGrid, blogPost, blogPage }) => {
       <Container maxWidth={maxWidth}>
         <Switch aria-label="Toggle color modes" modes={modes} useColorMode={useColorMode} />
 
-        {(type === 'grid' && (
-          <Grid>
-            <h1>GRID</h1>
-            <Lorem />
-          </Grid>
-        )) ||
-          (type === 'mdx' && (
-            <Post>
-              <h1>POST</h1>
-              <Lorem />
-            </Post>
-          )) ||
-          ((type === 'page' || type === 'tool') && (
-            <Page>
-              <h1>PAGE</h1>
-              {children}
-              <Lorem />
-            </Page>
-          ))}
+        <Post>
+          <h1>POST</h1>
+          <Lorem />
+        </Post>
       </Container>
     </Main>
   )

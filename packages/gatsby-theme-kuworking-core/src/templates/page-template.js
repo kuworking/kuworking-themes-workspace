@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useQuery } from '../queries/page-query'
-import { Structure } from '../components/structure'
+import { StructurePage } from '../components/structure-page'
 
 export const Page = ({ type = 'page', page, ...props }) => {
   const { thePath, basePath, wallpaper } = page
@@ -12,7 +12,7 @@ export const Page = ({ type = 'page', page, ...props }) => {
   }
 
   return (
-    <Structure
+    <StructurePage
       type={type}
       blogPage={{
         thePath: thePath,

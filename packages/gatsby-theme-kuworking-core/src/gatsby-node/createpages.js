@@ -1,5 +1,11 @@
 const withDefaults = require(`../../utils/default-options`)
-const { get_image_versions, get_last_slug, post_structure, shuffle_array } = require(`./methods`)
+const {
+  get_image_versions,
+  get_last_slug,
+  post_structure,
+  shuffle_array,
+  structure_image_versions,
+} = require(`./methods`)
 
 /**
  * These templates are simply data-fetching wrappers that import components (and allow shadowing)
@@ -167,7 +173,9 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
         context: {
           thePath: slug,
           post: post,
-          post_images: post_images.filter(({ node: { relativeDirectory } }) => relativeDirectory === name),
+          post_images: structure_image_versions(
+            post_images.filter(({ node: { relativeDirectory } }) => relativeDirectory === name)
+          ),
 
           related_posts: array_of_index.map(i => filtered_posts_by_type3[i]),
           wallpapers: wallpapers,

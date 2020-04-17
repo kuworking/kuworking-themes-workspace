@@ -1,5 +1,5 @@
 import React from 'react'
-import { Structure } from '../components/structure'
+import { StructureGrid } from '../components/structure-grid'
 
 export default ({ pageContext }) => {
   const {
@@ -18,7 +18,7 @@ export default ({ pageContext }) => {
   } = pageContext
 
   return (
-    <Structure
+    <StructureGrid
       type="grid"
       blogGrid={{
         posts,

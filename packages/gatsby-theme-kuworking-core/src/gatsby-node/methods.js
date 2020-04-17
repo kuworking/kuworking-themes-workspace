@@ -26,6 +26,18 @@ exports.get_image_versions = (images, name) =>
       .map(el => ({ [el.node.name.split('---')[1] || 'standard']: el.node.publicURL }))
   )
 
+exports.structure_image_versions = images => {
+  const groups = {}
+  images.forEach(el => {
+    const [key, value] = el.node.name.split('---')
+    if (!groups[key]) groups[key] = {}
+    groups[key][value || 'standard'] = el.node.publicURL
+  })
+  return Object.keys(groups)
+    .sort((a, b) => a - b)
+    .map(el => groups[el])
+}
+
 exports.get_last_slug = str =>
   str &&
   str
