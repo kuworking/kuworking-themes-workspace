@@ -188,7 +188,7 @@ export const Img = ({
       style={{ opacity: opac }}
       component={component}
       src={inView || !lazy ? src : blank}
-      ref={set ? handleRef : null}
+      ref={lazy ? handleRef : null}
       alt={alt}
     >
       {children}
