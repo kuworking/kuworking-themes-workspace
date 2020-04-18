@@ -4,7 +4,7 @@ import PostPage from '../templates/post-template'
 export default PostPage
 
 export const query = graphql`
-  query PostPageQuery($id: String!) {
+  query PostQuery($id: String!) {
     current: mdxBlogPost(id: { eq: $id }) {
       id
       slug
