@@ -144,7 +144,7 @@ export const Img = ({
   const resize = useWindowResize()
 
   useEffect(() => {
-    const clientWidth = trueRef && trueRef.current.clientWidth
+    const clientWidth = trueRef && trueRef.current && trueRef.current.clientWidth
     const bestImage = set
       ? clientWidth < 400
         ? set['400px'] || standard
