@@ -104,6 +104,7 @@ export const Img = ({
   lazy = true,
   adjustMasonry = null,
   children,
+  as = null,
 }) => {
   /**
    * 1. selects image based on clientWidth among the images provided
@@ -190,6 +191,7 @@ export const Img = ({
       src={inView || !lazy ? src : blank}
       ref={lazy ? handleRef : null}
       alt={alt}
+      as={as}
     >
       {children}
     </BackgroundImage>
