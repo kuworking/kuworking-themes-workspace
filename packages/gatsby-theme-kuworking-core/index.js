@@ -11,6 +11,7 @@ export {
   Switch,
   Spinner01,
   SocialShare,
+  Modal,
   Box,
   Fade,
   Toggle,

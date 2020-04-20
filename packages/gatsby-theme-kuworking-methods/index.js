@@ -4,6 +4,7 @@ export { Margin, q, qq } from './src/gatsby/css'
 export { Switch } from './src/elements/switch'
 export { Spinner01 } from './src/elements/spinner'
 export { SocialShare } from './src/elements/socialshare'
+export { Modal } from './src/elements/modal'
 
 export { Box } from './src/animations/box'
 export { Fade } from './src/animations/fade'
