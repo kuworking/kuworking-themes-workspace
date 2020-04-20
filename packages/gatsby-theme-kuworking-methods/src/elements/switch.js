@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) => {
+export const Switch = ({ Day, Night, styles: { iconwidth = '20px', ...rest }, useColorMode, modes: colorModes }) => {
   const [colorMode, setColorMode] = useColorMode()
 
   const toggleColorMode = e => {
@@ -18,7 +18,13 @@ export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) 
   )
 
   return (
-    <Square day={colorMode === 'light'} onClick={toggleColorMode} {...styles} id="switch_DayNight_1">
+    <Square
+      day={colorMode === 'light'}
+      onClick={toggleColorMode}
+      iconwidth={iconwidth}
+      {...rest}
+      id="switch_DayNight_1"
+    >
       <div id="switch_DayNight_2">
         <div id="switch_DayNight_3">
           <Icons />
@@ -30,7 +36,6 @@ export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) 
 
 export default Switch
 
-const width = '20px'
 const Square = styled.div`
   cursor: pointer;
   margin: 4px;
@@ -50,8 +55,8 @@ const Square = styled.div`
   }
 
   & > div:first-of-type {
-    width: ${width};
-    height: ${width};
+    width: ${props => props.iconwidth};
+    height: ${props => props.iconwidth};
     overflow: hidden;
 
     & > div:first-of-type {
@@ -59,11 +64,11 @@ const Square = styled.div`
       display: flex;
       flex-direction: column;
       transition: top 0.2s ease-in;
-      top: ${props => (props.day ? `-${width}` : '0px')};
+      top: ${props => (props.day ? `-${props.iconwidth}` : '0px')};
 
       & svg {
-        width: ${width};
-        height: ${width};
+        width: ${props => props.iconwidth};
+        height: ${props => props.iconwidth};
       }
     }
   }
