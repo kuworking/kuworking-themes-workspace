@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import {
   SEO,
@@ -18,19 +18,9 @@ import {
 import './globalcss.css'
 
 export const Structure = ({ blogGrid }) => {
-  const { innerHeight: iheight } = typeof window !== 'undefined' && window
-  const [height, setHeight] = useState('0px')
   useReplace100vh()
 
   const basePath = blogGrid.basePath
-
-  useEffect(() => {
-    ;(async () => {
-      setHeight(iheight + 30 + 'px')
-      await wait(2000)
-      setHeight('') // to undefine it
-    })()
-  }, [])
 
   return (
     <Main>
@@ -40,7 +30,7 @@ export const Structure = ({ blogGrid }) => {
         <Header basePath={basePath} />
       </PartHeader>
 
-      <PartA height={height}>
+      <PartA>
         <BlockA />
       </PartA>
 
@@ -98,15 +88,14 @@ const Part = styled.div`
 `
 const PartA = styled(Part)`
   ${props => props.height !== 'none' && `max-height: ${props.height};`};
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 
   & > div {
     background-color: ${props => props.theme.colors.backgroundimg__color};
     background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
 
-    padding: 0px 0px;
-    ${() => qq(600)} {
-      padding: 0px 5px;
-    }
+    padding: 0px 5px;
   }
 `
 const PartB = styled(Part)`

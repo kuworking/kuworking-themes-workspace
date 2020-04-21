@@ -4,14 +4,12 @@ export { BlockA } from './src/components/blocka'
 export { BlockB } from './src/components/blockb'
 export { BlockC } from './src/components/blockc'
 export { Footer } from './src/components/footer'
-export { CtaMain } from './src/components/cta'
 export { config, seoText } from './src/utils/config'
 
 export {
   SEO,
   Switch,
   Neutral,
-  Box,
   Fade,
   Toggle,
   Move,

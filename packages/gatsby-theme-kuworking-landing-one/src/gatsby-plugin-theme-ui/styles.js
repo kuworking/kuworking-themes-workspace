@@ -2,12 +2,12 @@ import { elements } from './styles-elements'
 
 export const styles = {
   breakpoints: ['400px', '600px'],
-  fontSizes: [12, 13, 15, 17, 20, 25, 30, 43, 51, 67, 75],
+  fontSizes: [10, 12, 13, 14, 20, 25, 30, 43, 60, 75, 150],
   fonts: {
     post: 'Text Me One, sans-serif',
     monospace: 'monospace',
     standard: 'Text Me One, sans-serif',
-    special: 'Text Me One, sans-serif',
+    special: 'dokdo, sans-serif',
   },
   em2: {
     em: elements.em2,
@@ -15,7 +15,8 @@ export const styles = {
   title: {
     h1: {
       ...elements.h1,
-      fontSize: [7, 7, 8],
+      fontSize: [8, 9, 10],
+      fontFamily: 'special',
     },
   },
   styles: {
