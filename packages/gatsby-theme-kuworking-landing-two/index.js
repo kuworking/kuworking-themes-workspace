@@ -11,7 +11,6 @@ export {
   SEO,
   Switch,
   Neutral,
-  Box,
   Fade,
   Toggle,
   Move,
