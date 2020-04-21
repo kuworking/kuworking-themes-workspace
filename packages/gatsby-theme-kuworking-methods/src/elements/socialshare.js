@@ -11,10 +11,20 @@ import styled from '@emotion/styled'
 
 export const SocialShare = ({ title, url, image, size = 32 }) => (
   <Social>
-    <FacebookShareButton url={url} quote={title} additionalProps={{ 'aria-label': 'Facebook Share' }}>
+    <FacebookShareButton
+      url={url}
+      quote={title}
+      additionalProps={{ 'aria-label': 'Facebook Share' }}
+      id="gtm_socialshare_facebook"
+    >
       <FacebookIcon size={size} round />
     </FacebookShareButton>
-    <TwitterShareButton url={url} title={title} additionalProps={{ 'aria-label': 'Twitter Share' }}>
+    <TwitterShareButton
+      url={url}
+      title={title}
+      additionalProps={{ 'aria-label': 'Twitter Share' }}
+      id="gtm_socialshare_twitter"
+    >
       <TwitterIcon size={size} round />
     </TwitterShareButton>
     <PinterestShareButton
@@ -23,6 +33,7 @@ export const SocialShare = ({ title, url, image, size = 32 }) => (
       windowWidth={1000}
       windowHeight={730}
       additionalProps={{ 'aria-label': 'Pinterest Share' }}
+      id="gtm_socialshare_pinterest"
     >
       <PinterestIcon size={size} round />
     </PinterestShareButton>
