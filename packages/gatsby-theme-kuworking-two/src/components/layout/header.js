@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
 import { useColorMode } from 'theme-ui'
-import { modes } from '../gatsby-plugin-theme-ui/index'
-import { text, Switch } from 'gatsby-theme-kuworking-two'
+import { modes } from '../../gatsby-plugin-theme-ui/index'
+import { text, Switch } from 'gatsby-theme-kuworking-one'
 
 export const Header = ({ basePath }) => (
   <Parent>
     <header>
-      <Logo id="init" aria-label="inicio" href={basePath}>
+      <Logo id="init" aria-label="inicio" to={basePath}>
         <div>{text.header.logo}</div>
         <div>{text.header.site}</div>
       </Logo>
@@ -65,7 +66,7 @@ const Space = styled.div`
   flex-grow: 1;
 `
 
-const Logo = styled.a`
+const Logo = styled(Link)`
   cursor: pointer;
   color: #4b4b4b;
   font-weight: 400;

@@ -1,16 +1,17 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import CookieConsent from 'react-cookie-consent'
-import { text } from 'gatsby-theme-kuworking-two'
+import { text } from 'gatsby-theme-kuworking-one'
 
 export const Footer = ({ basePath }) => (
   <>
     <Expand />
     <Foot>
       <Legal>
-        <a aria-label="Mi Historia" to={`${basePath}me`}>
+        <Link aria-label="Mi Historia" to={`${basePath}me`}>
           {text.footer.me}
-        </a>
+        </Link>
         <Separator />
         <a aria-label="kuworking" href={text.footer.credits_url}>
           {text.footer.credits}

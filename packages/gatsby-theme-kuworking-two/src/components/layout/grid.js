@@ -3,20 +3,20 @@ import React from 'react' // eslint-disable-line no-unused-vars
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
 
-import { Pagination, CtaMain, Card } from 'gatsby-theme-kuworking-two'
+import { Cta } from './cta'
+import { Card } from '../cards'
 
 export const Grid = ({
   blogGrid: {
     posts,
-    pagination,
-    tags: { tags_grid, tag, global_tags },
+    tags: { tag },
   },
 }) => {
   return (
     <>
-      <CtaMain />
+      <Cta />
 
-      {tags_grid && (
+      {tag && (
         <Tag>
           <span>
             Tag <span>{tag}</span>
@@ -29,7 +29,6 @@ export const Grid = ({
           <Card key={'card_' + i} post={post} />
         ))}
       </Container>
-      <Pagination pagination={pagination} />
     </>
   )
 }

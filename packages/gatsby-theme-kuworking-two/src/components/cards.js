@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { BImg } from 'gatsby-theme-kuworking-two'
+import { BImg } from 'gatsby-theme-kuworking-one'
 
 const backgroundImage = `
 background-size: cover;
@@ -9,14 +9,10 @@ background-position: center;
 display: grid;
 align-items: end;
 border-radius: 2px;
-transition: filter 0.3s ease;
-&:hover {
-  filter: brightness(0.9);
-}
 `
 
 export const Card = ({ post, related }) => {
-  if (!post) return
+  if (!post) return <></>
 
   return (
     <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
@@ -47,8 +43,8 @@ const ContainerCard = styled.div`
 
   border: 1px solid ${props => props.theme.colors.cards__border};
   background: ${props => props.theme.colors.cards__background};
-  padding: 3px 3px 10px 3px;
-  border-radius: 3px;
+  border-radius: 20px;
+  overflow: hidden;
 
   & > div:nth-of-type(1) {
     transition: all 0.2s ease-in;
@@ -66,14 +62,14 @@ const ContainerCard = styled.div`
 
   ${props =>
     props.related
-      ? 'grid-template-rows: 0px 200px minmax(50px, 1fr);'
-      : 'grid-template-rows: 0px 300px minmax(50px, 1fr);'}
+      ? 'grid-template-rows: 0px 100px minmax(60px, 1fr);'
+      : 'grid-template-rows: 0px 100px minmax(60px, 1fr);'}
 
   ${q(600)} {
     ${props =>
       props.related
-        ? 'grid-template-rows: 0px 200px minmax(50px, 1fr);'
-        : 'grid-template-rows: 0px 500px minmax(50px, 1fr);'}
+        ? 'grid-template-rows: 0px 140px minmax(100px, 1fr);'
+        : 'grid-template-rows: 0px 140px minmax(100px, 1fr);'}
   }
 
   ${Title} {
@@ -82,7 +78,7 @@ const ContainerCard = styled.div`
     z-index: 10;
 
     width: 90%;
-    padding: 2px;
+    padding: 10px;
     line-height: 1.3;
 
     & > div {
@@ -104,6 +100,7 @@ const ContainerCard = styled.div`
   ${Abstract} {
     margin-top: 2px;
     width: 90%;
+    padding: 10px;
 
     & > em {
       background: ${props => props.theme.colors.cards__abstract_em__background};
