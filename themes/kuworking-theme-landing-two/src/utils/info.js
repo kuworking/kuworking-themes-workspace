@@ -6,8 +6,8 @@ module.exports = {
   basePath: basePath,
   metaData: {
     site: 'kuworking',
-    title: 'Gatsby Theme kuworking landing one',
-    description: 'Gatsby Theme kuworking landing one',
+    title: 'kuworking',
+    description: 'kuworking',
     siteUrl: 'https://www.kuworking.com',
     basePath: basePath,
   },
