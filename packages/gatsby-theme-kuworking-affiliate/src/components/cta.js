@@ -2,95 +2,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
-import { Mail as MailIcon } from 'emotion-icons/ion-md'
-import { config, text } from 'gatsby-theme-kuworking-affiliate'
+import { text } from 'gatsby-theme-kuworking-affiliate'
 
-export const CtaList = () => {}
-
-export const CtaMain = () => {
-  const form_id = React.createRef()
-  const input_id = React.createRef()
-
-  return (
-    <Container sx={{ variant: 'copy' }}>
-      <Title>
-        <div>{text.cta.title}</div>
-      </Title>
-      <Sentence>
-        <object>
-          <text.cta.message />
-        </object>
-      </Sentence>
-
-      <MailChimp id="mc_embed_signup">
-        <form
-          action={config.mail_chimp_action}
-          method="post"
-          id="mc-embedded-subscribe-form"
-          ref={form_id}
-          name="mc-embedded-subscribe-form"
-          target="_blank"
-          onSubmit={e => {
-            e.stopPropagation()
-            e.preventDefault()
-          }}
-          noValidate
-        >
-          <div id="mc_embed_signup_scroll">
-            <Input>
-              <input
-                type="email"
-                name="EMAIL"
-                id="mce-EMAIL"
-                ref={input_id}
-                onClick={e => e.stopPropagation()}
-                aria-label="sign-up form for mailing list"
-              />
-            </Input>
-
-            <div id="mce-responses">
-              <div id="mce-error-response" style={{ display: 'none' }}></div>
-              <div id="mce-success-response" style={{ display: 'none' }}></div>
-            </div>
-
-            <div aria-hidden="true">
-              <input
-                type="text"
-                style={{ position: 'absolute', left: '-5000px' }}
-                name="b_7679f6806268867998475ecb8_d0543eb54f"
-                tabIndex="-1"
-              />
-            </div>
-
-            <button
-              aria-label="NewsLetter suscription"
-              style={{
-                fontFamily: `body`,
-              }}
-              type="submit"
-              value={text.cta.suscribe}
-              name="subscribe"
-              id="mc-embedded-subscribe"
-              onClick={e => {
-                e.stopPropagation()
-                //const expression = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$/
-                //const id = input_id.current.value.trim()
-                //expression.test(String(id).toLowerCase())
-                // ? form_id.current.submit()
-                // : (input_id.current.value = text.cta.error)
-              }}
-            >
-              <MailIcon />
-              {text.cta.suscribe}
-            </button>
-          </div>
-        </form>
-      </MailChimp>
-    </Container>
-  )
-}
-
-export const CtaPosts = props => <CtaMain props={props} />
+export const CtaMain = () => (
+  <Container sx={{ variant: 'copy' }}>
+    <Title>
+      <div>KUWORKING</div>
+    </Title>
+  </Container>
+)
 
 const q = px => `@media (min-width: ${px}px)`
 
@@ -101,41 +21,6 @@ const Title = styled.h1`
   & > div {
     white-space: unset;
     overflow: hidden;
-  }
-`
-const Sentence = styled.p``
-const Input = styled.div``
-const MailChimp = styled.div`
-  & > form > div:first-of-type {
-    display: flex;
-    height: 40px;
-  }
-
-  & ${Input} {
-    & input {
-      height: 100%;
-      margin-right: 5px;
-      border-radius: 3px;
-      border: 2px solid ${props => props.theme.colors.cta__button__border};
-      padding: 5px;
-      width: 120px;
-      ${q(400)} {
-        width: 200px;
-      }
-    }
-  }
-
-  & button {
-    border: 2px solid ${props => props.theme.colors.cta__button__border};
-    cursor: pointer;
-    font-weight: 700;
-    text-decoration: none;
-    border-radius: 3px;
-  }
-
-  & svg {
-    margin-right: 5px;
-    height: 15px;
   }
 `
 
@@ -161,15 +46,5 @@ const Container = styled.div`
   ${Title} {
     color: ${props => props.theme.colors.cta__title__color};
     transition: color 0.5s ease;
-  }
-  ${MailChimp} button {
-    background: ${props => props.theme.colors.cta__button__background};
-    color: ${props => props.theme.colors.cta__button__color};
-    transition: color 0.5s ease, background 0.5s ease;
-
-    &:hover {
-      background: ${props => props.theme.colors.cta__button_hover__background};
-      color: ${props => props.theme.colors.cta__button_hover__color};
-    }
   }
 `
