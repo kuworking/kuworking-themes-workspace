@@ -155,29 +155,6 @@ const RelatedPosts = styled.div`
   margin-top: 100px;
 `
 
-const CommentsWrap = styled.div`
-  margin-top: 100px;
-  margin-bottom: 0.5em;
-  border-radius: 3px;
-  padding: 10px;
-  cursor: pointer;
-  transition: background 0.5s ease;
-  background: ${props => props.theme.colors.post__comments__background};
-
-  & > h1 {
-    margin-bottom: 0px;
-    transition: color 0.5s ease;
-    color: ${props => props.theme.colors.post__comments__title__color};
-  }
-
-  &:hover {
-    background: ${props => props.theme.colors.post__comments_hover__background};
-    & > h1 {
-      color: ${props => props.theme.colors.post__comments_hover__title__color};
-    }
-  }
-`
-
 const Container = styled.article`
   margin-top: 50px;
   width: 100%;

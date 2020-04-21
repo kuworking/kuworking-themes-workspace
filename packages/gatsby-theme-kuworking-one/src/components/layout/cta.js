@@ -17,7 +17,7 @@ export const Cta = () => {
       <h1>
         <TextShadow
           view={false}
-          toDelay="50"
+          delay="50"
           difference="300"
           animationTo={shadow}
           config={{ mass: 1, tension: 8000, friction: 20 }}
