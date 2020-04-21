@@ -30,11 +30,11 @@ export const BlockA = () => {
     >
       <PanelA1 sx={{ variant: 'title' }}>
         <Claim>
-          <TextLetterFade toDelay="500">Kuworking</TextLetterFade>
+          <TextLetterFade delay="500">Kuworking</TextLetterFade>
         </Claim>
         <Margin margin={[0, 0, 20]} />
 
-        <Fade margin="-100px" toFrom="0" toDelay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+        <Fade margin="-100px" toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
           <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
         </Fade>
         <Margin margin={[0, 0, 20]} />

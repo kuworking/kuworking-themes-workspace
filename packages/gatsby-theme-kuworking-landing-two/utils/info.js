@@ -1,14 +1,10 @@
-const standalone = true
-const basePath = '/'
-const site = 'kuworking'
-
 module.exports = {
-  standalone: standalone,
-  basePath: basePath,
+  standalone: true,
+  basePath: '/',
   metaData: {
-    site: site,
-    title: 'Gatsby Theme kuworking Landing Two',
-    description: 'Gatsby Theme kuworking Landing Two',
+    site: 'kuworking',
+    title: 'kuworking',
+    description: 'kuworking',
     siteUrl: 'https://www.kuworking.com',
   },
   tagManager: '',
