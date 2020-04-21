@@ -2,6 +2,7 @@ module.exports = {
   website: {
     postsPerPage: 500,
     basePath: '/',
+    createTags: true,
   },
   metaData: {
     title: 'kuworking ',

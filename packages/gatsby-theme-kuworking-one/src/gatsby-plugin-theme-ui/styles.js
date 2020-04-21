@@ -20,7 +20,7 @@ export const styles = {
     },
     h1: {
       ...elements.h1,
-      fontSize: [6, 7, 8],
+      fontSize: [7, 8, 10],
     },
     h2: {
       ...elements.h2,

@@ -12,7 +12,7 @@ border-radius: 2px;
 `
 
 export const Card = ({ post, related }) => {
-  if (!post) return
+  if (!post) return <></>
 
   return (
     <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
