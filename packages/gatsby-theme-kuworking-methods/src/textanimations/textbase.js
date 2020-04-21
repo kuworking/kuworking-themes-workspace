@@ -14,7 +14,6 @@ export const TextBase = ({
   animationFrom = null,
   animationTo = null,
   config = { mass: 5, tension: 800, friction: 200 },
-
   ...rest
 }) => {
   // eslint-disable-next-line no-unused-vars

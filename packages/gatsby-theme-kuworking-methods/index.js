@@ -6,11 +6,9 @@ export { Spinner01 } from './src/elements/spinner'
 export { SocialShare } from './src/elements/socialshare'
 export { Modal } from './src/elements/modal'
 
-export { Box } from './src/animations/box'
 export { Fade } from './src/animations/fade'
 export { Toggle } from './src/animations/toggle'
 export { Move } from './src/animations/move'
-export { Neutral } from './src/animations/neutral'
 
 export { TextLetterFade } from './src/textanimations/textletterfade'
 export { TextLetterFade2 } from './src/textanimations/textletterfade2'
