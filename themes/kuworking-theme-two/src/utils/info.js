@@ -1,13 +1,13 @@
 module.exports = {
   website: {
-    postsPerPage: 100,
+    postsPerPage: 500,
+    basePath: '/',
   },
   metaData: {
-    site: 'kuworking',
-    title: 'Gatsby Theme kuworking Two',
-    description: 'Gatsby Theme kuworking Two',
+    title: 'kuworking ',
+    description: 'kuworking',
     siteUrl: 'https://www.kuworking.com',
-    basePath: '/',
+    site: 'kuworking',
   },
   tagManager: '',
   siteMapExclude: ['/tags/*', '/dummy'],
