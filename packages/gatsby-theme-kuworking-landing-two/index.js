@@ -10,7 +10,6 @@ export { config, seoText } from './src/utils/config'
 export {
   SEO,
   Switch,
-  Neutral,
   Fade,
   Toggle,
   Move,
