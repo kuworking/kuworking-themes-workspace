@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-kuworking-methods",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "gatsby-theme-kuworking-methods",
   "main": "index.js",
   "author": "kuworking.com",
@@ -22,8 +22,8 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "react-intersection-observer": "8.26.1",
     "react-helmet": "6.0.0",
+    "react-intersection-observer": "8.26.1",
     "react-share": "4.1.0",
     "react-spring": "8.0.27"
   },
