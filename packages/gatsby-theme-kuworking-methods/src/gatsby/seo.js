@@ -1,5 +1,4 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 
 export const SEO = ({
   config,
@@ -77,7 +76,7 @@ export const SEO = ({
   const fb = fb_app_id ? <meta property="fb:app_id" content={fb_app_id} /> : ''
 
   return (
-    <Helmet defer={false}>
+    <>
       <html lang={config.site_lang} />
       <title>{title}</title>
 
@@ -116,6 +115,6 @@ export const SEO = ({
 
       {/* FB app id */}
       {fb}
-    </Helmet>
+    </>
   )
 }

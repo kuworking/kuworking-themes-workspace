@@ -17,7 +17,9 @@ export const StructureGrid = ({ type, blogGrid }) => {
 
   return (
     <Main>
-      <SEO blogGrid={blogGrid} {...schemaProps} />
+      <Helmet defer={false}>
+        <SEO blogGrid={blogGrid} {...schemaProps} />
+      </Helmet>
 
       <Container maxWidth={maxWidth}>
         <Header basePath={basePath} />

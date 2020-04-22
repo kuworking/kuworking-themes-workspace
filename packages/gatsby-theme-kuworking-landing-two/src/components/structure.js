@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
+import { Helmet } from 'react-helmet'
 import {
   SEO,
   Header,
@@ -33,7 +34,9 @@ export const Structure = ({ blogGrid }) => {
 
   return (
     <Main>
-      <SEO blogGrid={blogGrid} config={config} seotext={seoText} />
+      <Helmet defer={false}>
+        <SEO blogGrid={blogGrid} config={config} seotext={seoText} />
+      </Helmet>
 
       <PartHeader>
         <Header basePath={basePath} />

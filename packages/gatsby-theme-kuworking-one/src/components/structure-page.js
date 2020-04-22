@@ -18,7 +18,9 @@ export const StructurePage = ({ type, blogPage }) => {
 
   return (
     <Main main_background={main_background}>
-      <SEO blogPage={blogPage} {...schemaProps} />
+      <Helmet defer={false}>
+        <SEO blogPage={blogPage} {...schemaProps} />
+      </Helmet>
 
       <Container maxWidth={maxWidth}>
         <Header basePath={basePath} />

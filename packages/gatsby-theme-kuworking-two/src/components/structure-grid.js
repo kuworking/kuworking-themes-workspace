@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { SEO, config } from 'gatsby-theme-kuworking-core'
 import { Header } from './layout/header'
 import { Footer } from './layout/footer'
@@ -17,7 +18,9 @@ export const StructureGrid = ({ type, blogGrid }) => {
 
   return (
     <Main>
-      <SEO blogGrid={blogGrid} {...schemaProps} />
+      <Helmet defer={false}>
+        <SEO blogGrid={blogGrid} {...schemaProps} />
+      </Helmet>
 
       <Container maxWidth={maxWidth}>
         <Header basePath={basePath} />
