@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Switch = ({ Day, Night, styles: { iconwidth = '20px', ...rest }, useColorMode, modes: colorModes }) => {
+export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) => {
+  const { iconwidth = '20px', ...rest } = styles || {}
   const [colorMode, setColorMode] = useColorMode()
 
   const toggleColorMode = e => {
