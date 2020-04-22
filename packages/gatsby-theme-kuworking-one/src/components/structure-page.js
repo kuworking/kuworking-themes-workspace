@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { SEO, config } from 'gatsby-theme-kuworking-core'
 import { Header } from './layout/header'
 import { Footer } from './layout/footer'
