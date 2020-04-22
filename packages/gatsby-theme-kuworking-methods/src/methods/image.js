@@ -30,7 +30,7 @@ const Observer = (el, setBackImg, bestImage, adjustMasonry = null) => {
 const useImg = (bestImage, adjustMasonry = null) => {
   const image_ref = useRef()
   const [src, setSrc] = useState('')
-  const [, rerender] = useState()
+  const [notused, rerender] = useState()
   let stillMounted = { value: false } // in order to prevent the memory leak
   useEffect(() => {
     stillMounted.value = true
