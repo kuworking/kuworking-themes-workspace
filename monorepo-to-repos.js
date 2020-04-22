@@ -63,8 +63,9 @@ const createFolder = async (dir, cloneUrl) => {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, '0766', err => console.log(err ? err : `folder ${dir} created`) && process.exit())
     if (cloneUrl) {
-      await bash(`git clone ${cloneUrl}`)
-      console.log(`repo ${cloneUrl} git-cloned`)
+      // await bash(`git clone ${cloneUrl}`)
+      await bash(`git clone --filter=blob:none --no-checkout ${cloneUrl}`)
+      console.log(`repo ${cloneUrl} git-PARTIAL-cloned`)
     }
     return false
   } else {
@@ -111,6 +112,19 @@ const starting = async ({ skip_folders, commit_message }) => {
 
       const src = `${__dirname}/${dir}/${remote_json.name}`
       const dest = `${__dirname}/${temp_dir}/${remote_json.name}`
+
+      /*
+      TODO, 
+   //////   console.log('delete folder contents except .git')
+   //////   const destFolders = `${__dirname}/${temp_dir}/${remote_json.name}/*`
+   //////   const checkFileName2 = name => pathnames => (pathnames.some(x => x === name) ? false : true)
+   //////   const filterFunc2 = (src, dest) => checkFileName(src.split(/[\\//]/).pop())(['.git'])
+   //////   await fs.remove(dest, { filter: filterFunc2 })
+*/
+
+      console.log(
+        'copy contents from workspace folder to temporary folder contents except node_modules, public, .cache'
+      )
       const checkFileName = name => pathnames => (pathnames.some(x => x === name) ? false : true)
       const filterFunc = (src, dest) => checkFileName(src.split(/[\\//]/).pop())(['node_modules', 'public', '.cache'])
       await fs.copy(src, dest, { filter: filterFunc })
