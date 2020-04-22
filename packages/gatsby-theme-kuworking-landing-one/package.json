@@ -10,12 +10,12 @@
     "url": "https://github.com/kuworking/gatsby-theme-kuworking-landing-one.git"
   },
   "peerDependencies": {
-    "gatsby": "2.20.5",
+    "gatsby": "2.20.29",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "gatsby": "2.20.5",
+    "gatsby": "2.20.29",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -44,7 +44,7 @@
     "typeface-text-me-one": "0.0.71"
   },
   "resolutions": {
-    "**/gatsby": "2.20.5",
+    "**/gatsby": "2.20.29",
     "**/@emotion/core": "10.0.28",
     "**/@emotion/styled": "10.0.27",
     "**/@mdx-js/mdx": "1.5.8",

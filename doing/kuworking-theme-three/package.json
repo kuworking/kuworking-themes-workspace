@@ -9,7 +9,7 @@
     "url": "https://github.com/kuworking/kuworking-theme-blog-three.git"
   },
   "dependencies": {
-    "gatsby": "2.20.5",
+    "gatsby": "2.20.29",
     "gatsby-theme-kuworking-blog": "^0.1.31",
     "react": "16.11.0",
     "react-dom": "16.11.0"
