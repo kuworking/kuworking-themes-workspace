@@ -1,4 +1,4 @@
-export { Pagination, Page as PageTemplate } from 'gatsby-theme-kuworking-core'
+export { Page as PageTemplate } from 'gatsby-theme-kuworking-core'
 export { config, text, seoText } from './src/utils/config'
 
 export { CardYoutube } from './src/components/extra/card-youtube'
