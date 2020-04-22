@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { BImg } from 'gatsby-theme-kuworking-one'
+import { BImg } from 'gatsby-theme-kuworking-two'
 
 const backgroundImage = `
 background-size: cover;

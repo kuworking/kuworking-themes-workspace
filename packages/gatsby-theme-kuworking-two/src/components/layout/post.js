@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { jsx } from 'theme-ui'
 
-import { config, text, SocialShare, shuffle_array, Img, Margin } from 'gatsby-theme-kuworking-one'
+import { config, text, SocialShare, shuffle_array, Img, Margin } from 'gatsby-theme-kuworking-two'
 import { Card } from '../cards'
 
 export const Post = ({ blogPost: { post, related_posts, basePath } }) => {

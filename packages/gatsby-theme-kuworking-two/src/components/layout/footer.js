@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import CookieConsent from 'react-cookie-consent'
-import { text } from 'gatsby-theme-kuworking-one'
+import { text } from 'gatsby-theme-kuworking-two'
 
 export const Footer = ({ basePath }) => (
   <>
