@@ -10,7 +10,7 @@ import { Switch, Fade } from 'gatsby-theme-kuworking-landing-two'
 export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
   return (
     <Div>
-      <Fade margin="none" toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+      <Fade view={false} toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
         <Logo id="init" aria-label="inicio" to={basePath}>
           <img src="/icons/code.svg" alt="main" />
         </Logo>
@@ -21,7 +21,7 @@ export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
       {typeOfGridButton}
       {ShapeButton}
 
-      <Fade margin="none" toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+      <Fade view={false} toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
         <Switch
           Day={Day}
           Night={Night}

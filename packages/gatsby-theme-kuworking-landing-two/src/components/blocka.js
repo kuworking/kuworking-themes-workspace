@@ -34,7 +34,7 @@ export const BlockA = () => {
         </Claim>
         <Margin margin={[0, 0, 20]} />
 
-        <Fade margin="-100px" toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
+        <Fade view={false} toFrom="0" delay="1500" config={{ mass: 10, tension: 80, friction: 20 }}>
           <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
         </Fade>
         <Margin margin={[0, 0, 20]} />
