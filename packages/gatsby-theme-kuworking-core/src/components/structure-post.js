@@ -4,6 +4,7 @@ import { useColorMode } from 'theme-ui'
 import { modes } from '../gatsby-plugin-theme-ui/index'
 import { SEO, Switch } from 'gatsby-theme-kuworking-core'
 import { Helmet } from 'react-helmet'
+import { config, seoText } from 'gatsby-theme-kuworking-core'
 
 const grid_maxwidth = '1000px'
 const post_maxwidth = '800px'
