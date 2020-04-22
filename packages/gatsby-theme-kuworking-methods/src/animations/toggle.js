@@ -1,7 +1,7 @@
 import React from 'react'
 import { Base } from './base'
 
-export const Fade = ({
+export const Toggle = ({
   children,
   persistent = true,
   view = true,
