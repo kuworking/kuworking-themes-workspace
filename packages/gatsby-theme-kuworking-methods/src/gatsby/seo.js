@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 
 export const SEO = ({
   config,
@@ -52,9 +53,9 @@ export const SEO = ({
       '@context': 'https://schema.org',
       '@type': schemaType,
       url: canonical,
-      name: title,
-      headline: title,
-      description: description,
+      name: title || 'kuworking',
+      headline: title || 'kuworking',
+      description: description || 'kuworking',
       image: image,
       sameAs: Object.values(config.social),
       author: {
@@ -76,8 +77,8 @@ export const SEO = ({
   const fb = fb_app_id ? <meta property="fb:app_id" content={fb_app_id} /> : ''
 
   return (
-    <>
-      <html lang={config.site_lang} />
+    <Helmet defer={false}>
+      <html lang={config.site_lang || 'es'} />
       <title>{title}</title>
 
       {/* Canonical */}
@@ -85,7 +86,7 @@ export const SEO = ({
 
       {/* General tags */}
       <meta name="viewport" content={'width=device-width, initial-scale=1'} />
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords.length > 0 ? keywords.join(`, `) : ''} />
       <meta name="robots" content={robots} />
@@ -115,6 +116,6 @@ export const SEO = ({
 
       {/* FB app id */}
       {fb}
-    </>
+    </Helmet>
   )
 }
