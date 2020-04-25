@@ -14,7 +14,7 @@ export const SocialShare = ({ title, url, image, size = 32 }) => (
     <FacebookShareButton
       url={url}
       quote={title}
-      additionalProps={{ 'aria-label': 'Facebook Share' }}
+      additionalprops={{ 'aria-label': 'Facebook Share' }}
       id="gtm_socialshare_facebook"
     >
       <FacebookIcon size={size} round />
@@ -22,7 +22,7 @@ export const SocialShare = ({ title, url, image, size = 32 }) => (
     <TwitterShareButton
       url={url}
       title={title}
-      additionalProps={{ 'aria-label': 'Twitter Share' }}
+      additionalprops={{ 'aria-label': 'Twitter Share' }}
       id="gtm_socialshare_twitter"
     >
       <TwitterIcon size={size} round />
@@ -32,7 +32,7 @@ export const SocialShare = ({ title, url, image, size = 32 }) => (
       media={image}
       windowWidth={1000}
       windowHeight={730}
-      additionalProps={{ 'aria-label': 'Pinterest Share' }}
+      additionalprops={{ 'aria-label': 'Pinterest Share' }}
       id="gtm_socialshare_pinterest"
     >
       <PinterestIcon size={size} round />
