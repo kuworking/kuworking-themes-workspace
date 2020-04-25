@@ -164,7 +164,7 @@ export const Img = ({
     setBest(bestImage)
     if (!lazy) setSrc(bestImage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resize]) // changes when window is resized
+  }, [resize, standard, set]) // changes when window is resized
 
   useEffect(() => {
     if (adjustMasonry) adjustMasonry()
