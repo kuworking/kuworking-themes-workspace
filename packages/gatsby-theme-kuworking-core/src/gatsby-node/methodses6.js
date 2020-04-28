@@ -66,6 +66,7 @@ export const post_structure = (post, image) => ({
   extra2: post.extra2,
   full_image: image && image.standard,
   image_versions: image || '',
+  exports: post.parent ? post.parent.exports : '', // at the moment will always be empty
 })
 
 // remove the trailing dashes, still, not well resolved, only applies to pages here
