@@ -44,7 +44,10 @@ export const SEO = ({
   // const image = (post && (config.url + post.full_image).replace(/(?<!:)\/\//, '/')) || '' // negative lookbehing is only Chrome-supported as today
   const image = (page && imagePage) || (post && imagePost) || (imageGrid && imageGrid) || '' // alternative
 
-  const robots = (page && page.robots) || 'index, follow'
+  /**
+   * Tag pages are not indexed
+   */
+  const robots = (page && page.robots) || (tags && 'index, nofollow') || 'index, follow'
 
   const content_type_og = type === 'mdx' ? 'article' : type === 'page' ? 'website' : 'website'
 
