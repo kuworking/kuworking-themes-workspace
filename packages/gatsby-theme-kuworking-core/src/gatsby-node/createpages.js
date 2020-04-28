@@ -14,7 +14,7 @@ const {
 
 const GlobalQuery = require(`../queries/global-query`)
 const PostTemplate = require.resolve(`../queries/post-query`)
-const PostsTemplate = require.resolve(`../templates/posts-template`)
+const PostsTemplate = require.resolve(`../queries/posts-query`)
 
 exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const { createPage } = actions
