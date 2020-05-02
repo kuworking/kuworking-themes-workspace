@@ -183,6 +183,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
           basePath: basePath,
           pre_path: basePath, // different when creating tags
           id: post.id,
+          folder: `/${post.name.split('/')[0]}\//`,
           previousId: previous ? previous.id : undefined,
           nextId: next ? next.id : undefined,
         },
