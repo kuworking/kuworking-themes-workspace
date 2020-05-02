@@ -3,7 +3,6 @@ const withDefaults = require(`./utils/default-options`)
 module.exports = themeOptions => {
   const options = withDefaults(themeOptions)
   const remarkPlugins = [
-    { resolve: 'gatsby-remark-prismjs' },
     {
       resolve: 'gatsby-remark-inline-codesandbox',
       options: {
@@ -18,7 +17,7 @@ module.exports = themeOptions => {
         resolve: `gatsby-plugin-mdx`,
         options: {
           extensions: [`.mdx`, `.md`],
-          gatsbyRemarkPlugins: options.prismjs && remarkPlugins,
+          gatsbyRemarkPlugins: (options.prismjs && remarkPlugins) || [],
           remarkPlugins: [require(`remark-slug`)],
         },
       },

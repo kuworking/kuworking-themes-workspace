@@ -42,7 +42,7 @@
     "gatsby-plugin-theme-ui": "0.3.0",
     "gatsby-remark-images": "3.2.1",
     "gatsby-remark-inline-codesandbox": "0.5.2",
-    "gatsby-remark-prismjs": "3.5.0",
+    "prism-react-renderer": "1.1.0",
     "gatsby-source-filesystem": "2.2.2",
     "gatsby-theme-kuworking-methods": "^0.1.22",
     "gatsby-transformer-sharp": "2.4.3",
