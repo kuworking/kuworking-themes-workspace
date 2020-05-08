@@ -72,11 +72,6 @@ module.exports = themeOptions => {
         options: {
           id: options.tagmanager,
           includeInDevelopment: false,
-          defaultDataLayer: function () {
-            return {
-              pageType: window.pageType,
-            }
-          },
         },
       },
       options.manifest && {
