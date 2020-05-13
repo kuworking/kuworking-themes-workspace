@@ -167,8 +167,10 @@ export const Img = ({
   }, [resize, standard, set]) // changes when window is resized
 
   useEffect(() => {
-    if (adjustMasonry) adjustMasonry()
-    setTimeout(adjustMasonry, 2000) // just in case, sometimes (cannot reproduce!) the function seems not to be executed
+    if (adjustMasonry) {
+      adjustMasonry()
+      setTimeout(adjustMasonry, 2000) // just in case, sometimes (cannot reproduce!) the function seems not to be executed
+    }
 
     if (!lazy) return // if !lazy we'll never be here
     ;(async () => {
