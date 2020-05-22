@@ -148,19 +148,20 @@ export const Img = ({
     const clientWidth = trueRef && trueRef.current && trueRef.current.clientWidth
     const bestImage = set
       ? clientWidth < 400
-        ? set['400px'] || standard
+        ? set['400px'] || set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
         : clientWidth < 600
-        ? set['600px'] || standard
+        ? set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
         : clientWidth < 800
-        ? set['800px'] || standard
+        ? set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
         : clientWidth < 1000
-        ? set['1000px'] || standard
+        ? set['1000px'] || set['1200px'] || set['1800px'] || standard
         : clientWidth < 1200
-        ? set['1200px'] || standard
+        ? set['1200px'] || set['1800px'] || standard
         : clientWidth < 1800
         ? set['1800px'] || standard
         : standard
       : standard
+
     setBest(bestImage)
     if (!lazy) setSrc(bestImage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
