@@ -95,7 +95,7 @@ export const KwImg = ({
 export const BImg = props => <Img {...props} background={true} />
 
 export const Img = ({
-  delay = 500,
+  delay = 0,
   blank = '/blank.gif',
   image: [standard, set],
   component,
