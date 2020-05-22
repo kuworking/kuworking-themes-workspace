@@ -10,7 +10,7 @@ Gatsby theme for generating single web pages typically used as landing pages
 
 ## 🔥 How to Install
 
-To install the theme visit the theme starter that uses and configures this theme at [https://github.com/kuworking/kuworking-theme-landing-one](https://github.com/kuworking/kuworking-theme-landing-one)
+To install the theme visit the theme starter that uses and configures this theme at [https://github.com/kuworking/kuworking-theme-landingone](https://github.com/kuworking/kuworking-theme-landingone)
 
 ## 🖖 The Site
 
