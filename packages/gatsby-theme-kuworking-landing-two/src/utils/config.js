@@ -8,7 +8,7 @@ export const seoText = {
 
 export const config = {
   site_lang: `en`,
-  url: 'https://www.kuworking.com',
+  url: 'https://kuworking-theme-landing-two.netlify.app/',
   user: 'kuworking',
   social: {
     twitter: '@kuworking',

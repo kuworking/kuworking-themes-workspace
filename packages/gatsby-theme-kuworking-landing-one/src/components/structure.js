@@ -6,6 +6,8 @@ import {
   BlockA,
   BlockB,
   BlockC,
+  BlockD,
+  BlockE,
   Footer,
   config,
   seoText,
@@ -26,22 +28,15 @@ export const Structure = ({ blogGrid }) => {
     <Main>
       <SEO blogGrid={blogGrid} config={config} seotext={seoText} />
 
-      <PartHeader>
-        <Header basePath={basePath} />
-      </PartHeader>
+      <Header basePath={basePath} />
 
-      <PartA>
-        <BlockA />
-      </PartA>
+      <BlockA />
+      <BlockB />
+      <BlockC />
+      <BlockD />
+      <BlockE />
 
-      <PartB>
-        <BlockB />
-      </PartB>
-
-      <PartC>
-        <BlockC />
-        <Footer basePath={basePath} />
-      </PartC>
+      <Footer basePath={basePath} />
     </Main>
   )
 }
@@ -56,64 +51,10 @@ const Main = styled.main`
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  transition: all 2s ease;
+  transition: all 0.2s ease;
 
   & > div,
   & > header {
-    transition: all 5s cubic-bezier(0, 1.06, 0.77, 0.99);
-  }
-`
-
-const PartHeader = styled.header`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-  font-weight: 700;
-  font-size: 1em;
-  z-index: 100;
-  position: fixed;
-`
-
-const Part = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  width: 100%;
-  & h1,
-  & h2 {
-    transition: color 0.5s ease;
-    color: ${props => props.theme.colors.title};
-  }
-`
-const PartA = styled(Part)`
-  ${props => props.height !== 'none' && `max-height: ${props.height};`};
-  min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
-
-  & > div {
-    background-color: ${props => props.theme.colors.backgroundimg__color};
-    background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
-
-    padding: 0px 5px;
-  }
-`
-const PartB = styled(Part)`
-  z-index: 1;
-  background: ${props => props.theme.colors.bloc2__background};
-
-  padding: 100px 0px;
-  ${() => qq(600)} {
-    padding: 100px 5px;
-  }
-`
-const PartC = styled(Part)`
-  grid-gap: 10px;
-  color: #f6f6f6;
-  background: #3e3e3e;
-
-  padding: 50px 0px;
-  ${() => qq(600)} {
-    padding: 50px 5px 0px 5px;
+    transition: all 0.5s cubic-bezier(0, 1.06, 0.77, 0.99);
   }
 `

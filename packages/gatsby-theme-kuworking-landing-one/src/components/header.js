@@ -9,40 +9,53 @@ import { Switch, Fade } from 'gatsby-theme-kuworking-landing-one'
 
 export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
   return (
-    <Div>
-      <Fade delay="1500" view={false}>
-        <Logo id="init" aria-label="inicio" to={basePath}>
-          <img src="/icons/code.svg" alt="main" />
-        </Logo>
-      </Fade>
+    <PartHeader>
+      <Div>
+        <Fade delay="0" view={false}>
+          <Logo id="init" aria-label="inicio" to={basePath}>
+            <img src="/icons/code.svg" alt="main" />
+          </Logo>
+        </Fade>
 
-      <Space />
+        <Space />
 
-      {typeOfGridButton}
-      {ShapeButton}
+        {typeOfGridButton}
+        {ShapeButton}
 
-      <Fade delay="1500" view={false}>
-        <Switch
-          Day={Day}
-          Night={Night}
-          modes={modes}
-          useColorMode={useColorMode}
-          aria-label="Toggle color modes"
-          styles={{
-            width: '30px',
-            height: '30px',
-            borderRadius: '8px',
-            dayColor: '#fffa6a',
-            nightColor: '#5c40719c',
-          }}
-        />
-      </Fade>
-    </Div>
+        <Fade delay="0" view={false}>
+          <Switch
+            Day={Day}
+            Night={Night}
+            modes={modes}
+            useColorMode={useColorMode}
+            aria-label="Toggle color modes"
+            styles={{
+              width: '30px',
+              height: '30px',
+              borderRadius: '8px',
+              dayColor: '#fffa6a',
+              nightColor: '#5c40719c',
+            }}
+          />
+        </Fade>
+      </Div>
+    </PartHeader>
   )
 }
 
 const q = px => `@media (min-width: ${px}px)`
 // const qq = px => `@media (max-width: ${px}px)`
+
+const PartHeader = styled.header`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  font-weight: 700;
+  font-size: 1em;
+  z-index: 100;
+  position: fixed;
+`
 
 const Div = styled.div`
   max-width: 800px;
