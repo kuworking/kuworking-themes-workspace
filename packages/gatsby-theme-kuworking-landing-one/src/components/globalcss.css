@@ -3,6 +3,7 @@ html {
   box-sizing: border-box;
   height: 100%;
   min-height: 100%;
+  font-size: 62.5%;
 }
 
 body {
@@ -10,6 +11,8 @@ body {
   margin: 0;
   transition: background-color 1s ease, opacity 5s ease;
   min-height: 100%;
+  font-size: 16px; /* fallback for rem */
+  font-size: 1.6rem;
 }
 
 button,
