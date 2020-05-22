@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 export const Footer = ({ basePath }) => (
-  <>
+  <Part>
     <Expand />
     <Foot>
       <Legal>
@@ -13,11 +13,24 @@ export const Footer = ({ basePath }) => (
         <span>[ 2018 - {new Date().getFullYear()} - kuworking ]</span>
       </Legal>
     </Foot>
-  </>
+  </Part>
 )
 
 const Expand = styled.div`
   flex: 1;
+`
+
+const Part = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  width: 100%;
+
+  grid-gap: 10px;
+  color: #f6f6f6;
+  background: #3e3e3e;
+
+  padding: 50px 0px;
 `
 
 const Foot = styled.footer`
