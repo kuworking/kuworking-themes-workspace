@@ -8,7 +8,7 @@ export { Modal } from './src/elements/modal'
 
 export { Fade } from './src/animations/fade'
 export { Toggle } from './src/animations/toggle'
-export { Move } from './src/animations/move'
+export { Move, MoveUp, MoveDown, MoveLeft, MoveRight } from './src/animations/move'
 
 export { TextLetterFade } from './src/textanimations/textletterfade'
 export { TextLetterFade2 } from './src/textanimations/textletterfade2'
