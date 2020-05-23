@@ -1,6 +1,6 @@
 // v2020.04.08
 
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { useWindowResize } from '../hooks/usewindowresize'
 import { useInView } from 'react-intersection-observer'
@@ -92,46 +92,6 @@ export const KwImg = ({
   )
 }
 
-export const SimpleBImg = ({
-  blank = '/blank.gif',
-  image: [standard, set],
-  component,
-  alt = 'image',
-  children,
-  ...rest
-}) => {
-  const [src, setSrc] = useState(blank)
-  const resize = useWindowResize()
-
-  useEffect(() => {
-    const clientWidth = trueRef && trueRef.current && trueRef.current.clientWidth
-    const bestImage = set
-      ? clientWidth < 400
-        ? set['400px'] || set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
-        : clientWidth < 600
-        ? set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
-        : clientWidth < 800
-        ? set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
-        : clientWidth < 1000
-        ? set['1000px'] || set['1200px'] || set['1800px'] || standard
-        : clientWidth < 1200
-        ? set['1200px'] || set['1800px'] || standard
-        : clientWidth < 1800
-        ? set['1800px'] || standard
-        : standard
-      : standard
-
-    setSrc(bestImage)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [resize, standard, set]) // changes when window is resized
-
-  return (
-    <BackgroundImage src={src} alt={alt}>
-      {children}
-    </BackgroundImage>
-  )
-}
-
 export const BImg = props => <Img {...props} background={true} />
 
 export const Img = ({
@@ -162,7 +122,9 @@ export const Img = ({
    * 4. loads lazy through useInView
    */
 
-  const trueRef = useRef()
+  const supportsLazyLoad = background ? false : 'loading' in document.createElement('img')
+
+  const trueRef = useRef() // needed to read the width of the container
   const [ref, inView, entry] = useInView({
     triggerOnce: true,
     rootMargin: '200px 0px',
@@ -184,7 +146,7 @@ export const Img = ({
   const [src, setSrc] = useState(blank)
   const resize = useWindowResize()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const clientWidth = trueRef && trueRef.current && trueRef.current.clientWidth
     const bestImage = set
       ? clientWidth < 400
@@ -203,7 +165,7 @@ export const Img = ({
       : standard
 
     setBest(bestImage)
-    if (!lazy) setSrc(bestImage)
+    if (!lazy || supportsLazyLoad) setSrc(bestImage)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resize, standard, set]) // changes when window is resized
 
@@ -213,7 +175,7 @@ export const Img = ({
       setTimeout(adjustMasonry, 2000) // just in case, sometimes (cannot reproduce!) the function seems not to be executed
     }
 
-    if (!lazy) return // if !lazy we'll never be here
+    if (!lazy || supportsLazyLoad) return // if !lazy we'll never be here
     ;(async () => {
       if (inView) {
         await wait(delay)
@@ -225,15 +187,16 @@ export const Img = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView])
 
-  const opac = lazy ? 0 : 1
+  const opac = lazy && !supportsLazyLoad ? 0 : 1
 
   return background ? (
     <BackgroundImage
       style={{ opacity: opac }}
       component={component}
       src={inView || !lazy ? src : blank}
-      ref={lazy ? handleRef : null}
+      ref={handleRef}
       alt={alt}
+      className="kw_bimg"
       {...rest}
     >
       {children}
@@ -241,11 +204,13 @@ export const Img = ({
   ) : (
     <Image
       style={{ opacity: opac }}
+      loading="lazy"
       component={component}
       src={src}
       //  src={inView || !lazy ? src : blank}
-      ref={lazy ? handleRef : null}
+      ref={handleRef}
       alt={alt}
+      className="kw_img"
       {...rest}
     />
   )
