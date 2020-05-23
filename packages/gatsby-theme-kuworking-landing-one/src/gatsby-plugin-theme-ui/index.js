@@ -1,6 +1,3 @@
-import 'typeface-text-me-one'
-import 'typeface-dokdo'
-
 import { colors } from './colors'
 import { styles } from './styles'
 
