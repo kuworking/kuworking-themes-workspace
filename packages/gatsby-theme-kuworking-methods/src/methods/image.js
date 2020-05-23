@@ -92,6 +92,46 @@ export const KwImg = ({
   )
 }
 
+export const SimpleBImg = ({
+  blank = '/blank.gif',
+  image: [standard, set],
+  component,
+  alt = 'image',
+  children,
+  ...rest
+}) => {
+  const [src, setSrc] = useState(blank)
+  const resize = useWindowResize()
+
+  useEffect(() => {
+    const clientWidth = trueRef && trueRef.current && trueRef.current.clientWidth
+    const bestImage = set
+      ? clientWidth < 400
+        ? set['400px'] || set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
+        : clientWidth < 600
+        ? set['600px'] || set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
+        : clientWidth < 800
+        ? set['800px'] || set['1000px'] || set['1200px'] || set['1800px'] || standard
+        : clientWidth < 1000
+        ? set['1000px'] || set['1200px'] || set['1800px'] || standard
+        : clientWidth < 1200
+        ? set['1200px'] || set['1800px'] || standard
+        : clientWidth < 1800
+        ? set['1800px'] || standard
+        : standard
+      : standard
+
+    setSrc(bestImage)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resize, standard, set]) // changes when window is resized
+
+  return (
+    <BackgroundImage src={src} alt={alt}>
+      {children}
+    </BackgroundImage>
+  )
+}
+
 export const BImg = props => <Img {...props} background={true} />
 
 export const Img = ({
@@ -178,7 +218,7 @@ export const Img = ({
       if (inView) {
         await wait(delay)
         setSrc(best)
-        await 200
+        await 50
         entry.target.style.opacity = 1 // in sync with styled below
       }
     })()
@@ -213,12 +253,12 @@ export const Img = ({
 
 const Image = styled.img`
   ${props => props.component}
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.1s ease-in;
 `
 
 const BackgroundImage = styled.div`
   ${props => props.component}
-  transition: opacity 0.5s ease-in;
+  transition: opacity 0.1s ease-in;
   background-image: ${props => `url("${props.src}")`};
   background-repeat: no-repeat;
 `
