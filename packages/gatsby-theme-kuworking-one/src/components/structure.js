@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { config, seoText } from 'gatsby-theme-kuworking-core'
+import { config, seoText } from '../utils/config'
 
 export const getSchemaProps = type => {
   const schema = (type === 'grid' && ['WebSite']) || (type === 'page' && ['WebPage']) || (type === 'mdx' && ['WebPage'])

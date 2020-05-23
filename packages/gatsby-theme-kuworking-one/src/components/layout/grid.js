@@ -26,7 +26,7 @@ export const Grid = ({
 
       <Container>
         {posts.map((post, i) => (
-          <Card key={'card_' + i} post={post} />
+          <Card key={'card_' + i} post={post} lazy={i < 5 ? false : true} />
         ))}
       </Container>
     </>

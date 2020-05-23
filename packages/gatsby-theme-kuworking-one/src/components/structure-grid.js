@@ -1,11 +1,11 @@
 import React from 'react'
-import { SEO, config } from 'gatsby-theme-kuworking-core'
+import { SEO } from 'gatsby-theme-kuworking-methods'
+import { config } from '../utils/config'
 import { Header } from './layout/header'
 import { Footer } from './layout/footer'
 import { Grid } from './layout/grid'
 import './globalcss.css'
 import { getSchemaProps, Main, Container } from './structure'
-import ReactDOMServer from 'react-dom/server'
 
 const grid_maxwidth = '1000px'
 

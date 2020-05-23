@@ -2,7 +2,16 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import CookieConsent from 'react-cookie-consent'
-import { text } from 'gatsby-theme-kuworking-one'
+
+const footer = {
+  me: 'Quién soy',
+  credits: 'by kuworking.com',
+  credits_url: 'https://www.kuworking.com',
+  // prettier-ignore
+  date: () => <>[ {new Date().getFullYear()} >> kuworking ]</>,
+  cookies: () => <>Te informo que utilizo cookies para mejorar la usabilidad del website</>,
+  cookies_agree: 'Ok',
+}
 
 export const Footer = ({ basePath }) => (
   <>
@@ -10,15 +19,15 @@ export const Footer = ({ basePath }) => (
     <Foot>
       <Legal>
         <Link aria-label="Mi Historia" to={`${basePath}me`}>
-          {text.footer.me}
+          {footer.me}
         </Link>
         <Separator />
-        <a aria-label="kuworking" href={text.footer.credits_url}>
-          {text.footer.credits}
+        <a aria-label="kuworking" href={footer.credits_url}>
+          {footer.credits}
         </a>
         <Separator />
         <span>
-          <text.footer.date />
+          <footer.date />
         </span>
       </Legal>
 
@@ -29,7 +38,7 @@ export const Footer = ({ basePath }) => (
         hideOnAccept={true}
         acceptOnScroll={true}
         acceptOnScrollPercentage={10}
-        buttonText={text.footer.cookies_agree}
+        buttonText={footer.cookies_agree}
         disableStyles={true}
         style={{
           backgroundColor: '#443f3feb',
@@ -52,7 +61,7 @@ export const Footer = ({ basePath }) => (
         }}
         contentStyle={{}}
       >
-        <text.footer.cookies />
+        <footer.cookies />
       </CookieConsent>
     </Foot>
   </>

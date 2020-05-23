@@ -1,22 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { BImg } from 'gatsby-theme-kuworking-one'
+import { BImg } from 'gatsby-theme-kuworking-methods'
 
-const backgroundImage = `
-background-size: cover;
-background-position: center;
-display: grid;
-align-items: end;
-border-radius: 2px;
-`
-
-export const Card = ({ post, related }) => {
+export const Card = ({ post, lazy }) => {
   if (!post) return <></>
 
   return (
-    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
-      <BImg image={[post.image_versions.standard, post.image_versions]} component={backgroundImage} />
+    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name}>
+      <BImg lazy={lazy} image={[post.image_versions.standard, post.image_versions]} />
       <Title>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
@@ -47,7 +39,7 @@ const ContainerCard = styled.div`
   border-radius: 3px;
 
   & > div:nth-of-type(1) {
-    transition: all 0.2s ease-in;
+    transition: all 0.05s ease-in;
     grid-row: 1 / span 2;
     grid-column: 1 / 2;
     z-index: 1;
@@ -60,16 +52,17 @@ const ContainerCard = styled.div`
     }
   }
 
-  ${props =>
-    props.related
-      ? 'grid-template-rows: 0px 100px minmax(60px, 1fr);'
-      : 'grid-template-rows: 0px 100px minmax(60px, 1fr);'}
-
+  grid-template-rows: 0px 100px minmax(60px, 1fr);
   ${q(600)} {
-    ${props =>
-      props.related
-        ? 'grid-template-rows: 0px 140px minmax(100px, 1fr);'
-        : 'grid-template-rows: 0px 140px minmax(100px, 1fr);'}
+    grid-template-rows: 0px 140px minmax(100px, 1fr);
+  }
+
+  & > div.kw_bimg {
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-items: end;
+    border-radius: 2px;
   }
 
   ${Title} {
@@ -87,7 +80,7 @@ const ContainerCard = styled.div`
       padding: 0 3px;
       display: inline;
       box-decoration-break: clone;
-      transition: all 0.5s ease-in;
+      transition: all 0.2s ease-in;
       & > em {
         background: ${props => props.theme.colors.cards__title_em__background};
         color: ${props => props.theme.colors.cards__title__color};

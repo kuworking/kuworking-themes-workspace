@@ -1,16 +1,22 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
+import { Page } from 'gatsby-theme-kuworking-core'
 
-import { PageTemplate, text } from 'gatsby-theme-kuworking-one'
+const text = {
+  title: 'Página no encontrada',
+  description: 'No encuentro lo que buscas!',
+  keywords: [`kuworking.com`],
+  mainPage: 'Mira a ver en la página principal',
+}
 
 const NotFoundPage = ({ pageContext }) => (
-  <PageTemplate
+  <Page
     page={{
       ...pageContext,
-      title: text.notFound.title,
-      description: text.notFound.description,
-      keywords: text.notFound.keywords,
+      title: text.title,
+      description: text.description,
+      keywords: text.keywords,
       robots: 'noindex, follow',
       share: false,
       cta: true,
@@ -19,11 +25,11 @@ const NotFoundPage = ({ pageContext }) => (
     }}
   >
     <Separator />
-    <h1>{text.notFound.title}</h1>
-    <p>{text.notFound.description}</p>
-    <Link to="/">{text.notFound.mainPage}</Link>
+    <h1>{text.title}</h1>
+    <p>{text.description}</p>
+    <Link to="/">{text.mainPage}</Link>
     <Separator />
-  </PageTemplate>
+  </Page>
 )
 
 export default NotFoundPage

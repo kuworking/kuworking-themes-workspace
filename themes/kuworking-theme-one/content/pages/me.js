@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
-
-import { PageTemplate } from 'gatsby-theme-kuworking-one'
+import { Page } from 'gatsby-theme-kuworking-core'
 
 const Me = ({ pageContext }) => (
-  <PageTemplate
+  <Page
     page={{
       ...pageContext,
       title: 'Me',
@@ -22,7 +21,7 @@ const Me = ({ pageContext }) => (
     <h1>Who I Am</h1>
     <p>This is my history ...</p>
     <Separator />
-  </PageTemplate>
+  </Page>
 )
 
 export default Me

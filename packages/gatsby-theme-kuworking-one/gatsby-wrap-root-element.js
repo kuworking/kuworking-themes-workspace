@@ -1,5 +1,6 @@
 import React from 'react'
-import { domprogress } from 'gatsby-theme-kuworking-one'
+import { domprogress } from 'gatsby-theme-kuworking-methods'
+import 'typeface-open-sans'
 
 /*
  Because wrapRootElement doesn’t render when the page changes it’s a good fit for context providers...
