@@ -122,7 +122,8 @@ export const Img = ({
    * 4. loads lazy through useInView
    */
 
-  const supportsLazyLoad = background ? false : 'loading' in document.createElement('img')
+  const supportsLazyLoad =
+    typeof window !== 'undefined' ? (background ? false : 'loading' in document.createElement('img')) : false
 
   const trueRef = useRef() // needed to read the width of the container
   const [ref, inView, entry] = useInView({
