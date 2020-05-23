@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Move, q, qq } from 'gatsby-theme-kuworking-landing-one'
+import { Move } from 'gatsby-theme-kuworking-methods'
 
 export const BlockD = () => {
   const { innerWidth: width } = typeof window !== 'undefined' && window

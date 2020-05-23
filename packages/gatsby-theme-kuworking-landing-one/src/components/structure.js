@@ -1,21 +1,14 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import {
-  SEO,
-  Header,
-  BlockA,
-  BlockB,
-  BlockC,
-  BlockD,
-  BlockE,
-  Footer,
-  config,
-  seoText,
-  wait,
-  q,
-  qq,
-  useReplace100vh,
-} from 'gatsby-theme-kuworking-landing-one'
+import { SEO, useReplace100vh } from 'gatsby-theme-kuworking-methods'
+import { Header } from './header'
+import { BlockA } from './blocka'
+import { BlockB } from './blockb'
+import { BlockC } from './blockc'
+import { BlockD } from './blockd'
+import { BlockE } from './blocke'
+import { Footer } from './footer'
+import { config, seoText } from '../utils/config'
 
 import './globalcss.css'
 
@@ -53,7 +46,6 @@ const Main = styled.main`
   align-items: center;
   transition: all 0.2s ease;
 
-  & > div,
   & > header {
     transition: all 0.5s cubic-bezier(0, 1.06, 0.77, 0.99);
   }

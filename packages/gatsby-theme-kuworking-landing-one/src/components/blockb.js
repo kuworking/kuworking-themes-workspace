@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
-import { TextZoom, q, qq } from 'gatsby-theme-kuworking-landing-one'
+import { TextZoom } from 'gatsby-theme-kuworking-methods'
 
 export const BlockB = () => {
   return (

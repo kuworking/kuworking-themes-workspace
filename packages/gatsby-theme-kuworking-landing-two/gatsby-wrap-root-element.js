@@ -1,4 +1,5 @@
 import React from 'react'
+import 'typeface-text-me-one'
 
 /*
  Because wrapRootElement doesn’t render when the page changes it’s a good fit for context providers...

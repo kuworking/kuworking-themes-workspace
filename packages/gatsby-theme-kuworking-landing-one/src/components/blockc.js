@@ -2,17 +2,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
-import { Fade, Margin, q, qq } from 'gatsby-theme-kuworking-landing-one'
+import { Fade, Margin, q, qq } from 'gatsby-theme-kuworking-methods'
 
 export const BlockC = () => {
   const { innerWidth: width } = typeof window !== 'undefined' && window
+  const config = { mass: 5, tension: 2000, friction: 200 }
 
   return (
     <PanelA2>
       <Margin margin={[100]} />
 
       <div>
-        <Fade delay={width > 600 ? 500 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 500 : 100} config={config}>
           <Card>
             <div>
               <img src="/icons/pencil.svg" alt="pencil" />
@@ -26,7 +27,7 @@ export const BlockC = () => {
             </div>
           </Card>
         </Fade>
-        <Fade delay={width > 600 ? 600 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 600 : 100} config={config}>
           <Card>
             <div>
               <img src="/icons/network.svg" alt="pencil" />
@@ -40,7 +41,7 @@ export const BlockC = () => {
             </div>
           </Card>
         </Fade>
-        <Fade delay={width > 600 ? 700 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 700 : 100} config={config}>
           <Card>
             <div>
               <img src="/icons/microphone.svg" alt="pencil" />
@@ -55,7 +56,7 @@ export const BlockC = () => {
           </Card>
         </Fade>
 
-        <Fade delay={width > 600 ? 700 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 700 : 100} config={config}>
           <Card>
             <div>
               <Title>Maximize Timely</Title>
@@ -64,7 +65,7 @@ export const BlockC = () => {
           </Card>
         </Fade>
 
-        <Fade delay={width > 600 ? 700 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 700 : 100} config={config}>
           <Card>
             <div>
               <Title>Cutlassfish </Title>
@@ -73,7 +74,7 @@ export const BlockC = () => {
           </Card>
         </Fade>
 
-        <Fade delay={width > 600 ? 700 : 100} config={{ mass: 5, tension: 800, friction: 200 }}>
+        <Fade delay={width > 600 ? 700 : 100} config={config}>
           <Card>
             <div>
               <Title>Godfather </Title>

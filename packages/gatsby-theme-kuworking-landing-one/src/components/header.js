@@ -5,43 +5,37 @@ import { Sunny as Day } from 'emotion-icons/ion-md'
 import { Moon as Night } from 'emotion-icons/fa-regular'
 import { useColorMode } from 'theme-ui'
 import { modes } from '../gatsby-plugin-theme-ui/index'
-import { Switch, Fade } from 'gatsby-theme-kuworking-landing-one'
+import { Switch } from 'gatsby-theme-kuworking-methods'
 
-export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => {
-  return (
-    <PartHeader>
-      <Div>
-        <Fade delay="0" view={false}>
-          <Logo id="init" aria-label="inicio" to={basePath}>
-            <img src="/icons/code.svg" alt="main" />
-          </Logo>
-        </Fade>
+export const Header = ({ basePath, ShapeButton, typeOfGridButton }) => (
+  <PartHeader>
+    <Div>
+      <Logo id="gtm_home_button" aria-label="inicio" to={basePath}>
+        <img src="/icons/code.svg" alt="main" />
+      </Logo>
 
-        <Space />
+      <Space />
 
-        {typeOfGridButton}
-        {ShapeButton}
+      {typeOfGridButton}
+      {ShapeButton}
 
-        <Fade delay="0" view={false}>
-          <Switch
-            Day={Day}
-            Night={Night}
-            modes={modes}
-            useColorMode={useColorMode}
-            aria-label="Toggle color modes"
-            styles={{
-              width: '30px',
-              height: '30px',
-              borderRadius: '8px',
-              dayColor: '#fffa6a',
-              nightColor: '#5c40719c',
-            }}
-          />
-        </Fade>
-      </Div>
-    </PartHeader>
-  )
-}
+      <Switch
+        Day={Day}
+        Night={Night}
+        modes={modes}
+        useColorMode={useColorMode}
+        aria-label="Toggle color modes"
+        dayColor="#fffa6a"
+        nightColor="#5c40719c"
+        style={{
+          width: '30px',
+          height: '30px',
+          borderRadius: '8px',
+        }}
+      />
+    </Div>
+  </PartHeader>
+)
 
 const q = px => `@media (min-width: ${px}px)`
 // const qq = px => `@media (max-width: ${px}px)`
