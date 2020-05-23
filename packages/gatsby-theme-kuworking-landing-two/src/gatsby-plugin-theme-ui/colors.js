@@ -1,7 +1,7 @@
 // implements color themes to be switched
 
 export const colors = {
-  textBlocA: '#ffffff',
+  bigTitle: '#ffffff',
   text: '#3d2c29',
   link: '#9fcdff',
   title: '#000000ba',
@@ -13,7 +13,7 @@ export const colors = {
 
   modes: {
     dark: {
-      textBlocA: '#cdbbe7',
+      bigTitle: '#cdbbe7',
       text: '#ffffff',
       link: '#9fcdff',
       title: '#ffffffd6',

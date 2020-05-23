@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { CtaMain } from './cta'
 
 export const BlockC = () => (
-  <>
+  <Part>
     <PanelC1>
       <div>
         <img src="/icons/charac7.png" alt="characteristic" />
@@ -12,6 +13,8 @@ export const BlockC = () => (
         <div>Pre launch horsehead offer. High turnaround rate exposing</div>
       </div>
     </PanelC1>
+
+    <CtaMain text="Únete" />
 
     <PanelC2>
       <div>
@@ -27,8 +30,21 @@ export const BlockC = () => (
         individual, back-end of third quarter
       </div>
     </PanelC2>
-  </>
+  </Part>
 )
+
+const Part = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  width: 100%;
+
+  grid-gap: 10px;
+  color: #f6f6f6;
+  background: #3e3e3e;
+
+  padding: 50px 10px;
+`
 
 const Title = styled.h1``
 

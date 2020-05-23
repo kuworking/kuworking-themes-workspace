@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
-import { config } from 'gatsby-theme-kuworking-landing-two'
-
-export const CtaList = () => {}
+import { config } from '../utils/config'
 
 export const CtaMain = ({ text }) => {
-  const form_id = React.createRef()
-  const input_id = React.createRef()
+  const form_id = useRef()
+  const input_id = useRef()
   let [rColor, setRColor] = useState(['#fff'])
 
   /*
@@ -98,8 +96,6 @@ const Input = ({ rColor, input_id }) => (
   </InputWrap>
 )
 
-export const CtaPosts = props => <CtaMain props={props} />
-
 const q = px => `@media (min-width: ${px}px)`
 const qq = px => `@media (max-width: ${px}px)`
 
@@ -123,6 +119,7 @@ const InputWrap = styled.div`
     ${q(400)} {
       width: 200px;
     }
+    z-index: 1;
   }
 `
 const Icon = styled.div``
