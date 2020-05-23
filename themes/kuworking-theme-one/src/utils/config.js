@@ -25,16 +25,3 @@ export const config = {
     facebook: 'https://www.facebook.com/kuworkingJS/',
   },
 }
-
-export const text = {
-  post: {
-    words: 'palabras',
-    minutes: 'minutos',
-    date_language: 'es',
-    related_posts: 'Quizá te interese',
-  },
-  header: {
-    site: 'kuworking',
-    logo: 'KW',
-  },
-}
