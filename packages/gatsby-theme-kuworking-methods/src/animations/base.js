@@ -41,7 +41,7 @@ export const Base = ({
   })
 
   return (
-    <Div ref={view ? handleRef : trueRef} {...rest}>{console.log(rest)}
+    <Div ref={view ? handleRef : trueRef} {...rest}>
       <animated.div style={effect}>{children}</animated.div>
     </Div>
   )
