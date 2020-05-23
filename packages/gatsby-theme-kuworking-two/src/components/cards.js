@@ -1,23 +1,17 @@
+/** @jsx jsx */
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from '@emotion/styled'
-import { BImg } from 'gatsby-theme-kuworking-two'
+import { jsx } from 'theme-ui'
+import { BImg } from 'gatsby-theme-kuworking-methods'
 
-const backgroundImage = `
-background-size: cover;
-background-position: center;
-display: grid;
-align-items: end;
-border-radius: 2px;
-`
-
-export const Card = ({ post, related }) => {
+export const Card = ({ post, lazy }) => {
   if (!post) return <></>
 
   return (
-    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name} related={related ? 1 : 0}>
-      <BImg image={[post.image_versions.standard, post.image_versions]} component={backgroundImage} />
-      <Title>
+    <ContainerCard as={Link} aria-label="Post" to={'/' + post.name}>
+      <BImg lazy={lazy} image={[post.image_versions.standard, post.image_versions]} />
+      <Title sx={{ fontSize: ['2.5rem', '3rem', '3rem'] }}>
         <div>
           {post.title.split('#').map((el, i) => (i % 2 === 0 ? <span key={i}>{el}</span> : <em key={i}>{el}</em>))}
         </div>
@@ -60,16 +54,17 @@ const ContainerCard = styled.div`
     }
   }
 
-  ${props =>
-    props.related
-      ? 'grid-template-rows: 0px 100px minmax(60px, 1fr);'
-      : 'grid-template-rows: 0px 100px minmax(60px, 1fr);'}
-
+  grid-template-rows: 0px 100px minmax(60px, 1fr);
   ${q(600)} {
-    ${props =>
-      props.related
-        ? 'grid-template-rows: 0px 140px minmax(100px, 1fr);'
-        : 'grid-template-rows: 0px 140px minmax(100px, 1fr);'}
+    grid-template-rows: 0px 140px minmax(100px, 1fr);
+  }
+
+  & > div.kw_bimg {
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    align-items: end;
+    border-radius: 2px;
   }
 
   ${Title} {
@@ -79,7 +74,7 @@ const ContainerCard = styled.div`
 
     width: 90%;
     padding: 10px;
-    line-height: 1.3;
+    line-height: 1;
 
     & > div {
       background: ${props => props.theme.colors.cards__title__background};

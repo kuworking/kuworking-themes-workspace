@@ -5,8 +5,16 @@ import styled from '@emotion/styled'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { jsx } from 'theme-ui'
 
-import { config, text, SocialShare, shuffle_array, Img, Margin } from 'gatsby-theme-kuworking-two'
+import { config } from '../../utils/config'
+import { SocialShare, shuffle_array, Img, Margin } from 'gatsby-theme-kuworking-methods'
 import { Card } from '../cards'
+
+const postText = {
+  words: 'palabras',
+  minutes: 'minutos',
+  date_language: 'es',
+  related_posts: 'Quizá te interese',
+}
 
 export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
   const [related_post_subset, setRelated_post_subset] = useState([])
@@ -19,7 +27,7 @@ export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
   useEffect(() => {
     setTimeout(() => {
       post && setWallpaper({ src: post.full_image })
-    }, 500)
+    }, 200)
   }, [post])
 
   return (
@@ -32,13 +40,13 @@ export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
 
       <Info>
         <div>
-          {100 * parseInt(post.words / 100)} {text.post.words}
+          {100 * parseInt(post.words / 100)} {postText.words}
         </div>
         <div>
-          {post.timeToRead} {text.post.minutes}
+          {post.timeToRead} {postText.minutes}
         </div>
         <div>
-          {new Date(post.date).toLocaleDateString(text.post.date_language, {
+          {new Date(post.date).toLocaleDateString(postText.date_language, {
             day: 'numeric',
             month: 'long',
             year: 'numeric',
@@ -79,7 +87,7 @@ export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
       </div>
 
       <RelatedPosts>
-        <h1>{text.post.related_posts}</h1>
+        <h1>{postText.related_posts}</h1>
         <Container>
           {related_post_subset.map((post, i) => (
             <Card key={'related_card_' + i} post={post} />

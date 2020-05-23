@@ -1,4 +1,3 @@
-import 'typeface-squada-one'
 import { colors } from './colors'
 import { styles } from './styles'
 
