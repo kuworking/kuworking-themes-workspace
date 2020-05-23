@@ -52,7 +52,6 @@ const PartHeader = styled.header`
 `
 
 const Div = styled.div`
-  max-width: 800px;
   width: 100%;
   min-height: 40px;
 

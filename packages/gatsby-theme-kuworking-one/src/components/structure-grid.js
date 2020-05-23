@@ -15,6 +15,7 @@ export const StructureGrid = ({ type, blogGrid }) => {
 
   const schemaProps = getSchemaProps(type)
   blogGrid.image = config.url + '/global/image.jpg'
+
   return (
     <Main>
       <SEO blogGrid={blogGrid} {...schemaProps} />

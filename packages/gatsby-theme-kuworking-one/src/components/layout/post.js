@@ -27,7 +27,7 @@ export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
   useEffect(() => {
     setTimeout(() => {
       post && setWallpaper({ src: post.full_image })
-    }, 500)
+    }, 200)
   }, [post])
 
   return (
