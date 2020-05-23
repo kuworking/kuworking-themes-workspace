@@ -1,42 +1,18 @@
 import { elements } from './styles-elements'
 
 export const styles = {
-  breakpoints: ['400px', '600px'],
-  fontSizes: [12, 14, 15, 17, 20, 24, 32, 40, 48, 64, 72],
+  breakpoints: ['25em', '37.5em', '56.25em'], // 400px, 600px, 900px
+  fontSizes: ['1.2rem', '1.4rem', '1.5rem', '1.7rem', '2.0rem', '2.4rem', '3.2rem', '4.8rem'],
   fonts: {
     post: 'Open Sans, sans-serif',
     monospace: 'monospace',
     standard: 'Open Sans, sans-serif',
     special: 'Open Sans, sans-serif',
   },
-  em2: {
-    em: elements.em2,
-  },
-  copy: {
-    a: elements.a2,
-    em: {
-      ...elements.em2,
-      fontWeight: '700',
-    },
-    h1: {
-      ...elements.h1,
-      fontSize: [7, 8, 10],
-    },
-    h2: {
-      ...elements.h2,
-      fontSize: [2, 3, 4],
-    },
-    h3: {
-      ...elements.h3,
-      fontSize: [1, 1, 2],
-    },
-  },
   styles: {
     root: {
       fontFamily: 'standard',
       lineHeight: 1.3,
-      fontWeight: '400',
-      fontSize: [1, 2, 3],
       ...elements,
     },
     ...elements,

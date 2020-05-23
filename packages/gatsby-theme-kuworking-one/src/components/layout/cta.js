@@ -13,8 +13,8 @@ export const Cta = () => {
   }, [])
 
   return (
-    <Container sx={{ variant: 'copy' }}>
-      <h1>
+    <Container>
+      <h1 sx={{ fontSize: ['4rem', '5rem', '6rem'] }}>
         <TextShadow
           view={false}
           delay="50"

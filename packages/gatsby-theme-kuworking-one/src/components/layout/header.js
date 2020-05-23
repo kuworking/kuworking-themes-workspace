@@ -45,11 +45,7 @@ const Parent = styled.div`
   margin-top: 10px;
   margin-bottom: 20px;
   font-weight: 700;
-  font-size: 1em;
   z-index: 1;
-  ${q(400)} {
-    font-size: 0.9em;
-  }
 
   & > header {
     width: 100%;
@@ -90,7 +86,6 @@ const Logo = styled(Link)`
     margin-right: 5px;
     color: #ff8e00;
     font-weight: 700;
-    font-size: 0.8em;
     background: #000000;
     border-radius: 2px;
     transition: background 0.5s ease-in, color 0.5s ease-in;
