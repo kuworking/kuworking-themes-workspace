@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) => {
-  const { iconwidth = '20px', ...rest } = styles || {}
+export const Switch = ({ Day, Night, iconwidth = '20px', useColorMode, modes: colorModes, ...rest }) => {
   const [colorMode, setColorMode] = useColorMode()
 
   const toggleColorMode = e => {
@@ -23,11 +22,11 @@ export const Switch = ({ Day, Night, styles, useColorMode, modes: colorModes }) 
       day={colorMode === 'light'}
       onClick={toggleColorMode}
       iconwidth={iconwidth}
+      id="gtm_switch_DayNight_1"
       {...rest}
-      id="switch_DayNight_1"
     >
-      <div id="switch_DayNight_2">
-        <div id="switch_DayNight_3">
+      <div id="gtm_switch_DayNight_2">
+        <div id="gtm_switch_DayNight_3">
           <Icons />
         </div>
       </div>
@@ -43,9 +42,6 @@ const Square = styled.div`
   color: ${props => (props.day ? '#000' : '#fff')};
   background: ${props => (props.day ? props.dayColor : props.nightColor)};
 
-  width: ${props => props.width};
-  height: ${props => props.height};
-  border-radius: ${props => props.borderRadius};
   display: flex;
   align-items: center;
   justify-content: center;
