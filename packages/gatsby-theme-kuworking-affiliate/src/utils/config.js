@@ -19,25 +19,3 @@ export const config = {
   disqus_url: 'https://www.kuworking.com',
   mail_chimp_action: 'https://gmail.us20.list-manage.com/subscribe/post?u=7679f6806268867998475ecb8&amp;id=d0543eb54f',
 }
-
-export const text = {
-  header: {
-    site: 'KUWorking AFFILIATE',
-    logo: 'KW',
-  },
-  cta: {
-    title: 'Call To Action!',
-    // prettier-ignore
-    message: () => <>Drop here your <em>email</em> and I will keep you in the loop 🤠</>,
-    suscribe: 'Join',
-    error: 'mail address is wrong',
-  },
-  footer: {
-    credits: 'by kuworking.com',
-    credits_url: 'https://www.kuworking.com',
-    // prettier-ignore
-    date: () => <>[ 2018 - {new Date().getFullYear()} - kuworking ]</>,
-    cookies: () => <>Notice that we use cookies to improve the usability of this site</>,
-    cookies_agree: 'Ok',
-  },
-}

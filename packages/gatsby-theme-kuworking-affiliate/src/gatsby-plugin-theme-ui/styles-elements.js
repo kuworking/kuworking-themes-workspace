@@ -1,22 +1,8 @@
-const general = {
-  color: 'text',
-  lineHeight: 1.125,
-  fontStyle: 'normal',
-}
-
-const code = {
-  display: 'inline-block',
-  color: 'code_color',
-  backgroundColor: 'code_background',
-  fontWeight: '700',
-}
-
 const headers = {
-  ...general,
   fontFamily: 'standard',
   fontWeight: '700',
   margin: 0,
-  code: { ...code },
+  lineHeight: '1.125',
 }
 
 export const elements = {
@@ -28,44 +14,12 @@ export const elements = {
     borderRadius: '2px',
   },
 
-  em2: {
-    color: 'em2_color',
-    background: 'unset',
-    fontStyle: 'normal',
-    padding: '1px 4px',
-    borderRadius: '2px',
-  },
-
-  b: {
-    fontWeight: '700',
-  },
-
-  code: {
-    fontFamily: 'monospace',
-    fontWeight: '400',
-    fontSize: 'inherit',
-    borderRadius: '3px',
-    padding: '2px 5px',
-    wordBreak: 'break-all',
-  },
-
-  pre: {
-    code: {
-      borderRadius: '8px',
-      padding: '1em',
-      fontSize: [0, 1, 2],
-    },
-  },
-
   p: {
     color: 'text',
-    fontSize: [2, 2, 3],
-    lineHeight: '1.125',
-    code: { ...code },
+    lineHeight: '1.3',
   },
 
   a: {
-    cursor: 'pointer',
     color: 'link',
     fontWeight: '700',
     textDecoration: 'none',
@@ -75,20 +29,10 @@ export const elements = {
     },
   },
 
-  a2: {
-    cursor: 'pointer',
-    color: 'link2',
-    fontWeight: '700',
-    textDecoration: 'none',
-    transition: 'all 0.2s ease',
-    '&:hover': {
-      color: 'linkOver2',
-    },
-  },
-
   h1: {
     ...headers,
-    fontSize: [6, 7, 8],
+    fontSize: [6, 7, 7],
+    lineHeight: '1',
   },
   h2: {
     ...headers,
@@ -103,36 +47,7 @@ export const elements = {
     fontSize: [1, 2, 3],
   },
 
-  blockquote: {
-    margin: '10px 0px',
-    backgroundColor: 'blockquote_background',
-    fontSize: '1.2em',
-    padding: '10px 20px',
-    borderRadius: '8px',
-    //    code: { ...code },
-    em: {
-      color: '#ff6a00',
-      backgroundColor: '#ffffff',
-      fontWeight: '700',
-      fontStyle: 'normal',
-      padding: '1px 4px',
-      borderRadius: '2px',
-    },
-    code: { ...code },
-    //    a: { ...a },
-  },
-  ol: {
-    fontSize: [2, 2, 3],
-    code: { ...code },
-  },
-  ul: {
-    fontSize: [2, 2, 3],
-    code: { ...code },
-  },
   input: {
     fontFamily: 'inherit',
-  },
-  img: {
-    maxWidth: '100%',
   },
 }

@@ -1,5 +1,3 @@
-import 'typeface-text-me-one'
-
 import { colors } from './colors'
 import { styles } from './styles'
 

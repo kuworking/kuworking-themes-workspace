@@ -2,13 +2,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { jsx } from 'theme-ui'
-import { text } from 'gatsby-theme-kuworking-affiliate'
 
 export const CtaMain = () => (
-  <Container sx={{ variant: 'copy' }}>
-    <Title>
-      <div>KUWORKING</div>
-    </Title>
+  <Container>
+    <Title sx={{ fontSize: ['3.5rem', '4.3rem', '5.1rem'] }}>KUWORKING</Title>
   </Container>
 )
 

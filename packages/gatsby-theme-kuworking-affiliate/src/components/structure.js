@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { SEO, Header, Footer, Grid, config, seoText } from 'gatsby-theme-kuworking-affiliate'
+import { SEO } from 'gatsby-theme-kuworking-methods'
+import { config, seoText } from '../utils/config'
+import { Header } from './header'
+import { Footer } from './footer'
+import { Grid } from './grid'
+
 import './globalcss.css'
 
 const grid_maxwidth = '1200px'

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import styled from '@emotion/styled'
 import { useColorMode } from 'theme-ui'
-import { Img } from 'gatsby-theme-kuworking-affiliate'
+import { Img } from 'gatsby-theme-kuworking-methods'
 
 export const GridCard = forwardRef(({ item: { name, link, image, price }, category, adjustMasonry }, ref) => {
   const [colorMode] = useColorMode()

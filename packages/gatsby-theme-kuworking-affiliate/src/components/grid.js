@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { CtaMain, GridCard, useGridMasonry } from 'gatsby-theme-kuworking-affiliate'
+import { useGridMasonry } from 'gatsby-theme-kuworking-methods'
+import { CtaMain } from './cta'
+import { GridCard } from './gridcards'
 
 export const Grid = ({ blogGrid: { core, posts } }) => {
   const row_unit = 20
