@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 export const Spinner01 = ({ color }) => (
-  <Spinning>
+  <Spinning color={color}>
     <div></div>
     <div></div>
     <div></div>
