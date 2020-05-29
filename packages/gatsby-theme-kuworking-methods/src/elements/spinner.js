@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const Spinner01 = () => (
+export const Spinner01 = ({ color }) => (
   <Spinning>
     <div></div>
     <div></div>
@@ -19,7 +19,7 @@ const Spinning = styled.div`
   position: relative;
   width: ${spinner};
   height: ${spinner};
-  border: ${border} solid #ff6c00;
+  border: ${border} solid ${props => props.color || '#ff6c00'};
   border-radius: 50%;
   margin-right: 10px;
 
@@ -37,7 +37,7 @@ const Spinning = styled.div`
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #ff6c00;
+    background-color: ${props => props.color || '#ff6c00'};
   }
 
   & div:nth-of-type(1) {
