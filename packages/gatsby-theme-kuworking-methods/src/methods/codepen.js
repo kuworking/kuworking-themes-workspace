@@ -92,7 +92,7 @@ export const CodePen = ({
         </div>
       )}
 
-      <CodePenForm action="https://codepen.io/pen/define" method="POST" target="_blank">
+      <CodePenForm action="https://codepen.io/pen/define" method="POST" target="_blank" rel="noopener noreferrer">
         <input type="hidden" name="data" value={JSON.stringify(data_link)} />
         <input type="submit" value="IR A EDITOR CODEPEN" />
       </CodePenForm>
