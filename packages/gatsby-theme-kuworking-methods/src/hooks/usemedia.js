@@ -5,7 +5,8 @@ import React, { useState, useEffect } from 'react'
  */
 export const useMedia = (queries, values, defaultValue) => {
   // matchMedia is a js equivalent to find if a given media matches the current document
-  const match = () => values[queries.findIndex(q => matchMedia(q).matches)] || defaultValue
+  const match = () =>
+    values[queries.findIndex(q => typeof window !== 'undefined' && matchMedia(q).matches)] || defaultValue
   const [value, set] = useState(match)
 
   useEffect(() => {
