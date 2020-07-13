@@ -7,11 +7,11 @@
     "packages/*"
   ],
   "resolutions": {
-    "**/gatsby": "2.20.29",
+    "**/gatsby": "2.24.2",
     "**/@emotion/core": "10.0.28",
     "**/@emotion/styled": "10.0.27",
-    "**/@mdx-js/mdx": "1.5.8",
-    "**/@mdx-js/react": "1.5.8",
+    "**/@mdx-js/mdx": "1.6.6",
+    "**/@mdx-js/react": "1.6.6",
     "theme-ui": "0.3.1"
   },
   "devDependencies": {
@@ -28,7 +28,7 @@
     "fs-extra": "9.0.0",
     "gulp": "4.0.2",
     "gulp-help": "1.6.1",
-    "lerna": "3.20.2",
+    "lerna": "3.22.1",
     "prettier": "2.0.2",
     "prompt": "1.0.0"
   },
