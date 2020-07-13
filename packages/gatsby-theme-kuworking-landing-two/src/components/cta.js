@@ -36,6 +36,7 @@ export const CtaMain = ({ text }) => {
           ref={form_id}
           name="mc-embedded-subscribe-form"
           target="_blank"
+          rel="noopener noreferrer"
           onSubmit={e => {
             e.stopPropagation()
             e.preventDefault()
