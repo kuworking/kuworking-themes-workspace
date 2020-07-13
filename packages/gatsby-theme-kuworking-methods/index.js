@@ -1,7 +1,7 @@
 export { SEO } from './src/gatsby/seo'
 export { Margin, q, qq } from './src/gatsby/css'
 
-export { CssMasonry } from './src/components/Cssmasonry'
+export { CssMasonry } from './src/components/cssmasonry'
 
 export { Switch } from './src/elements/switch'
 export { Spinner01 } from './src/elements/spinner'
