@@ -13,9 +13,6 @@ export const config = {
   url: 'https://www.kuworking.com',
   user: 'kuworking',
   social: {
-    twitter: '@kuworking',
+    twitter: '',
   },
-  disqus: 'kuworking',
-  disqus_url: 'https://www.kuworking.com',
-  mail_chimp_action: 'https://gmail.us20.list-manage.com/subscribe/post?u=7679f6806268867998475ecb8&amp;id=d0543eb54f',
 }

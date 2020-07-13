@@ -23,7 +23,7 @@ const Title = styled.h1`
 
 const Container = styled.div`
   background: ${props => props.theme.colors.cta__div__background};
-  border-radius: 2px;
+  border-radius: 8px;
   border: 1px solid ${props => props.theme.colors.cta__div__border};
 
   padding: 10px;

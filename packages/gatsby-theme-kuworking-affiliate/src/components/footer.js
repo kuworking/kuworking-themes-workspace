@@ -8,7 +8,7 @@ const footer = {
   credits: 'by kuworking.com',
   credits_url: 'https://www.kuworking.com',
   // prettier-ignore
-  date: () => <>[ {new Date().getFullYear()} >> kuworking ]</>,
+  date: () => <>[ {new Date().getFullYear()} {`>>`} kuworking ]</>,
   cookies: () => <>Te informo que utilizo cookies para mejorar la usabilidad del website</>,
   cookies_agree: 'Ok',
 }
