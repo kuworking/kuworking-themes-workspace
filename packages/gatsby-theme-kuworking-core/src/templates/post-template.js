@@ -2,7 +2,7 @@ import React from 'react'
 import { StructurePost } from '../components/structure-post'
 
 export default ({ pageContext, data }) => {
-  const { thePath, post, post_images, related_posts, wallpapers, basePath, pre_path } = pageContext
+  const { post } = pageContext
   post.content = data.current.parent.body
   post.exports = data.current.parent.exports
 
@@ -10,13 +10,8 @@ export default ({ pageContext, data }) => {
     <StructurePost
       type="mdx"
       blogPost={{
-        thePath,
-        basePath,
-        pre_path,
-        post_images,
         post,
-        related_posts,
-        wallpapers,
+        ...pageContext,
       }}
     />
   )

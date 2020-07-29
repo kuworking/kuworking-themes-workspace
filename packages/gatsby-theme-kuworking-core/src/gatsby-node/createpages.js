@@ -179,6 +179,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
           related_posts: array_of_index.map(i => filtered_posts_by_type3[i]),
           wallpapers: wallpapers,
+          types: typesCounter,
 
           basePath: basePath,
           pre_path: basePath, // different when creating tags

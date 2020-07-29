@@ -3,8 +3,6 @@ import { StructureGrid } from '../components/structure-grid'
 
 export default ({ pageContext, data = null }) => {
   const {
-    tag,
-    global_tags,
     pre_path,
     basePath,
     thePath,
@@ -14,8 +12,9 @@ export default ({ pageContext, data = null }) => {
     posts,
     wallpapers, // eslint-disable-line no-unused-vars
     post_images,
-    this_is_a_tag_search,
   } = pageContext
+
+  const { tag, global_tags, this_is_a_tag_search } = pageContext
 
   return (
     <StructureGrid
