@@ -10,12 +10,12 @@
     "url": "https://github.com/kuworking/gatsby-theme-kuworking-one.git"
   },
   "peerDependencies": {
-    "gatsby": "2.24.2",
+    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "gatsby": "2.24.2",
+    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },

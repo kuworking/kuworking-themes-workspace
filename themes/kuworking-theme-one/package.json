@@ -9,7 +9,7 @@
     "url": "https://github.com/kuworking/kuworking-theme-one.git"
   },
   "dependencies": {
-    "gatsby": "2.24.2",
+    "gatsby": "2.24.14",
     "gatsby-theme-kuworking-one": "^0.2.30",
     "react": "16.13.1",
     "react-dom": "16.13.1"
