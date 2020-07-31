@@ -9,6 +9,7 @@ export const CssMasonry = ({
   columns: query,
   elements: initialElements,
   categories,
+  firstCategory,
   categoriesComponents,
   children,
 }) => {
@@ -29,7 +30,7 @@ export const CssMasonry = ({
       currentWidth: 0,
       currentHeight: 0,
       currentRatio: 1,
-      showCat: 1,
+      showCat: firstCategory ? post.categories.includes(firstCategory) : 1,
     }))
   )
 
