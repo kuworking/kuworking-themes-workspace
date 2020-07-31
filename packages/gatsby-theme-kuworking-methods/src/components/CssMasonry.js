@@ -5,7 +5,13 @@ import { useMeasure } from '../hooks/usemeasure'
 /**
  * Returns a number of columns (defined in values) based on the provided media queries
  */
-export const CssMasonry = ({ columns: query, elements: initialElements, categories, children }) => {
+export const CssMasonry = ({
+  columns: query,
+  elements: initialElements,
+  categories,
+  categoriesComponents,
+  children,
+}) => {
   // get columns based on client width
   //  const columns = useMedia(['(min-width: 1000px)', '(min-width: 800px)', '(min-width: 600px)'], [5, 4, 3], 2)
   const columns = useMedia(...query)
@@ -29,8 +35,8 @@ export const CssMasonry = ({ columns: query, elements: initialElements, categori
 
   // define `showCat` depending of contents of `el.post.categories`
   const reSetElementsCat = cat => {
-    console.log(cat)
-    console.log(elements.map(el => el.showCat))
+    //    console.log(cat)
+    //    console.log(elements.map(el => el.showCat))
     setElements(
       elements.map((el, i) => {
         return {
@@ -67,12 +73,21 @@ export const CssMasonry = ({ columns: query, elements: initialElements, categori
   return (
     <div className="cssmasonry_grid">
       <div className="cssmasonry_categories">
-        <span onClick={() => reSetElementsCat(null)}>inicio</span>
-        {categories.map((el, i) => (
-          <span key={`cat${i}`} onClick={() => reSetElementsCat(el)}>
-            {el}
-          </span>
-        ))}
+        {(categoriesComponents &&
+          categoriesComponents.map(({ tag, cat }, i) => (
+            <span key={`cat${i}`} onClick={() => reSetElementsCat(cat)}>
+              {tag()}
+            </span>
+          ))) || (
+          <>
+            <span onClick={() => reSetElementsCat(null)}>inicio</span>
+            {categories.map((el, i) => (
+              <span key={`cat${i}`} onClick={() => reSetElementsCat(el)}>
+                {el}
+              </span>
+            ))}
+          </>
+        )}
       </div>
       <div className="cssmasonry_masonry" {...bind} style={{ height: Math.max(...columnHeights) }}>
         {transitions.map(t => {
