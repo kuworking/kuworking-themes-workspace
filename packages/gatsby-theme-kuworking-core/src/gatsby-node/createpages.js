@@ -166,7 +166,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     const filenames = []
     let i = 0
     for (const data of groups_of_posts) {
-      await fs.writeFileSync(`/public/posts${i}.json`, JSON.stringify(data), 'utf8')
+      await fs.writeFileSync(`./public/posts${i}.json`, JSON.stringify(data), 'utf8')
       filenames.push(`posts${i}.json`)
       i++
     }
