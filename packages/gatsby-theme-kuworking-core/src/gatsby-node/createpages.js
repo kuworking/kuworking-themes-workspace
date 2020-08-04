@@ -150,7 +150,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     })
   }
 
-  const createPosts = async () => {
+  const createPosts = () => {
     /**
      * Create pages for each MDX post
      * Save a JSON file for all posts, spliced, as a sort of pagination to be fetched and not passed through context
@@ -163,13 +163,15 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
     // write existing posts in a json file to avoid sending it within the context and enlargin JS bundle
     const groups_of_posts = array_chunk(posts, 50)
-    const filenames = []
-    let i = 0
-    for (const data of groups_of_posts) {
-      await fs.writeFileSync(`./public/posts${i}.json`, JSON.stringify(data), 'utf8')
-      filenames.push(`posts${i}.json`)
-      i++
-    }
+    const base = basePath.substring(1)
+    // separate loop for a sync action
+    const filenames = groups_of_posts.map((_, i) => `${base}posts${i}.json`)
+    // async on purpose
+    groups_of_posts.forEach((data, i) =>
+      fs.writeFile(`./public/${base}posts${i}.json`, JSON.stringify(data), 'utf8', err =>
+        err ? console.log(err) : console.log(`file written: ./public/${base}posts${i}.json`)
+      )
+    )
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1]
