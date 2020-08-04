@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 const withDefaults = require(`../../utils/default-options`)
 const {
   get_image_versions,
@@ -148,19 +150,26 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
     })
   }
 
-  const createPosts = () => {
+  const createPosts = async () => {
     /**
      * Create pages for each MDX post
+     * Save a JSON file for all posts, spliced, as a sort of pagination to be fetched and not passed through context
      */
 
-    const filtered_posts_by_type3 = do_not_include_type_in_related_posts
-      ? posts.filter(post => !do_not_include_type_in_related_posts.includes(post.type))
-      : posts
+    const array_chunk = (arr, num) =>
+      Array(Math.ceil(arr.length / num))
+        .fill()
+        .map((_, i) => arr.slice(i * num, i * num + num))
 
-    const array_of_index = shuffle_array(Array.from({ length: filtered_posts_by_type3.length }, (v, i) => i)).slice(
-      0,
-      50
-    )
+    // write existing posts in a json file to avoid sending it within the context and enlargin JS bundle
+    const groups_of_posts = array_chunk(posts, 50)
+    const filenames = []
+    let i = 0
+    for (const data of groups_of_posts) {
+      await fs.writeFileSync(`/public/posts${i}.json`, JSON.stringify(data), 'utf8')
+      filenames.push(`posts${i}.json`)
+      i++
+    }
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1]
@@ -177,7 +186,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
             post_images.filter(({ node: { relativeDirectory } }) => relativeDirectory === name)
           ),
 
-          related_posts: array_of_index.map(i => filtered_posts_by_type3[i]),
+          posts_files: filenames,
           wallpapers: wallpapers,
           types: typesCounter,
 
