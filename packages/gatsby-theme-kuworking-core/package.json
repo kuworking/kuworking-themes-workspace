@@ -67,5 +67,5 @@
     "clean": "gatsby clean",
     "bump": "."
   },
-  "gitHead": "4a9a3767114813dc463907805e13dd35ce833620"
+  "gitHead": "dfe9252954c3c587396ee7ae8cc8a485b096e1e0"
 }
