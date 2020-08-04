@@ -7,18 +7,13 @@ import { useInView } from 'react-intersection-observer'
 
 const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
 
-const Observer = (el, setBackImg, bestImage, adjustMasonry = null) => {
+const Observer = (el, setBackImg, bestImage) => {
   if ('IntersectionObserver' in window && el) {
     const intersection = new IntersectionObserver((entries, observer) => {
       entries.forEach(async entry => {
         if (entry.isIntersecting) {
           let lazyImage = entry.target
           setBackImg(bestImage())
-          if (adjustMasonry) {
-            setTimeout(adjustMasonry, 100)
-            // just in case, sometimes (cannot reproduce!) the function seems not to be executed
-            setTimeout(adjustMasonry, 2000)
-          }
           observer.unobserve(lazyImage)
         }
       })
@@ -27,7 +22,7 @@ const Observer = (el, setBackImg, bestImage, adjustMasonry = null) => {
   }
 }
 
-const useImg = (bestImage, adjustMasonry = null) => {
+const useImg = bestImage => {
   const image_ref = useRef()
   const [src, setSrc] = useState('')
   const [notused, rerender] = useState()
@@ -47,22 +42,15 @@ const useImg = (bestImage, adjustMasonry = null) => {
   // a useRef callback
   return [
     el => {
-      Observer(el, setSrc, bestImage, adjustMasonry)
+      Observer(el, setSrc, bestImage)
       return image_ref
     },
     src,
   ]
 }
 
-export const KwImg = ({
-  image: [standard, set],
-  component,
-  alt = 'image',
-  background = false,
-  adjustMasonry = null,
-  children,
-}) => {
-  const [ref, src] = useImg(bestImage, adjustMasonry)
+export const KwImg = ({ image: [standard, set], component, alt = 'image', background = false, children }) => {
+  const [ref, src] = useImg(bestImage)
 
   const bestImage = () => {
     const clientWidth = trueRef.current.clientWidth
@@ -102,7 +90,6 @@ export const Img = ({
   alt = 'image',
   background = false,
   lazy = true,
-  adjustMasonry = null,
   children,
   ...rest
 }) => {
@@ -171,11 +158,6 @@ export const Img = ({
   }, [resize, standard, set]) // changes when window is resized
 
   useEffect(() => {
-    if (adjustMasonry) {
-      adjustMasonry()
-      setTimeout(adjustMasonry, 2000) // just in case, sometimes (cannot reproduce!) the function seems not to be executed
-    }
-
     if (!lazy || supportsLazyLoad) return // if !lazy we'll never be here
     ;(async () => {
       if (inView) {
