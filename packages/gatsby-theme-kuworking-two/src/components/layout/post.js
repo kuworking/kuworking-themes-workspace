@@ -13,15 +13,16 @@ const postText = {
   words: 'palabras',
   minutes: 'minutos',
   date_language: 'es',
-  related_posts: 'Quizá te interese',
+  related_posts: 'Buscar entradas relacionadas',
 }
 
-export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
+export const Post = ({ blogPost: { post, posts_files, basePath } }) => {
   const [related_post_subset, setRelated_post_subset] = useState([])
-  useEffect(() => {
-    const array_of_index = shuffle_array(Array.from({ length: related_posts.length }, (v, i) => i)).slice(0, 5)
-    setRelated_post_subset(array_of_index.map(i => related_posts[i]))
-  }, [])
+
+  const fetch_related_posts = async () => {
+    const content = await (await fetch(shuffle_array(posts_files)[0])).json()
+    setRelated_post_subset(shuffle_array(content).slice(0, 5))
+  }
 
   const [wallpaper, setWallpaper] = useState({ src: '/blank.gif', fake: true })
   useEffect(() => {
@@ -87,10 +88,12 @@ export const Post = ({ blogPost: { post, related_posts, basePath } }) => {
       </div>
 
       <RelatedPosts>
-        <h1>{postText.related_posts}</h1>
+        <h1>
+          <RelatedPostsButton src="/global/arrow-down.svg" onClick={fetch_related_posts} /> {postText.related_posts}
+        </h1>
         <Container>
           {related_post_subset.map((post, i) => (
-            <Card key={'related_card_' + i} post={post} />
+            <Card key={'related_card_' + i} post={post} lazy={false} />
           ))}
         </Container>
       </RelatedPosts>
@@ -161,6 +164,23 @@ const Info = styled(Tags)`
 
 const RelatedPosts = styled.div`
   margin-top: 100px;
+
+  & > h1 {
+    display: flex;
+    align-items: center;
+  }
+`
+
+const RelatedPostsButton = styled.img`
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
 `
 
 const Container = styled.article`
