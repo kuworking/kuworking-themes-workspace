@@ -18,6 +18,11 @@ exports.shuffle_array = array => {
   return array
 }
 
+exports.array_chunk = (arr, num) =>
+  Array(Math.ceil(arr.length / num))
+    .fill()
+    .map((_, i) => arr.slice(i * num, i * num + num))
+
 exports.get_image_versions = (images, name) =>
   Object.assign(
     {},
