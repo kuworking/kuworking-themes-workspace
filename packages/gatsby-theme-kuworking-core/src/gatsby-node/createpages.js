@@ -94,7 +94,9 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
     //    Array.from({ length: numPages }).forEach((_, index) => {
     createPage({
-      path: index === 0 ? basePath : `${basePath}${index + 1}`,
+      //      path: index === 0 ? basePath : `${basePath}${index + 1}`,
+      path: basePath,
+
       component: PostsTemplate,
       context: {
         thePath: '',
@@ -105,7 +107,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
 
         basePath: basePath,
         pre_path: basePath, // different when creating tags
-        current_page: index + 1,
+        //current_page: index + 1,
         this_is_a_tag_search: false,
       },
     })
