@@ -40,7 +40,15 @@ export { Highlight, apply_highlight } from './src/methods/highlight'
 export { BImg, Img, KwImg } from './src/methods/image'
 export { BImageSet } from './src/methods/image-set'
 
-export { fixDate, shuffle_array, is_this_a_mobile_device, wait, get_response, get_request } from './src/methods/methods'
+export {
+  fixDate,
+  shuffle_array,
+  array_chunk,
+  is_this_a_mobile_device,
+  wait,
+  get_response,
+  get_request,
+} from './src/methods/methods'
 export { Prism } from './src/methods/prism'
 
 export { GoogleMap } from './src/providers/googlemap'

@@ -31,6 +31,11 @@ export const shuffle_array = array => {
   return array
 }
 
+export const array_chunk = (arr, num) =>
+  Array(Math.ceil(arr.length / num))
+    .fill()
+    .map((_, i) => arr.slice(i * num, i * num + num))
+
 export const is_this_a_mobile_device = () =>
   typeof window !== `undefined` &&
   (typeof window.orientation !== 'undefined' || navigator.userAgent.indexOf('IEMobile') !== -1)
