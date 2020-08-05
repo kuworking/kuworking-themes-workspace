@@ -6,6 +6,7 @@ const {
   get_last_slug,
   post_structure,
   shuffle_array,
+  array_chunk,
   structure_image_versions,
 } = require(`./methods`)
 
@@ -71,29 +72,44 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
      * MAIN GRID
      * Create the main page with all posts (with pagination)
      */
+
     const filtered_posts_by_type = do_not_count_type_for_pagination
       ? posts.filter(post => !do_not_count_type_for_pagination.includes(post.type))
       : posts
-    const numPages = Math.ceil(filtered_posts_by_type.length / postsPerPage)
 
-    Array.from({ length: numPages }).forEach((_, index) => {
-      createPage({
-        path: index === 0 ? basePath : `${basePath}${index + 1}`,
-        component: PostsTemplate,
-        context: {
-          thePath: '',
-          posts: filtered_posts_by_type.slice(index * postsPerPage, (index + 1) * postsPerPage),
-          wallpapers: wallpapers,
-          types: typesCounter,
+    // Write existing posts in a json file to avoid sending it within the context and enlarging JS bundle
+    // But first chunk is sent through context
+    const [first_group, ...groups_of_posts] = array_chunk(filtered_posts_by_type, 50)
+    const base = basePath.substring(1)
+    // separate loop for a sync action
+    const filenames = groups_of_posts.map((_, i) => `${base}grid${i}.json`)
+    // async on purpose
+    groups_of_posts.forEach((data, i) =>
+      fs.writeFile(`./public/${base}grid${i}.json`, JSON.stringify(data), 'utf8', err =>
+        err ? console.log(err) : console.log(`file written: ./public/${base}grid${i}.json`)
+      )
+    )
 
-          basePath: basePath,
-          pre_path: basePath, // different when creating tags
-          num_of_pages: numPages,
-          current_page: index + 1,
-          this_is_a_tag_search: false,
-        },
-      })
+    //const numPages = Math.ceil(filtered_posts_by_type.length / postsPerPage)
+
+    //    Array.from({ length: numPages }).forEach((_, index) => {
+    createPage({
+      path: index === 0 ? basePath : `${basePath}${index + 1}`,
+      component: PostsTemplate,
+      context: {
+        thePath: '',
+        posts: first_group,
+        posts_files: filenames,
+        wallpapers: wallpapers,
+        types: typesCounter,
+
+        basePath: basePath,
+        pre_path: basePath, // different when creating tags
+        current_page: index + 1,
+        this_is_a_tag_search: false,
+      },
     })
+    //    })
   }
 
   const createTagPages = () => {
@@ -156,12 +172,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
      * Save a JSON file for all posts, spliced, as a sort of pagination to be fetched and not passed through context
      */
 
-    const array_chunk = (arr, num) =>
-      Array(Math.ceil(arr.length / num))
-        .fill()
-        .map((_, i) => arr.slice(i * num, i * num + num))
-
-    // write existing posts in a json file to avoid sending it within the context and enlargin JS bundle
+    // write existing posts in a json file to avoid sending it within the context and enlarging JS bundle
     const groups_of_posts = array_chunk(posts, 50)
     const base = basePath.substring(1)
     // separate loop for a sync action
