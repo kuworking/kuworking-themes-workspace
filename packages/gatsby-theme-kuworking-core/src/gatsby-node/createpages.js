@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const createMainGrid = () => {
     /**
      * MAIN GRID
-     * Create the main page with all posts (with pagination)
+     * Create the main page with all posts (with JSON files)
      */
 
     const filtered_posts_by_type = do_not_count_type_for_pagination
@@ -117,7 +117,7 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
   const createTagPages = () => {
     /**
      * TAGS
-     * Create a main page for each specific tag (with pagination)
+     * Create a main page for each specific tag (with JSON files)
      * First create a global array of tags
      * then create pages
      */
@@ -138,34 +138,48 @@ exports.createPages = async ({ graphql, actions, reporter }, themeOptions) => {
       })
     })
 
+    const base = basePath.substring(1)
+
     // and the Tags Posts pages
     global_tags = [...new Set(global_tags)].filter(tag => tag !== do_not_create_tag_page_for)
     global_tags.forEach(tag => {
-      let numPages_perTag = Math.ceil(counting_by_tags[tag] / postsPerPage)
+      const tagPosts = filtered_posts_by_type2.filter(post => post.tags.includes(tag))
+      const tagCounter = tagPosts.length
+      const [first_group, ...groups_of_posts] = array_chunk(tagPosts, 50)
+      // separate loop for a sync action
+      const filenames = groups_of_posts.map((_, i) => `${base}grid_tags_${tag}${i}.json`)
+      groups_of_posts.forEach((data, i) =>
+        fs.writeFile(`./public/${base}grid_tags_${tag}${i}.json`, JSON.stringify(data), 'utf8', err =>
+          err ? console.log(err) : console.log(`file written: ./public/${base}grid_tags_${tag}${i}.json`)
+        )
+      )
 
-      Array.from({ length: numPages_perTag }).forEach((_, index) => {
-        const thePath = index === 0 ? `${basePath}${tagsPath}/${tag}/` : `${basePath}${tagsPath}/${tag}/${index + 1}`
-        createPage({
-          path: thePath,
-          component: PostsTemplate,
-          context: {
-            thePath: thePath,
-            posts: filtered_posts_by_type2
-              .filter(post => post.tags.includes(tag))
-              .slice(index * postsPerPage, (index + 1) * postsPerPage),
-            wallpapers: wallpapers,
+      // let numPages_perTag = Math.ceil(counting_by_tags[tag] / postsPerPage)
 
-            basePath: basePath,
-            pre_path: `${basePath}${tagsPath}/${tag}`, // different when creating tags
-            num_of_pages: numPages_perTag,
-            current_page: index + 1,
-            tag: tag,
-            global_tags: global_tags,
-            this_is_a_tag_search: true,
-          },
-        })
+      //      Array.from({ length: numPages_perTag }).forEach((_, index) => {
+      // const thePath = index === 0 ? `${basePath}${tagsPath}/${tag}/` : `${basePath}${tagsPath}/${tag}/${index + 1}`
+      const thePath = `${basePath}${tagsPath}/${tag}/`
+      createPage({
+        path: thePath,
+        component: PostsTemplate,
+        context: {
+          thePath: thePath,
+          posts: first_group,
+          posts_files: filenames,
+          wallpapers: wallpapers,
+
+          basePath: basePath,
+          pre_path: `${basePath}${tagsPath}/${tag}`, // different when creating tags
+          // num_of_pages: numPages_perTag,
+          // current_page: index + 1,
+          tag: tag,
+          global_tags: global_tags,
+          tagCounter: tagCounter,
+          this_is_a_tag_search: true,
+        },
       })
     })
+    //   })
   }
 
   const createPosts = () => {
