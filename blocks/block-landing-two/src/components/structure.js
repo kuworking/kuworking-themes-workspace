@@ -13,8 +13,6 @@ import './globalcss.css'
 export const Structure = ({ basePath = '/', folder = '/' }) => {
   useReplace100vh()
 
-  const basePath = blogGrid.basePath
-
   return (
     <Main>
       <Header basePath={basePath} folder={folder} />

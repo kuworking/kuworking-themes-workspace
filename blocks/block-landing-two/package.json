@@ -2,6 +2,7 @@
   "name": "@kuworking/block-landing-two",
   "version": "0.1.43",
   "description": "block-landing-two",
+  "main": "index.js",
   "author": "kuworking.com",
   "license": "MIT",
   "dependencies": {
@@ -9,6 +10,10 @@
     "@emotion/styled": "10.0.27"
   },
   "devDependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "peerDependencies": {
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
