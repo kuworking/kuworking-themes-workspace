@@ -7,6 +7,7 @@ export { Switch } from './src/elements/switch'
 export { Spinner01 } from './src/elements/spinner'
 export { SocialShare } from './src/elements/socialshare'
 export { Modal } from './src/elements/modal'
+export { SPACE } from './src/elements/space'
 
 export { Fade } from './src/animations/fade'
 export { Toggle } from './src/animations/toggle'
