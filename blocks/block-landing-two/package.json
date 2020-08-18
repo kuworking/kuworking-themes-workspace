@@ -15,5 +15,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {}
+  "scripts": {},
+  "gitHead": "76706dae32d6520d0b9b4f86ff98be5f9c09b5c2"
 }
