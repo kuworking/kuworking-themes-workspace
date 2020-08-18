@@ -83,6 +83,12 @@ module.exports = themeOptions => {
       `gatsby-plugin-theme-ui`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,
+      {
+        resolve: `gatsby-plugin-compile-es6-packages`,
+        options: {
+          modules: ['@kuworking/methods'],
+        },
+      },
     ].filter(Boolean),
   }
 }
