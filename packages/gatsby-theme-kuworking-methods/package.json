@@ -1,21 +1,15 @@
 {
-  "name": "gatsby-theme-kuworking-methods",
+  "name": "@kuworking/methods",
   "version": "0.1.38",
-  "description": "gatsby-theme-kuworking-methods",
+  "description": "@kuworking/methods",
   "main": "index.js",
   "author": "kuworking.com",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kuworking/gatsby-theme-kuworking-methods.git"
-  },
   "peerDependencies": {
-    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -27,21 +21,5 @@
     "react-share": "4.2.1",
     "react-spring": "8.0.27"
   },
-  "resolutions": {
-    "**/gatsby": "2.24.14",
-    "**/@emotion/core": "10.0.28",
-    "**/@emotion/styled": "10.0.27",
-    "**/@mdx-js/mdx": "1.6.6",
-    "**/@mdx-js/react": "1.6.6",
-    "theme-ui": "0.3.1"
-  },
-  "scripts": {
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby clean && gatsby build && gatsby serve",
-    "net": "gatsby develop -H 192.168.1.100",
-    "clean": "gatsby clean",
-    "bump": "."
-  },
-  "gitHead": "dfe9252954c3c587396ee7ae8cc8a485b096e1e0"
+  "scripts": {}
 }

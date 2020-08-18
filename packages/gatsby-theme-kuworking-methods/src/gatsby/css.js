@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 export const q = px => `@media (min-width: ${px}px)`
 export const qq = px => `@media (max-width: ${px}px)`
 
+/*
 export const Margin = styled.div`
   width: 100%;
   ${props => {
@@ -22,3 +23,4 @@ export const Margin = styled.div`
         .join('')}`
   }}
 `
+*/

@@ -1,5 +1,5 @@
 export { SEO } from './src/gatsby/seo'
-export { Margin, q, qq } from './src/gatsby/css'
+export { q, qq } from './src/gatsby/css'
 
 export { CssMasonry } from './src/components/cssmasonry'
 
