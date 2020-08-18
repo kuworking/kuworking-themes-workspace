@@ -8,26 +8,18 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "gatsby-theme-kuworking-methods": "0.1.38"
+    "@kuworking/methods": "0.1.38"
   },
   "devDependencies": {
-    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
   "peerDependencies": {
-    "gatsby": "2.24.14",
     "react": "16.13.1",
     "react-dom": "16.13.1"
-  },
-  "resolutions": {
-    "**/gatsby": "2.24.14",
-    "**/@emotion/core": "10.0.28",
-    "**/@emotion/styled": "10.0.27"
   },
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {},
-  "gitHead": "76706dae32d6520d0b9b4f86ff98be5f9c09b5c2"
+  "scripts": {}
 }

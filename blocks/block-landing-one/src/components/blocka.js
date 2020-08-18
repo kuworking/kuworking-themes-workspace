@@ -9,9 +9,9 @@ export const BlockA = ({ folder }) => {
     <PartA>
       <BImageSet
         image={{
-          small: `${folder}backgrounds/landing-one---800px.jpg`,
-          '800px': `${folder}backgrounds/landing-one---800px.jpg`,
-          big: `${folder}backgrounds/landing-one.jpg`,
+          small: `${folder}/backgrounds/landing-one---800px.jpg`,
+          '800px': `${folder}/backgrounds/landing-one---800px.jpg`,
+          big: `${folder}/backgrounds/landing-one.jpg`,
         }}
       >
         <Margin margin={[100]} />
