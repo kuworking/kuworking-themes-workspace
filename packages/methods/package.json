@@ -21,5 +21,8 @@
     "react-share": "4.2.1",
     "react-spring": "8.0.27"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {}
 }
