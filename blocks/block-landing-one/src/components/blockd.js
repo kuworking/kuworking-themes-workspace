@@ -101,7 +101,7 @@ const Title = styled.h1``
 
 const PanelB1 = styled.div`
   width: 100%;
-  background: ${props => props.theme.colors.bloc2__background};
+  background: #ccc;
   padding: 100px 0px;
   display: flex;
   justify-content: center;
@@ -126,8 +126,8 @@ const Card = styled.div`
   margin: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  background: ${props => props.theme.colors.cards__background};
-  color: ${props => props.theme.colors.text}; /* otherwise transitions are very slow due to react-spring */
+  background: #ccc;
+  color: #ccc; /* otherwise transitions are very slow due to react-spring */
 
   & img {
     margin-bottom: 10px;

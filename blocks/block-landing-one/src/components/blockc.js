@@ -120,8 +120,8 @@ const Card = styled.div`
   margin: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  color: ${props => props.theme.colors.text};
-  background: ${props => props.theme.colors.cards__background};
+  color: #ccc;
+  background:#ccc;
 
   & img {
     margin-bottom: 10px;

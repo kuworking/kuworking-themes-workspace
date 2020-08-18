@@ -70,7 +70,7 @@ const PartA = styled.div`
   & h1,
   & h2 {
     transition: color 0.5s ease;
-    color: ${props => props.theme.colors.title};
+    color: #ccc;
   }
 
   ${props => props.height !== 'none' && `max-height: ${props.height};`};
@@ -78,8 +78,8 @@ const PartA = styled.div`
   min-height: calc(var(--vh, 1vh) * 100);
 
   & > div {
-    background-color: ${props => props.theme.colors.backgroundimg__color};
-    background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
+    background-color: #ccc;
+    background-blend-mode: unset;
 
     padding: 0px 5px;
   }

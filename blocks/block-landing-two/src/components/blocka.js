@@ -43,8 +43,8 @@ const Part = styled.div`
 
   & .kw_bimg_simple {
     background-repeat: no-repeat;
-    background-color: ${props => props.theme.colors.backgroundimg__color};
-    background-blend-mode: ${props => props.theme.colors.backgroundimg__mode};
+    background-color: #ccc;
+    background-blend-mode: unset;
     background-size: cover;
     background-position: center;
     display: grid;

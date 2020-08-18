@@ -80,7 +80,7 @@ const PanelB1 = styled.div`
   grid-template-columns: 1fr;
   justify-items: center;
   width: 100%;
-  background: ${props => props.theme.colors.bloc2__background};
+  background: #ccc;
   padding: 100px 10px;
 
   & > div {
@@ -104,8 +104,8 @@ const Card = styled.div`
   padding: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  background: ${props => props.theme.colors.cards__background};
-  color: ${props => props.theme.colors.text}; /* otherwise transitions are very slow due to react-spring */
+  background: #ccc;
+  color: #ccc; /* otherwise transitions are very slow due to react-spring */
 
   & img {
     margin-bottom: 10px;
