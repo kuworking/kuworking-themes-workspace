@@ -1,6 +1,6 @@
 {
-  "name": "@kuworking/block-landing-one", 
-  "version": "0.1.55",
+  "name": "@kuworking/block-landing-one",
+  "version": "0.2.0",
   "description": "block-landing-one",
   "main": "index.js",
   "author": "kuworking.com",
