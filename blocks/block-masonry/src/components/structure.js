@@ -1,21 +1,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { Header } from './header'
-import { Footer } from './footer'
 import { Grid } from './grid'
 
 import './globalcss.css'
 
-export const Structure = ({ basePath = '/', folder = '/', items = [] }) => {
+export const Structure = ({ folder = '/', items = [] }) => {
   return (
     <Main>
       <Container>
-        <Header basePath={basePath} folder={folder} />
-
         <Grid folder={folder} items={items} />
-
-        <Footer basePath={basePath} folder={folder} />
       </Container>
     </Main>
   )

@@ -2,25 +2,20 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 import { useReplace100vh } from 'gatsby-theme-kuworking-methods'
-import { Header } from './header'
 import { BlockA } from './blocka'
 import { BlockB } from './blockb'
 import { BlockC } from './blockc'
-import { Footer } from './footer'
 
 import './globalcss.css'
 
-export const Structure = ({ basePath = '/', folder = '/' }) => {
+export const Structure = ({ folder = '/' }) => {
   useReplace100vh()
 
   return (
     <Main>
-      <Header basePath={basePath} folder={folder} />
-
       <BlockA folder={folder} />
       <BlockB folder={folder} />
       <BlockC folder={folder} />
-      <Footer basePath={basePath} />
     </Main>
   )
 }
