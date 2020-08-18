@@ -37,6 +37,8 @@ const Emoji = styled.img`
 `
 
 const Claim = styled.h1`
+  font-family: 'dokdo, sans-serif';
+
   display: flex;
   justify-content: center;
   width: 100%;

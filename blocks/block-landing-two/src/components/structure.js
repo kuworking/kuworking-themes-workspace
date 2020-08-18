@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import 'typeface-text-me-one'
+
 import { useReplace100vh } from '@kuworking/methods'
 import { BlockA } from './blocka'
 import { BlockB } from './blockb'
