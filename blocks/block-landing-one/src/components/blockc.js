@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Fade, Margin, q, qq } from 'gatsby-theme-kuworking-methods'
+import { Fade, SPACE, q, qq } from '@kuworking/methods'
 
 export const BlockC = ({ folder }) => {
   const { innerWidth: width } = typeof window !== 'undefined' && window
@@ -8,7 +8,7 @@ export const BlockC = ({ folder }) => {
 
   return (
     <PanelA2>
-      <Margin margin={[100]} />
+      <SPACE blk space="100px" />
 
       <div>
         <Fade delay={width > 600 ? 500 : 100} config={config}>
@@ -84,7 +84,7 @@ export const BlockC = ({ folder }) => {
         </Fade>
       </div>
 
-      <Margin margin={[100]} />
+      <SPACE blk space="100px" />
     </PanelA2>
   )
 }

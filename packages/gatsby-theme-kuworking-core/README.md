@@ -35,7 +35,7 @@ This theme is meant to be consumed by other themes [kuworking themes](https://ww
 - gatsby-plugin-robots-txt": "1.5.1",
 - gatsby-plugin-sitemap
 - gatsby-plugin-theme-ui": "0.3.0",
-- gatsby-theme-kuworking-methods
+- @kuworking/methods
 
 ## 🖖 The Site
 

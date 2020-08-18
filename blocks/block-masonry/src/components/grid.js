@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { CssMasonry } from 'gatsby-theme-kuworking-methods'
+import { CssMasonry } from '@kuworking/methods'
 
 export const Grid = ({ items, folder }) => {
   const data = {}

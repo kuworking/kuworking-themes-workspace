@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Move } from 'gatsby-theme-kuworking-methods'
+import { Move } from '@kuworking/methods'
 
 export const BlockD = ({ folder }) => {
   const { innerWidth: width } = typeof window !== 'undefined' && window

@@ -2,7 +2,7 @@
 
 Collection of methods to be consumed by other themes
 
-![npm](https://img.shields.io/npm/v/gatsby-theme-kuworking-methods?style=flat-square)
+![npm](https://img.shields.io/npm/v/@kuworking/methods?style=flat-square)
 
 ## 📝 Description
 

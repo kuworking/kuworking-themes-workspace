@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { TextLetterFade, BImageSet, Margin } from 'gatsby-theme-kuworking-methods'
+import { TextLetterFade, BImageSet, SPACE } from '@kuworking/methods'
 
 export const BlockA = () => {
   return (
@@ -18,10 +18,10 @@ export const BlockA = () => {
           <Claim>
             <TextLetterFade delay="500">Kuworking</TextLetterFade>
           </Claim>
-          <Margin margin={[0, 0, 20]} />
+          <SPACE blk space="20px" />
 
           <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
-          <Margin margin={[0, 0, 20]} />
+          <SPACE blk space="20px" />
         </PanelA1>
       </BImageSet>
     </Part>

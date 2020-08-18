@@ -2,7 +2,7 @@
 
 ![npm](https://img.shields.io/npm/v/kuworking-theme-landing-one?style=flat-square)
 
-This is the starter of Gatsby kuworking THEME LANDING ONE, which itself uses the kuworking theme [METHODS](https://github.com/kuworking/gatsby-theme-kuworking-methods)
+This is the starter of Gatsby kuworking THEME LANDING ONE, which itself uses the kuworking theme [METHODS](https://github.com/kuworking/@kuworking/methods)
 
 You can find the demo of the theme [here](https://www.kuworking.com/themes/landing-one) and other themes by kuworking [here](https://www.kuworking.com/themes)
 

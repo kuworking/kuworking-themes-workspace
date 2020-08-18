@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { TextZoom } from 'gatsby-theme-kuworking-methods'
+import { TextZoom } from '@kuworking/methods'
 
 export const BlockB = () => {
   return (

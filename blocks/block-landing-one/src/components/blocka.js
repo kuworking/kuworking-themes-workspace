@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { BImageSet, Margin } from 'gatsby-theme-kuworking-methods'
+import { BImageSet, SPACE } from '@kuworking/methods'
 
 export const BlockA = ({ folder }) => {
   const { innerWidth: width } = typeof window !== 'undefined' && window
@@ -14,11 +14,11 @@ export const BlockA = ({ folder }) => {
           big: `${folder}/backgrounds/landing-one.jpg`,
         }}
       >
-        <Margin margin={[100]} />
+      <SPACE blk space="100px" />
 
         <Claim>Kuworking</Claim>
 
-        <Margin margin={[100]} />
+        <SPACE blk space="100px" />
 
         <PanelA2>
           <Emoji src={`${folder}/icons/arrow.svg`} alt="arrow" width={width > 600 ? 70 : 40} />
