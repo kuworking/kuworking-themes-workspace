@@ -12,5 +12,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {}
 }
