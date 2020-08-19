@@ -13,6 +13,10 @@ body {
   min-height: 100%;
   font-size: 16px; /* fallback for rem */
   font-size: 1.6rem;
+
+  overflow-y: scroll;
+  /* overflow to prevent ethernal loop with masonry */
+  margin: 0;
 }
 
 button,
@@ -30,4 +34,15 @@ textarea {
 :after,
 :before {
   box-sizing: inherit;
+}
+
+#wp_theme_kuworking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* For gutenberg styles */
+.wp-block[data-type='wp-theme-kuworking-landing-two/landing'] {
+  max-width: 100%;
 }

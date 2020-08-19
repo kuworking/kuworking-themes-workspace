@@ -27,6 +27,17 @@ const MyComponent = () => (
 
 See the needed images in the codesandbox, find the links at [kuworking](https://www.kuworking.com/react-blocks)
 
+See the json structure also in the codesandbox, it is an array of objects like this
+
+```json
+{
+  "name": "element",
+  "categories": "category_1",
+  "link": "https://www.kuworking.com",
+  "image": "/01.jpg"
+}
+```
+
 ## 🖖 Integration in Gatsby
 
 Since the package does not start with `gatsby-theme`, it is not included by default in the transpilation
