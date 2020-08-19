@@ -42,6 +42,8 @@ export const Components = ({ attributes }) => {
         recreated_background = { position: position, color: backgrounds[position] }
       }
     })
+
+    return () => {}
   }, [])
 
   return (

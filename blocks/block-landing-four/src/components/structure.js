@@ -57,7 +57,7 @@ export const Structure = ({ attributes }) => {
       }
     })
 
-    return
+    return () => {}
   }, [])
 
   return (
