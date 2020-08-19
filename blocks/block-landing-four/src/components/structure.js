@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 
 import 'typeface-open-sans'
 import 'typeface-londrina-solid'
 
-import { GlobalStyles } from './globalstyles'
-import { useReplace100vh } from '@kuworking/methods'
+import { useReplace100vh, GlobalStyles } from '@kuworking/methods'
 
 export const Structure = ({ attributes }) => {
   useReplace100vh()
@@ -57,6 +56,8 @@ export const Structure = ({ attributes }) => {
         recreated_background = { position: position, color: backgrounds[position] }
       }
     })
+
+    return
   }, [])
 
   return (
@@ -77,7 +78,7 @@ export const Structure = ({ attributes }) => {
         </Div>
         <Div bg="linear-gradient(45deg,#feffe7,#0addff)" stick={stick[4]} id="block_4_start">
           <Img>
-            <img src={`${folder}${image_0}`} alt="" />
+            <img src={`${folder}/${image_0}`} alt="" />
           </Img>
         </Div>
         <Space />

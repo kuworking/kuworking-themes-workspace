@@ -23,7 +23,8 @@ const Div = styled.div`
 
   max-width: 800px;
   margin-top: 300px;
-  font-size: 20px;
+  font-size: 2rem;
+  font-family: 'Handlee', handwriting;
   color: #fff;
   padding: 10px;
   ${q(600)} {

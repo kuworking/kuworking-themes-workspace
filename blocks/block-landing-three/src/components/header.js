@@ -1,15 +1,21 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import facepaint from 'facepaint'
 
 export const Header = ({ content: [header_h1, header_h2_0, header_h2_1] }) => (
   <Container>
-    <Div onClick={() => (window.location = '/')}>
+    <Div>
       <h1>{header_h1}</h1>
       <h2>{header_h2_0}</h2>
       <h2>{header_h2_1}</h2>
     </Div>
   </Container>
 )
+
+const mq = facepaint([
+  '@media(min-width: 25em)', // 400px
+  '@media(min-width: 37.5em)', //  600px
+])
 
 const Container = styled.div`
   min-height: 100vh;
@@ -22,7 +28,7 @@ const Container = styled.div`
 
   background-color: #f36451;
   font-family: 'Handlee', handwriting;
-  font-size: 14px;
+  font-size: 1.4rem;
 `
 
 const Div = styled.div`
@@ -31,23 +37,22 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 
   color: #fff;
 
   && h1,
-  && h2,
-  && h3,
-  && h4,
-  && h5 {
+  && h2 {
+    font-family: 'Handlee', handwriting;
     line-height: 1;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0px;
   }
 
   && > h1 {
     text-align: center;
-    font-size: 80px;
+    font-size: 8rem;
+    ${mq({
+      fontSize: ['5rem', '8rem'],
+    })}
     font-weight: 900;
     width: auto;
     margin: 40px 0px 0px 0px;

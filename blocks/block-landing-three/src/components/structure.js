@@ -4,8 +4,7 @@ import styled from '@emotion/styled'
 import 'typeface-handlee'
 import 'typeface-open-sans'
 
-import { GlobalStyles } from './globalstyles'
-import { useReplace100vh } from '@kuworking/methods'
+import { useReplace100vh, GlobalStyles } from '@kuworking/methods'
 import { Header } from './header'
 import { Image } from './image'
 
