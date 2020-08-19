@@ -1,6 +1,6 @@
 {
   "name": "@kuworking/block-masonry",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "block-masonry",
   "main": "index.js",
   "author": "kuworking.com",
@@ -8,8 +8,8 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "babel-plugin-emotion": "10.0.33",
     "@kuworking/methods": "0.2.0",
+    "babel-plugin-emotion": "10.0.33",
     "facepaint": "1.2.1",
     "typeface-text-me-one": "0.0.71"
   },
