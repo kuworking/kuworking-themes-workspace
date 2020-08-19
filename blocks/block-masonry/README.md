@@ -25,7 +25,7 @@ const MyComponent = () => (
 )
 ```
 
-See the needed images in the codesandbox, find the links at [kuworking](http://localhost:8000/react-blocks)
+See the needed images in the codesandbox, find the links at [kuworking](https://www.kuworking.com/react-blocks)
 
 ## 🖖 Integration in Gatsby
 
@@ -42,4 +42,31 @@ Then, you need to do it with the plugin `gatsby-plugin-compile-es6-packages` and
     ],
   },
 },
+```
+
+## 🖖 Integration in React
+
+Take a look at the [codesandbox](https://www.kuworking.com/react-blocks), I've used this `package.json` and this `babel configuration`
+
+```json
+{
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-scripts": "3.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.10.5",
+    "@babel/plugin-transform-modules-commonjs": "7.10.4",
+    "@babel/preset-react": "7.10.4",
+    "babel-core": "6.26.3"
+  }
+}
+```
+
+```json
+{
+  "presets": ["@babel/preset-react"],
+  "plugins": ["@babel/plugin-transform-modules-commonjs"]
+}
 ```
