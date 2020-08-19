@@ -35,13 +35,11 @@ Then, you need to do it with the plugin `gatsby-plugin-compile-es6-packages` and
 
 ```json
 {
-  resolve: `gatsby-plugin-compile-es6-packages`,
-  options: {
-    modules: [
-      '@kuworking/block-masonry',
-    ],
-  },
-},
+  "resolve": `gatsby-plugin-compile-es6-packages`,
+  "options": {
+    "modules": ["@kuworking/block-masonry"]
+  }
+}
 ```
 
 ## 🖖 Integration in React
