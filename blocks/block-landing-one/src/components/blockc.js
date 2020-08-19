@@ -93,6 +93,7 @@ const Title = styled.h1`
   font-family: 'Text Me One', sans-serif;
   font-size: 3.2rem;
   text-align: center;
+  margin: 0px;
   margin-bottom: 5px;
   font-weight: 700;
   line-height: 1;
@@ -127,18 +128,13 @@ const Card = styled.div`
   margin: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  color: #ccc;
-  background: #ccc;
+  color: #3d2c29;
+  background: #fff;
 
   & img {
     margin-bottom: 10px;
     width: 50px;
     height: 50px;
-  }
-
-  ${Title} {
-    text-align: center;
-    margin-bottom: 5px;
   }
 
   & div {
