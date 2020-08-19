@@ -4,9 +4,8 @@ import styled from '@emotion/styled'
 import 'typeface-open-sans'
 import 'typeface-londrina-solid'
 
+import { GlobalStyles } from './globalstyles'
 import { useReplace100vh } from '@kuworking/methods'
-
-import './globalcss.css'
 
 export const Structure = ({ attributes }) => {
   useReplace100vh()
@@ -61,26 +60,29 @@ export const Structure = ({ attributes }) => {
   }, [])
 
   return (
-    <Background background={background}>
-      <Div onClick={() => (window.location = '/')} bg="#f3ba51" stick={stick[0]} id="block_0_start">
-        <h1>{text_0}</h1>
-      </Div>
-      <Div bg="#f36451" stick={stick[1]} id="block_1_start">
-        <h2>{text_1}</h2>
-      </Div>
-      <Div bg="#6987a0" stick={stick[2]} id="block_2_start">
-        <h2>{text_2}</h2>
-      </Div>
-      <Div bg="#deaec2" stick={stick[3]} id="block_3_start">
-        <h2>{text_3}</h2>
-      </Div>
-      <Div bg="linear-gradient(45deg,#feffe7,#0addff)" stick={stick[4]} id="block_4_start">
-        <Img>
-          <img src={`${folder}${image_0}`} alt="" />
-        </Img>
-      </Div>
-      <Space />
-    </Background>
+    <>
+      <GlobalStyles />
+      <Background background={background}>
+        <Div onClick={() => (window.location = '/')} bg="#f3ba51" stick={stick[0]} id="block_0_start">
+          <h1>{text_0}</h1>
+        </Div>
+        <Div bg="#f36451" stick={stick[1]} id="block_1_start">
+          <h2>{text_1}</h2>
+        </Div>
+        <Div bg="#6987a0" stick={stick[2]} id="block_2_start">
+          <h2>{text_2}</h2>
+        </Div>
+        <Div bg="#deaec2" stick={stick[3]} id="block_3_start">
+          <h2>{text_3}</h2>
+        </Div>
+        <Div bg="linear-gradient(45deg,#feffe7,#0addff)" stick={stick[4]} id="block_4_start">
+          <Img>
+            <img src={`${folder}${image_0}`} alt="" />
+          </Img>
+        </Div>
+        <Space />
+      </Background>
+    </>
   )
 }
 
