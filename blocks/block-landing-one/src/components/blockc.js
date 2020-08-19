@@ -8,7 +8,7 @@ export const BlockC = ({ folder }) => {
 
   return (
     <PanelA2>
-      <SPACE blk space="100px" />
+      <SPACE blk space="50px" />
 
       <div>
         <Fade delay={width > 600 ? 500 : 100} config={config}>
@@ -84,12 +84,19 @@ export const BlockC = ({ folder }) => {
         </Fade>
       </div>
 
-      <SPACE blk space="100px" />
+      <SPACE blk space="50px" />
     </PanelA2>
   )
 }
 
-const Title = styled.h1``
+const Title = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 700;
+  line-height: 1;
+`
 
 const PanelA2 = styled.div`
   display: grid;
@@ -121,7 +128,7 @@ const Card = styled.div`
 
   transition: color 0.5s ease, background 0.5s ease;
   color: #ccc;
-  background:#ccc;
+  background: #ccc;
 
   & img {
     margin-bottom: 10px;

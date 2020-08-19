@@ -3,16 +3,10 @@ import styled from '@emotion/styled'
 import { CssMasonry } from '@kuworking/methods'
 
 export const Grid = ({ items, folder }) => {
-  const data = {}
-
-  items.forEach(({ node: { content, name } }) => {
-    data[name] = JSON.parse(content)
-  })
-
   const masonryProps = {
     columns: [['(min-width: 1000px)', '(min-width: 800px)', '(min-width: 600px)'], [5, 4, 3], 2],
-    categories: [...new Set(data.items.map(el => el.categories))],
-    elements: data.items,
+    categories: [...new Set(items.map(el => el.categories))],
+    elements: items,
   }
 
   return (
@@ -110,8 +104,11 @@ const Div = styled.div`
   }
 
   width: 100%;
+  margin-bottom: 100px;
 `
 
 const Title = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 6rem;
   margin-top: 100px;
 `

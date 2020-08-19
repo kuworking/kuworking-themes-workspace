@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const BlockB = () => (
+export const BlockB = ({ folder }) => (
   <PanelB1>
     <div>
       <div>
@@ -73,14 +73,21 @@ export const BlockB = () => (
   </PanelB1>
 )
 
-const Title = styled.h1``
+const Title = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 5px;
+`
 
 const PanelB1 = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   width: 100%;
-  background: #ccc;
+  background: #f5f5f5;
   padding: 100px 10px;
 
   & > div {
@@ -104,18 +111,13 @@ const Card = styled.div`
   padding: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  background: #ccc;
-  color: #ccc; /* otherwise transitions are very slow due to react-spring */
+  background: #fff;
+  color: #3d2c29; /* otherwise transitions are very slow due to react-spring */
 
   & img {
     margin-bottom: 10px;
     width: 50px;
     height: 50px;
-  }
-
-  ${Title} {
-    text-align: center;
-    margin-bottom: 5px;
   }
 
   & div {

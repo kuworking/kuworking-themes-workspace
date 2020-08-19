@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const BlockC = () => (
+export const BlockC = ({ folder }) => (
   <Part>
     <PanelC1>
       <div>
@@ -40,10 +40,19 @@ const Part = styled.div`
   color: #f6f6f6;
   background: #3e3e3e;
 
-  padding: 50px 10px;
+  padding: 100px 10px 200px 10px;
 `
 
-const Title = styled.h1``
+const Title = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  text-align: center;
+  margin: 0px;
+  margin: 0px;
+  margin-bottom: 5px;
+  color: #f6f6f6;
+`
 
 const PanelC1 = styled.div`
   display: grid;
@@ -57,12 +66,6 @@ const PanelC1 = styled.div`
     margin-bottom: 10px;
     width: 50px;
     height: 50px;
-  }
-
-  ${Title} {
-    text-align: center;
-    color: #f6f6f6;
-    margin-bottom: 5px;
   }
 
   & div {

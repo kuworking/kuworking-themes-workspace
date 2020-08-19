@@ -12,7 +12,10 @@ export const BlockB = () => {
   )
 }
 
-const Title = styled.h1``
+const Title = styled.h1`
+  font-family: dokdo, sans-serif;
+  font-size: 5rem;
+`
 
 const Panel = styled.div`
   display: grid;

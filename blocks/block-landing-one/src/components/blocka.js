@@ -37,7 +37,8 @@ const Emoji = styled.img`
 `
 
 const Claim = styled.h1`
-  font-family: 'dokdo, sans-serif';
+  font-family: dokdo, sans-serif;
+  font-size: 15rem;
 
   display: flex;
   justify-content: center;
@@ -72,7 +73,7 @@ const PartA = styled.div`
   & h1,
   & h2 {
     transition: color 0.5s ease;
-    color: #ccc;
+    color: #fff;
   }
 
   ${props => props.height !== 'none' && `max-height: ${props.height};`};
@@ -80,7 +81,7 @@ const PartA = styled.div`
   min-height: calc(var(--vh, 1vh) * 100);
 
   & > div {
-    background-color: #ccc;
+    background-color: #fff;
     background-blend-mode: unset;
 
     padding: 0px 5px;

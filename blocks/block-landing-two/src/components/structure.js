@@ -23,6 +23,8 @@ export const Structure = ({ folder = '/' }) => {
 }
 
 const Main = styled.main`
+  font-family: 'Text Me One', sans-serif;
+  color: #fff;
   background: unset;
   display: flex;
   max-width: 100%;

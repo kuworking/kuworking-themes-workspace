@@ -36,7 +36,7 @@ export const BlockD = ({ folder }) => {
         <Move type={direction} delay="200">
           <Card>
             <div>
-              <img src={`${folder}/icons/charac3.svg`} alt="characteristic" />
+              <img src={`${folder}/icons/charac3.png`} alt="characteristic" />
             </div>
             <div>
               <Title>Have faith</Title>
@@ -84,7 +84,7 @@ export const BlockD = ({ folder }) => {
         <Move type={direction} delay="200">
           <Card>
             <div>
-              <img src={`${folder}/icons/charac7.svg`} alt="characteristic" />
+              <img src={`${folder}/icons/charac7.png`} alt="characteristic" />
             </div>
             <div>
               <Title>Meeting with Phil</Title>
@@ -97,11 +97,18 @@ export const BlockD = ({ folder }) => {
   )
 }
 
-const Title = styled.h1``
+const Title = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  text-align: center;
+  margin: 0px;
+  margin-bottom: 5px;
+`
 
 const PanelB1 = styled.div`
   width: 100%;
-  background: #ccc;
+  background: #585858;
   padding: 100px 0px;
   display: flex;
   justify-content: center;
@@ -126,18 +133,13 @@ const Card = styled.div`
   margin: 15px;
 
   transition: color 0.5s ease, background 0.5s ease;
-  background: #ccc;
-  color: #ccc; /* otherwise transitions are very slow due to react-spring */
+  background: #fff;
+  color: #3d2c29; /* otherwise transitions are very slow due to react-spring */
 
   & img {
     margin-bottom: 10px;
     width: 50px;
     height: 50px;
-  }
-
-  ${Title} {
-    text-align: center;
-    margin-bottom: 5px;
   }
 
   & div {

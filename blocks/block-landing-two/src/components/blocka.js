@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { TextLetterFade, BImageSet, SPACE } from '@kuworking/methods'
 
-export const BlockA = () => {
+export const BlockA = ({ folder }) => {
   return (
     <Part>
       <BImageSet
@@ -43,7 +43,7 @@ const Part = styled.div`
 
   & .kw_bimg_simple {
     background-repeat: no-repeat;
-    background-color: #ccc;
+    background-color: #fff;
     background-blend-mode: unset;
     background-size: cover;
     background-position: center;
@@ -68,12 +68,17 @@ const PanelA1 = styled.div`
 `
 
 const Claim = styled.div`
+  font-size: 2.4rem;
   border-radius: 8px;
   text-align: center;
   width: fit-content;
   padding: 2px 5px 5px 5px;
 `
 const Claim2 = styled.h1`
+  font-family: 'Text Me One', sans-serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #fff;
   border-radius: 8px;
   text-align: center;
   max-width: 600px;

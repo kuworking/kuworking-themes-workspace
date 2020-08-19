@@ -16,6 +16,7 @@ export const Structure = ({ folder = '/', items = [] }) => {
 }
 
 const Main = styled.main`
+  font-family: 'Text Me One', sans-serif;
   display: flex;
   min-height: 100vh; /* needed for the sticky footer */
   flex-direction: column;
