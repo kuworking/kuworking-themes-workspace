@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import { GlobalStyles } from './globalstyles'
+import { GlobalStyles } from '@kuworking/methods'
 import { Grid } from './grid'
 
 export const Structure = ({ folder = '/', items = [] }) => {
