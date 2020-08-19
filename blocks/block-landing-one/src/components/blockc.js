@@ -22,8 +22,8 @@ export const BlockC = ({ attributes }) => {
                 </div>
               )}
               <div>
-                <Title>{text3[i][0]}</Title>
-                <div>{text3[i][1]}</div>
+                <Title>{t[0]}</Title>
+                <div>{t[1]}</div>
               </div>
             </Card>
           </Fade>

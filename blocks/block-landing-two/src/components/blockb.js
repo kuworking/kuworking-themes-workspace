@@ -14,8 +14,8 @@ export const BlockB = ({ attributes }) => {
                 <img src={`${folder}/${images[i]}`} alt="characteristic" />
               </div>
               <div>
-                <Title>{t[i][0]}</Title>
-                <div>{t[i][1]}</div>
+                <Title>{t[0]}</Title>
+                <div>{t[1]}</div>
               </div>
             </Card>
           ))}
