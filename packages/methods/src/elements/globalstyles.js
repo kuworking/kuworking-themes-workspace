@@ -1,3 +1,5 @@
+import { Global, css } from '@emotion/core'
+
 export const GlobalStyles = () => (
   <Global
     styles={css`
