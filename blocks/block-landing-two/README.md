@@ -1,53 +1,44 @@
-# Gatsby THEME LANDING TWO — by kuworking
+# BLOCK LANDING TWO
 
-![npm](https://img.shields.io/npm/v/kuworking-theme-landing-two?style=flat-square)
+![npm](https://img.shields.io/npm/v/@kuworking/block-landing-two?style=flat-square)
 
-This is the starter of Gatsby kuworking THEME LANDING ONE, which itself uses the kuworking theme [METHODS](https://github.com/kuworking/@kuworking/methods)
+React component coded in ES6
 
-You can find the demo of the theme [here](https://www.kuworking.com/themes/landing-two) and other themes by kuworking [here](https://www.kuworking.com/themes)
+## 🚀 Installation
 
-You can find me on [twitter](https://twitter.com/intent/follow?screen_name=kuworking)
-
-## 🚀 In one sentence
-
-- Single one page
+```bash
+yarn add @kuworking/block-landing-two
+```
 
 ## 🔥 How to Use
 
-### As standalone
+```jsx
+import React from 'react'
+import { Structure } from '@kuworking/block-landing-two'
 
-- `gatsby new two https://github.com/kuworking/kuworking-theme-landing-two`
-- `cd new two`
-- `gatsby develop`
-
-And explore your site at `http://localhost:8000`
-
-### As a gatsby theme
-
-Install the theme package (not the starter)
-
-- `yarn add gatsby-theme-kuworking-landing-two`
-
-And add the theme in your website `gatsby-config.js`
-
-```js
-plugins: [
-  {
-    resolve: `gatsby-theme-kuworking-landing-two`,
-    options: {
-      standalone: false,
-      basePath: '/landing/',
-    },
-  },
-]
+// folder locates the images
+const MyComponent = () => (
+  <>
+    <Structure folder="/" />
+  </>
+)
 ```
 
-## 🖖 The Site
+See the needed images in the codesandbox, find the links at [kuworking](http://localhost:8000/react-blocks)
 
-These themes are hosted in [www.kuworking.com](https://www.kuworking.com), a site about GatsbyJS and WordPress (in Spanish 🌞)
+## 🖖 Integration in Gatsby
 
-Feel free to come anytime you want 🙋‍♂️
+Since the package does not start with `gatsby-theme`, it is not included by default in the transpilation
 
-## 📻 Newsletter
+Then, you need to do it with the plugin `gatsby-plugin-compile-es6-packages` and include it in `gatsby-config.js`
 
-If you want to suscribe to my newsletter (in Spanish), you are very welcomed, you can find the form [here](https://www.kuworking.com/list)
+```json
+{
+  resolve: `gatsby-plugin-compile-es6-packages`,
+  options: {
+    modules: [
+      '@kuworking/block-landing-two',
+    ],
+  },
+},
+```

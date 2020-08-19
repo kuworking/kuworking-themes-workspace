@@ -1,54 +1,45 @@
-# Gatsby THEME AFFILIATE — by kuworking
+# BLOCK MASONRY
 
-![npm](https://img.shields.io/npm/v/kuworking-theme-affiliate?style=flat-square)
+![npm](https://img.shields.io/npm/v/@kuworking/block-masonry?style=flat-square)
 
-This is the starter of Gatsby kuworking THEME AFFILIATE, which itself uses the kuworking theme [CORE](https://github.com/kuworking/gatsby-theme-kuworking-core)
+React component coded in ES6
 
-You can find the demo of the theme [here](https://www.kuworking.com/themes/affiliate) and other themes by kuworking [here](https://www.kuworking.com/themes)
+## 🚀 Installation
 
-You can find me on [twitter](https://twitter.com/intent/follow?screen_name=kuworking)
-
-## 🚀 In one sentence
-
-- Grid page based on simple json files with a **MASONRY** effect based on css grid and JavaScript
+```bash
+yarn add @kuworking/block-masonry
+```
 
 ## 🔥 How to Use
 
-### As standalone
+```jsx
+import React from 'react'
+import { Structure } from '@kuworking/block-masonry
+import items from './masonry-items.json'
 
-- `gatsby new one https://github.com/kuworking/kuworking-theme-affiliate`
-- `cd new one`
-- `gatsby develop`
-
-And explore your site at `http://localhost:8000`
-
-### As a gatsby theme
-
-Install the theme package (not the starter)
-
-- `yarn add gatsby-theme-kuworking-affiliate`
-
-And add the theme in your website `gatsby-config.js`
-
-```js
-plugins: [
-  {
-    resolve: `gatsby-theme-kuworking-affiliate`,
-    options: {
-      standalone: false,
-      basePath: '/tienda/',
-      jsonPath: '/content/json',
-    },
-  },
-]
+// folder locates the images
+const MyComponent = () => (
+  <>
+    <Structure folder="/blocks/masonry" items={items} />
+  </>
+)
 ```
 
-## 🖖 The Site
+See the needed images in the codesandbox, find the links at [kuworking](http://localhost:8000/react-blocks)
 
-These themes are hosted in [www.kuworking.com](https://www.kuworking.com), a site about GatsbyJS and WordPress (in Spanish 🌞)
+## 🖖 Integration in Gatsby
 
-Feel free to come anytime you want 🙋‍♂️
+Since the package does not start with `gatsby-theme`, it is not included by default in the transpilation
 
-## 📻 Newsletter
+Then, you need to do it with the plugin `gatsby-plugin-compile-es6-packages` and include it in `gatsby-config.js`
 
-If you want to suscribe to my newsletter (in Spanish), you are very welcomed, you can find the form [here](https://www.kuworking.com/list)
+```json
+{
+  resolve: `gatsby-plugin-compile-es6-packages`,
+  options: {
+    modules: [
+      '@kuworking/block-masonry',
+    ],
+  },
+},
+```
