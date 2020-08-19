@@ -3,11 +3,13 @@ import styled from '@emotion/styled'
 import facepaint from 'facepaint'
 import { TextZoom } from '@kuworking/methods'
 
-export const BlockB = () => {
+export const BlockB = ({ attributes }) => {
+  const { folder = '/', text2 = [] } = attributes
+
   return (
     <Panel>
       <Title>
-        <TextZoom delay="200">Kuworking</TextZoom>
+        <TextZoom delay="200">{text2[0]}</TextZoom>
       </Title>
     </Panel>
   )

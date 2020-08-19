@@ -2,7 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Fade, SPACE, q, qq } from '@kuworking/methods'
 
-export const BlockC = ({ folder }) => {
+export const BlockC = ({ attributes }) => {
+  const { folder = '/', text3 = [], images3 = [] } = attributes
+
   const { innerWidth: width } = typeof window !== 'undefined' && window
   const config = { mass: 5, tension: 2000, friction: 200 }
 
@@ -11,77 +13,21 @@ export const BlockC = ({ folder }) => {
       <SPACE blk space="50px" />
 
       <div>
-        <Fade delay={width > 600 ? 500 : 100} config={config}>
-          <Card>
-            <div>
-              <img src={`${folder}/icons/pencil.svg`} alt="pencil" />
-            </div>
-            <div>
-              <Title>We need more</Title>
+        {text3.map((t, i) => (
+          <Fade key={`key3${i}`} delay={width > 600 ? 500 + i * 100 : 100} config={config}>
+            <Card>
+              {images3[i] && (
+                <div>
+                  <img src={`${folder}/${images3[i]}`} alt="icon" />
+                </div>
+              )}
               <div>
-                We exceed the clients' expectations there are more projects lined up charge extra the next time, nor we
-                exceed the clients' expectations.
+                <Title>{text3[i][0]}</Title>
+                <div>{text3[i][1]}</div>
               </div>
-            </div>
-          </Card>
-        </Fade>
-        <Fade delay={width > 600 ? 600 : 100} config={config}>
-          <Card>
-            <div>
-              <img src={`${folder}/icons/network.svg`} alt="pencil" />
-            </div>
-            <div>
-              <Title>Brigadier</Title>
-              <div>
-                This is our north star design. It's not hard guys run it up the flag pole so pre launch we don't need to
-                boil the ocean here vertical integration
-              </div>
-            </div>
-          </Card>
-        </Fade>
-        <Fade delay={width > 600 ? 700 : 100} config={config}>
-          <Card>
-            <div>
-              <img src={`${folder}/icons/microphone.svg`} alt="pencil" />
-            </div>
-            <div>
-              <Title>Everything bigger</Title>
-              <div>
-                Change the color theme of the website. Can my website be in english? we try your eye, but can you change
-                everything?
-              </div>
-            </div>
-          </Card>
-        </Fade>
-
-        <Fade delay={width > 600 ? 700 : 100} config={config}>
-          <Card>
-            <div>
-              <Title>Maximize Timely</Title>
-              <div>European minnow priapumfish mosshead warbonnet shrimpfish bigscale. Cutlassfish</div>
-            </div>
-          </Card>
-        </Fade>
-
-        <Fade delay={width > 600 ? 700 : 100} config={config}>
-          <Card>
-            <div>
-              <Title>Cutlassfish </Title>
-              <div>Efficiently unleash cross-media information without cross-media value. Quickly maximize timely</div>
-            </div>
-          </Card>
-        </Fade>
-
-        <Fade delay={width > 600 ? 700 : 100} config={config}>
-          <Card>
-            <div>
-              <Title>Godfather </Title>
-              <div>
-                Climb leg rub face on everything give attitude nap all day for under the bed. Chase mice attack feet but
-              </div>
-            </div>
-          </Card>
-        </Fade>
+            </Card>
+          </Fade>
+        ))}
       </div>
 
       <SPACE blk space="50px" />

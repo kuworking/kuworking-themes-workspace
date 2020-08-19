@@ -1,77 +1,29 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const BlockB = ({ folder }) => (
-  <PanelB1>
-    <div>
+export const BlockB = ({ attributes }) => {
+  const { folder = '/', images = [], text = [] } = attributes
+
+  return (
+    <PanelB1>
       <div>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac1.svg`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>Teletubbies in here?</Title>
-            <div>Have I ever led you astray?</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac2.svg`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>No? Well</Title>
-            <div>Turn the crank first-order optimal strategies</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac3.png`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>Have faith</Title>
-            <div>So a better understanding of usage can aid in</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac4.svg`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>Drawing-board</Title>
-            <div>Post launch window-licker net net or please advise soonest</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac5.svg`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>Pull in ten</Title>
-            <div>For collaboration through advanced technlogy</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac6.svg`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>To be inspired</Title>
-            <div>extra bodies to help roll the tortoise this is our north star</div>
-          </div>
-        </Card>
-        <Card>
-          <div>
-            <img src={`${folder}/icons/charac7.png`} alt="characteristic" />
-          </div>
-          <div>
-            <Title>Meeting with Phil</Title>
-            <div>Have I ever led you astray?</div>
-          </div>
-        </Card>
+        <div>
+          {text.map((t, i) => (
+            <Card key={`card${i}`}>
+              <div>
+                <img src={`${folder}/${images[i]}`} alt="characteristic" />
+              </div>
+              <div>
+                <Title>t[i][0]</Title>
+                <div>t[i][1]</div>
+              </div>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
-  </PanelB1>
-)
+    </PanelB1>
+  )
+}
 
 const Title = styled.h1`
   font-family: 'Text Me One', sans-serif;

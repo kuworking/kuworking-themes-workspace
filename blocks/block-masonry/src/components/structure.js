@@ -4,18 +4,16 @@ import styled from '@emotion/styled'
 import { GlobalStyles } from '@kuworking/methods'
 import { Grid } from './grid'
 
-export const Structure = ({ folder = '/', items = [] }) => {
-  return (
-    <>
-      <GlobalStyles />
-      <Main>
-        <Container>
-          <Grid folder={folder} items={items} />
-        </Container>
-      </Main>
-    </>
-  )
-}
+export const Structure = ({ attributes }) => (
+  <>
+    <GlobalStyles />
+    <Main>
+      <Container>
+        <Grid attributes={attributes} />
+      </Container>
+    </Main>
+  </>
+)
 
 const Main = styled.main`
   font-family: 'Text Me One', sans-serif;

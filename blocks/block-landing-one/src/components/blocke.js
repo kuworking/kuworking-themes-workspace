@@ -1,34 +1,28 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-export const BlockE = ({ folder }) => (
-  <Part>
-    <PanelC1>
-      <div>
-        <img src={`${folder}/icons/charac7.png`} alt="characteristic" />
-      </div>
-      <div>
-        <Title>New ways to evolve</Title>
-        <div>Pre launch horsehead offer. High turnaround rate exposing</div>
-      </div>
-    </PanelC1>
+export const BlockE = ({ attributes }) => {
+  const { folder = '/', text5 = [], images5 = [] } = attributes
 
-    <PanelC2>
-      <div>
-        Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine.
-        You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water.
-        We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are
-        connected, you and I. We're on the same curve, just on opposite ends.
-      </div>
-      <div>
-        Circle back staff engagement, or products need full resourcing and support from a cross-functional team in order
-        to be built, maintained, and evolved red flag, or hire the best but all hands on deck and timeframe. What do you
-        feel you would bring to the table if you were hired for this position gain traction or streamline, so t-shaped
-        individual, back-end of third quarter
-      </div>
-    </PanelC2>
-  </Part>
-)
+  return (
+    <Part>
+      <PanelC1>
+        <div>
+          <img src={`${folder}/${images5[0]}`} alt="characteristic" />
+        </div>
+        <div>
+          <Title>{text5[0]}</Title>
+          <div>{text5[1]}</div>
+        </div>
+      </PanelC1>
+
+      <PanelC2>
+        <div>{text5[2]}</div>
+        <div>{text5[3]}</div>
+      </PanelC2>
+    </Part>
+  )
+}
 
 const Title = styled.h1`
   font-family: 'Text Me One', sans-serif;

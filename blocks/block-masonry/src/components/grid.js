@@ -2,7 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { CssMasonry } from '@kuworking/methods'
 
-export const Grid = ({ items, folder }) => {
+export const Grid = ({ attributes }) => {
+  const { folder = '/', items = [], text = 'test' } = attributes
+
   const masonryProps = {
     columns: [['(min-width: 1000px)', '(min-width: 800px)', '(min-width: 600px)'], [5, 4, 3], 2],
     categories: [...new Set(items.map(el => el.categories))],
@@ -11,7 +13,7 @@ export const Grid = ({ items, folder }) => {
 
   return (
     <>
-      <Title>Items</Title>
+      <Title>{text}</Title>
       <Div>
         <CssMasonry {...masonryProps}>
           {el => (

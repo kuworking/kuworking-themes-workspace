@@ -3,7 +3,9 @@ import styled from '@emotion/styled'
 import facepaint from 'facepaint'
 import { BImageSet, SPACE } from '@kuworking/methods'
 
-export const BlockA = ({ folder }) => {
+export const BlockA = ({ attributes }) => {
+  const { folder = '/', text1 = [] } = attributes
+
   const { innerWidth: width } = typeof window !== 'undefined' && window
 
   return (
@@ -17,7 +19,7 @@ export const BlockA = ({ folder }) => {
       >
         <SPACE blk space="100px" />
 
-        <Claim>Kuworking</Claim>
+        <Claim>{text1[0]}</Claim>
 
         <SPACE blk space="100px" />
 

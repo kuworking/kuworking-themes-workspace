@@ -2,7 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { TextLetterFade, BImageSet, SPACE } from '@kuworking/methods'
 
-export const BlockA = ({ folder }) => {
+export const BlockA = ({ attributes }) => {
+  const { folder = '/', header_h1 = 'test', header_h2 = 'test' } = attributes
+
   return (
     <Part>
       <BImageSet
@@ -16,11 +18,11 @@ export const BlockA = ({ folder }) => {
       >
         <PanelA1>
           <Claim>
-            <TextLetterFade delay="500">Kuworking</TextLetterFade>
+            <TextLetterFade delay="500">{header_h1}</TextLetterFade>
           </Claim>
           <SPACE blk space="20px" />
 
-          <Claim2>Aprender JavaScript, React, Gatsby y WordPress y no necesariamente en este orden</Claim2>
+          <Claim2>{header_h2}</Claim2>
           <SPACE blk space="20px" />
         </PanelA1>
       </BImageSet>

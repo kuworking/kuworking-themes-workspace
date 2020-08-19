@@ -11,18 +11,18 @@ import { BlockC } from './blockc'
 import { BlockD } from './blockd'
 import { BlockE } from './blocke'
 
-export const Structure = ({ folder = '/' }) => {
+export const Structure = ({ attributes }) => {
   useReplace100vh()
 
   return (
     <>
       <GlobalStyles />
       <Main>
-        <BlockA folder={folder} />
-        <BlockB folder={folder} />
-        <BlockC folder={folder} />
-        <BlockD folder={folder} />
-        <BlockE folder={folder} />
+        <BlockA attributes={attributes} />
+        <BlockB attributes={attributes} />
+        <BlockC attributes={attributes} />
+        <BlockD attributes={attributes} />
+        <BlockE attributes={attributes} />
       </Main>
     </>
   )
