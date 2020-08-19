@@ -1,6 +1,6 @@
 {
   "name": "@kuworking/block-landing-one",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "block-landing-one",
   "main": "index.js",
   "author": "kuworking.com",
@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "@kuworking/methods": "^0.2.2",
+    "@kuworking/methods": "^0.2.3",
     "babel-plugin-emotion": "10.0.33",
     "facepaint": "1.2.1",
     "typeface-dokdo": "0.0.61",
