@@ -7,11 +7,11 @@ export const BlockA = ({ folder }) => {
     <Part>
       <BImageSet
         image={{
-          small: 'backgrounds/landing-two---400px.jpg',
-          '400px': 'backgrounds/landing-two---400px.jpg',
-          '800px': 'backgrounds/landing-two---800px.jpg',
-          '1200px': 'backgrounds/landing-two---1200px.jpg',
-          big: 'backgrounds/landing-two.jpg',
+          small: `${folder}/backgrounds/landing-two---400px.jpg`,
+          '400px': `${folder}/backgrounds/landing-two---400px.jpg`,
+          '800px': `${folder}/backgrounds/landing-two---800px.jpg`,
+          '1200px': `${folder}/backgrounds/landing-two---1200px.jpg`,
+          big: `${folder}/backgrounds/landing-two.jpg`,
         }}
       >
         <PanelA1>
