@@ -3,22 +3,24 @@ import styled from '@emotion/styled'
 
 import 'typeface-text-me-one'
 
+import { GlobalStyles } from './globalstyles'
 import { useReplace100vh } from '@kuworking/methods'
 import { BlockA } from './blocka'
 import { BlockB } from './blockb'
 import { BlockC } from './blockc'
 
-import './globalcss.css'
-
 export const Structure = ({ folder = '/' }) => {
   useReplace100vh()
 
   return (
-    <Main>
-      <BlockA folder={folder} />
-      <BlockB folder={folder} />
-      <BlockC folder={folder} />
-    </Main>
+    <>
+      <GlobalStyles />
+      <Main>
+        <BlockA folder={folder} />
+        <BlockB folder={folder} />
+        <BlockC folder={folder} />
+      </Main>
+    </>
   )
 }
 

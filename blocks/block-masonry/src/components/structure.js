@@ -1,17 +1,19 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import { GlobalStyles } from './globalstyles'
 import { Grid } from './grid'
-
-import './globalcss.css'
 
 export const Structure = ({ folder = '/', items = [] }) => {
   return (
-    <Main>
-      <Container>
-        <Grid folder={folder} items={items} />
-      </Container>
-    </Main>
+    <>
+      <GlobalStyles />
+      <Main>
+        <Container>
+          <Grid folder={folder} items={items} />
+        </Container>
+      </Main>
+    </>
   )
 }
 

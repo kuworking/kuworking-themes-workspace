@@ -9,6 +9,7 @@ export { SocialShare } from './src/elements/socialshare'
 export { Modal } from './src/elements/modal'
 export { SPACE } from './src/elements/space'
 export { L } from './src/elements/link'
+export { GlobalStyles } from './src/elements/globalstyles'
 
 export { Fade } from './src/animations/fade'
 export { Toggle } from './src/animations/toggle'

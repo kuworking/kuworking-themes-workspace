@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import 'typeface-text-me-one'
 import 'typeface-dokdo'
 
+import { GlobalStyles } from './globalstyles'
 import { useReplace100vh } from '@kuworking/methods'
 import { BlockA } from './blocka'
 import { BlockB } from './blockb'
@@ -11,19 +12,20 @@ import { BlockC } from './blockc'
 import { BlockD } from './blockd'
 import { BlockE } from './blocke'
 
-import './globalcss.css'
-
 export const Structure = ({ folder = '/' }) => {
   useReplace100vh()
 
   return (
-    <Main>
-      <BlockA folder={folder} />
-      <BlockB folder={folder} />
-      <BlockC folder={folder} />
-      <BlockD folder={folder} />
-      <BlockE folder={folder} />
-    </Main>
+    <>
+      <GlobalStyles />
+      <Main>
+        <BlockA folder={folder} />
+        <BlockB folder={folder} />
+        <BlockC folder={folder} />
+        <BlockD folder={folder} />
+        <BlockE folder={folder} />
+      </Main>
+    </>
   )
 }
 
