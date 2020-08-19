@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import facepaint from 'facepaint'
 import { TextZoom } from '@kuworking/methods'
 
 export const BlockB = () => {
@@ -12,9 +13,17 @@ export const BlockB = () => {
   )
 }
 
+const mq = facepaint([
+  '@media(min-width: 25em)', // 400px
+  '@media(min-width: 37.5em)', //  600px
+  '@media(min-width: 56.25em)', //  900px
+])
+
 const Title = styled.h1`
   font-family: dokdo, sans-serif;
-  font-size: 5rem;
+  ${mq({
+    fontSize: ['5rem', '10rem', '10rem'],
+  })}
 `
 
 const Panel = styled.div`

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import facepaint from 'facepaint'
 import { BImageSet, SPACE } from '@kuworking/methods'
 
 export const BlockA = ({ folder }) => {
@@ -14,7 +15,7 @@ export const BlockA = ({ folder }) => {
           big: `${folder}/backgrounds/landing-one.jpg`,
         }}
       >
-      <SPACE blk space="100px" />
+        <SPACE blk space="100px" />
 
         <Claim>Kuworking</Claim>
 
@@ -30,6 +31,12 @@ export const BlockA = ({ folder }) => {
   )
 }
 
+const mq = facepaint([
+  '@media(min-width: 25em)', // 400px
+  '@media(min-width: 37.5em)', //  600px
+  '@media(min-width: 56.25em)', //  900px
+])
+
 const Emoji = styled.img`
   width: ${props => props.width}px;
   height: ${props => props.width}px;
@@ -38,7 +45,9 @@ const Emoji = styled.img`
 
 const Claim = styled.h1`
   font-family: dokdo, sans-serif;
-  font-size: 15rem;
+  ${mq({
+    fontSize: ['5rem', '10rem', '15rem'],
+  })}
 
   display: flex;
   justify-content: center;
