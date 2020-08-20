@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { Helmet } from 'react-helmet'
+import { Global, css } from '@emotion/core'
 
 import 'typeface-open-sans'
 import 'typeface-londrina-solid'
@@ -67,10 +67,13 @@ export const Structure = ({ attributes }) => {
   return (
     <>
       {wordpress && (
-        <Helmet>
-          <Fonts fonts={fonts} />
-        </Helmet>
+        <Global
+          styles={css`
+            ${load_fonts(fonts)}
+          `}
+        />
       )}
+
       <GlobalStyles />
       <Background background={background}>
         <Div onClick={() => (window.location = '/')} bg="#f3ba51" stick={stick[0]} id="block_0_start">
@@ -177,7 +180,7 @@ const Img = styled.div`
   }
 `
 
-const Fonts = styled.div`
+const load_fonts = fonts => `
 @font-face {
   font-family: 'Londrina Solid';
   font-style: normal;
@@ -186,8 +189,8 @@ const Fonts = styled.div`
   src:
     local('Londrina Solid Regular '),
     local('Londrina Solid-Regular'),
-    url('.${props => props.fonts}/files/londrina-solid-latin-400.woff2') format('woff2'),
-    url('.${props => props.fonts}/files/londrina-solid-latin-400.woff') format('woff');
+    url('.${fonts}/files/londrina-solid-latin-400.woff2') format('woff2'),
+    url('.${fonts}/files/londrina-solid-latin-400.woff') format('woff');
 }
 
   @font-face {
@@ -198,7 +201,7 @@ const Fonts = styled.div`
     src:
       local('Open Sans Regular '),
       local('Open Sans-Regular'),
-      url('.${props => props.fonts}/files/open-sans-latin-400.woff2') format('woff2'),
-      url('.${props => props.fonts}/files/open-sans-latin-400.woff') format('woff');
+      url('.${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
+      url('.${fonts}/files/open-sans-latin-400.woff') format('woff');
   }
 `

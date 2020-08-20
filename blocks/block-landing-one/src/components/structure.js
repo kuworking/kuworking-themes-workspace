@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Helmet } from 'react-helmet'
+import { Global, css } from '@emotion/core'
 
 import 'typeface-text-me-one'
 import 'typeface-dokdo'
@@ -20,10 +20,13 @@ export const Structure = ({ attributes }) => {
   return (
     <>
       {wordpress && (
-        <Helmet>
-          <Fonts fonts={fonts} />
-        </Helmet>
+        <Global
+          styles={css`
+            ${load_fonts(fonts)}
+          `}
+        />
       )}
+
       <GlobalStyles />
       <Main>
         <BlockA attributes={attributes} />
@@ -54,14 +57,14 @@ const Main = styled.main`
   }
 `
 
-const Fonts = styled.div`
+const load_fonts = fonts => `
   @font-face {
     font-family: 'Text Me One';
     font-style: normal;
     font-display: swap;
     font-weight: 400;
     src: local('Text Me One Regular '), local('Text Me One-Regular'),
-      url('.${props => props.fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
-      url('.${props => props.fonts}/files/text-me-one-latin-400.woff') format('woff');
+      url('.${fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
+      url('.${fonts}/files/text-me-one-latin-400.woff') format('woff');
   }
 `

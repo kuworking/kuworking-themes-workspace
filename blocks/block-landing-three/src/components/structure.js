@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Helmet } from 'react-helmet'
+import { Global, css } from '@emotion/core'
 
 import 'typeface-handlee'
 import 'typeface-open-sans'
@@ -29,10 +29,13 @@ export const Structure = ({ attributes }) => {
   return (
     <>
       {wordpress && (
-        <Helmet>
-          <Fonts fonts={fonts} />
-        </Helmet>
+        <Global
+          styles={css`
+            ${load_fonts(fonts)}
+          `}
+        />
       )}
+
       <GlobalStyles />
 
       <Header content={[header_h1, header_h2_0, header_h2_1]} />
@@ -45,7 +48,7 @@ export const Structure = ({ attributes }) => {
   )
 }
 
-const Fonts = styled.div`
+const load_fonts = fonts => `
   @font-face {
     font-family: 'Handlee';
     font-style: normal;
@@ -54,8 +57,8 @@ const Fonts = styled.div`
     src:
       local('Handlee Regular '), 
       local('Handlee-Regular'),
-      url('.${props => props.fonts}/files/handlee-latin-400.woff2') format('woff2'),
-      url('.${props => props.fonts}/files/handlee-latin-400.woff') format('woff');
+      url('.${fonts}/files/handlee-latin-400.woff2') format('woff2'),
+      url('.${fonts}/files/handlee-latin-400.woff') format('woff');
   }
 
   @font-face {
@@ -66,7 +69,7 @@ const Fonts = styled.div`
     src:
       local('Open Sans Regular '),
       local('Open Sans-Regular'),
-      url('.${props => props.fonts}/files/open-sans-latin-400.woff2') format('woff2'),
-      url('.${props => props.fonts}/files/open-sans-latin-400.woff') format('woff');
+      url('.${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
+      url('.${fonts}/files/open-sans-latin-400.woff') format('woff');
   }
 `
