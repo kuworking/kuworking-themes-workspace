@@ -40,6 +40,7 @@ const Div = styled.div`
 
   & > div:nth-of-type(2) {
     & div {
+      line-height: 1.3;
       margin: 20px 0px;
     }
     & > div:nth-of-type(2) {
@@ -60,8 +61,13 @@ const Background = styled.div`
   background: url("${props => props.src}") no-repeat center center;
   background-size: cover;
   width: 100%;
+
+  ${props =>
+    props.gutenberg ||
+    `
   min-height: 100vh;
-  ${props => props.gutenberg || 'min-height: calc(var(--vh, 1vh) * 100);'}
+  min-height: calc(var(--vh, 1vh) * 100);`}
+
   display: flex;
   flex-direction: column;
   align-items: center;

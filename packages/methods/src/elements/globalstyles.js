@@ -30,14 +30,6 @@ export const GlobalStyles = () => (
       :before {
         box-sizing: inherit;
       }
-
-      #wp_theme_kuworking {
-      }
-
-      /* For gutenberg styles */
-      .wp-block[data-type='wp-theme-kuworking-landing-two/landing'] {
-        max-width: 100%;
-      }
     `}
   />
 )

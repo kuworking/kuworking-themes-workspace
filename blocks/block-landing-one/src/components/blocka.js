@@ -4,12 +4,12 @@ import facepaint from 'facepaint'
 import { BImageSet, SPACE } from '@kuworking/methods'
 
 export const BlockA = ({ attributes }) => {
-  const { folder = '/', text1 = [] } = attributes
+  const { folder = '/', text1 = [], gutenberg } = attributes
 
   const { innerWidth: width } = typeof window !== 'undefined' && window
 
   return (
-    <PartA>
+    <PartA gutenberg={gutenberg}>
       <BImageSet
         image={{
           small: `${folder}/backgrounds/landing-one---800px.jpg`,
@@ -88,8 +88,12 @@ const PartA = styled.div`
   }
 
   ${props => props.height !== 'none' && `max-height: ${props.height};`};
+
+  ${props =>
+    props.gutenberg ||
+    `
   min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);`}
 
   & > div {
     background-color: #fff;

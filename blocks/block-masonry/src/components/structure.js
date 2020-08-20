@@ -57,7 +57,7 @@ const load_fonts = fonts => `
     font-display: swap;
     font-weight: 400;
     src: local('Text Me One Regular '), local('Text Me One-Regular'),
-      url('.${fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
-      url('.${fonts}/files/text-me-one-latin-400.woff') format('woff');
+      url('${fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
+      url('${fonts}/files/text-me-one-latin-400.woff') format('woff');
   }
 `

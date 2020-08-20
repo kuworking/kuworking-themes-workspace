@@ -3,10 +3,10 @@ import styled from '@emotion/styled'
 import { TextLetterFade, BImageSet, SPACE } from '@kuworking/methods'
 
 export const BlockA = ({ attributes }) => {
-  const { folder = '/', header_h1 = 'test', header_h2 = 'test' } = attributes
+  const { gutenberg, folder = '/', header_h1 = 'test', header_h2 = 'test' } = attributes
 
   return (
-    <Part>
+    <Part gutenberg={gutenberg}>
       <BImageSet
         image={{
           small: `${folder}/backgrounds/landing-two---400px.jpg`,
@@ -40,8 +40,11 @@ const Part = styled.div`
     transition: color 0.5s ease;
   }
 
+  ${props =>
+    props.gutenberg ||
+    `
   min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);`}
 
   & .kw_bimg_simple {
     background-repeat: no-repeat;

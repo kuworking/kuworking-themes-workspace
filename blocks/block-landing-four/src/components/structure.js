@@ -189,8 +189,8 @@ const load_fonts = fonts => `
   src:
     local('Londrina Solid Regular '),
     local('Londrina Solid-Regular'),
-    url('.${fonts}/files/londrina-solid-latin-400.woff2') format('woff2'),
-    url('.${fonts}/files/londrina-solid-latin-400.woff') format('woff');
+    url('${fonts}/files/londrina-solid-latin-400.woff2') format('woff2'),
+    url('${fonts}/files/londrina-solid-latin-400.woff') format('woff');
 }
 
   @font-face {
@@ -201,7 +201,7 @@ const load_fonts = fonts => `
     src:
       local('Open Sans Regular '),
       local('Open Sans-Regular'),
-      url('.${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
-      url('.${fonts}/files/open-sans-latin-400.woff') format('woff');
+      url('${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
+      url('${fonts}/files/open-sans-latin-400.woff') format('woff');
   }
 `

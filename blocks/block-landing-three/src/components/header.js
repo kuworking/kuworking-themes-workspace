@@ -2,8 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import facepaint from 'facepaint'
 
-export const Header = ({ content: [header_h1, header_h2_0, header_h2_1] }) => (
-  <Container>
+export const Header = ({ gutenberg, content: [header_h1, header_h2_0, header_h2_1] }) => (
+  <Container gutenberg={gutenberg}>
     <Div>
       <h1>{header_h1}</h1>
       <h2>{header_h2_0}</h2>
@@ -18,8 +18,12 @@ const mq = facepaint([
 ])
 
 const Container = styled.div`
+  ${props =>
+    props.gutenberg ||
+    `
   min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
+  min-height: calc(var(--vh, 1vh) * 100);`}
+
   display: flex;
   flex-direction: column;
   align-self: center;

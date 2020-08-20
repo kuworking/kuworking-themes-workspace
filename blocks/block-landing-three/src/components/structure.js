@@ -14,6 +14,7 @@ export const Structure = ({ attributes }) => {
 
   const {
     image_0,
+    image_1,
     folder = '/',
     fonts = '/',
     header_h1 = 'test',
@@ -38,8 +39,8 @@ export const Structure = ({ attributes }) => {
 
       <GlobalStyles />
 
-      <Header content={[header_h1, header_h2_0, header_h2_1]} />
-      <Image gutenberg={gutenberg} src={`${folder}/${image_0}`} icon={`${folder}/icon.svg`}>
+      <Header gutenberg={gutenberg} content={[header_h1, header_h2_0, header_h2_1]} />
+      <Image gutenberg={gutenberg} src={`${folder}/${image_0}`} icon={`${folder}/${image_1}`}>
         <div>{text_0}</div>
         <div>{text_1}</div>
         <div>{text_2}</div>
@@ -57,8 +58,8 @@ const load_fonts = fonts => `
     src:
       local('Handlee Regular '), 
       local('Handlee-Regular'),
-      url('.${fonts}/files/handlee-latin-400.woff2') format('woff2'),
-      url('.${fonts}/files/handlee-latin-400.woff') format('woff');
+      url('${fonts}/files/handlee-latin-400.woff2') format('woff2'),
+      url('${fonts}/files/handlee-latin-400.woff') format('woff');
   }
 
   @font-face {
@@ -69,7 +70,7 @@ const load_fonts = fonts => `
     src:
       local('Open Sans Regular '),
       local('Open Sans-Regular'),
-      url('.${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
-      url('.${fonts}/files/open-sans-latin-400.woff') format('woff');
+      url('${fonts}/files/open-sans-latin-400.woff2') format('woff2'),
+      url('${fonts}/files/open-sans-latin-400.woff') format('woff');
   }
 `
