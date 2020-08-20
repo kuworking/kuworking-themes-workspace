@@ -109,6 +109,12 @@ const Background = styled.div`
   align-items: center;
   transition: background 0.3s ease-in;
   will-change: background;
+
+  font-family: 'Londrina Solid', cursive;
+  & h1,
+  & h2 {
+    font-family: 'Londrina Solid', cursive;
+  }
 `
 
 const Space = styled.div`
