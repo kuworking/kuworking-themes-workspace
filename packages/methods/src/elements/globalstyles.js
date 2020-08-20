@@ -32,9 +32,6 @@ export const GlobalStyles = () => (
       }
 
       #wp_theme_kuworking {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       /* For gutenberg styles */
