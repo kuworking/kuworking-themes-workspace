@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Helmet } from 'react-helmet'
 
 import 'typeface-text-me-one'
 import 'typeface-dokdo'
@@ -14,8 +15,15 @@ import { BlockE } from './blocke'
 export const Structure = ({ attributes }) => {
   useReplace100vh()
 
+  const { fonts = '/', wordpress = null } = attributes
+
   return (
     <>
+      {wordpress && (
+        <Helmet>
+          <Fonts fonts={fonts} />
+        </Helmet>
+      )}
       <GlobalStyles />
       <Main>
         <BlockA attributes={attributes} />
@@ -43,5 +51,17 @@ const Main = styled.main`
 
   & > header {
     transition: all 0.5s cubic-bezier(0, 1.06, 0.77, 0.99);
+  }
+`
+
+const Fonts = styled.div`
+  @font-face {
+    font-family: 'Text Me One';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local('Text Me One Regular '), local('Text Me One-Regular'),
+      url('.${props => props.fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
+      url('.${props => props.fonts}/files/text-me-one-latin-400.woff') format('woff');
   }
 `

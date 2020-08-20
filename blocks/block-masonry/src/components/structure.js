@@ -1,19 +1,31 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Helmet } from 'react-helmet'
+
+import 'typeface-text-me-one'
 
 import { GlobalStyles } from '@kuworking/methods'
 import { Grid } from './grid'
 
-export const Structure = ({ attributes }) => (
-  <>
-    <GlobalStyles />
-    <Main>
-      <Container>
-        <Grid attributes={attributes} />
-      </Container>
-    </Main>
-  </>
-)
+export const Structure = ({ attributes }) => {
+  const { fonts = '/', wordpress = null } = attributes
+
+  return (
+    <>
+      {wordpress && (
+        <Helmet>
+          <Fonts fonts={fonts} />
+        </Helmet>
+      )}
+      <GlobalStyles />
+      <Main>
+        <Container>
+          <Grid attributes={attributes} />
+        </Container>
+      </Main>
+    </>
+  )
+}
 
 const Main = styled.main`
   font-family: 'Text Me One', sans-serif;
@@ -33,4 +45,16 @@ const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+`
+
+const Fonts = styled.div`
+  @font-face {
+    font-family: 'Text Me One';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: local('Text Me One Regular '), local('Text Me One-Regular'),
+      url('.${props => props.fonts}/files/text-me-one-latin-400.woff2') format('woff2'),
+      url('.${props => props.fonts}/files/text-me-one-latin-400.woff') format('woff');
+  }
 `
