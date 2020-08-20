@@ -1,6 +1,6 @@
 {
   "name": "@kuworking/block-landing-four",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "block-landing-four",
   "main": "index.js",
   "author": "kuworking.com",
@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "@kuworking/methods": "^0.2.4",
+    "@kuworking/methods": "^0.2.5",
     "babel-plugin-emotion": "10.0.33",
     "facepaint": "1.2.1",
     "react-helmet": "6.1.0",

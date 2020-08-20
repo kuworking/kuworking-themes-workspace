@@ -1,6 +1,6 @@
 {
   "name": "@kuworking/block-landing-two",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "block-landing-two",
   "main": "index.js",
   "author": "kuworking.com",
@@ -8,10 +8,10 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "@kuworking/methods": "^0.2.4",
+    "@kuworking/methods": "^0.2.5",
     "babel-plugin-emotion": "10.0.33",
-    "react-helmet": "6.1.0",
     "facepaint": "1.2.1",
+    "react-helmet": "6.1.0",
     "typeface-text-me-one": "0.0.71"
   },
   "devDependencies": {
