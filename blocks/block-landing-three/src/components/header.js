@@ -31,7 +31,7 @@ const Container = styled.div`
   justify-content: center;
 
   background-color: #f36451;
-  font-family: 'Handlee', handwriting;
+  font-family: 'Handlee', cursive;
   font-size: 1.4rem;
 `
 
@@ -46,7 +46,7 @@ const Div = styled.div`
 
   && h1,
   && h2 {
-    font-family: 'Handlee', handwriting;
+    font-family: 'Handlee', cursive;
     line-height: 1;
     margin: 0px;
   }
