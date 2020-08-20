@@ -70,4 +70,5 @@ Take a look at the [codesandbox](https://www.kuworking.com/react-blocks), I've u
 
 ## 🖖 Integration in WordPress
 
-See the [repo](https://github.com/kuworking/wordpress-theme-kuworking-landing-three.git)
+Ready to be used as a Gutenberg block, see the repo in [www.kuworking.com](https://www.kuworking.com)
+

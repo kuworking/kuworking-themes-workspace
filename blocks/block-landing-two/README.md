@@ -67,3 +67,9 @@ Take a look at the [codesandbox](https://www.kuworking.com/react-blocks), I've u
   "plugins": ["@babel/plugin-transform-modules-commonjs"]
 }
 ```
+
+## 🖖 Integration in WordPress
+
+Ready to be used as a Gutenberg block, see the repo in [www.kuworking.com](https://www.kuworking.com)
+
+(work in progress)

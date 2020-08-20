@@ -1,6 +1,5 @@
 {
   "name": "kuworking_themes-workspace",
-  "private": true,
   "version": "0.0.1",
   "workspaces": [
     "blocks/*",
