@@ -1,7 +1,7 @@
 // v2020.04.08
 
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 import { useWindowResize } from '../hooks/usewindowresize'
 import { useInView } from 'react-intersection-observer'
 
@@ -175,7 +175,6 @@ export const Img = ({
   return background ? (
     <BackgroundImage
       style={{ opacity: opac }}
-      component={component}
       src={inView || !lazy ? src : blank}
       ref={handleRef}
       alt={alt}
@@ -188,7 +187,6 @@ export const Img = ({
     <Image
       style={{ opacity: opac }}
       loading="lazy"
-      component={component}
       src={src}
       //  src={inView || !lazy ? src : blank}
       ref={handleRef}
@@ -200,12 +198,10 @@ export const Img = ({
 }
 
 const Image = styled.img`
-  ${props => props.component}
   transition: opacity 0.1s ease-in;
 `
 
 const BackgroundImage = styled.div`
-  ${props => props.component}
   transition: opacity 0.1s ease-in;
   background-image: ${props => `url("${props.src}")`};
   background-repeat: no-repeat;
