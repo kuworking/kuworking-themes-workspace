@@ -1,7 +1,7 @@
-// v2020.05.23
+// v2020.08.25
 
 import React, { useState, useLayoutEffect } from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 import { useWindowResize } from '../hooks/usewindowresize'
 
 export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children }) => {

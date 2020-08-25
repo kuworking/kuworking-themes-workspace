@@ -7,7 +7,7 @@ import {
   TwitterIcon,
   PinterestIcon,
 } from 'react-share'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 
 export const SocialShare = ({ title, url, image, size = 32 }) => (
   <Social>

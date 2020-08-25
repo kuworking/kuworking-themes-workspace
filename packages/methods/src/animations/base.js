@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import styled from '@emotion/styled'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSpring } from 'react-spring'
 
@@ -41,15 +40,9 @@ export const Base = ({
   })
 
   return (
-    <Div ref={view ? handleRef : trueRef} {...rest}>
+    <div ref={view ? handleRef : trueRef} {...rest}>
       <animated.div style={effect}>{children}</animated.div>
-    </Div>
+    </div>
   )
 }
 
-const Div = styled.div`
-  ${props => props.component}
-  & > div {
-    ${props => props.subcomponent}
-  }
-`
