@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSprings, useTrail } from 'react-spring'
 
@@ -57,9 +57,7 @@ export const TextBase = ({
 }
 
 const Div = styled.div`
-  ${props => props.component}
   & > span {
-    ${props => props.subcomponent}
     display: inline-block;
   }
 `
