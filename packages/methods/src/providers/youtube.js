@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'linaria/react'
 
-export const Youtube = ({ src, component }) => {
+export const Youtube = ({ src }) => {
   const youtube_src = /embed\/(.*?)(?:\?|$)/.exec(src)[1]
   const youtube_img = `https://img.youtube.com/vi/${youtube_src}/hqdefault.jpg`
   const srcdoc = `
@@ -43,7 +43,6 @@ span.arrow {
       allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
       frameborder="0"
       allowfullscreen
-      component={component}
       title="Youtube"
       src={`data:text/html, ${srcdoc}`}
     />
@@ -54,5 +53,4 @@ const Frame = styled.iframe`
   width: 100%;
   height: 400px;
   border: none;
-  ${props => props.component}
 `
