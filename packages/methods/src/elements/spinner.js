@@ -14,6 +14,7 @@ const orbit = '1'
 const angle = 320 * (Math.PI / 180)
 const border = '0px'
 const delay = '-0.04s'
+
 const Spinning = styled.div`
   display: inline-block;
   position: relative;
