@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import facepaint from 'facepaint'
-import { BImageSet, SPACE } from '@kuworking/methods'
+import { BImageSet, SPACE } from '../shared'
 
 export const BlockA = ({ attributes }) => {
   const { folder = '/', text1 = [], gutenberg } = attributes

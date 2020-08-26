@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { TextLetterFade, BImageSet, SPACE } from '@kuworking/methods'
+import { TextLetterFade } from '@kuworking/methods'
+import { BImageSet, SPACE } from '../shared'
+
+const q = u => `@media (min-width: ${u}px)`
+const qq = u => `@media (max-width: ${u}px)`
+const qem = u => `@media (min-width: ${u}em)`
+const qqem = u => `@media (max-width: ${u}em)`
 
 export const BlockA = ({ attributes }) => {
   const { gutenberg, folder = '/', header_h1 = 'test', header_h2 = 'test' } = attributes

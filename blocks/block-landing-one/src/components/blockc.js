@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Fade, SPACE, q, qq } from '@kuworking/methods'
+import { Fade } from '@kuworking/methods'
+import { SPACE } from '../shared'
+
+const q = u => `@media (min-width: ${u}px)`
+const qq = u => `@media (max-width: ${u}px)`
+const qem = u => `@media (min-width: ${u}em)`
+const qqem = u => `@media (max-width: ${u}em)`
 
 export const BlockC = ({ attributes }) => {
   const { folder = '/', text3 = [], images3 = [] } = attributes
