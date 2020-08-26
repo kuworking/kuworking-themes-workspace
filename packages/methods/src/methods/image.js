@@ -5,7 +5,15 @@ import { styled } from 'linaria/react'
 import { useWindowResize } from '../hooks/usewindowresize'
 import { useInView } from 'react-intersection-observer'
 
+/**
+ * Implements a background image with lazy loading
+ */
+
 const wait = ms => new Promise((res, rej) => setTimeout(() => res('timed'), ms))
+
+const css_background = css`
+  --background: 'url()';
+`
 
 const Observer = (el, setBackImg, bestImage) => {
   if ('IntersectionObserver' in window && el) {
@@ -76,7 +84,7 @@ export const KwImg = ({ image: [standard, set], component, alt = 'image', backgr
       {children}
     </BackgroundImage>
   ) : (
-    <Image style={{ opacity: '0' }} component={component} alt={alt} src={src} ref={handleRef} />
+    <img style={{ opacity: '0' }} component={component} alt={alt} src={src} ref={handleRef} />
   )
 }
 
@@ -170,6 +178,11 @@ export const Img = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView])
 
+  useEffect(() => {
+    if (!background) return
+    trueRef.current.style.setProperty('--background', 'url(' + src + ')')
+  }, [src])
+
   const opac = lazy && !supportsLazyLoad ? 0 : 1
 
   return background ? (
@@ -184,7 +197,7 @@ export const Img = ({
       {children}
     </BackgroundImage>
   ) : (
-    <Image
+    <img
       style={{ opacity: opac }}
       loading="lazy"
       src={src}
@@ -197,12 +210,7 @@ export const Img = ({
   )
 }
 
-const Image = styled.img`
-  transition: opacity 0.1s ease-in;
-`
-
 const BackgroundImage = styled.div`
-  transition: opacity 0.1s ease-in;
-  background-image: ${props => `url("${props.src}")`};
+  background-image: var(--background);
   background-repeat: no-repeat;
 `

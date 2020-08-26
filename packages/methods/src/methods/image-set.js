@@ -1,12 +1,21 @@
 // v2020.08.25
 
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useState, useLayoutEffect, useRef } from 'react'
 import { styled } from 'linaria/react'
 import { useWindowResize } from '../hooks/usewindowresize'
+
+/**
+ * Implements a background image without lazy loading
+ */
+
+const css_background = css`
+  --background: 'url()';
+`
 
 export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children }) => {
   const [src, setSrc] = useState(small)
   const resize = useWindowResize()
+  const background_id = useRef()
 
   useLayoutEffect(() => {
     const { innerWidth: clientWidth } = typeof window !== 'undefined' && window
@@ -31,13 +40,17 @@ export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resize]) // changes when window is resized
 
+  useEffect(() => {
+    background_id.current.style.setProperty('--background', 'url(' + src + ')')
+  }, [src])
+
   return (
-    <BackgroundImage src={src} alt={alt} className="kw_bimg_simple">
+    <BackgroundImage className={`${css_background} kw_bimg_simple`} ref={background_id} alt={alt}>
       {children}
     </BackgroundImage>
   )
 }
 
 const BackgroundImage = styled.div`
-  background-image: ${props => `url("${props.src}")`};
+  background-image: var(--background);
 `
