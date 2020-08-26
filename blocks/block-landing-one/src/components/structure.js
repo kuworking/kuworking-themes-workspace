@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
+import './base.css'
 
 import 'typeface-text-me-one'
 import 'typeface-dokdo'
 
-import { useReplace100vh, GlobalStyles } from '@kuworking/methods'
+import { useReplace100vh } from '@kuworking/methods'
 import { BlockA } from './blocka'
 import { BlockB } from './blockb'
 import { BlockC } from './blockc'
@@ -27,7 +28,6 @@ export const Structure = ({ attributes }) => {
         />
       )}
 
-      <GlobalStyles />
       <Main gutenberg={gutenberg}>
         <BlockA attributes={attributes} />
         <BlockB attributes={attributes} />

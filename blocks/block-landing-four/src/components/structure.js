@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
+import './base.css'
 
 import 'typeface-open-sans'
 import 'typeface-londrina-solid'
 
-import { useReplace100vh, GlobalStyles } from '@kuworking/methods'
+import { useReplace100vh } from '@kuworking/methods'
 
 export const Structure = ({ attributes }) => {
   useReplace100vh()
@@ -74,7 +75,6 @@ export const Structure = ({ attributes }) => {
         />
       )}
 
-      <GlobalStyles />
       <Background background={background}>
         <Div onClick={() => (window.location = '/')} bg="#f3ba51" stick={stick[0]} id="block_0_start">
           <h1>{text_0}</h1>

@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
+import './base.css'
 
 import 'typeface-handlee'
 import 'typeface-open-sans'
 
-import { useReplace100vh, GlobalStyles } from '@kuworking/methods'
+import { useReplace100vh } from '@kuworking/methods'
 import { Header } from './header'
 import { Image } from './image'
 
@@ -36,8 +37,6 @@ export const Structure = ({ attributes }) => {
           `}
         />
       )}
-
-      <GlobalStyles />
 
       <Header gutenberg={gutenberg} content={[header_h1, header_h2_0, header_h2_1]} />
       <Image gutenberg={gutenberg} src={`${folder}/${image_0}`} icon={`${folder}/${image_1}`}>

@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
+import './base.css'
 
 import 'typeface-text-me-one'
 
-import { GlobalStyles } from '@kuworking/methods'
 import { Grid } from './grid'
 
 export const Structure = ({ attributes }) => {
@@ -20,7 +20,6 @@ export const Structure = ({ attributes }) => {
         />
       )}
 
-      <GlobalStyles />
       <Main>
         <Container>
           <Grid attributes={attributes} />
