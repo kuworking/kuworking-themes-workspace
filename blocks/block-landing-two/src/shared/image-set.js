@@ -1,17 +1,12 @@
 // v2020.08.25
 
 import React, { useState, useLayoutEffect, useRef } from 'react'
-import { styled } from 'linaria/react'
-import { css } from 'linaria'
+import styled from '@emotion/styled'
 import { useWindowResize } from '@kuworking/methods'
 
 /**
  * Implements a background image without lazy loading
  */
-
-const css_background = css`
-  --background: 'url()';
-`
 
 export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children }) => {
   const [src, setSrc] = useState(small)
@@ -46,7 +41,7 @@ export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children
   }, [src])
 
   return (
-    <BackgroundImage className={`${css_background} kw_bimg_simple`} ref={background_id} alt={alt}>
+    <BackgroundImage ref={background_id} alt={alt}>
       {children}
     </BackgroundImage>
   )
@@ -54,4 +49,5 @@ export const BImageSet = ({ image: { small, big, ...v }, alt = 'image', children
 
 const BackgroundImage = styled.div`
   background-image: var(--background);
+  --background: url();
 `

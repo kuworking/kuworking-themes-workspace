@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'linaria/react'
+import styled from '@emotion/styled'
 
 export const SPACE = styled.div`
   margin: ${props => (props.space ? props.space : '100px')} 0px;
