@@ -1,12 +1,8 @@
 export { SEO } from './src/gatsby/seo'
-export { q, qq } from './src/gatsby/css'
 
 export { CssMasonry } from './src/components/cssmasonry'
 
-export { Spinner01 } from './src/elements/spinner'
-export { SocialShare } from './src/elements/socialshare'
 export { Modal } from './src/elements/modal'
-export { SPACE } from './src/elements/space'
 export { L } from './src/elements/link'
 
 export { Fade } from './src/animations/fade'
@@ -36,10 +32,7 @@ export { useWindowResize } from './src/hooks/usewindowresize'
 
 export { Disqus } from './src/disqus/disqus'
 
-export { CodeLink, useCodePenScript } from './src/methods/codepen'
 export { Highlight, apply_highlight } from './src/methods/highlight'
-export { BImg, Img, KwImg } from './src/methods/image'
-export { BImageSet } from './src/methods/image-set'
 
 export {
   fixDate,
