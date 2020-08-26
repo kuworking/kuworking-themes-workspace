@@ -9,13 +9,13 @@
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "@kuworking/methods": "0.2.6",
-    "babel-plugin-emotion": "10.0.33",
     "facepaint": "1.2.1",
     "typeface-text-me-one": "0.0.71"
   },
   "devDependencies": {
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "babel-plugin-emotion": "10.0.33"
   },
   "peerDependencies": {
     "react": "16.13.1",
