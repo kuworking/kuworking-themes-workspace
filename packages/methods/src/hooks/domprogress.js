@@ -1,5 +1,4 @@
 import React from 'react'
-import { styled } from 'linaria/react'
 
 const wait = ms => new Promise((r, j) => setTimeout(r, ms))
 
@@ -28,9 +27,9 @@ const transition_fast = async st => {
 
 export const domprogress = {
   element: props => (
-    <Bar id="kuworking_nprogress" {...props}>
+    <div id="kuworking_nprogress" {...props}>
       <div></div>
-    </Bar>
+    </div>
   ),
   start: async () => {
     const st = document.getElementById('kuworking_nprogress').firstElementChild.style
@@ -47,15 +46,3 @@ export const domprogress = {
     st.opacity = '0'
   },
 }
-
-const Bar = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  & > div {
-    height: 2px;
-    background: #000;
-  }
-`

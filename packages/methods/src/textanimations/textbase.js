@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { styled } from 'linaria/react'
 import { useInView } from 'react-intersection-observer'
 import { animated, useSprings, useTrail } from 'react-spring'
 
@@ -48,19 +47,13 @@ export const TextBase = ({
   }
 
   return (
-    <Div ref={view ? handleRef : trueRef} {...rest}>
+    <div ref={view ? handleRef : trueRef} {...rest}>
       {type === 'springs' && <Springs text={text} base={base} delay={delay} difference={difference} />}
       {type === 'trail' && <Trail text={text} base={base} difference={difference} />}
       {type === 'trailHeight' && <TrailHeight text={text} base={base} difference={difference} />}
-    </Div>
+    </div>
   )
 }
-
-const Div = styled.div`
-  & > span {
-    display: inline-block;
-  }
-`
 
 const Springs = ({ text, base, delay, difference }) => {
   const springs = useSprings(
