@@ -1,6 +1,6 @@
 // v2020.08.25
 
-import React, { useState, useLayoutEffect, useRef } from 'react'
+import React, { useState, useLayoutEffect, useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
 import { useWindowResize } from '@kuworking/methods'
 
