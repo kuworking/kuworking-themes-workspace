@@ -52,11 +52,11 @@ const Part = styled.div`
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);`}
 
-  & .kw_bimg_simple {
-    background-repeat: no-repeat;
+  & > div {
     background-color: #fff;
     background-blend-mode: unset;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     display: grid;
     align-items: center;

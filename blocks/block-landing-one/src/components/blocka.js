@@ -98,12 +98,9 @@ const PartA = styled.div`
   & > div {
     background-color: #fff;
     background-blend-mode: unset;
-
     padding: 0px 5px;
-  }
-
-  & > .kw_bimg_simple {
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     display: grid;
     align-items: center;
