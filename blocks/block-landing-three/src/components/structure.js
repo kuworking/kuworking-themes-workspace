@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-import './base.css'
 
 import 'typeface-handlee'
 import 'typeface-open-sans'

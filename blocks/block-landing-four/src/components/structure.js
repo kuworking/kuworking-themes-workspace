@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { Global, css } from '@emotion/core'
-import './base.css'
 
 import 'typeface-open-sans'
 import 'typeface-londrina-solid'
