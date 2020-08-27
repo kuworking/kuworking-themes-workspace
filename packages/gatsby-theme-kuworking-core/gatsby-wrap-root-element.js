@@ -11,5 +11,3 @@ export const wrapRootElement = ({ element }) => <>{element}</>
  ... or for stuff that need the page path, like an internationalization context provider for example
 */
 export const wrapPageElement = ({ element }) => <>{element}</>
-
-export const onRouteUpdate = () => {}
