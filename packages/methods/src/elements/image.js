@@ -74,7 +74,7 @@ export const SimpleImg = ({ image: [standard, set], alt = 'image', children }) =
       : standard
   }
 
-  return <img style={{ opacity: '0' }} alt={alt} src={src} ref={ref} />
+  return <img alt={alt} src={src} ref={ref} />
 }
 
 export const Img = props => {
@@ -166,7 +166,5 @@ export const Img = props => {
 
   const opac = lazy && !supportsLazyLoad ? 0 : 1
 
-  return (
-    <img style={{ opacity: opac }} loading="lazy" src={src} ref={handleRef} alt={alt} className="kw_img" {...rest} />
-  )
+  return <img loading="lazy" src={src} ref={handleRef} alt={alt} className="kw_img" {...rest} />
 }
