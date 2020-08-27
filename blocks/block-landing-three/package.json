@@ -1,6 +1,6 @@
 {
   "name": "@kuworking/block-landing-three",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "block-landing-three",
   "main": "index.js",
   "author": "kuworking.com",
@@ -8,7 +8,7 @@
   "dependencies": {
     "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
-    "@kuworking/methods": "^0.3.4",
+    "@kuworking/methods": "^0.3.5",
     "facepaint": "1.2.1",
     "typeface-handlee": "0.0.72",
     "typeface-open-sans": "0.0.75"
