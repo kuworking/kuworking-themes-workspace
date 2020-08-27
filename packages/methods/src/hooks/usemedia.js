@@ -12,7 +12,7 @@ export const useMedia = (queries, values, defaultValue) => {
   useEffect(() => {
     const handler = () => set(match)
     window.addEventListener('resize', handler)
-    return () => window.removeEventListener(handler)
+    return () => window.removeEventListener('resize', handler)
   }, [])
   return value
 }
