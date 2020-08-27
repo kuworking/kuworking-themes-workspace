@@ -4,6 +4,7 @@ export { CssMasonry } from './src/components/cssmasonry'
 
 export { Modal } from './src/elements/modal'
 export { L } from './src/elements/link'
+export { Img, SimpleImg } from './src/elements/image'
 
 export { Fade } from './src/animations/fade'
 export { Toggle } from './src/animations/toggle'
