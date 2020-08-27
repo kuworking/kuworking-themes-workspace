@@ -78,7 +78,7 @@ module.exports = themeOptions => {
         resolve: `gatsby-plugin-manifest`,
         options: options.manifest,
       },
-      `gatsby-plugin-offline`,
+      options.offline && `gatsby-plugin-offline`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sharp`,
     ].filter(Boolean),

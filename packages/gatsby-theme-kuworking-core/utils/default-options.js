@@ -22,6 +22,7 @@ module.exports = themeOptions => {
     folders_to_check: themeOptions.folders_to_check,
 
     manifest: themeOptions.manifest,
+    offline: themeOptions.offline,
     sitemap: themeOptions.sitemap,
     feeds: themeOptions.feeds,
     tagmanager: themeOptions.tagmanager,
