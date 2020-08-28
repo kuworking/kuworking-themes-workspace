@@ -8,7 +8,7 @@ import { useMeasure } from '../hooks/usemeasure'
 export const CssMasonry = ({
   columns: query,
   elements: initialElements,
-  categories,
+  categories = null,
   firstCategory,
   categoriesComponents,
   children,
@@ -73,23 +73,25 @@ export const CssMasonry = ({
 
   return (
     <div className="cssmasonry_grid">
-      <div className="cssmasonry_categories">
-        {(categoriesComponents &&
-          categoriesComponents.map(({ tag, cat }, i) => (
-            <span key={`cat${i}`} onClick={() => reSetElementsCat(cat)}>
-              {tag()}
-            </span>
-          ))) || (
-          <>
-            <span onClick={() => reSetElementsCat(null)}>inicio</span>
-            {categories.map((el, i) => (
-              <span key={`cat${i}`} onClick={() => reSetElementsCat(el)}>
-                {el}
+      {categories && (
+        <div className="cssmasonry_categories">
+          {(categoriesComponents &&
+            categoriesComponents.map(({ tag, cat }, i) => (
+              <span key={`cat${i}`} onClick={() => reSetElementsCat(cat)}>
+                {tag()}
               </span>
-            ))}
-          </>
-        )}
-      </div>
+            ))) || (
+            <>
+              <span onClick={() => reSetElementsCat(null)}>inicio</span>
+              {categories.map((el, i) => (
+                <span key={`cat${i}`} onClick={() => reSetElementsCat(el)}>
+                  {el}
+                </span>
+              ))}
+            </>
+          )}
+        </div>
+      )}
       <div className="cssmasonry_masonry" {...bind} style={{ height: Math.max(...columnHeights) }}>
         {transitions.map(t => {
           const { item, key, post, x, y, ...rest } = t
