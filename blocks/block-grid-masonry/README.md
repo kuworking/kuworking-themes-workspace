@@ -1,26 +1,26 @@
 # BLOCK MASONRY
 
-![npm](https://img.shields.io/npm/v/@kuworking/block-masonry?style=flat-square)
+![npm](https://img.shields.io/npm/v/@kuworking/block-grid-masonry?style=flat-square)
 
 React component coded in ES6
 
 ## 🚀 Installation
 
 ```bash
-yarn add @kuworking/block-masonry
+yarn add @kuworking/block-grid-masonry
 ```
 
 ## 🔥 How to Use
 
 ```jsx
 import React from 'react'
-import { Structure } from '@kuworking/block-masonry
-import items from './masonry-items.json'
+import { Structure } from '@kuworking/block-grid-masonry
+import items from './grid-masonry-items.json'
 
 // folder locates the images
 const MyComponent = () => (
   <>
-    <Structure folder="/blocks/masonry" items={items} />
+    <Structure folder="/blocks/grid-masonry" items={items} />
   </>
 )
 ```
@@ -48,7 +48,7 @@ Then, you need to do it with the plugin `gatsby-plugin-compile-es6-packages` and
 {
   "resolve": `gatsby-plugin-compile-es6-packages`,
   "options": {
-    "modules": ["@kuworking/block-masonry"]
+    "modules": ["@kuworking/block-grid-masonry"]
   }
 }
 ```

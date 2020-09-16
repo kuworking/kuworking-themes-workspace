@@ -1,7 +1,7 @@
 {
-  "name": "@kuworking/block-masonry",
+  "name": "@kuworking/block-grid-masonry",
   "version": "0.2.23",
-  "description": "block-masonry",
+  "description": "block-grid-masonry",
   "main": "index.js",
   "author": "kuworking.com",
   "license": "MIT",
